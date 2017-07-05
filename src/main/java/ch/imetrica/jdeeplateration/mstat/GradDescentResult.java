@@ -2,6 +2,7 @@ package ch.imetrica.jdeeplateration.mstat;
 
 import java.util.Random;
 
+import ch.imetrica.jdeeplateration.anchors.Anchors;
 import ch.imetrica.jdeeplateration.matrix.Matrix;
 
 public class GradDescentResult {
@@ -29,12 +30,13 @@ public class GradDescentResult {
     }
 	
 	
-	public static GradDescentResult GradDescent(Matrix anchors_in, Matrix ranges_in,
+	public static GradDescentResult GradDescent(Anchors anchors, Matrix ranges_in,
             Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
 		
 	
             Random random = new Random();
-
+            Matrix anchors_in = anchors.getAchors(); 
+            
             int n = anchors_in.rows;
             int dim = anchors_in.cols;
             
@@ -113,7 +115,7 @@ public class GradDescentResult {
 
 	
 	
-	public static GradDescentResult mlat(Matrix anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
+	public static GradDescentResult mlat(Anchors anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
 		
             GradDescentResult gdescent_result = GradDescent(anchors_in, ranges_in, bounds_in, n_trial, alpha, time_threshold);
 
@@ -159,21 +161,26 @@ public class GradDescentResult {
 		double error = 0.5;
         double W = 9, L = 9, H = 3;
         
-        Matrix anchors = new Matrix(4,3);
-        double[] anch = {0,0,H,W,0,H,W,L,H,0,L,H};
-        anchors.setPointer(anch);
+        
+        Anchors myAnchors = new Anchors(4);
+        myAnchors.setCoordinates(0, 0, H);
+        myAnchors.setCoordinates(W, 0, H);
+        myAnchors.setCoordinates(W, L, H);
+        myAnchors.setCoordinates(0, L, H);
+        myAnchors.commitCoordinates();
         
         Matrix node = new Matrix(3);
-        //double[] n = {W*random.nextDouble(), L*random.nextDouble(), H*random.nextDouble()};
-        double[] n = {7.46429794,  1.26322155,  2.95852001};
+        double[] n = {W*random.nextDouble(), L*random.nextDouble(), H*random.nextDouble()};        
         node.setPointer(n);       
- 
-        Matrix ranges = new Matrix(anchors.rows);
+
+        int num_anchors = myAnchors.getNumberOfAnchors();
+        Matrix ranges = new Matrix(num_anchors);
            
-        Matrix ranges_with_error = new Matrix(anchors.rows);
-        for (int i = 0; i < anchors.rows; i++)
+        
+        Matrix ranges_with_error = new Matrix(num_anchors);
+        for (int i = 0; i < num_anchors; i++)
         {
-            ranges.w[i] = Mstat.distance(anchors.getRow(i), node);
+            ranges.w[i] = Mstat.distance(myAnchors.getRow(i), node);
             ranges_with_error.w[i] = ranges.w[i];  //+ 2 * error * (random.nextDouble() - 0.5);
         }
 
@@ -183,10 +190,10 @@ public class GradDescentResult {
         double time_threshold = 10000;
         Matrix bounds_in = null;
         
-        GradDescentResult gdescent_result = GradDescentResult.mlat(anchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
 
         System.out.println("Anchors");
-        anchors.printMatrix();
+        myAnchors.printMatrix();
         
         System.out.println("Node");
         node.printMatrix();

@@ -24,6 +24,21 @@ public class Anchors {
 		coordinates = new ArrayList<double[]>();
 	}
 	
+    public Matrix getAchors() throws Exception {
+    	if(anchors == null) {
+    		throw new Exception("Must have 3 coordinates");
+    	}
+    	return anchors; 
+    }
+    
+    public int getNumberOfAnchors() {
+    	return number_anchors;
+    }
+	
+    public Matrix getRow(int i) throws Exception {
+    	return anchors.getRow(i);
+    }
+    
 	public void setCoordinates(double[] a) throws Exception {
 		if(a.length != 3 ) {
 			throw new Exception("Must have 3 coordinates");
@@ -63,6 +78,10 @@ public class Anchors {
 		this.number_anchors = coordinates.size();
 		anchors = new Matrix(this.number_anchors, 3);
 		anchors.setPointer(vec_coordinates);
+	}
+
+	public void printMatrix() {
+		anchors.printMatrix();		
 	}
 	
 	
