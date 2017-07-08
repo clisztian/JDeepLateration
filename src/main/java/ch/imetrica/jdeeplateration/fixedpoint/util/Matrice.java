@@ -7,6 +7,7 @@ import java.text.DecimalFormatSymbols;
 import java.util.Locale;
 
 import ch.imetrica.jdeeplateration.fixedpoint.FPMath;
+import ch.imetrica.jdeeplateration.fixedpoint.LUDecomposition;
 
 import java.text.FieldPosition;
 import java.io.PrintWriter;

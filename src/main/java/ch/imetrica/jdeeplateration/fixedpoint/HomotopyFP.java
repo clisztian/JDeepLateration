@@ -1,11 +1,9 @@
 package ch.imetrica.jdeeplateration.fixedpoint;
 
-
-
-import JamaFixedPoint.Array;
-import JamaFixedPoint.Helper;
-import JamaFixedPoint.Matrix;
-import JamaFixedPoint.SupportSet;
+import ch.imetrica.jdeeplateration.fixedpoint.util.Array;
+import ch.imetrica.jdeeplateration.fixedpoint.util.Helper;
+import ch.imetrica.jdeeplateration.fixedpoint.util.Matrice;
+import ch.imetrica.jdeeplateration.fixedpoint.util.SupportSet;
 
 public class HomotopyFP {
 	static int N;
@@ -21,7 +19,7 @@ public class HomotopyFP {
 	static final int eps = 1;
 	static int tolerance = FPMath.FloatToFP(0.001);
 
-	public static Array SolveHomotopy(Matrix A, Array y){
+	public static Array SolveHomotopy(Matrice A, Array y){
 		int lambda = FPMath.FloatToFP(1e-3);
 		int maxiter = 100;
 
@@ -50,23 +48,8 @@ public class HomotopyFP {
 		}
 
 		epsilon = c;
-		int[] nz_x = new int[N];
-
-		if (xk_1 == null){
-			xk_1 = new Array(N);
-			gamma_xk.addElement(i);
-		}
-		else{
-			// gamma_xk = find(abs(xk_1)>eps*10);
-			// nz_x(gamma_xk) = 1;
-			for(int t = 0 ; t < xk_1.getLength(); t++){
-				if (Math.abs(xk_1.getElement(t)) > eps * 10){
-					gamma_xk.addElement(t);
-					nz_x[t] = FPMath.IntToFP(1);
-				}
-			}
-
-		}
+		xk_1 = new Array(N);
+		gamma_xk.addElement(i);
 
 		int f = FPMath.FPMul(epsilon , xk_1.norm(1)) + FPMath.FPMul( FPMath.FloatToFP(0.5) , y.subtractArray(A.times(xk_1)).norm(2));
 		for(int t = 0 ; t < gamma_xk.getLength(); t++){
@@ -84,13 +67,13 @@ public class HomotopyFP {
 		int count_delta_stop = 0;
 
 
-		Matrix m1       = A.getMatrix(0, A.getRowDimension()-1, gamma_xk.getSet());
-		Matrix AtgxAgx  = m1.transpose().times(m1);
-		Matrix iAtgxAgx = AtgxAgx.inverse(); 
+		Matrice m1       = A.getMatrice(0, A.getRowDimension()-1, gamma_xk.getSet());
+		Matrice AtgxAgx  = m1.transpose().times(m1);
+		Matrice iAtgxAgx = AtgxAgx.inverse(); 
 
 		Array del_x = null;
 		Array x_k = null;
-		Matrix Asupported = null;
+		Matrice Asupported = null;
 		Array Agdelx = null;
 		int epsilon_old;
 		int prev_f;
@@ -111,7 +94,7 @@ public class HomotopyFP {
 			del_x_vec = del_x_vec.setIndices(gamma_x.getSet(), del_x.getArray());
 
 			// %dk = A'*(A*del_x_vec);
-			Asupported =  A.getMatrix(0, A.getRowDimension()-1, gamma_x.getSet());
+			Asupported =  A.getMatrice(0, A.getRowDimension()-1, gamma_x.getSet());
 			Agdelx = Asupported.times(del_x);
 			dk = (A.transpose()).times(Agdelx);
 
@@ -160,8 +143,8 @@ public class HomotopyFP {
 				break;
 
 			int rowi, colj, n;
-			Matrix AtgxAgx_ij, temp_row, temp_col, iAtgxAgx_ij, AtgxAnx, AtgxAgx_mod;
-			Matrix Q11, Q12, Q21, Q12Q21_Q22, iA11, iA11A12, A21iA11, Q11_right;
+			Matrice AtgxAgx_ij, temp_row, temp_col, iAtgxAgx_ij, AtgxAnx;
+			Matrice Q11, Q12, Q21, Q12Q21_Q22, iA11, iA11A12, A21iA11, Q11_right;
 			int Q22, S;
 			int new_x;
 
@@ -178,29 +161,29 @@ public class HomotopyFP {
 				colj = outx_index[0];
 
 				AtgxAgx_ij =  AtgxAgx.copy();
-				temp_row =  AtgxAgx_ij.getMatrix(rowi, rowi, 0, AtgxAgx_ij.getColumnDimension()-1);
-				AtgxAgx_ij.setMatrix(rowi, rowi, 0, AtgxAgx_ij.getColumnDimension()-1, AtgxAgx_ij.getMatrix(len_gamma-1, len_gamma-1, 0, AtgxAgx_ij.getColumnDimension()-1));
-				AtgxAgx_ij.setMatrix(len_gamma-1, len_gamma-1, 0, AtgxAgx_ij.getColumnDimension()-1, temp_row);
+				temp_row =  AtgxAgx_ij.getMatrice(rowi, rowi, 0, AtgxAgx_ij.getColumnDimension()-1);
+				AtgxAgx_ij.setMatrice(rowi, rowi, 0, AtgxAgx_ij.getColumnDimension()-1, AtgxAgx_ij.getMatrice(len_gamma-1, len_gamma-1, 0, AtgxAgx_ij.getColumnDimension()-1));
+				AtgxAgx_ij.setMatrice(len_gamma-1, len_gamma-1, 0, AtgxAgx_ij.getColumnDimension()-1, temp_row);
 
-				temp_col =  AtgxAgx_ij.getMatrix(0, AtgxAgx_ij.getRowDimension()-1, colj, colj);
-				AtgxAgx_ij.setMatrix(0, AtgxAgx_ij.getRowDimension()-1, colj, colj, AtgxAgx_ij.getMatrix(0, AtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1));
-				AtgxAgx_ij.setMatrix(0, AtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1, temp_col);
+				temp_col =  AtgxAgx_ij.getMatrice(0, AtgxAgx_ij.getRowDimension()-1, colj, colj);
+				AtgxAgx_ij.setMatrice(0, AtgxAgx_ij.getRowDimension()-1, colj, colj, AtgxAgx_ij.getMatrice(0, AtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1));
+				AtgxAgx_ij.setMatrice(0, AtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1, temp_col);
 
 				iAtgxAgx_ij =  iAtgxAgx.copy();
-				temp_row =  iAtgxAgx_ij.getMatrix(colj, colj, 0, iAtgxAgx_ij.getColumnDimension()-1);
-				iAtgxAgx_ij.setMatrix(colj, colj, 0, iAtgxAgx_ij.getColumnDimension()-1, iAtgxAgx_ij.getMatrix(len_gamma-1, len_gamma-1, 0, iAtgxAgx_ij.getColumnDimension()-1));
-				iAtgxAgx_ij.setMatrix(len_gamma-1, len_gamma-1, 0, iAtgxAgx_ij.getColumnDimension()-1, temp_row);
+				temp_row =  iAtgxAgx_ij.getMatrice(colj, colj, 0, iAtgxAgx_ij.getColumnDimension()-1);
+				iAtgxAgx_ij.setMatrice(colj, colj, 0, iAtgxAgx_ij.getColumnDimension()-1, iAtgxAgx_ij.getMatrice(len_gamma-1, len_gamma-1, 0, iAtgxAgx_ij.getColumnDimension()-1));
+				iAtgxAgx_ij.setMatrice(len_gamma-1, len_gamma-1, 0, iAtgxAgx_ij.getColumnDimension()-1, temp_row);
 
-				temp_col =  iAtgxAgx_ij.getMatrix(0, iAtgxAgx_ij.getRowDimension()-1, rowi, rowi);
-				iAtgxAgx_ij.setMatrix(0, iAtgxAgx_ij.getRowDimension()-1, rowi, rowi, iAtgxAgx_ij.getMatrix(0, iAtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1));
-				iAtgxAgx_ij.setMatrix(0, iAtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1, temp_col);
+				temp_col =  iAtgxAgx_ij.getMatrice(0, iAtgxAgx_ij.getRowDimension()-1, rowi, rowi);
+				iAtgxAgx_ij.setMatrice(0, iAtgxAgx_ij.getRowDimension()-1, rowi, rowi, iAtgxAgx_ij.getMatrice(0, iAtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1));
+				iAtgxAgx_ij.setMatrice(0, iAtgxAgx_ij.getRowDimension()-1, len_gamma-1, len_gamma-1, temp_col);
 
-				AtgxAgx =  AtgxAgx_ij.getMatrix(0, len_gamma-2, 0, len_gamma-2);
+				AtgxAgx =  AtgxAgx_ij.getMatrice(0, len_gamma-2, 0, len_gamma-2);
 
 				n = AtgxAgx_ij.getRowDimension();
-				Q11 =  iAtgxAgx_ij.getMatrix(0, n-2, 0, n-2);
-				Q12 =  iAtgxAgx_ij.getMatrix(0, n-2, n-1, n-1);
-				Q21 =  iAtgxAgx_ij.getMatrix(n-1, n-1, 0, n-2);
+				Q11 =  iAtgxAgx_ij.getMatrice(0, n-2, 0, n-2);
+				Q12 =  iAtgxAgx_ij.getMatrice(0, n-2, n-1, n-1);
+				Q21 =  iAtgxAgx_ij.getMatrice(n-1, n-1, 0, n-2);
 				Q22 = iAtgxAgx_ij.get(n-1, n-1);
 				Q12Q21_Q22 =  Q12.times(Q21.divide(Q22));
 				iAtgxAgx = Q11.subtract(Q12Q21_Q22);
@@ -211,21 +194,21 @@ public class HomotopyFP {
 				gamma_xk.addElement(i_delta);
 				new_x = i_delta;
 
-				AtgxAnx = A.getMatrix(0, A.getRowDimension()-1, gamma_x.getSet()).transpose().times(A.getMatrix(0, A.getRowDimension()-1, new_x, new_x));
-				AtgxAgx = Matrix.append(AtgxAgx, AtgxAnx, AtgxAnx.transpose(), A.getMatrix(0, A.getRowDimension()-1, new_x, new_x).transpose().times(A.getMatrix(0, A.getRowDimension()-1, i_delta, i_delta)));
+				AtgxAnx = A.getMatrice(0, A.getRowDimension()-1, gamma_x.getSet()).transpose().times(A.getMatrice(0, A.getRowDimension()-1, new_x, new_x));
+				AtgxAgx = Matrice.append(AtgxAgx, AtgxAnx, AtgxAnx.transpose(), A.getMatrice(0, A.getRowDimension()-1, new_x, new_x).transpose().times(A.getMatrice(0, A.getRowDimension()-1, i_delta, i_delta)));
 
 				n = AtgxAgx.getRowDimension();
 				iA11 = iAtgxAgx;
-				iA11A12 = iA11.times(AtgxAgx.getMatrix(0, n-2, n-1, n-1));
-				A21iA11 = AtgxAgx.getMatrix(n-1, n-1, 0, n-2).times(iA11);
+				iA11A12 = iA11.times(AtgxAgx.getMatrice(0, n-2, n-1, n-1));
+				A21iA11 = AtgxAgx.getMatrice(n-1, n-1, 0, n-2).times(iA11);
 				//int temp2 = AtgxAgx.get(n-1, n-1);
-				//int temp3 = AtgxAgx.getMatrix(n-1, n-1, 0, n-2).times(iA11A12).get(0, 0);
-				S = AtgxAgx.get(n-1, n-1) - AtgxAgx.getMatrix(n-1, n-1, 0, n-2).times(iA11A12).get(0, 0);
+				//int temp3 = AtgxAgx.getMatrice(n-1, n-1, 0, n-2).times(iA11A12).get(0, 0);
+				S = AtgxAgx.get(n-1, n-1) - AtgxAgx.getMatrice(n-1, n-1, 0, n-2).times(iA11A12).get(0, 0);
 				Q11_right = iA11A12.times(A21iA11.divide(S));
 
 				int[][] tt = new int[1][1];
 				tt[0][0] = FPMath.FPDiv(FPMath.IntToFP(1),S);
-				iAtgxAgx = Matrix.append(iA11.plus(Q11_right), iA11A12.divide(-1*S), A21iA11.divide(-1*S), new Matrix(tt));
+				iAtgxAgx = Matrice.append(iA11.plus(Q11_right), iA11A12.divide(-1*S), A21iA11.divide(-1*S), new Matrice(tt));
 
 				xk_1.setIndex(i_delta, 0);
 			}
@@ -238,7 +221,6 @@ public class HomotopyFP {
 				Primal_constrk.setIndex(gamma_x.getElement(i1), FPMath.FPMul(Helper.sign(Primal_constrk.getElement(gamma_x.getElement(i1))),epsilon));
 			}
 		}
-		int total_iter = iter;
 		Array x_out = xk_1;
 		//System.out.println("\t Total iterations: " + total_iter);
 		return x_out;
@@ -259,8 +241,6 @@ public class HomotopyFP {
 		int delta2[] = null;
 		int delta3[] = null;
 		int out_x_index;
-		Array xk_1;
-
 		if (!isNonnegative){
 			//    delta1_constr = (epsilon-pk_temp(gamma_lc))./(1+dk(gamma_lc));
 			temp = Array.dotDivide(pk_temp.getElementsFromIndices(gamma_lc.getSet()).subtractConstantFromLeft(epsilon), dk.getElementsFromIndices(gamma_lc.getSet()).addConstant(1));

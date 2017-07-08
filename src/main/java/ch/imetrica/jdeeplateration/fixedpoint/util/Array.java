@@ -40,7 +40,7 @@ public class Array {
 		return arr[m];
 	}
 	
-	public Array matrixMultiplyFromLeft(Matrix A){
+	public Array matrixMultiplyFromLeft(Matrice A){
 		int[][] a = A.getArray();
 		int[] b = new int[a.length];
 		for(int i = 0 ; i < a.length; i++){
