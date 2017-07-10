@@ -9,7 +9,6 @@ import java.util.Locale;
 import ch.imetrica.jdeeplateration.fixedpoint.FPMath;
 import ch.imetrica.jdeeplateration.fixedpoint.LUDecomposition;
 
-import java.text.FieldPosition;
 import java.io.PrintWriter;
 import java.io.BufferedReader;
 import java.io.StreamTokenizer;
