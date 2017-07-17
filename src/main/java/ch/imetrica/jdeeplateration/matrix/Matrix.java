@@ -2,6 +2,8 @@ package ch.imetrica.jdeeplateration.matrix;
 import java.io.Serializable;
 import java.util.Random;
 
+import matrix.Matrix;
+
 
 public class Matrix implements Serializable {
 	
@@ -314,6 +316,45 @@ public class Matrix implements Serializable {
 		}
 		
 		w = wi;
+	}
+	
+	
+	public Matrix mul(final Matrix m2) throws Exception {
+		
+		if (this.cols != m2.rows) {
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		final int m1rows = this.rows;
+		final int m1cols = this.cols;
+		final int m2cols = m2.cols;
+		final Matrix out = new Matrix(m1rows, m2cols);
+		final int outcols = m2cols;
+		for (int i = 0; i < m1rows; i++) {
+			int m1col = m1cols*i;
+			for (int j = 0; j < m2cols; j++) {
+				double dot = 0;
+				for (int k = 0; k < m1cols; k++) {
+					dot +=  this.w[m1col + k] * m2.w[m2cols*k + j];
+				}
+				out.w[outcols*i + j] = dot;
+			}
+		}
+		
+		return out;
+	}
+	
+	public Matrix trans() {
+		
+		final Matrix out = new Matrix(this.cols, this.rows);
+		
+		for(int i = 0; i < this.cols; i++) {
+			for(int j = 0; j < this.rows; j++) {
+				
+				out.set(i, j, this.getW(j, i));
+			}
+		}
+		return out;		
 	}
 	
 	

@@ -99,40 +99,37 @@ public class NavigationAlgorithms {
 		Matrix W = Matrix.ident(m_nbDataSets-1);
 		Matrix S = new Matrix(m_nbDataSets-1,3);
 
-		
-		
 
-			//create vectors R, d and identity matrices M, V and W; set TOA weights to diagonal elements
-			R.set_size(m_nbDataSets - 1, 1);
-			d.set_size(m_nbDataSets - 1, 1);
-			DELTA.set_size(m_nbDataSets - 1, 1);
-			V.eye(m_nbDataSets - 1, m_nbDataSets - 1);//generate identity matrix
-			W.eye(m_nbDataSets - 1, m_nbDataSets - 1);
-			S.set_size(m_nbDataSets - 1, 3);
-			SetTOAWeigths();
 
 			//for each navigation location other than the first point (origin)
-			for (i = 0; i < m_nbDataSets - 1; i++)
-			{
-				//translate each vector to local origin and compute the length
-				r = 0;
-				for (int j = 0; j < 3; j++)
-				{
-					tmp = m_x[i + 1][j];// -m_localOrigin[j];
-					m_x[i + 1][j]rho = tmp;
-					S(i, j) = tmp;
-					r += pow(tmp, 2);
-				}
-				R(i, 0) = sqrt(r);
-				//TDOA between current navigation point and origin (first point); tdoa[0] is inherently 0
-				d(i, 0) = (m_tdoa[i + 1] - m_tdoa[0])*m_cspeed; //and that is why the equation here is the same as m_toa[i+1]-m_toa[0]
-				DELTA(i, 0) = R(i, 0)*R(i, 0) - d(i, 0)*d(i, 0);
+		for (i = 0; i < m_nbDataSets - 1; i++)
+		{
+			//translate each vector to local origin and compute the length
+			r = 0;
+			double[] x = m_x.get(i + 1);
+			for (int j = 0; j < 3; j++) {
+								
+				tmp = x[j]; 
+				S.set(i, j,tmp);
+				r += tmp*tmp;
 			}
+			R.set(i, 0, Math.sqrt(r));
+				
+			d.set(i, 0, (m_tdoa.get(i + 1) - m_tdoa.get(0))*m_cspeed); 
+			Delta.set(i, 0, R.getW(i, 0)*R.getW(i, 0) - d.getW(i, 0)*d.getW(i, 0));
+		}
 
-			H = inv(S.t()*W*S)*S.t()*W;
-			Ps.set_size(m_nbDataSets - 1, m_nbDataSets - 1);
-			Ps = S*H;
-			Ps_v = eye(m_nbDataSets - 1, m_nbDataSets - 1) - Ps;
+		Matrix Strans = S.trans();
+		Matrix StransW = Strans.mul(W);
+		
+		
+		
+		H = inv(S.t()*W*S)*S.t()*W;
+		
+		
+		Ps.set_size(m_nbDataSets - 1, m_nbDataSets - 1);
+		Ps = S*H;
+		Ps_v = eye(m_nbDataSets - 1, m_nbDataSets - 1) - Ps;
 			
 
 			mat num(m_nbDataSets - 1, m_nbDataSets - 1);
