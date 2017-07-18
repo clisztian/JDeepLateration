@@ -2,7 +2,10 @@ package ch.imetrica.jdeeplateration.matrix;
 import java.io.Serializable;
 import java.util.Random;
 
-import matrix.Matrix;
+import org.apache.commons.math3.linear.LUDecomposition;
+import org.apache.commons.math3.linear.MatrixUtils;
+import org.apache.commons.math3.linear.RealMatrix;
+
 
 
 public class Matrix implements Serializable {
@@ -357,6 +360,45 @@ public class Matrix implements Serializable {
 		return out;		
 	}
 	
-	
+	public Matrix inv() {
+		
+		double[][] matrixData = new double[this.rows][this.cols];
+		for(int i = 0; i < this.rows; i++) {
+			for(int j = 0; j < this.cols; j++) {
+				matrixData[i][j] = this.getW(i, j);
+			}
+		}
+		
+		RealMatrix m = MatrixUtils.createRealMatrix(matrixData);
+		RealMatrix mInverse = new LUDecomposition(m).getSolver().getInverse();
+		double[][] matrixDataInv = mInverse.getData();
+
+		final Matrix inverse = new Matrix(matrixDataInv.length, matrixDataInv[0].length); 
+		
+		for(int i = 0; i < matrixDataInv.length; i++) {
+			for(int j = 0; j < matrixDataInv[0].length; j++) {
+				inverse.set(i, j, matrixDataInv[i][j]);
+			}
+		}
+										
+		return inverse; 
+	}
+
+	public Matrix eyeminus() throws Exception {
+		
+		if (this.rows != this.cols) {
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		final Matrix eye = new Matrix(this.rows, this.rows);
+		final Matrix ident = Matrix.ident(this.rows);
+		
+		for(int i = 0; i < this.rows; i++) {
+			for(int j = 0; j < this.cols; j++) {
+				eye.set(i, j, ident.getW(i, j) - this.getW(i, j));
+			}
+		}
+		return eye; 
+	}
 	
 }

@@ -25,7 +25,8 @@ public class NavigationAlgorithms {
 	
 	double[] m_uHat;
 	double[] m_localOrigin;
-	private int m_startPoint; 
+	private int m_startPoint;
+	private Matrix HnMinus; 
 	
 	final static double m_cspeed = 300000000.0;
 	final static double m_fc = 2147000000.0;
@@ -119,34 +120,38 @@ public class NavigationAlgorithms {
 			Delta.set(i, 0, R.getW(i, 0)*R.getW(i, 0) - d.getW(i, 0)*d.getW(i, 0));
 		}
 
-		Matrix Strans = S.trans();
-		Matrix StransW = Strans.mul(W);
+		Matrix StransW = S.trans().mul(W);
+		// Least-squares solution H = inv(S.t()*W*S)*S.t()*W;
+//		Ps.set_size(m_nbDataSets - 1, m_nbDataSets - 1);
+//		Ps = S*H;
+//		Ps_v = eye(m_nbDataSets - 1, m_nbDataSets - 1) - Ps;
 		
+		Matrix H = ((StransW.mul(S)).inv()).mul(StransW);
+	   	Matrix Ps_v = (S.mul(H)).eyeminus();
 		
+	   	//num = (d*(d.t()*(Ps_v.t()*(V*Ps_v))));
+	   	//den = as_scalar(d.t()*Ps_v.t()*V*Ps_v*d);
+	    Matrix basis = d.trans().mul((Ps_v.trans()).mul(V.mul(Ps_v)));		
+		Matrix num = d.mul(basis);
+
+		Matrix ident = Matrix.ident(m_nbDataSets - 1);
+
+		//solution = 0.5*(H*(I - num / den)*DELTA);
+		solution = (H.mul(num.eyeminus())).mul(Delta);
 		
-		H = inv(S.t()*W*S)*S.t()*W;
-		
-		
-		Ps.set_size(m_nbDataSets - 1, m_nbDataSets - 1);
-		Ps = S*H;
-		Ps_v = eye(m_nbDataSets - 1, m_nbDataSets - 1) - Ps;
+
+
+			
 			
 
-			mat num(m_nbDataSets - 1, m_nbDataSets - 1);
-
-
-			num = (d*(d.t()*(Ps_v.t()*(V*Ps_v))));
-			den = as_scalar(d.t()*Ps_v.t()*V*Ps_v*d);
-			
-
-			I.eye(m_nbDataSets - 1, m_nbDataSets - 1);
-
-			solution = 0.5*(H*(I - num / den)*DELTA);
-
-			num = d.t()*Ps_v.t()*V*Ps_v;
-			den = 2 * as_scalar(d.t()*Ps_v.t()*V*Ps_v*d);
-			mat Rs = 1 / den*num*DELTA;
-			x_est_2 = 0.5*H*(DELTA - 2 * as_scalar(Rs)*d);
+//			I.eye(m_nbDataSets - 1, m_nbDataSets - 1);
+//
+//			solution = 0.5*(H*(I - num / den)*DELTA);
+//
+//			num = d.t()*Ps_v.t()*V*Ps_v;
+//			den = 2 * as_scalar(d.t()*Ps_v.t()*V*Ps_v*d);
+//			mat Rs = 1 / den*num*DELTA;
+//			x_est_2 = 0.5*H*(DELTA - 2 * as_scalar(Rs)*d);
 		
 	}
 	
@@ -335,10 +340,7 @@ public class NavigationAlgorithms {
 
 	public void CreateHnMinus()
 	{
-		mat A(Hn.t()*Hn);
-		mat B(inv(A));
-		HnMinus = B*Hn.t();
-		return 0;
+		HnMinus = (((Hn.trans()).mul(Hn)).inv()).mul(Hn.trans());
 	}
 
 	int CNavigationAlgorithms::ComputeTDOATaylorApprox(int lastNbPoints)
