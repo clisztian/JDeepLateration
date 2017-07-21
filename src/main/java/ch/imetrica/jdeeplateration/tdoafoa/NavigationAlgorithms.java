@@ -26,7 +26,11 @@ public class NavigationAlgorithms {
 	double[] m_uHat;
 	double[] m_localOrigin;
 	private int m_startPoint;
-	private Matrix HnMinus; 
+	private Matrix HnMinus;
+	private Matrix m_navSolution;
+	private ArrayList<double[]> m_allNavSolutions; 
+	Matrix x_est_1, x_est_2;
+	Matrix solution;
 	
 	final static double m_cspeed = 300000000.0;
 	final static double m_fc = 2147000000.0;
@@ -83,15 +87,13 @@ public class NavigationAlgorithms {
 		return 0;
 	}
 
-	public Matrix ComputeSphericalInterpolation()
+	public void ComputeSphericalInterpolation() throws Exception
 	{
 		int i;
 		double tmp;
 		double r = 0;
 		
 		double den;
-		Matrix x_est_1, x_est_2;
-		Matrix solution;
 		
 		Matrix R = new Matrix(m_nbDataSets);
 		Matrix d = new Matrix(m_nbDataSets);
@@ -131,19 +133,24 @@ public class NavigationAlgorithms {
 		
 	   	//num = (d*(d.t()*(Ps_v.t()*(V*Ps_v))));
 	   	//den = as_scalar(d.t()*Ps_v.t()*V*Ps_v*d);
-	    Matrix basis = d.trans().mul((Ps_v.trans()).mul(V.mul(Ps_v)));		
+	    Matrix basis = d.trans().mul((Ps_v.trans()).mul(V.mul(Ps_v)));
+	    Matrix scale = basis.mul(d);
+	    den = scale.getW(0, 0);
 		Matrix num = d.mul(basis);
-
-		Matrix ident = Matrix.ident(m_nbDataSets - 1);
+		num.scale(1.0/den);
 
 		//solution = 0.5*(H*(I - num / den)*DELTA);
 		solution = (H.mul(num.eyeminus())).mul(Delta);
+		solution.scale(.5);
 		
 
 
-			
-			
-
+		Matrix den_temp = basis.mul(Delta);	
+		double Rs = 1.0/(2.0*den*den_temp.getW(0, 0));	
+        d.scale(2.0*Rs);
+        x_est_2 = H.mul(Delta.minus(d));
+        x_est_2.scale(.5);
+		
 //			I.eye(m_nbDataSets - 1, m_nbDataSets - 1);
 //
 //			solution = 0.5*(H*(I - num / den)*DELTA);
@@ -338,168 +345,161 @@ public class NavigationAlgorithms {
 		}
 	}
 
-	public void CreateHnMinus()
+	public void CreateHnMinus() throws Exception
 	{
 		HnMinus = (((Hn.trans()).mul(Hn)).inv()).mul(Hn.trans());
 	}
 
-	int CNavigationAlgorithms::ComputeTDOATaylorApprox(int lastNbPoints)
+	public void ComputeTDOATaylorApprox(int lastNbPoints) throws Exception
 	{
-		vector<double> solution(4,0);
-		m_navSolution.set_size(4,1);
+		
+		double[] solution = new double[4];
+		m_navSolution = new Matrix(4);
 		m_startPoint=0;
 
-		if (m_nbDataSets < 3)
-			return -1;
+		if (m_nbDataSets < 3) {
+			throw new Exception("Need at least 3 data sets");
+		}
 
-		if (m_nbDataSets>lastNbPoints)
+		if (m_nbDataSets > lastNbPoints) {
 			m_startPoint = m_nbDataSets - lastNbPoints-1;
-			
+		}
+		
 		CreateHn_TDOA();
 		CreateRho_TDOA();
 		CreateHnMinus();
 
-		m_navSolution = HnMinus*rho;
+		m_navSolution = HnMinus.mul(rho);
 
-		//add new solution to list of all computed solutions
-		for (int i = 0; i < 4; i++)
-		{
-			solution[i]= m_navSolution(i, 0);
+		for (int i = 0; i < 4; i++) {
+			solution[i] = m_navSolution.getW(i, 0);
 		}
 
-		m_allNavSolutions.push_back(solution); 
-		//************************************
-
-		return 0;
+		m_allNavSolutions.add(solution); 
 	}
 
-	int CNavigationAlgorithms::ComputeFDOATaylorApprox(int lastNbPoints)
+	public void ComputeFDOATaylorApprox(int lastNbPoints) throws Exception
 	{
-		vector<double> solution(3, 0);
-		m_navSolution.set_size(3, 1);
+		double[] solution = new double[3];
+		m_navSolution = new Matrix(3);
 		m_startPoint = 0;
 
-		if (m_nbDataSets < 3)
-			return -1;
+		if (m_nbDataSets < 3) {
+			throw new Exception("Need at least 3 data sets");
+		}
 
-		if (m_nbDataSets>lastNbPoints)
+		if (m_nbDataSets > lastNbPoints)
 			m_startPoint = m_nbDataSets - lastNbPoints - 1;
 
 		CreateHn_FDOA();
 		CreateRho_FDOA();
 		CreateHnMinus();
 
-		m_navSolution = HnMinus*rho;
+		m_navSolution = HnMinus.mul(rho);
 
-		//add new solution to list of all computed solutions
-		for (int i = 0; i < 3; i++)
-		{
-			solution[i] = m_navSolution(i, 0);
+		for (int i = 0; i < 3; i++) {
+			solution[i] = m_navSolution.getW(i, 0);
 		}
 
-		m_allNavSolutions.push_back(solution);
-		//************************************
-		return 0;
+		m_allNavSolutions.add(solution);
 	}
 
-	int CNavigationAlgorithms::ComputeTDOAFDOATaylorApprox(int lastNbPoints)
+	public void ComputeTDOAFDOATaylorApprox(int lastNbPoints) throws Exception
 	{
-		vector<double> solution(4, 0);
-		m_navSolution.set_size(4, 1);
-		m_startPoint = 0;
+		double[] solution = new double[4];
+		m_navSolution = new Matrix(4);
+		m_startPoint=0;
 
-		if (m_nbDataSets < 3)
-			return -1;
+		if (m_nbDataSets < 3) {
+			throw new Exception("Need at least 3 data sets");
+		}
 
-		if (m_nbDataSets>lastNbPoints)
+		if (m_nbDataSets > lastNbPoints) {
 			m_startPoint = m_nbDataSets - lastNbPoints - 1;
-
+		}
+		
 		CreateHn_TDOAFDOA();
 		CreateRho_TDOAFDOA();
 		CreateHnMinus();
 
-		m_navSolution = HnMinus*rho;
+		m_navSolution = HnMinus.mul(rho);
 
-		cout << m_navSolution << "\n";
-		//add new solution to list of all computed solutions
-		for (int i = 0; i < 4; i++)
-		{
-			solution[i] = m_navSolution(i, 0);
+		for (int i = 0; i < 4; i++) {
+			solution[i] = m_navSolution.getW(i, 0);
 		}
 
-		m_allNavSolutions.push_back(solution);
-		//************************************
-		return 0;
+		m_allNavSolutions.add(solution);
+
 	}
 
-	int CNavigationAlgorithms::ReadDataFromFile(string filename, int& nbPoints, CNavigationDataRecord& d)
-	{
-		ifstream myFile(filename, ifstream::in);
-		string line;
-
-		nbPoints = 0;
-
-		////stackoverflow.com/questions/1894886/parsing-a-comma-delimited-stdstring
-		//myFile.open(filename);//read from a text file with I and Q in two columns, seperated by a white space
-		int i = 0;
-		double value;
-		stringstream ss;
-		vector<double> tmp;
-
-		std::cout << "\n" << "Start reading file" << '\n';
-		if (myFile.is_open())
-		{
-			while (getline(myFile, line))
-			{
-				ss << line;
-
-				nbPoints++;
-
-				tmp.clear();
-				//parse file
-
-				//coordinates x,y,z
-				for (int i = 0; i < 3; i++)
-				{
-					ss >> value;
-					tmp.push_back(value);
-				}
-				d.x.push_back(tmp);
-				tmp.clear();
-				//speeds vx,vy,vz
-				for (int i = 0; i < 3; i++)
-				{
-					ss >> value;
-					tmp.push_back(value);
-				}
-				d.v.push_back(tmp);
-				tmp.clear();
-
-				//delay to set the channel simulator
-				ss >> value;
-				d.tdoa.push_back(value);
-				//doppler frequency to set the channel simulator
-				ss.clear();
-				ss >> value;
-				d.foa.push_back(value);
-				//
-				ss.clear();
-				ss >> value;
-				d.time.push_back(value);
-
-				//clear sstring
-				ss.clear();
-				ss.str("");
-			}
-		}
-		else
-			return -1;
-
-		myFile.close();
-
-		std::cout << "Stop reading file" << '\n';
-		return 0;
-	}
+//	int CNavigationAlgorithms::ReadDataFromFile(string filename, int& nbPoints, CNavigationDataRecord& d)
+//	{
+//		ifstream myFile(filename, ifstream::in);
+//		string line;
+//
+//		nbPoints = 0;
+//
+//		////stackoverflow.com/questions/1894886/parsing-a-comma-delimited-stdstring
+//		//myFile.open(filename);//read from a text file with I and Q in two columns, seperated by a white space
+//		int i = 0;
+//		double value;
+//		stringstream ss;
+//		vector<double> tmp;
+//
+//		std::cout << "\n" << "Start reading file" << '\n';
+//		if (myFile.is_open())
+//		{
+//			while (getline(myFile, line))
+//			{
+//				ss << line;
+//
+//				nbPoints++;
+//
+//				tmp.clear();
+//				//parse file
+//
+//				//coordinates x,y,z
+//				for (int i = 0; i < 3; i++)
+//				{
+//					ss >> value;
+//					tmp.push_back(value);
+//				}
+//				d.x.push_back(tmp);
+//				tmp.clear();
+//				//speeds vx,vy,vz
+//				for (int i = 0; i < 3; i++)
+//				{
+//					ss >> value;
+//					tmp.push_back(value);
+//				}
+//				d.v.push_back(tmp);
+//				tmp.clear();
+//
+//				//delay to set the channel simulator
+//				ss >> value;
+//				d.tdoa.push_back(value);
+//				//doppler frequency to set the channel simulator
+//				ss.clear();
+//				ss >> value;
+//				d.foa.push_back(value);
+//				//
+//				ss.clear();
+//				ss >> value;
+//				d.time.push_back(value);
+//
+//				//clear sstring
+//				ss.clear();
+//				ss.str("");
+//			}
+//		}
+//		else
+//			return -1;
+//
+//		myFile.close();
+//
+//		std::cout << "Stop reading file" << '\n';
+//		return 0;
+//	}
 	
 	
 	

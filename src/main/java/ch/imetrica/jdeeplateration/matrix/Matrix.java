@@ -400,5 +400,20 @@ public class Matrix implements Serializable {
 		}
 		return eye; 
 	}
+
+	public Matrix minus(Matrix d) throws Exception {
+		if (this.rows != d.rows || this.cols != d.rows) {
+		
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		final Matrix temp = new Matrix(this.rows, this.cols);
+		
+		for(int i = 0; i < temp.size; i++) {
+			temp.w[i] = this.w[i] - d.w[i];
+		}
+		
+		return temp;
+	}
 	
 }
