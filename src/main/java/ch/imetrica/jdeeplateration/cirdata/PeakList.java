@@ -1,6 +1,6 @@
 package ch.imetrica.jdeeplateration.cirdata;
 
-public class Peak {
+public class PeakList {
 
 	
 	int frequencyNumber;  //0,1,2
@@ -11,11 +11,9 @@ public class Peak {
 	double frequency_error;
 	
 	
-	
-	Peak(int freqNum, double freq, double power, double timeDelay, double freq_error) {
+	PeakList(int freqNum, double power, double timeDelay, double freq_error) {
 		
 		this.frequencyNumber = freqNum;
-		this.frequency = freq;
 		this.power = power;
 		this.timeDelay = timeDelay; 
 		this.frequency_error = freq_error;
