@@ -7,6 +7,14 @@ import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import de.micromata.opengis.kml.v_2_2_0.AltitudeMode;
+import de.micromata.opengis.kml.v_2_2_0.Coordinate;
+import de.micromata.opengis.kml.v_2_2_0.Document;
+import de.micromata.opengis.kml.v_2_2_0.Kml;
+import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
+import de.micromata.opengis.kml.v_2_2_0.Placemark;
+import de.micromata.opengis.kml.v_2_2_0.Point;
+
 
 public class NavigationList {
 
@@ -57,6 +65,7 @@ public class NavigationList {
         System.out.println(strline + " " + tokens.length);
         
         if(!tokens[3].equals("CREATION")) {
+        	br.close();
         	throw new Exception("File not in correct format " + tokens[3]);
         }
         this.creationTimestamp = (new Long(tokens[0])).longValue();
@@ -66,6 +75,7 @@ public class NavigationList {
         System.out.println(strline);
         tokens = strline.split("\\s+");
         if(!tokens[3].equals("FREQUENCY")) {
+        	br.close();
         	throw new Exception("File not in correct format " + tokens[3]);
         }
         
@@ -84,6 +94,7 @@ public class NavigationList {
         System.out.println(strline + " " + tokens.length);
         
         if(!tokens[3].equals("SETUP")) {
+        	br.close();
         	throw new Exception("File not in correct format " + tokens[3]);
         }
         String[] centerToks = tokens[4].split("[=]+");
@@ -146,45 +157,52 @@ public class NavigationList {
            }
         }
 	 }
+
 	
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
 		navigation.createNavigationLog(new File("data/ChannelLog.log"));
-		System.out.println("Printing history");
-		navigation.printNavigationHistory();
+				
+		final Kml kml = createCIRDocument(navigation.navigationList);
+		kml.marshal(new File("CIRMarkers.kml"));
 		
+	}
+	
+	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
 		
+		Placemark placemark = KmlFactory.createPlacemark();
+		placemark.setName("CIR measure at " + navList.getTimeStamp());
+		placemark.setVisibility(true);
+		placemark.setOpen(false);
+		placemark.setDescription(navList.getDescription());
+		placemark.setStyleUrl("styles.kml#exampleBalloonStyle");
 		
-		static Layer addPoint(double latitude, double longitude) {
-		    SimpleFeatureTypeBuilder b = new SimpleFeatureTypeBuilder();
+		Point point = KmlFactory.createPoint();
+		point.setExtrude(false);
+		point.setAltitudeMode(AltitudeMode.CLAMP_TO_GROUND);
+		point.getCoordinates().add(new Coordinate(navList.getPointCoordinates()));
+				
+		placemark.setGeometry(point);
 
-		    b.setName("MyFeatureType");
-		    b.setCRS(DefaultGeographicCRS.WGS84);
-		    b.add("location", Point.class);
-		    // building the type
-		    final SimpleFeatureType TYPE = b.buildFeatureType();
-
-		    SimpleFeatureBuilder featureBuilder = new SimpleFeatureBuilder(TYPE);
-		    GeometryFactory geometryFactory = JTSFactoryFinder.getGeometryFactory();
-		    Point point = geometryFactory.createPoint(new Coordinate( latitude, longitude));
-		    featureBuilder.add(point);
-		    SimpleFeature feature = featureBuilder.buildFeature(null);
-		    DefaultFeatureCollection featureCollection = new DefaultFeatureCollection("internal", TYPE);
-		    featureCollection.add(feature);
-		    Style style = SLD.createSimpleStyle(TYPE,Color.red);
-
-		    Layer layer = new FeatureLayer(featureCollection, style);
-		    return layer;
-		  }
+		return placemark; 
+	}
+	
+	public static Kml createCIRDocument(ArrayList<NavigationChannelList> navigationList) {
 		
+		Kml kml = KmlFactory.createKml();
+		Document document = kml.createAndSetDocument().withName("CIRMarkers.kml");
 		
+		for (NavigationChannelList navList : navigationList){
+            document.createAndAddPlacemark()
+            .withName("CIR measure at " + navList.getTimeStamp())
+            .withDescription(navList.getDescription())
+            .withVisibility(true)
+            .createAndSetPoint().addToCoordinates(navList.getLongitude(), navList.getLatitude());
+        }
+        kml.setFeature(document);
 		
-		
-		
-		
-		
-		
+		return kml; 
 		
 	}
 	

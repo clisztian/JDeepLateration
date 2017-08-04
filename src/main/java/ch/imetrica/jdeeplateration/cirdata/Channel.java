@@ -28,8 +28,7 @@ public class Channel {
 	   this.RSSI = Rssi; 
 	   this.NbPeaks = nbpeaks; 
 	   peaks = new ArrayList<PeakList>();	   
-	   
-	   //System.out.println(peaklist);
+	  
 	   tokens = peaklist.split("[|]+");
 	   
 	   for(int i = 0; i < nbpeaks; i++) {
@@ -42,6 +41,16 @@ public class Channel {
 		   peaks.add(peak);
 	   }
 	   
+   }
+   
+   public int getFreqIndex() {
+	   return FreqIndex; 
+   }
+   
+   public String toString() {
+	   	  
+	   String output = "FreqIndex=" + FreqIndex + ", ABStime=" + ABStime + ", NbPeaks=" + NbPeaks + "\n";	   
+	   return output; 
    }
    
    //ABStime - when peak was recieved

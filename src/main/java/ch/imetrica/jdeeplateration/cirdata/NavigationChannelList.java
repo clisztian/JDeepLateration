@@ -24,6 +24,10 @@ public class NavigationChannelList {
 		ChannelList = new ArrayList<Channel>();		
 	}
 	
+	public long getTimeStamp() {
+		return TimeStamp;
+	}
+	
 	public double[] getCoordinates() {
 		double[] coords = new double[2]; 
 		
@@ -31,6 +35,19 @@ public class NavigationChannelList {
 		coords[1] = latitude;
 		
 		return coords;
+	}
+	
+	public String getPointCoordinates() {
+		
+		return new String("" + longitude + "," + latitude + ",0");
+	}
+	
+	public double getLongitude() {
+		return longitude; 
+	}
+	
+	public double getLatitude() {
+		return latitude;
 	}
 	
 	public void printCoordinates() {
@@ -65,6 +82,16 @@ public class NavigationChannelList {
 		Channel myChannel = new Channel(time, freq, Abs, Rssi, snr, nbpeaks, peaklist);
 		
 		ChannelList.add(myChannel);
+	}
+
+	public String getDescription() {
+		
+		 String description = "";
+		 for(Channel ch : ChannelList) {
+			 
+			 description += ch.toString();
+		 }
+		 return description;
 	}
 	
 	

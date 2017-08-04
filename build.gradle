@@ -25,6 +25,9 @@ dependencies {
     // https://mvnrepository.com/artifact/org.apache.commons/commons-math3
     compile group: 'org.apache.commons', name: 'commons-math3', version: '3.2'
     
+    // https://mvnrepository.com/artifact/de.micromata.jak/JavaAPIforKml
+    compile group: 'de.micromata.jak', name: 'JavaAPIforKml', version: '2.2.0'
+    
         
     // Declare the dependency for your favourite test framework you want to use in your tests.
     // TestNG is also supported by the Gradle Test task. Just change the

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+    <Placemark>
+        <name>CIR measure at 11194631</name>
+        <visibility>1</visibility>
+        <open>0</open>
+        <description>FreqIndex=1, ABStime=1003.325836271, NbPeaks=3
+FreqIndex=2, ABStime=1003.981196384, NbPeaks=4
+</description>
+        <styleUrl>styles.kml#exampleBalloonStyle</styleUrl>
+        <Point>
+            <extrude>0</extrude>
+            <altitudeMode>clampToGround</altitudeMode>
+            <coordinates>7.59932,46.75418</coordinates>
+        </Point>
+    </Placemark>
+</kml>
