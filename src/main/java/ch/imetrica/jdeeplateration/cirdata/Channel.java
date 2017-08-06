@@ -43,6 +43,7 @@ public class Channel {
 	   
    }
    
+   
    public int getFreqIndex() {
 	   return FreqIndex; 
    }

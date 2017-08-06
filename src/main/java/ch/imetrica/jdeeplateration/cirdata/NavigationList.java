@@ -26,8 +26,46 @@ public class NavigationList {
 	
 	ArrayList<NavigationChannelList> navigationList;
 	
+	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
+	
+	
 	public NavigationList() {
 		navigationList = new ArrayList<NavigationChannelList>();
+	}
+	
+	
+	public void computeTDOAfromNavigationList(int freq) {
+		
+		double refTime = -1.0;
+		double residual = 0;
+		
+		tdoaFrequency0 = new ArrayList<TimeDiffOnArrival>();
+		
+		for (NavigationChannelList navList : navigationList) {
+			
+			double time = navList.getTimeStampAtFreq(freq);
+			
+			if(refTime < 0 && time > 0) { 
+				refTime = time;  //set reference time for first measurement
+			
+				residual = refTime*100.0 - Math.floor(refTime*100.0);
+				residual = residual/100.0;
+			}
+			else if(time > 0) {
+				
+				double currentRefTime = Math.floor(time*100.0)/100.0 + residual;				
+				double tdoa = time - currentRefTime;
+				
+				//System.out.println("Time: " + time + ", currentRefTime: " + currentRefTime + ", tdoa: " + tdoa);
+				
+				TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);
+				td.printTDOA();
+				
+				tdoaFrequency0.add(td);
+			}
+		}
+		
+		
 	}
 	
 	
@@ -143,11 +181,13 @@ public class NavigationList {
         		  
             	  tokens = navList.get(count).split(delims);
             	  if(tokens[3].equals("CHANNEL")) {            		  
+            		  
             		  channelList.addChannel(navList.get(count));  
-            		  navigationList.add(channelList);
             		  count++;
             	  }
-            	  else {           		  
+            	  else {
+            		  
+            		  navigationList.add(channelList);
             		  channelValue = false;
             	  }
         	  }    
@@ -166,6 +206,8 @@ public class NavigationList {
 				
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
+		
+		navigation.computeTDOAfromNavigationList(0);
 		
 	}
 	

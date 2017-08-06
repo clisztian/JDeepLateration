@@ -34,8 +34,22 @@ public class NavigationChannelList {
 		coords[0] = longitude; 
 		coords[1] = latitude;
 		
-		return coords;
+		return coords;   
 	}
+	
+	public double getTimeStampAtFreq(int i) {
+	   
+		double time = -1.0;
+		for(Channel chan : ChannelList) {
+			
+			if(chan.getFreqIndex() == i) {
+				time = chan.ABStime;
+				break;
+			}			
+		}
+		return time;		
+	}
+	
 	
 	public String getPointCoordinates() {
 		
