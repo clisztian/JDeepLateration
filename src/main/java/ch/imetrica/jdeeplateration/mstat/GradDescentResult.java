@@ -35,7 +35,7 @@ public class GradDescentResult {
 		
 	
             Random random = new Random();
-            Matrix anchors_in = anchors.getAchors(); 
+            Matrix anchors_in = anchors.getAnchors(); 
             
             int n = anchors_in.rows;
             int dim = anchors_in.cols;
@@ -90,6 +90,8 @@ public class GradDescentResult {
                     }
                     
                     double error_next = Mstat.distance(ranges_in, ranges);
+                    
+                    //System.out.println(error_next + " " + error);
                     if (error_next < error) {
                         estimator = estimator_next;
                     }
@@ -113,6 +115,125 @@ public class GradDescentResult {
             
 	}
 
+	
+	
+	public static Matrix triDistanceGradient(Matrix s0, Matrix s1, Matrix estimator, double tdoa_i) throws Exception {
+		 
+	
+		Matrix num0 = sub(estimator, s0);
+		Matrix num1 = sub(estimator, s1);
+		
+		double diff1 = Mstat.distance(estimator, s1);
+		double diff0 = Mstat.distance(estimator, s0);
+		double D_i = Mstat.distance(estimator, s1) - Mstat.distance(estimator, s0);
+		
+		num0.scale((tdoa_i - D_i)/diff0);
+		num1.scale((tdoa_i - D_i)/diff1);
+				
+		return sub(num1, num0); 		
+	}
+	
+	  
+	
+	
+	
+	public static GradDescentResult GradDescentTDOA(Anchors anchors, Matrix tdoas_in,
+            Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
+		
+	
+            Random random = new Random();
+            Matrix anchors_in = anchors.getAnchors(); 
+            
+            int n = anchors_in.rows;
+            int dim = anchors_in.cols;
+            
+            GradDescentResult gdescent_result = new GradDescentResult(n_trial, dim);
+
+            if (bounds_in == null) {
+                bounds_in = new Matrix(1, dim);
+            }
+            
+            Matrix bounds_temp = anchors_in.stack(bounds_in);
+            Matrix bounds = new Matrix(2, dim);
+            
+            for(int i = 0; i < dim; i++) {
+                bounds.set(0, i, bounds_temp.ColumnMin(i));
+                bounds.set(1, i, bounds_temp.ColumnMax(i));
+            }
+            
+            
+            Matrix ranges = new Matrix(n,1);
+            for (int i = 0; i < n_trial; i++)
+            {
+            	Matrix estimator0 = new Matrix(dim);
+            	
+                for (int j = 0; j < dim; j++) {
+                    estimator0.w[j] = random.nextDouble() * (bounds.getW(1, j) - bounds.getW(0, j)) + bounds.getW(0, j);
+                }
+                Matrix estimator = new Matrix(estimator0.w);
+
+            
+                long startTime = System.nanoTime();
+                while (true)
+                {
+                    for (int j = 0; j < n-1; j++) {
+                    	ranges.w[j] = Mstat.distance(estimator, anchors_in.getRow(j+1)) - 
+                    			        Mstat.distance(estimator, anchors_in.getRow(j));
+                    }
+                    
+                    double error = Mstat.distance(tdoas_in, ranges);
+                    Matrix delta = new Matrix(dim);
+                    
+                    for (int j = 0; j < n-1; j++) {
+                   	
+                    	Matrix grad = 
+                    			triDistanceGradient(anchors_in.getRow(j+1), anchors_in.getRow(j), estimator, tdoas_in.w[j+1]);
+                    	
+                    	delta.add(grad);	
+                    }
+                    
+                    delta.scale(2*alpha);
+                    Matrix estimator_next = sub(estimator,delta);
+                    
+                    for (int j = 0; j < n-1; j++) {
+                        ranges.w[j] = Mstat.distance(estimator, anchors_in.getRow(j+1)) - 
+            			        Mstat.distance(estimator, anchors_in.getRow(j));
+                    }
+                    
+                    double error_next = Mstat.distance(tdoas_in, ranges);
+                    
+                    //System.out.println(error_next + " " + error);
+                    if (error_next < error) {
+                        estimator = estimator_next;
+                    }
+                    else
+                    {
+                        gdescent_result.estimator_candidate.setRow(i, estimator);
+                        gdescent_result.error.w[i] = error;
+                        break;
+                    }
+                    
+                   
+                    if (System.nanoTime() - startTime > time_threshold)
+                    {
+                        gdescent_result.error.w[i] = Double.MAX_VALUE;
+                        break;
+                    }
+                }
+            }
+            
+            return gdescent_result;
+            
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	public static GradDescentResult mlat(Anchors anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
@@ -150,29 +271,32 @@ public class GradDescentResult {
 		return diff;
 	}
 
-	
-	
-	
-	public static void main(String[] args) throws Exception {
+	public static void testExample() throws Exception {
 		
-		
-		Random random = new Random();
+        Random random = new Random();
 		
 		double error = 0.5;
-        double W = 9, L = 9, H = 3;
+        double W = 100, L = 100, H = 1;
+		
+        double W_min = -100;
+        double L_min = -100;
+        double H_min = 0; 
         
-        
-        Anchors myAnchors = new Anchors(4);
-        myAnchors.setCoordinates(0, 0, H);
-        myAnchors.setCoordinates(W, 0, H);
-        myAnchors.setCoordinates(W, L, H);
-        myAnchors.setCoordinates(0, L, H);
+        int n_anchors = 50; 
+        Anchors myAnchors = new Anchors(n_anchors);
+        for(int i = 0; i < n_anchors; i++) {
+        	
+        	double cur_W = random.nextDouble() * (W - W_min) + W_min;
+        	double cur_L = random.nextDouble() * (L - L_min) + L_min;
+        	double cur_H = random.nextDouble() * (H - H_min) + H_min;
+        	myAnchors.setCoordinates(cur_W, cur_L, cur_H);     	
+        }
         myAnchors.commitCoordinates();
         
         Matrix node = new Matrix(3);
-        double[] n = {W*random.nextDouble(), L*random.nextDouble(), H*random.nextDouble()};        
-        node.setPointer(n);       
-
+        double[] n = {W*random.nextDouble(), L*random.nextDouble(), H*random.nextDouble()};      
+        node.setPointer(n); 
+        
         int num_anchors = myAnchors.getNumberOfAnchors();
         Matrix ranges = new Matrix(num_anchors);
            
@@ -181,12 +305,11 @@ public class GradDescentResult {
         for (int i = 0; i < num_anchors; i++)
         {
             ranges.w[i] = Mstat.distance(myAnchors.getRow(i), node);
-            ranges_with_error.w[i] = ranges.w[i];  //+ 2 * error * (random.nextDouble() - 0.5);
+            ranges_with_error.w[i] = ranges.w[i];// + 2 * error * (random.nextDouble() - 0.5);
         }
-
         
-        int n_trial = 100; 
-        double alpha = 0.001; 
+        int n_trial = 10000; 
+        double alpha = 0.0001; 
         double time_threshold = 10000;
         Matrix bounds_in = null;
         
@@ -198,8 +321,8 @@ public class GradDescentResult {
         System.out.println("Node");
         node.printMatrix();
         
-        System.out.println("Ranges");
-        ranges.printMatrix();
+//        System.out.println("Ranges");
+//        ranges.printMatrix();
         
         System.out.println("Ranges with error");
         ranges_with_error.printMatrix();
@@ -207,9 +330,73 @@ public class GradDescentResult {
         System.out.println("Estimator");
         gdescent_result.estimator.printMatrix();
         
-        System.out.println("Full result");
-        gdescent_result.estimator_candidate.printMatrix();
-        gdescent_result.error.printMatrix();
+//        System.out.println("Full result");
+//        gdescent_result.estimator_candidate.printMatrix();
+//        gdescent_result.error.printMatrix();
+        
+	}
+	
+	
+	public static void main(String[] args) throws Exception {
+		
+		
+		testExample();
+		
+//		
+//		Random random = new Random();
+//		
+//		double error = 0.5;
+//        double W = 9, L = 9, H = 3;
+//        
+//        
+//        Anchors myAnchors = new Anchors(4);
+//        myAnchors.setCoordinates(0, 0, H);
+//        myAnchors.setCoordinates(W, 0, H);
+//        myAnchors.setCoordinates(W, L, H);
+//        myAnchors.setCoordinates(0, L, H);
+//        myAnchors.commitCoordinates();
+//        
+//        Matrix node = new Matrix(3);
+//        double[] n = {W*random.nextDouble(), L*random.nextDouble(), H*random.nextDouble()};        
+//        node.setPointer(n);       
+//
+//        int num_anchors = myAnchors.getNumberOfAnchors();
+//        Matrix ranges = new Matrix(num_anchors);
+//           
+//        
+//        Matrix ranges_with_error = new Matrix(num_anchors);
+//        for (int i = 0; i < num_anchors; i++)
+//        {
+//            ranges.w[i] = Mstat.distance(myAnchors.getRow(i), node);
+//            ranges_with_error.w[i] = ranges.w[i] + 2 * error * (random.nextDouble() - 0.5);
+//        }
+//
+//        
+//        int n_trial = 100; 
+//        double alpha = 0.001; 
+//        double time_threshold = 10000;
+//        Matrix bounds_in = null;
+//        
+//        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+//
+//        System.out.println("Anchors");
+//        myAnchors.printMatrix();
+//        
+//        System.out.println("Node");
+//        node.printMatrix();
+//        
+//        System.out.println("Ranges");
+//        ranges.printMatrix();
+//        
+//        System.out.println("Ranges with error");
+//        ranges_with_error.printMatrix();
+//        
+//        System.out.println("Estimator");
+//        gdescent_result.estimator.printMatrix();
+//        
+//        System.out.println("Full result");
+//        gdescent_result.estimator_candidate.printMatrix();
+//        gdescent_result.error.printMatrix();
 
 
     }

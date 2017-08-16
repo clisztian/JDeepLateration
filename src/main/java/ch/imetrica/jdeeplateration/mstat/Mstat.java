@@ -13,7 +13,7 @@ public class Mstat implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	static double distance(Matrix m1, Matrix m2) throws Exception
+	public static double distance(Matrix m1, Matrix m2) throws Exception
     {
 		if (m1.size != m2.size) {
 			throw new Exception("Expected same size matrices");

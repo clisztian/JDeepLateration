@@ -4,9 +4,16 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Random;
 
+import ch.imetrica.jdeeplateration.anchors.Anchors;
+import ch.imetrica.jdeeplateration.matrix.Matrix;
+import ch.imetrica.jdeeplateration.mstat.GradDescentResult;
+import ch.imetrica.jdeeplateration.mstat.Mstat;
 import de.micromata.opengis.kml.v_2_2_0.AltitudeMode;
 import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
@@ -54,9 +61,9 @@ public class NavigationList {
 			else if(time > 0) {
 				
 				double currentRefTime = Math.floor(time*100.0)/100.0 + residual;				
-				double tdoa = time - currentRefTime;
 				
-				//System.out.println("Time: " + time + ", currentRefTime: " + currentRefTime + ", tdoa: " + tdoa);
+				
+				double tdoa = time - currentRefTime;
 				
 				TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);
 				td.printTDOA();
@@ -67,6 +74,179 @@ public class NavigationList {
 		
 		
 	}
+	
+	public void computeVelocity() {
+		
+		for(int i = 1; i < navigationList.size(); i++) {
+		
+			NavigationChannelList navList = navigationList.get(i-1);
+			long prevTime = navList.getTimeStamp();
+			double prevLongitude = navList.getLongitude();
+			double prevLatitude = navList.getLatitude();
+			
+			navigationList.get(i).computeVelocity(prevTime, prevLongitude, prevLatitude);
+			navigationList.get(i).printVelocity();
+		}
+		
+	}
+	
+	/*
+	 * 
+	 * Use stochastic gradient method to find solution given 
+	 * set of long/lat and tdoa 
+	 * 
+	 */
+	
+	public void estimateSourceSolution() throws Exception {
+		
+		
+        
+        int num_anchors;
+        
+		Anchors myAnchors = new Anchors();
+	    ArrayList<Double> tdoas = new ArrayList<Double>();
+	    
+		
+		for(int i = 53; i < tdoaFrequency0.size() - 20; i++) {
+						
+			TimeDiffOnArrival tdoa = tdoaFrequency0.get(i);
+					
+			myAnchors.setCoordinates(tdoa.getLongitude(), tdoa.getLatitude(), 0);
+			tdoas.add(tdoa.getTDOA());
+		}
+		
+		myAnchors.commitCoordinates();
+		num_anchors = myAnchors.getNumberOfAnchors();
+		   
+        Matrix ranges = new Matrix(num_anchors);
+        Matrix ranges_with_error = new Matrix(num_anchors);
+        
+        for (int i = 0; i < num_anchors; i++) {
+        	
+            ranges.w[i] = tdoas.get(i).doubleValue();
+            ranges_with_error.w[i] = ranges.w[i];
+        }
+
+        
+        int n_trial = 5000; 
+        double alpha = 0.0001; 
+        double time_threshold = 50000;
+        
+        // Set the bounds in which source will be located  7.362370 46.45439
+        Matrix bounds_in = new Matrix(2,3);
+        bounds_in.set(0, 0, myAnchors.getColumnMin(0) - 1.0);
+        bounds_in.set(0, 1, myAnchors.getColumnMin(1) - 1.0);
+        
+        bounds_in.set(1, 0, myAnchors.getColumnMax(0) + 1.0);
+        bounds_in.set(1, 1, myAnchors.getColumnMax(1) + 1.0);
+        
+        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+
+        System.out.println("Anchors");
+        myAnchors.printMatrix();
+        
+        System.out.println("Ranges");
+        ranges.printMatrix();
+        
+//        System.out.println("Ranges with error");
+//        ranges_with_error.printMatrix();
+        
+        System.out.println("\nEstimator");
+        gdescent_result.estimator.printMatrix();
+        
+//        System.out.println("\nFull result");
+//        gdescent_result.estimator_candidate.printMatrix();
+//        gdescent_result.error.printMatrix();
+		
+        final Kml kml = createSolutionDocument(gdescent_result.estimator_candidate, 
+        		                               gdescent_result.error, 
+        		                               gdescent_result.estimator);
+        
+		kml.marshal(new File("SolutionMarkers.kml"));
+
+   
+	}
+	
+	
+	public void testCaseData(File file) throws Exception {
+		
+		//x y z vx vyvz toa(time of arrival) foa(frequency of arrival) absolute time(not really used)
+		
+		String strline; 
+		String[] tokens; 
+		String delims = "\\s+";
+		
+		FileInputStream fin; DataInputStream din; BufferedReader br;
+		fin = new FileInputStream(file);
+        din = new DataInputStream(fin);
+        br = new BufferedReader(new InputStreamReader(din));
+		
+        
+        int num_anchors;
+		Anchors myAnchors = new Anchors();
+	    ArrayList<Double> tdoas = new ArrayList<Double>();
+        
+
+        while((strline = br.readLine()) != null) {        	
+        	
+        	tokens = strline.split(delims);
+        	
+
+        	myAnchors.setCoordinates((new Double(tokens[1])).doubleValue(), 
+        			                 (new Double(tokens[2])).doubleValue(),
+        			                 (new Double(tokens[3])).doubleValue());
+        	
+        	tdoas.add((new Double(tokens[7])).doubleValue());
+        
+        }
+        br.close();
+        
+        myAnchors.commitCoordinates();
+		num_anchors = myAnchors.getNumberOfAnchors();
+		   
+        Matrix ranges = new Matrix(num_anchors);
+        Matrix ranges_with_error = new Matrix(num_anchors);
+        
+        for (int i = 0; i < num_anchors; i++) {
+        	
+            ranges.w[i] = 100000.0*tdoas.get(i).doubleValue();
+            ranges_with_error.w[i] = ranges.w[i];
+        }
+
+        
+        int n_trial = 8000; 
+        double alpha = 0.0001; 
+        double time_threshold = 50000;
+        
+        // Set the bounds in which source will be located  7.362370 46.45439
+        Matrix bounds_in = new Matrix(2,3);
+        bounds_in.set(0, 0, myAnchors.getColumnMin(0) - 100.0);
+        bounds_in.set(0, 1, myAnchors.getColumnMin(1) - 100.0);
+        
+        bounds_in.set(1, 0, myAnchors.getColumnMax(0) + 100.0);
+        bounds_in.set(1, 1, myAnchors.getColumnMax(1) + 100.0);
+        
+        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+
+        System.out.println("Anchors");
+        myAnchors.printMatrix();
+        
+        System.out.println("Ranges");
+        ranges.printMatrix();
+        
+//        System.out.println("Ranges with error");
+//        ranges_with_error.printMatrix();
+        
+        System.out.println("\nEstimator");
+        gdescent_result.estimator.printMatrix();
+        
+        System.out.println("\nTrue location: " + "-2762.18694234 -5068.57649907  2522.74598415");
+        
+        
+        
+	}
+	
+	
 	
 	
 	public void printNavigationHistory() {
@@ -208,6 +388,11 @@ public class NavigationList {
 		kml.marshal(new File("CIRMarkers.kml"));
 		
 		navigation.computeTDOAfromNavigationList(0);
+		navigation.computeVelocity();
+		
+		//navigation.estimateSourceSolution();
+		
+		navigation.testCaseData(new File("data/test_data.txt"));
 		
 	}
 	
@@ -247,5 +432,32 @@ public class NavigationList {
 		return kml; 
 		
 	}
+	
+    public static Kml createSolutionDocument(Matrix locs, Matrix error, Matrix solution) {
+		
+		Kml kml = KmlFactory.createKml();
+		Document document = kml.createAndSetDocument().withName("SolutionMarkers.kml");
+		
+//		for (int i = locs.rows-50; i < locs.rows; i++){
+//            document.createAndAddPlacemark()
+//            .withName("Error " + error.w[i])
+//            .withVisibility(true)
+//            .createAndSetPoint().addToCoordinates(locs.getW(i, 0), locs.getW(i, 1));
+//        }
+		
+		document.createAndAddPlacemark()
+        .withName("Error " + error.w[error.rows-1])
+        .withDescription("Solution")
+        .withVisibility(true)
+        .createAndSetPoint().addToCoordinates(solution.getW(0, 0), solution.getW(0, 1));
+		
+		
+		
+        kml.setFeature(document);
+		
+		return kml; 
+		
+	}
+	
 	
 }

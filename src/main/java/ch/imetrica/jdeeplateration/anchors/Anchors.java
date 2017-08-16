@@ -24,7 +24,12 @@ public class Anchors {
 		coordinates = new ArrayList<double[]>();
 	}
 	
-    public Matrix getAchors() throws Exception {
+	public Anchors() {
+		number_anchors = 0;
+		coordinates = new ArrayList<double[]>();
+	}
+	
+    public Matrix getAnchors() throws Exception {
     	if(anchors == null) {
     		throw new Exception("Must have 3 coordinates");
     	}
@@ -84,7 +89,13 @@ public class Anchors {
 		anchors.printMatrix();		
 	}
 	
+	public double getColumnMin(int i) throws Exception {
+		return anchors.ColumnMin(i);
+	}
 	
+	public double getColumnMax(int i) throws Exception {
+		return anchors.ColumnMax(i);
+	}
 	
 	
 }

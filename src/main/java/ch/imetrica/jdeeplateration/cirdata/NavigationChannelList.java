@@ -2,8 +2,13 @@ package ch.imetrica.jdeeplateration.cirdata;
 
 import java.util.ArrayList;
 
+import org.apache.commons.math3.stat.descriptive.moment.VectorialCovariance;
+
 public class NavigationChannelList {
 
+	
+	final double semiMajorAxis = 6378137.0; 
+	final double firstEccentricitySquared=.00669437999014;
 	
 	ArrayList<Channel> ChannelList; 
 	
@@ -11,17 +16,63 @@ public class NavigationChannelList {
 	int DaySeconds; 
 	
 	double longitude;
-	double latitude;
+	double latitude;	
+	double altitude = 0;
 	
+	double[] velocity = null;
+	double[] localECEF = null;
 	
 	public NavigationChannelList(long time, int seconds, double longitude, double lat) {
 		
 		this.TimeStamp = time; 
 		this.DaySeconds = seconds; 
 		this.latitude = lat; 
-		this.longitude = longitude;
+		this.longitude = longitude;		
 		
 		ChannelList = new ArrayList<Channel>();		
+	}
+	
+	public NavigationChannelList(long time, int seconds, double longitude, double lat, double alt) {
+		
+		this.TimeStamp = time; 
+		this.DaySeconds = seconds; 
+		this.latitude = lat; 
+		this.longitude = longitude;		
+		this.altitude = alt; 
+		
+		ChannelList = new ArrayList<Channel>();		
+	}
+	
+	public void GeodeticToECEF() {
+		
+		if(localECEF == null) {
+		   	
+			localECEF = new double[3];
+	
+			double loc_longitude = 2.0*Math.PI/360.0*longitude;
+		    double loc_latitude = 2.0*Math.PI/360.0*latitude;
+		    double altitude = 0;
+		           
+		    double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
+		    localECEF[0] = (N+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);
+		    localECEF[1] = (N+altitude)*Math.cos(loc_latitude)*Math.sin(loc_longitude);
+		    localECEF[2] = (N*(1.0-firstEccentricitySquared)+altitude)*Math.sin(loc_latitude);
+
+		}
+	}
+	
+	public void computeVelocity(long prevTime, double prevLongitude, double prevLatitude) {
+		
+		double meterPerDegreeLat = 111166.01;
+		double meterPerDegreeLong = 76404.09;
+		velocity = new double[3];
+
+		double timeDiff = (double)(TimeStamp - prevTime)/1000.0;
+		double longDiffmeters = (longitude - prevLongitude)*meterPerDegreeLong;
+		double latDiffmeters = (latitude - prevLatitude)*meterPerDegreeLat;
+		
+		velocity[0] = longDiffmeters/timeDiff;
+		velocity[1] = latDiffmeters/timeDiff;		
 	}
 	
 	public long getTimeStamp() {
@@ -107,7 +158,52 @@ public class NavigationChannelList {
 		 }
 		 return description;
 	}
+
+	public void printVelocity() {
+		if(velocity != null) {
+			System.out.println("<" + velocity[0] + ", " + velocity[1] + ", 0>");
+		}		
+	}
 	
+	static private double cbrt(double x) {
+		
+        if (x >= 0)
+            return Math.pow(x, 1.0/3.0);
+        else
+            return -Math.pow(Math.abs(x), 1.0/3.0);		
+	}
+
 	
+	static public double[] ECEFToGeodetic(double x, double y, double z) {
+		
 	
+		 double[] coords = new double[2];
+	     double a = 6378137.0;
+	     double b = 6356752.3142;
+	     double esq = 6.69437999014 * 0.001;
+	     double e1sq = 6.73949674228 * 0.001;
+	     double f = 1.0 / 298.257223563;   
+
+	     double r = Math.sqrt(x * x + y * y);
+	     double Esq = a * a - b * b;
+	     double F = 54.0 * b * b * z * z;
+	     double G = r * r + (1.0 - esq) * z * z - esq * Esq;
+	     double C = (esq * esq * F * r * r) / (Math.pow(G, 3.0));
+	     double S = cbrt(1.0 + C + Math.sqrt(C * C + 2 * C));
+	     double P = F / (3 * Math.pow((S + 1 / S + 1), 2) * G * G);
+	     double Q = Math.sqrt(1 + 2 * esq * esq * P);
+	     double r_0 =  -(P * esq * r) / (1 + Q) + Math.sqrt(0.5 * a * a*(1 + 1.0 / Q) -
+	               P * (1 - esq) * z * z / (Q * (1 + Q)) - 0.5 * P * r * r);
+	     double U = Math.sqrt(Math.pow((r - esq * r_0), 2) + z * z);
+	     double V = Math.sqrt(Math.pow((r - esq * r_0), 2) + (1 - esq) * z * z);
+	     double Z_0 = b * b * z / (a * V);
+	     double h = U * (1.0 - b * b / (a * V));
+	     double lat = Math.atan((z + e1sq * Z_0) / r);
+	     double lon = Math.atan2(y, x);
+	
+	     coords[0] = 180.0*lat/Math.PI;
+	     coords[1] = 180.0*lon/Math.PI;
+	
+	     return coords; 
+    }
 }
