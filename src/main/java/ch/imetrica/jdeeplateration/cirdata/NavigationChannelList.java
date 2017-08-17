@@ -7,8 +7,8 @@ import org.apache.commons.math3.stat.descriptive.moment.VectorialCovariance;
 public class NavigationChannelList {
 
 	
-	final double semiMajorAxis = 6378137.0; 
-	final double firstEccentricitySquared=.00669437999014;
+	final static double semiMajorAxis = 6378137.0; 
+	final static double firstEccentricitySquared=.00669437999014;
 	
 	ArrayList<Channel> ChannelList; 
 	
@@ -21,6 +21,7 @@ public class NavigationChannelList {
 	
 	double[] velocity = null;
 	double[] localECEF = null;
+	double[] localOrigin = null;
 	
 	public NavigationChannelList(long time, int seconds, double longitude, double lat) {
 		
@@ -43,7 +44,7 @@ public class NavigationChannelList {
 		ChannelList = new ArrayList<Channel>();		
 	}
 	
-	public void GeodeticToECEF() {
+	public void GeodeticToLocal(double[] localOrigin) {
 		
 		if(localECEF == null) {
 		   	
@@ -57,9 +58,14 @@ public class NavigationChannelList {
 		    localECEF[0] = (N+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);
 		    localECEF[1] = (N+altitude)*Math.cos(loc_latitude)*Math.sin(loc_longitude);
 		    localECEF[2] = (N*(1.0-firstEccentricitySquared)+altitude)*Math.sin(loc_latitude);
-
+		    
+		    localECEF[0] = localECEF[0] - localOrigin[0];
+		    localECEF[1] = localECEF[1] - localOrigin[1];
+		    localECEF[2] = localECEF[2] - localOrigin[2];
 		}
 	}
+	
+
 	
 	public void computeVelocity(long prevTime, double prevLongitude, double prevLatitude) {
 		
@@ -174,6 +180,22 @@ public class NavigationChannelList {
 	}
 
 	
+	static public double[] GeodeticToECEF(double longitude, double latitude, double altitude) {
+		 	
+			double[] local = new double[3];
+	
+			double loc_longitude = 2.0*Math.PI/360.0*longitude;
+		    double loc_latitude = 2.0*Math.PI/360.0*latitude;
+		           
+		    double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
+		    local[0] = (N+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);
+		    local[1] = (N+altitude)*Math.cos(loc_latitude)*Math.sin(loc_longitude);
+		    local[2] = (N*(1.0-firstEccentricitySquared)+altitude)*Math.sin(loc_latitude);
+		    
+		    return local; 
+	}
+	
+	
 	static public double[] ECEFToGeodetic(double x, double y, double z) {
 		
 	
@@ -206,4 +228,18 @@ public class NavigationChannelList {
 	
 	     return coords; 
     }
+
+	public double getRSSI(int freq) {
+		
+		 double rssi = -Double.MAX_VALUE;
+         for(Channel chan : ChannelList) {
+			
+			if(chan.getFreqIndex() == freq) {
+			   rssi = chan.getRSSI();
+			   break;
+			}
+         }	
+		
+		return rssi;
+	}
 }

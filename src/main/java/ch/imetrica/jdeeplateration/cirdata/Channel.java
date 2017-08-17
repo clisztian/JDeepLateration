@@ -53,6 +53,11 @@ public class Channel {
 	   String output = "FreqIndex=" + FreqIndex + ", ABStime=" + ABStime + ", NbPeaks=" + NbPeaks + "\n";	   
 	   return output; 
    }
+
+
+   public double getRSSI() {
+	  return RSSI;	
+   }
    
    //ABStime - when peak was recieved
    //RSSI (recieved signal strength indicator) 

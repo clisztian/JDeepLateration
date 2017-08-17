@@ -26,13 +26,13 @@ import de.micromata.opengis.kml.v_2_2_0.Point;
 public class NavigationList {
 
 	double[] Frequencies; 
+
 	double CenterFreq; 
 	double Bandwidth;
 	
 	long creationTimestamp;
 	
 	ArrayList<NavigationChannelList> navigationList;
-	
 	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
 	
 	
@@ -61,8 +61,6 @@ public class NavigationList {
 			else if(time > 0) {
 				
 				double currentRefTime = Math.floor(time*100.0)/100.0 + residual;				
-				
-				
 				double tdoa = time - currentRefTime;
 				
 				TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);
@@ -70,10 +68,15 @@ public class NavigationList {
 				
 				tdoaFrequency0.add(td);
 			}
-		}
-		
-		
+		}	
 	}
+	
+	
+	public void filter() {
+		//Filters and prunes entire raw navigation list
+		filterOnRSSI(-70, 0);
+	}
+	
 	
 	public void computeVelocity() {
 		
@@ -89,6 +92,18 @@ public class NavigationList {
 		}
 		
 	}
+	
+	public void filterOnRSSI(double threshhold, int freq) {
+		
+		for(int i = 0; i < navigationList.size(); i++) {
+			
+			if(navigationList.get(i).getRSSI(freq) < threshhold) {
+				navigationList.remove(i);
+			}	
+		}		
+	}
+	
+	
 	
 	/*
 	 * 
@@ -209,24 +224,26 @@ public class NavigationList {
         
         for (int i = 0; i < num_anchors; i++) {
         	
-            ranges.w[i] = 100000.0*tdoas.get(i).doubleValue();
+            ranges.w[i] = tdoas.get(i).doubleValue();
             ranges_with_error.w[i] = ranges.w[i];
         }
 
         
-        int n_trial = 8000; 
-        double alpha = 0.0001; 
-        double time_threshold = 50000;
+        int n_trial = 5000; 
+        double alpha = 0.00001; 
+        double time_threshold = 500000;
         
         // Set the bounds in which source will be located  7.362370 46.45439
         Matrix bounds_in = new Matrix(2,3);
         bounds_in.set(0, 0, myAnchors.getColumnMin(0) - 100.0);
         bounds_in.set(0, 1, myAnchors.getColumnMin(1) - 100.0);
+        bounds_in.set(0, 2, myAnchors.getColumnMin(2));
         
         bounds_in.set(1, 0, myAnchors.getColumnMax(0) + 100.0);
         bounds_in.set(1, 1, myAnchors.getColumnMax(1) + 100.0);
+        bounds_in.set(1, 2, myAnchors.getColumnMax(2));
         
-        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+        GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
 
         System.out.println("Anchors");
         myAnchors.printMatrix();
@@ -379,6 +396,19 @@ public class NavigationList {
 	 }
 
 	
+	public void createLocalCoordinateSystem() {
+		
+		double longitude = navigationList.get(0).getLongitude();
+		double latitude = navigationList.get(0).getLatitude();
+		double altitude = 0;
+		
+		double[] localOrigin = NavigationChannelList.GeodeticToECEF(longitude, latitude, altitude);
+		
+		for (NavigationChannelList navList : navigationList) {			
+			navList.GeodeticToLocal(localOrigin);			
+		}
+	}
+	
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
@@ -437,21 +467,12 @@ public class NavigationList {
 		
 		Kml kml = KmlFactory.createKml();
 		Document document = kml.createAndSetDocument().withName("SolutionMarkers.kml");
-		
-//		for (int i = locs.rows-50; i < locs.rows; i++){
-//            document.createAndAddPlacemark()
-//            .withName("Error " + error.w[i])
-//            .withVisibility(true)
-//            .createAndSetPoint().addToCoordinates(locs.getW(i, 0), locs.getW(i, 1));
-//        }
-		
+				
 		document.createAndAddPlacemark()
         .withName("Error " + error.w[error.rows-1])
         .withDescription("Solution")
         .withVisibility(true)
         .createAndSetPoint().addToCoordinates(solution.getW(0, 0), solution.getW(0, 1));
-		
-		
 		
         kml.setFeature(document);
 		
