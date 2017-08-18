@@ -88,8 +88,8 @@ public class NavigationChannelList {
 	public double[] getCoordinates() {
 		double[] coords = new double[2]; 
 		
-		coords[0] = longitude; 
-		coords[1] = latitude;
+		coords[0] = latitude; 
+		coords[1] = longitude;
 		
 		return coords;   
 	}
@@ -180,17 +180,26 @@ public class NavigationChannelList {
 	}
 
 	
-	static public double[] GeodeticToECEF(double longitude, double latitude, double altitude) {
+	static public double[] GeodeticToECEF(double latitude, double longitude, double altitude) {
 		 	
 			double[] local = new double[3];
 	
-			double loc_longitude = Math.PI/180.0*longitude;
-		    double loc_latitude = Math.PI/180.0*latitude;
+			double f = 1.0/298.257224;
+			double f1 = (1.0 - f)*(1.0 - f);
+			
+			double loc_longitude = (Math.PI/180.0)*longitude;
+		    double loc_latitude =  (Math.PI/180.0)*latitude;
 		           
-		    double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
-		    local[0] = (N+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);
-		    local[1] = (N+altitude)*Math.cos(loc_latitude)*Math.sin(loc_longitude);
-		    local[2] = (N*(1.0-firstEccentricitySquared)+altitude)*Math.sin(loc_latitude);
+		    //double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
+		    
+		    double Cn = 1.0/Math.sqrt(Math.cos(loc_latitude)*Math.cos(loc_latitude) +
+		    		          f1*Math.sin(loc_latitude)*Math.sin(loc_latitude));      
+		    		
+		    double S = Cn*f1;
+		    		    
+		    local[0] = (semiMajorAxis*Cn+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);
+		    local[1] = (semiMajorAxis*Cn+altitude)*Math.cos(loc_latitude)*Math.sin(loc_longitude);
+		    local[2] = (semiMajorAxis*S+altitude)*Math.sin(loc_latitude);
 		    
 		    return local; 
 	}

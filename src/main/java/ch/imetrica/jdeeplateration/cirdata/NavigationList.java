@@ -28,6 +28,7 @@ public class NavigationList {
 	
 	public final static double C = 299792.458;
 	double[] Frequencies; 
+	double[] localOrigin = null;
 
 	double CenterFreq; 
 	double Bandwidth;
@@ -197,8 +198,14 @@ public class NavigationList {
 		        (new Double(tokens[1])).doubleValue(),
 		        (new Double(tokens[2])).doubleValue()};
         
+        //System.out.println(loc0[0] + " " + loc0[1] + " " + loc0[2]);
+        
         double[] origin = NavigationChannelList.GeodeticToECEF(loc0[0], loc0[1], loc0[2]);        
-        System.out.println(origin[0] + " " + origin[1] + " " + origin[2]);
+        //System.out.println(origin[0] + " " + origin[1] + " " + origin[2] + "\n");
+        
+        double[] orig = {0.0, 0.0, 0.0}; 
+        locs.add(orig);
+        
         
         while((strline = br.readLine()) != null) { 
         	
@@ -207,16 +214,25 @@ public class NavigationList {
         			        (new Double(tokens[1])).doubleValue(),
         			        (new Double(tokens[2])).doubleValue()};
         	
+        	//System.out.println(loc[0] + " " + loc[1] + " " + loc[2]);
+        	double[] ecef = NavigationChannelList.GeodeticToECEF(loc[0], loc[1], loc[2]);
         	
-        	double[] ecef = NavigationChannelList.GeodeticToECEF(loc[0] - origin[0], 
-        			                                             loc[1] - origin[1], loc[2] - origin[2]);
+        	ecef[0] -= origin[0];
+        	ecef[1] -= origin[1];
+        	ecef[2] -= origin[2];
         	
-        	System.out.println(ecef[0] + " " + ecef[1] + " " + ecef[2]);
+        	//System.out.println(ecef[0] + " " + ecef[1] + " " + ecef[2]);
         	locs.add(ecef);	
+        	
+        	
+        	ecef[0] += origin[0];
+        	ecef[1] += origin[1];
+        	ecef[2] += origin[2];
+        	
+        	double[] back = Coord.ecef_to_geo(ecef);
+        	
+        	System.out.println(back[0] + " " + back[1] + " " + back[2]);
         }
-        
-        
-        
         br.close(); 	
         
 	}
@@ -455,7 +471,7 @@ public class NavigationList {
 		double latitude = navigationList.get(0).getLatitude();
 		double altitude = 0;
 		
-		double[] localOrigin = NavigationChannelList.GeodeticToECEF(longitude, latitude, altitude);
+		localOrigin = NavigationChannelList.GeodeticToECEF(latitude, longitude, altitude);
 		
 		for (NavigationChannelList navList : navigationList) {			
 			navList.GeodeticToLocal(localOrigin);			
@@ -475,8 +491,8 @@ public class NavigationList {
 		
 		//navigation.estimateSourceSolution();
 		
-		navigation.testCaseData(new File("data/test_data.txt"));
-		//navigation.testSGDtdoa(new File("data/test_kurve_ueber_thun_2.txt"));
+		//navigation.testCaseData(new File("data/test_data.txt"));
+		navigation.testSGDtdoa(new File("data/test_kurve_ueber_thun_2.txt"));
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
