@@ -184,8 +184,8 @@ public class NavigationChannelList {
 		 	
 			double[] local = new double[3];
 	
-			double loc_longitude = 2.0*Math.PI/360.0*longitude;
-		    double loc_latitude = 2.0*Math.PI/360.0*latitude;
+			double loc_longitude = Math.PI/180.0*longitude;
+		    double loc_latitude = Math.PI/180.0*latitude;
 		           
 		    double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
 		    local[0] = (N+altitude)*Math.cos(loc_latitude)*Math.cos(loc_longitude);

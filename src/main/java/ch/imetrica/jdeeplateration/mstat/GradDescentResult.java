@@ -120,28 +120,51 @@ public class GradDescentResult {
 
 	
 	
-	public static Matrix triDistanceGradient(Matrix s0, Matrix s1, Matrix estimator, double tdoa_i) throws Exception {
+	public static Matrix triDistanceGradient(Matrix s0, Matrix s1, Matrix estimator, double tdoa_i, double norm) throws Exception {
 		 
 		Matrix num0 = sub(estimator, s0);
 		Matrix num1 = sub(estimator, s1);
 		
 		double diff1 = Mstat.distance(estimator, s1);
 		double diff0 = Mstat.distance(estimator, s0);
-		double D_i = Mstat.distance(estimator, s1) - Mstat.distance(estimator, s0);
+		double D_i = diff1 - diff0;
 		
-		double tdoaDiff = D_i/C - tdoa_i; 
+		double tdoaDiff = D_i - tdoa_i; 
 		
-		num0.scale(tdoaDiff/(diff0*C));
-		num1.scale(tdoaDiff/(diff1*C));
+		num0.scale(tdoaDiff/(diff0));
+		num1.scale(tdoaDiff/(diff1));
 				
-		return sub(num1, num0); 		
+	    Matrix grad = sub(num1, num0);
+	    grad.scale(norm);
+	    
+		return grad; 		
+	}
+	
+	
+	public static Matrix triDistanceGradient0(Matrix s0, Matrix s1, Matrix estimator, double tdoa_i) throws Exception {
+		 
+		Matrix num0 = sub(estimator, s0);
+		Matrix num1 = sub(estimator, s1);
+		
+		double diff1 = Mstat.distance(estimator, s1);
+		double diff0 = Mstat.distance(estimator, s0);
+		double D_i = diff1 - diff0;
+		
+		double tdoaDiff = D_i - tdoa_i; 
+		
+		num0.scale(tdoaDiff/(diff0));
+		num1.scale(tdoaDiff/(diff1));
+				
+	    Matrix grad = sub(num1, num0);
+	    
+		return grad; 		
 	}
 	
 	  
 	public static double tdoaEstimate(Matrix s_i, Matrix s_i1, Matrix estimator) throws Exception {
 		
 		double D_i = Mstat.distance(estimator, s_i1) - Mstat.distance(estimator, s_i);
-		return D_i/C; 
+		return D_i; 
 	}
 	
 	
@@ -155,8 +178,9 @@ public class GradDescentResult {
             int n = anchors_in.rows;
             int dim = anchors_in.cols;
             
+            
             GradDescentResult gdescent_result = new GradDescentResult(n_trial, dim);
-
+            
             if (bounds_in == null) {
                 bounds_in = new Matrix(1, dim);
             }
@@ -170,7 +194,19 @@ public class GradDescentResult {
             }
             
             
+            double[] v = {-2762.18694234, -5068.57649907, 2522.74598415};
+            Matrix solution = new Matrix(dim);
+            solution.setPointer(v);
+            
             Matrix ranges = new Matrix(n,1);
+            
+            for (int j = 0; j < n-1; j++) {
+            	
+            	ranges.w[j+1] = tdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), solution);
+            }
+            double errorSol = Mstat.distance(tdoas_in, ranges);
+            System.out.println("Error at solution = " + errorSol);
+            
             for (int i = 0; i < n_trial; i++)
             {
             	Matrix estimator0 = new Matrix(dim);
@@ -184,8 +220,9 @@ public class GradDescentResult {
                 long startTime = System.nanoTime();
                 while (true)
                 {
-                    for (int j = 0; j < n-1; j++) {
-                    	
+                	
+                	ranges.w[0] = 0;
+                    for (int j = 0; j < n-1; j++) {                    	
                     	ranges.w[j+1] = tdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), estimator);
                     }
                     
@@ -195,12 +232,14 @@ public class GradDescentResult {
                     for (int j = 0; j < n-1; j++) {
                    	
                     	Matrix grad = 
-                    			triDistanceGradient(anchors_in.getRow(j+1), anchors_in.getRow(j), estimator, tdoas_in.w[j+1]);
+                    			triDistanceGradient0(anchors_in.getRow(j+1), anchors_in.getRow(j), estimator, tdoas_in.w[j+1]);
                     	
                     	delta.add(grad);	
                     }
                     
-                    delta.scale(2*alpha);
+                    delta.scale(2.0*alpha);
+                    //System.out.println(delta.w[0] + " " + delta.w[1] + " " + delta.w[2]);
+                    
                     Matrix estimator_next = sub(estimator,delta);
                     
                     for (int j = 0; j < n-1; j++) {
@@ -210,7 +249,7 @@ public class GradDescentResult {
                     double error_next = Mstat.distance(tdoas_in, ranges);
 
                     
-                    System.out.println(error_next + " " + error);
+                    //System.out.println(error_next + " " + error);
                     
                     if (error_next < error) {
                         estimator = estimator_next;
@@ -220,7 +259,6 @@ public class GradDescentResult {
                         gdescent_result.error.w[i] = error;
                         break;
                     }
-                    
                    
                     if (System.nanoTime() - startTime > time_threshold) {
                         gdescent_result.error.w[i] = Double.MAX_VALUE;
@@ -228,13 +266,9 @@ public class GradDescentResult {
                     }
                 }
             }
-            
             return gdescent_result;
             
 	}
-	
-
-	
 	
 	
 	public static GradDescentResult mlat(Anchors anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {

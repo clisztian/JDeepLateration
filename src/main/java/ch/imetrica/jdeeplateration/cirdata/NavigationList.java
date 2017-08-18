@@ -25,6 +25,8 @@ import de.micromata.opengis.kml.v_2_2_0.Point;
 
 public class NavigationList {
 
+	
+	public final static double C = 299792.458;
 	double[] Frequencies; 
 
 	double CenterFreq; 
@@ -162,16 +164,10 @@ public class NavigationList {
         
         System.out.println("Ranges");
         ranges.printMatrix();
-        
-//        System.out.println("Ranges with error");
-//        ranges_with_error.printMatrix();
-        
+            
         System.out.println("\nEstimator");
         gdescent_result.estimator.printMatrix();
         
-//        System.out.println("\nFull result");
-//        gdescent_result.estimator_candidate.printMatrix();
-//        gdescent_result.error.printMatrix();
 		
         final Kml kml = createSolutionDocument(gdescent_result.estimator_candidate, 
         		                               gdescent_result.error, 
@@ -180,6 +176,49 @@ public class NavigationList {
 		kml.marshal(new File("SolutionMarkers.kml"));
 
    
+	}
+	
+	
+	public void testSGDtdoa(File file) throws Exception {
+		
+		String strline; 
+		String[] tokens; 
+		String delims = "\\s+";
+		
+		ArrayList<double[]> locs = new ArrayList<double[]>();
+		FileInputStream fin; DataInputStream din; BufferedReader br;
+		fin = new FileInputStream(file);
+        din = new DataInputStream(fin);
+        br = new BufferedReader(new InputStreamReader(din));
+		
+        strline = br.readLine();
+        tokens = strline.split(delims);
+        double[] loc0 = {(new Double(tokens[0])).doubleValue(), 
+		        (new Double(tokens[1])).doubleValue(),
+		        (new Double(tokens[2])).doubleValue()};
+        
+        double[] origin = NavigationChannelList.GeodeticToECEF(loc0[0], loc0[1], loc0[2]);        
+        System.out.println(origin[0] + " " + origin[1] + " " + origin[2]);
+        
+        while((strline = br.readLine()) != null) { 
+        	
+        	tokens = strline.split(delims);
+        	double[] loc = {(new Double(tokens[0])).doubleValue(), 
+        			        (new Double(tokens[1])).doubleValue(),
+        			        (new Double(tokens[2])).doubleValue()};
+        	
+        	
+        	double[] ecef = NavigationChannelList.GeodeticToECEF(loc[0] - origin[0], 
+        			                                             loc[1] - origin[1], loc[2] - origin[2]);
+        	
+        	System.out.println(ecef[0] + " " + ecef[1] + " " + ecef[2]);
+        	locs.add(ecef);	
+        }
+        
+        
+        
+        br.close(); 	
+        
 	}
 	
 	
@@ -205,35 +244,49 @@ public class NavigationList {
         while((strline = br.readLine()) != null) {        	
         	
         	tokens = strline.split(delims);
-        	
-
         	myAnchors.setCoordinates((new Double(tokens[1])).doubleValue(), 
         			                 (new Double(tokens[2])).doubleValue(),
         			                 (new Double(tokens[3])).doubleValue());
         	
-        	tdoas.add((new Double(tokens[7])).doubleValue());
-        
+        	//tdoas.add((new Double(tokens[7])).doubleValue());
         }
         br.close();
         
         myAnchors.commitCoordinates();
 		num_anchors = myAnchors.getNumberOfAnchors();
 		   
+		Matrix node = new Matrix(3);
+		double[] n = {-2762.18694234, -5068.57649907, 2522.74598415};
+		node.setPointer(n);
+		
+		double[] ctdoas = new double[num_anchors];
+		
+		tdoas.add(0.0);
+		for(int i = 0; i < num_anchors-1; i++) {
+			
+			double ctdoa = Mstat.distance(node, myAnchors.getRow(i+1)) - 
+		                   Mstat.distance(node, myAnchors.getRow(i));
+			
+			ctdoa = ctdoa/C; 	
+			ctdoas[i+1] = ctdoa; 
+			tdoas.add(ctdoa);		
+		}
+		
+				
         Matrix ranges = new Matrix(num_anchors);
         Matrix ranges_with_error = new Matrix(num_anchors);
         
         for (int i = 0; i < num_anchors; i++) {
         	
-            ranges.w[i] = tdoas.get(i).doubleValue();
+            ranges.w[i] = tdoas.get(i).doubleValue()*C;
             ranges_with_error.w[i] = ranges.w[i];
         }
-
+        ranges_with_error.w[0] = 0; 
         
         int n_trial = 5000; 
-        double alpha = 0.00001; 
+        double alpha = 0.0001; 
         double time_threshold = 500000;
         
-        // Set the bounds in which source will be located  7.362370 46.45439
         Matrix bounds_in = new Matrix(2,3);
         bounds_in.set(0, 0, myAnchors.getColumnMin(0) - 100.0);
         bounds_in.set(0, 1, myAnchors.getColumnMin(1) - 100.0);
@@ -423,7 +476,7 @@ public class NavigationList {
 		//navigation.estimateSourceSolution();
 		
 		navigation.testCaseData(new File("data/test_data.txt"));
-		
+		//navigation.testSGDtdoa(new File("data/test_kurve_ueber_thun_2.txt"));
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
@@ -460,7 +513,6 @@ public class NavigationList {
         kml.setFeature(document);
 		
 		return kml; 
-		
 	}
 	
     public static Kml createSolutionDocument(Matrix locs, Matrix error, Matrix solution) {
