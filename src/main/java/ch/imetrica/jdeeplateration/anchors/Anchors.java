@@ -96,6 +96,20 @@ public class Anchors {
 	public double getColumnMax(int i) throws Exception {
 		return anchors.ColumnMax(i);
 	}
+
+	public Anchors subset(int nrows) throws Exception {
+		
+        Anchors subset = new Anchors();
+        
+        for(int j = 0; j < nrows; j++) {
+        	
+        	Matrix row = this.getRow(j);
+        	subset.setCoordinates(row.w);        	
+        
+        }
+        subset.commitCoordinates();        
+		return subset; 
+	}
 	
 	
 }

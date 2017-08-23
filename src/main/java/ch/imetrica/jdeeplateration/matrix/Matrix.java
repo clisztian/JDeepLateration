@@ -6,6 +6,8 @@ import org.apache.commons.math3.linear.LUDecomposition;
 import org.apache.commons.math3.linear.MatrixUtils;
 import org.apache.commons.math3.linear.RealMatrix;
 
+import ch.imetrica.jdeeplateration.cirdata.Coord;
+
 
 
 public class Matrix implements Serializable {
@@ -229,6 +231,14 @@ public class Matrix implements Serializable {
 		this.dw = new double[vector.length];
 	}
 	
+	public Matrix(double[] vector, int i) {
+		this.rows = 1;
+		this.cols = vector.length;
+		this.size = rows*cols;
+		this.w = vector;
+		this.dw = new double[vector.length];
+	}	
+	
 	public Matrix(double[] vector, int n, int batchsize) throws Exception 
 	{		
 		if (n*batchsize != vector.length) {
@@ -289,7 +299,20 @@ public class Matrix implements Serializable {
 		for(int i = 0; i < this.cols; i++) {
 			  myRow[i] = this.getW(row, i);		
 		}
-		return new Matrix(myRow);	
+		return new Matrix(myRow,1);	
+	}
+	
+	public double[] getRowVector(int row) throws Exception {
+		
+		if (row >= this.rows) {
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		double[] myRow = new double[this.cols];
+		for(int i = 0; i < this.cols; i++) {
+			  myRow[i] = this.getW(row, i);		
+		}
+		return myRow;	
 	}
 	
 	
@@ -402,7 +425,7 @@ public class Matrix implements Serializable {
 	}
 
 	public Matrix minus(Matrix d) throws Exception {
-		if (this.rows != d.rows || this.cols != d.rows) {
+		if (this.rows != d.rows || this.cols != d.cols) {
 		
 			throw new Exception("matrix dimension mismatch");
 		}
@@ -415,5 +438,42 @@ public class Matrix implements Serializable {
 		
 		return temp;
 	}
+
+	public void setRow(int i, double[] v0) throws Exception {
+		
+		if (v0.length != this.cols) {
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		for(int j = 0; j < this.cols; j++) {
+			setW(i, j, v0[j]);
+		}
+	}
+	
+	public void transformRowCoord(int i, double[] origin) throws Exception {
+		
+		for(int j = 0; j < this.cols; j++) {
+			setW(i, j, w[j] + origin[j]);
+		}
+		       
+        double[] solution = Coord.ecef_to_geo(this.getRowVector(i));		
+        for(int j = 0; j < this.cols; j++) {
+			setW(i, j, solution[j]);
+		}
+		
+	}
+
+	public Matrix subset(int nrows) {
+		
+		Matrix subset = new Matrix(nrows);
+		
+		for(int j = 0; j < nrows; j++) {
+			subset.w[j] = w[j];
+		}
+		
+		return subset; 
+		
+	}
+
 	
 }
