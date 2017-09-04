@@ -475,5 +475,21 @@ public class Matrix implements Serializable {
 		
 	}
 
+	public double dot(Matrix v_i) throws Exception {
+		
+		if (v_i.cols != this.cols && v_i.rows != this.rows) {
+			throw new Exception("matrix dimension mismatch");
+		}
+		
+		double sum = 0;
+		
+		for(int i = 0; i < this.w.length; i++) {
+			sum = sum + this.w[i]*v_i.w[i];
+		}
+		
+		
+		return sum;
+	}
+
 	
 }

@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 
 import ch.imetrica.jdeeplateration.anchors.Anchors;
@@ -17,10 +19,14 @@ import ch.imetrica.jdeeplateration.mstat.Mstat;
 import de.micromata.opengis.kml.v_2_2_0.AltitudeMode;
 import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
+import de.micromata.opengis.kml.v_2_2_0.IconStyle;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Point;
+import de.micromata.opengis.kml.v_2_2_0.Style;
+import de.micromata.opengis.kml.v_2_2_0.StyleSelector;
+import de.micromata.opengis.kml.v_2_2_0.ColorMode;
 
 
 public class NavigationList {
@@ -82,6 +88,93 @@ public class NavigationList {
 	}
 	
 	
+	
+	
+	public void computeTDOAfromNavigationList0(int freq) throws Exception {
+		
+	   if(filteredNavigationList == null) {	
+		   throw new Exception("Apply filtering to navigation list first");   
+	   }
+		
+		double pulse = .065536;
+		
+		tdoaFrequency0 = new ArrayList<TimeDiffOnArrival>();
+		
+		//for (NavigationChannelList navList : filteredNavigationList) {
+      
+		double time = filteredNavigationList.get(0).getTimeStampAtFreq(freq);
+				
+		for(int i = 1; i < filteredNavigationList.size(); i++) {
+			
+			double currentRefTime = filteredNavigationList.get(i).getTimeStampAtFreq(freq);
+						
+			if(currentRefTime > 0) {
+							
+				double tdoa = (currentRefTime - time)%pulse;
+				
+				if(tdoa > .06) {
+					tdoa -= pulse;
+				}
+				
+				TimeDiffOnArrival td = new TimeDiffOnArrival(filteredNavigationList.get(i).getLongitude(),
+						filteredNavigationList.get(i).getLatitude(), tdoa);
+				td.printTDOA();
+				
+				tdoaFrequency0.add(td);
+			}
+		}
+	}
+	
+	
+	public void computeTDOAfromNavigationList00(int freq) throws Exception {
+        
+	       if(filteredNavigationList == null) {    
+	           throw new Exception("Apply filtering to navigation list first");   
+	       }
+	        
+	        double refTime = -1.0;
+	        double tdoa = 0.0;
+	        double frameLength = .065536;
+	        
+	        tdoaFrequency0 = new ArrayList<TimeDiffOnArrival>();
+	        
+	        System.out.println("tdoa with respect to first point (reference)----------------------------------------");
+	        for (NavigationChannelList navList : filteredNavigationList) {
+
+	            double time = navList.getTimeStampAtFreq(freq);
+	            
+	            if(refTime < 0 && time > 0) { 
+	                refTime = time;  //set reference time for first measurement
+	            
+	                tdoa = 0.0;
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                
+	                tdoaFrequency0.add(td);
+	            }
+	            else if(time > 0) {
+	                
+	                double timeStamp = (time - refTime) % frameLength;
+	                if (timeStamp < frameLength / 2) {
+	                    tdoa = timeStamp;
+	                }
+	                else {
+	                    tdoa = - (frameLength - timeStamp);
+	                }
+	                
+	                System.out.println(tdoa);
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                
+	                tdoaFrequency0.add(td);
+	            }            
+	        }
+	        System.out.println("----------------------------------------");
+	        System.out.println("----------------------------------------");
+	    }
+	
+	
+	
+	
+	
 	public void filter() {
 		//Filters and prunes entire raw navigation list
 		filterOnRSSI(-70, 0);
@@ -105,12 +198,14 @@ public class NavigationList {
 	
 	public void filterOnRSSI(double threshhold, int freq) {
 		
+		System.out.println("Navigation readings before RSSI filtering: " + navigationList.size());
 		for(int i = 0; i < navigationList.size(); i++) {
 			
 			if(navigationList.get(i).getRSSI(freq) < threshhold) {
 				navigationList.remove(i);
 			}	
-		}		
+		}
+		System.out.println("Navigation readings after RSSI filtering: " + navigationList.size());
 	}
 	
     public void filterUnique() {
@@ -136,15 +231,39 @@ public class NavigationList {
 		}		
 	}
 	
-	
 
-	
-	/*
-	 * 
-	 * Use stochastic gradient method to find solution given 
-	 * set of long/lat and tdoa 
-	 * 
-	 */
+    public void filterRandomlyUnique(int seed) {
+		
+    	Random random = new Random(seed);
+    	filteredNavigationList = new ArrayList<NavigationChannelList>();
+    	
+    	double prevLat = 0; double prevLong = 0;
+    	
+		prevLat = navigationList.get(0).getLatitude(); 
+		prevLong = navigationList.get(0).getLongitude();
+    	
+		filteredNavigationList.add(navigationList.get(0));
+		
+		int i = random.nextInt(10);
+		while(i < navigationList.size()) {
+			
+			if(prevLat != navigationList.get(i).getLatitude() || 
+					prevLong != navigationList.get(i).getLongitude()) {
+				
+				filteredNavigationList.add(navigationList.get(i));
+				prevLat = navigationList.get(i).getLatitude(); 
+				prevLong = navigationList.get(i).getLongitude();
+			}
+			i = i + random.nextInt(15);
+		}				
+	}    
+    
+    
+    
+    
+    
+
+
 	
 	public void estimateSourceSolution() throws Exception {
 		
@@ -180,7 +299,7 @@ public class NavigationList {
 					                 locs[1] - localOrigin[1], 
 					                 locs[2] - localOrigin[2]);
 						
-			rtdoas.add(tdoa.getTDOA());
+			rtdoas.add(tdoa.getTDOA()*C);
 			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
@@ -271,6 +390,11 @@ public class NavigationList {
         Random random = new Random(); 
         int num_anchors;
         
+        
+        final Kml kml0 = createCIRDocument(filteredNavigationList);
+		kml0.marshal(new File("FilteredCIRMarkers.kml"));
+        
+        
 		Anchors myAnchors = new Anchors();
 	    ArrayList<Double> tdoas = new ArrayList<Double>();
 	    ArrayList<Double> rtdoas = new ArrayList<Double>();
@@ -296,7 +420,7 @@ public class NavigationList {
 					                 locs[1] - localOrigin[1], 
 					                 locs[2] - localOrigin[2]);
 						
-			rtdoas.add(tdoa.getTDOA());
+			rtdoas.add(tdoa.getTDOA()*C);
 			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
@@ -346,13 +470,14 @@ public class NavigationList {
         
         for (int i = 0; i < num_anchors; i++) {
         	
-            ranges.w[i] = tdoas.get(i).doubleValue();
-            ranges_with_error.w[i] = ranges.w[i] + 5.0*random.nextGaussian();
+            ranges.w[i] = rtdoas.get(i).doubleValue();
+            ranges_with_error.w[i] = ranges.w[i];
+            
         }
 
         
-        int n_trial = 1000; 
-        double alpha = 0.0001; 
+        int n_trial = 3000; 
+        double alpha = 0.001; 
         double time_threshold = 50000;
         
      
@@ -369,21 +494,22 @@ public class NavigationList {
         		n_trial, alpha, time_threshold, source);
 
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
-        
-        for(int j = 0; j < gdescent_result.estimator_candidate.rows; j++) {
-        	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
-        }
-        
+                
         estimates.add(gdescent_result.estimator.w);
         error_est.add(gdescent_result.error.w[0]);
+        System.out.println("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0]);
+       
        } 
         
+       int est_size = estimates.size();
+       for(int i = 0; i < est_size - 250; i++) {
+        	
+        	estimates.remove(i);
+        	error_est.remove(i);        	
+       }
         
-        
-        final Kml kml = createSolutionDocument(estimates, error_est);
-        
-		kml.marshal(new File("SolutionMarkers.kml"));
-
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
        
 	}
 		
@@ -454,8 +580,7 @@ public class NavigationList {
         double[] backOrig = Coord.ecef_to_geo(source);
         System.out.println("Origin in lat/long");
         System.out.println(backOrig[0] + " " + backOrig[1] + " " + backOrig[2]);
-        
-        
+                
 	}
 	
 	
@@ -542,17 +667,11 @@ public class NavigationList {
         System.out.println("Ranges");
         ranges.printMatrix();
         
-//        System.out.println("Ranges with error");
-//        ranges_with_error.printMatrix();
-        
-
         
         System.out.println("\nEstimator");
         gdescent_result.estimator.printMatrix();
         
         System.out.println("\nTrue location: " + "-2762.18694234 -5068.57649907  2522.74598415");
-        
-        
         
 	}
 	
@@ -716,17 +835,11 @@ public class NavigationList {
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
 		
+		navigation.filterOnRSSI(-70.0, 0);
 		navigation.filterUnique();
-		navigation.computeTDOAfromNavigationList(0);
+		navigation.computeTDOAfromNavigationList00(0);
 		navigation.estimateAdaptiveSource();
-		
-		
-		
-		
-		//navigation.estimateSourceSolution();
-		
-		//navigation.testCaseData(new File("data/test_data.txt"));
-		//navigation.testSGDtdoa(new File("data/test_kurve_ueber_thun_2.txt"));
+	
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
@@ -776,15 +889,35 @@ public class NavigationList {
 		  double[] myEst = estimates.get(j);	
 			
 		  document.createAndAddPlacemark()
-          .withName("Error " + errors.get(j))
-          .withDescription("Estimate No:" + j)
+          //.withName("Error " + errors.get(j))
+          .withDescription("Estimate No" + j + ": " + errors.get(j))
           .withVisibility(true)
           .createAndSetPoint().addToCoordinates(myEst[1], myEst[0]);
+		  		  
 		}
+		
+		System.out.println("Number of features: " + document.getFeature().size());
+		
+		for (int i = 0; i < document.getFeature().size(); i++) {
+			
+			Style style = document.getFeature().get(i).createAndAddStyle();
+			
+			String hex = String.format("%02x%02x%02x", 0, 0, i);
+
+			style.createAndSetIconStyle().withColor("e5"+hex).withScale(1.0);
+			
+			//style.setIconStyle((new IconStyle()).withColor(hex).withHeading(1.0).withScale(1.0));
+			document.getFeature().get(i).getStyleSelector().add(style);
+			
+		}
+		
+		
+		
+		
         kml.setFeature(document);
 		
 		return kml; 		
 	}
 	
-	
+    
 }

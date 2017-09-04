@@ -1,0 +1,3936 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xal="urn:oasis:names:tc:ciq:xsdschema:xAL:2.0">
+    <Document>
+        <name>CIRMarkers.kml</name>
+        <Placemark>
+            <name>CIR measure at 10621655</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=430.606732309, NbPeaks=3
+FreqIndex=1, ABStime=430.999948348, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59934,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10668627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=477.26836432, NbPeaks=3
+FreqIndex=1, ABStime=477.661580301, NbPeaks=3
+FreqIndex=2, ABStime=478.054796263, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59935,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10687644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=496.208268251, NbPeaks=3
+FreqIndex=0, ABStime=496.601484212, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59936,46.75417</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10688642</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=497.256844453, NbPeaks=4
+FreqIndex=2, ABStime=497.650060357, NbPeaks=5
+FreqIndex=0, ABStime=497.97774032, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59938,46.75416</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10690623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=499.157388198, NbPeaks=2
+FreqIndex=1, ABStime=499.812748456, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59946,46.75413</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10691637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=500.205964383, NbPeaks=4
+FreqIndex=0, ABStime=500.599180057, NbPeaks=6
+FreqIndex=1, ABStime=500.992396326, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59951,46.75411</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10692636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=501.385612255, NbPeaks=4
+FreqIndex=0, ABStime=501.778828162, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59956,46.75411</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10694648</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=503.220620275, NbPeaks=6
+FreqIndex=1, ABStime=503.613836367, NbPeaks=3
+FreqIndex=2, ABStime=504.007052305, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59967,46.75413</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10695631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=504.334732104, NbPeaks=8
+FreqIndex=1, ABStime=505.055628477, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59971,46.75414</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10696645</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=505.383308366, NbPeaks=2
+FreqIndex=0, ABStime=505.842060274, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59975,46.75414</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10697628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=506.169740356, NbPeaks=3
+FreqIndex=2, ABStime=506.562956226, NbPeaks=3
+FreqIndex=0, ABStime=506.95617219, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59978,46.75414</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10699640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=508.397964289, NbPeaks=2
+FreqIndex=1, ABStime=508.791180397, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59986,46.7541</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10700638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=509.184396273, NbPeaks=4
+FreqIndex=0, ABStime=509.512076187, NbPeaks=3
+FreqIndex=1, ABStime=510.232972554, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59989,46.75406</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10701637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=510.62618848, NbPeaks=3
+FreqIndex=0, ABStime=510.953868327, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59991,46.75401</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10703665</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=512.133516297, NbPeaks=3
+FreqIndex=1, ABStime=512.52673238, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59995,46.75387</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10704632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=513.182092477, NbPeaks=2
+FreqIndex=0, ABStime=513.575308449, NbPeaks=3
+FreqIndex=1, ABStime=513.968524484, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59998,46.7538</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10705646</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=514.3617404, NbPeaks=3
+FreqIndex=0, ABStime=514.689420373, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60002,46.75371</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10707643</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=516.196748535, NbPeaks=4
+FreqIndex=1, ABStime=516.524428584, NbPeaks=3
+FreqIndex=2, ABStime=516.917644511, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.6001,46.75351</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10708641</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=517.310860201, NbPeaks=3
+FreqIndex=1, ABStime=517.70407651, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60014,46.75341</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10709640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=518.359436724, NbPeaks=3
+FreqIndex=0, ABStime=518.752652611, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60019,46.75329</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10710638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=519.145868684, NbPeaks=3
+FreqIndex=2, ABStime=519.539084654, NbPeaks=2
+FreqIndex=0, ABStime=519.932300545, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60024,46.75318</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10712635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=521.37409278, NbPeaks=4
+FreqIndex=1, ABStime=521.701772791, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60034,46.75294</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10713633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=522.160524742, NbPeaks=4
+FreqIndex=0, ABStime=522.488204653, NbPeaks=2
+FreqIndex=1, ABStime=522.881420766, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.6004,46.75281</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10714632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=523.602316957, NbPeaks=2
+FreqIndex=0, ABStime=523.929996884, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60046,46.75269</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10716644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=525.109644846, NbPeaks=4
+FreqIndex=1, ABStime=525.437324878, NbPeaks=4
+FreqIndex=2, ABStime=526.15822098, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60056,46.75246</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10717643</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=526.551436979, NbPeaks=3
+FreqIndex=1, ABStime=526.879117018, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60061,46.75235</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10719624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=528.058764926, NbPeaks=3
+FreqIndex=2, ABStime=528.714125124, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.6007,46.75214</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10720638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=529.10734102, NbPeaks=4
+FreqIndex=1, ABStime=529.500557135, NbPeaks=3
+FreqIndex=2, ABStime=529.893773094, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60074,46.75206</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10721636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=530.286988949, NbPeaks=4
+FreqIndex=1, ABStime=530.942349353, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60077,46.75199</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10722635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=531.335565214, NbPeaks=4
+FreqIndex=0, ABStime=531.728781111, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6008,46.75193</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10723633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=532.121997238, NbPeaks=1
+FreqIndex=2, ABStime=532.449677189, NbPeaks=4
+FreqIndex=0, ABStime=532.842892952, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60081,46.75188</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10725645</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=534.284685053, NbPeaks=5
+FreqIndex=1, ABStime=534.677901261, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60078,46.75181</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10726644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=535.07111717, NbPeaks=3
+FreqIndex=0, ABStime=535.464332913, NbPeaks=7
+FreqIndex=1, ABStime=535.857549115, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60074,46.75178</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10727642</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=536.512909311, NbPeaks=5
+FreqIndex=0, ABStime=536.906125112, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.60069,46.75175</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10729623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=538.020237051, NbPeaks=8
+FreqIndex=1, ABStime=538.741133414, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.60054,46.75171</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10730637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=539.068813133, NbPeaks=7
+FreqIndex=0, ABStime=539.462029208, NbPeaks=6
+FreqIndex=1, ABStime=539.855245238, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60044,46.75169</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10731636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=540.248461281, NbPeaks=5
+FreqIndex=0, ABStime=540.641677054, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.60031,46.75166</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10733633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=542.083469127, NbPeaks=8
+FreqIndex=1, ABStime=542.476685404, NbPeaks=3
+FreqIndex=2, ABStime=542.869901272, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60001,46.75158</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10734631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=543.263117017, NbPeaks=6
+FreqIndex=1, ABStime=543.918477491, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59983,46.75153</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10735645</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=544.311693346, NbPeaks=8
+FreqIndex=0, ABStime=544.639373297, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59965,46.75148</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10736628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=545.098125332, NbPeaks=4
+FreqIndex=2, ABStime=545.425805224, NbPeaks=7
+FreqIndex=0, ABStime=545.819021216, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59947,46.75143</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10738640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=547.260813266, NbPeaks=7
+FreqIndex=1, ABStime=547.65402931, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59908,46.75132</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10739639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=548.047245391, NbPeaks=8
+FreqIndex=0, ABStime=548.70260545, NbPeaks=7
+FreqIndex=1, ABStime=549.095821593, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59889,46.75127</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10740637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=549.489037569, NbPeaks=5
+FreqIndex=0, ABStime=549.882253419, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.5987,46.75121</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10742634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=550.996365268, NbPeaks=7
+FreqIndex=1, ABStime=551.389581404, NbPeaks=4
+FreqIndex=2, ABStime=552.044941443, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59832,46.7511</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10743632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=552.438157438, NbPeaks=8
+FreqIndex=1, ABStime=552.8313736, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59813,46.75104</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10744631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=553.224589514, NbPeaks=8
+FreqIndex=0, ABStime=553.87994961, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59795,46.75099</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10746628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=555.059597461, NbPeaks=8
+FreqIndex=1, ABStime=555.452813746, NbPeaks=4
+FreqIndex=2, ABStime=555.780493452, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59756,46.7509</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10747626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=556.23924569, NbPeaks=7
+FreqIndex=1, ABStime=556.566925503, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59736,46.75086</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10748624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=557.287821808, NbPeaks=5
+FreqIndex=0, ABStime=557.615501599, NbPeaks=8
+FreqIndex=1, ABStime=558.008717711, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59716,46.75083</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10749638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=558.401933474, NbPeaks=8
+FreqIndex=0, ABStime=559.057293747, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59695,46.75081</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10751635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=560.236941705, NbPeaks=8
+FreqIndex=1, ABStime=560.630157755, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59651,46.75077</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10752634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=561.023373633, NbPeaks=6
+FreqIndex=0, ABStime=561.351053592, NbPeaks=8
+FreqIndex=1, ABStime=562.071949929, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59629,46.75077</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10753648</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=562.399629707, NbPeaks=8
+FreqIndex=0, ABStime=562.858381764, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59606,46.75077</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10755629</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=563.972493645, NbPeaks=8
+FreqIndex=1, ABStime=564.365709713, NbPeaks=6
+FreqIndex=2, ABStime=565.021069787, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.5956,46.75081</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10756627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=565.414285787, NbPeaks=8
+FreqIndex=1, ABStime=565.807501807, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59538,46.75084</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10757626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=566.200717631, NbPeaks=8
+FreqIndex=0, ABStime=566.593933648, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59515,46.75089</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10758624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=567.249293896, NbPeaks=7
+FreqIndex=2, ABStime=567.642509797, NbPeaks=8
+FreqIndex=0, ABStime=568.035725779, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59493,46.75094</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10760621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=569.149837657, NbPeaks=7
+FreqIndex=1, ABStime=569.805197808, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.5945,46.75106</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10761635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=570.198413991, NbPeaks=8
+FreqIndex=0, ABStime=570.591629553, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59429,46.75114</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10762633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=570.984845715, NbPeaks=7
+FreqIndex=2, ABStime=571.378061688, NbPeaks=5
+FreqIndex=0, ABStime=572.033421858, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59409,46.75123</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10764630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=573.213069741, NbPeaks=8
+FreqIndex=1, ABStime=573.540749679, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59371,46.75143</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10765628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=573.999501579, NbPeaks=7
+FreqIndex=0, ABStime=574.589325854, NbPeaks=8
+FreqIndex=1, ABStime=574.982541735, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59354,46.75155</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10766627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=575.441293708, NbPeaks=8
+FreqIndex=0, ABStime=575.768973687, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59336,46.75167</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10768639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=576.948621542, NbPeaks=8
+FreqIndex=1, ABStime=577.603981737, NbPeaks=7
+FreqIndex=2, ABStime=577.997197519, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59305,46.75195</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10769638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=578.390413632, NbPeaks=8
+FreqIndex=1, ABStime=578.783629512, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59291,46.75209</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10770636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=579.176845431, NbPeaks=6
+FreqIndex=0, ABStime=579.5045254, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59279,46.75225</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10771619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=579.897741364, NbPeaks=7
+FreqIndex=2, ABStime=580.618637452, NbPeaks=5
+FreqIndex=0, ABStime=580.946317425, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59268,46.75241</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10773616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=582.388109435, NbPeaks=8
+FreqIndex=1, ABStime=582.519181305, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59251,46.75275</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10774645</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=583.174541297, NbPeaks=6
+FreqIndex=0, ABStime=583.567757407, NbPeaks=8
+FreqIndex=1, ABStime=583.960973328, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59245,46.75293</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10775628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=584.354189173, NbPeaks=4
+FreqIndex=0, ABStime=584.681869191, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59241,46.7531</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10777625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=586.123661136, NbPeaks=8
+FreqIndex=1, ABStime=586.516877178, NbPeaks=4
+FreqIndex=2, ABStime=586.910092967, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59238,46.75347</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10778655</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=587.565453167, NbPeaks=8
+FreqIndex=1, ABStime=588.024205192, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59239,46.75365</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10779622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=588.351885052, NbPeaks=8
+FreqIndex=0, ABStime=588.745100935, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59241,46.75383</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10781619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=590.186892946, NbPeaks=8
+FreqIndex=1, ABStime=590.580109064, NbPeaks=2
+FreqIndex=2, ABStime=590.97332491, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59251,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10782617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=591.366540805, NbPeaks=8
+FreqIndex=1, ABStime=591.694220828, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59258,46.75436</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10783647</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=592.087436782, NbPeaks=5
+FreqIndex=0, ABStime=592.742796844, NbPeaks=8
+FreqIndex=1, ABStime=592.873868661, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59264,46.75453</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10784614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=593.529228727, NbPeaks=2
+FreqIndex=0, ABStime=593.922444522, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59271,46.75471</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10786626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=595.495308466, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59284,46.75505</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10787625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=596.412812628, NbPeaks=8
+FreqIndex=0, ABStime=596.806028458, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.5929,46.75523</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10789621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=598.247820366, NbPeaks=5
+FreqIndex=1, ABStime=598.64103633, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59303,46.75558</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10790620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=599.034252228, NbPeaks=4
+FreqIndex=0, ABStime=599.689612323, NbPeaks=4
+FreqIndex=1, ABStime=600.082828445, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.5931,46.75575</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10791618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=600.476044345, NbPeaks=3
+FreqIndex=0, ABStime=600.803724209, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59317,46.75593</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10793615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=602.245516229, NbPeaks=3
+FreqIndex=1, ABStime=602.704268295, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59331,46.75627</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10794613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=603.03194811, NbPeaks=5
+FreqIndex=0, ABStime=603.425164038, NbPeaks=5
+FreqIndex=1, ABStime=604.080524301, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59338,46.75644</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10795612</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=604.473740107, NbPeaks=3
+FreqIndex=0, ABStime=604.866956074, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59346,46.75661</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10797609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=606.046603888, NbPeaks=4
+FreqIndex=1, ABStime=606.439819838, NbPeaks=2
+FreqIndex=2, ABStime=607.095179917, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59367,46.75694</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10798623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=607.488395953, NbPeaks=2
+FreqIndex=1, ABStime=607.881611859, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.5938,46.7571</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10799621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=608.274827765, NbPeaks=1
+FreqIndex=0, ABStime=608.60250772, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59394,46.75726</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10800620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=608.995723707, NbPeaks=1
+FreqIndex=2, ABStime=609.38893956, NbPeaks=4
+FreqIndex=0, ABStime=610.044299743, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59409,46.7574</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10802616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=611.223947536, NbPeaks=3
+FreqIndex=1, ABStime=611.617163524, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59444,46.75767</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10803615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=612.010379405, NbPeaks=3
+FreqIndex=0, ABStime=612.665739574, NbPeaks=2
+FreqIndex=1, ABStime=612.993419549, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59462,46.75781</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10804613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=613.452171425, NbPeaks=4
+FreqIndex=0, ABStime=613.779851394, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.5948,46.75794</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10806626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=615.287179437, NbPeaks=2
+FreqIndex=1, ABStime=615.614859359, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59516,46.75821</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10807624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=616.008075238, NbPeaks=5
+FreqIndex=0, ABStime=616.401291238, NbPeaks=3
+FreqIndex=1, ABStime=617.056651326, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59534,46.75835</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10808622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=617.449867277, NbPeaks=2
+FreqIndex=0, ABStime=617.843083226, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59552,46.75848</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10809605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=618.236299165, NbPeaks=2
+FreqIndex=2, ABStime=618.629515097, NbPeaks=2
+FreqIndex=0, ABStime=619.02273104, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.5957,46.75862</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10811618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=620.398987025, NbPeaks=3
+FreqIndex=1, ABStime=621.119883059, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59606,46.75889</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10812616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=621.513098896, NbPeaks=2
+FreqIndex=0, ABStime=621.840778842, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59624,46.75903</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10814613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=623.282570886, NbPeaks=2
+FreqIndex=1, ABStime=623.675786848, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59662,46.7593</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10815627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=624.069002701, NbPeaks=8
+FreqIndex=0, ABStime=624.46221869, NbPeaks=2
+FreqIndex=1, ABStime=624.855434676, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59681,46.75944</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10816625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=625.248650509, NbPeaks=3
+FreqIndex=0, ABStime=625.904010728, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59701,46.75957</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10818622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=627.345802481, NbPeaks=2
+FreqIndex=1, ABStime=627.739018355, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59742,46.75984</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10819620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=628.394378492, NbPeaks=2
+FreqIndex=0, ABStime=628.787594403, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59763,46.75997</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10821617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=630.229386322, NbPeaks=2
+FreqIndex=1, ABStime=630.884746409, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59809,46.76021</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10822616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=631.277962224, NbPeaks=2
+FreqIndex=0, ABStime=631.671178257, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59832,46.76032</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10824628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=633.112970062, NbPeaks=3
+FreqIndex=1, ABStime=633.506186044, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.5988,46.76051</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10825626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=634.161546068, NbPeaks=3
+FreqIndex=0, ABStime=634.554762098, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59906,46.76058</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10826625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=634.947977956, NbPeaks=3
+FreqIndex=2, ABStime=635.603338026, NbPeaks=2
+FreqIndex=0, ABStime=635.996554069, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59932,46.76064</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10828622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=637.110665852, NbPeaks=3
+FreqIndex=1, ABStime=637.766026081, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59986,46.76072</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10829620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=638.159241915, NbPeaks=2
+FreqIndex=0, ABStime=638.617993877, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60013,46.76075</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10831617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=640.321929936, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60069,46.76076</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10833614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=642.288009991, NbPeaks=3
+FreqIndex=1, ABStime=642.681225832, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60124,46.76073</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10834628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=643.402122023, NbPeaks=2
+FreqIndex=0, ABStime=643.795337979, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60152,46.76071</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10836625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=645.17159404, NbPeaks=1
+FreqIndex=1, ABStime=645.564809946, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60209,46.76065</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10837623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=646.220170102, NbPeaks=2
+FreqIndex=0, ABStime=646.678922168, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60237,46.76063</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10839620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=648.05517822, NbPeaks=3
+FreqIndex=1, ABStime=648.776074289, NbPeaks=3
+FreqIndex=2, ABStime=649.169290237, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60292,46.76057</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10840634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=649.496970333, NbPeaks=3
+FreqIndex=1, ABStime=649.890186144, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.6032,46.76054</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10841632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=650.545546338, NbPeaks=2
+FreqIndex=0, ABStime=651.004298383, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60347,46.7605</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10843613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=652.380554498, NbPeaks=2
+FreqIndex=1, ABStime=652.773770346, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60401,46.7604</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10844627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=653.494666543, NbPeaks=2
+FreqIndex=0, ABStime=653.822346588, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60428,46.76034</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10846609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=655.264138726, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6048,46.76019</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10847607</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=655.985034571, NbPeaks=3
+FreqIndex=2, ABStime=656.640394741, NbPeaks=3
+FreqIndex=0, ABStime=657.033610827, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60505,46.7601</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10849619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=658.409866946, NbPeaks=2
+FreqIndex=1, ABStime=658.868618766, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60554,46.75991</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10850618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=659.523978965, NbPeaks=2
+FreqIndex=0, ABStime=659.851659049, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60578,46.7598</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10852615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=661.358987121, NbPeaks=3
+FreqIndex=1, ABStime=662.014347234, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60621,46.75957</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10853613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=662.407563162, NbPeaks=3
+FreqIndex=0, ABStime=662.735243278, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6064,46.75943</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10855625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=664.242571307, NbPeaks=2
+FreqIndex=1, ABStime=664.89793142, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60671,46.75913</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10856624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=665.225611304, NbPeaks=4
+FreqIndex=0, ABStime=665.618827435, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60684,46.75897</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10857622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=666.339723562, NbPeaks=3
+FreqIndex=2, ABStime=666.732939449, NbPeaks=1
+FreqIndex=0, ABStime=667.126155563, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60698,46.7588</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10859619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=668.174731525, NbPeaks=3
+FreqIndex=0, ABStime=668.502411598, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60726,46.75847</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10860618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=669.223307679, NbPeaks=2
+FreqIndex=2, ABStime=669.550987582, NbPeaks=4
+FreqIndex=0, ABStime=670.009739662, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60741,46.7583</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10862614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=671.385995875, NbPeaks=1
+FreqIndex=1, ABStime=671.779212054, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60769,46.75797</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10863644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=672.172427717, NbPeaks=3
+FreqIndex=0, ABStime=672.565643851, NbPeaks=2
+FreqIndex=1, ABStime=672.958859755, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60782,46.7578</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10864627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=673.352075689, NbPeaks=4
+FreqIndex=0, ABStime=674.007436027, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60792,46.75762</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10866639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=675.187084022, NbPeaks=2
+FreqIndex=1, ABStime=675.580299908, NbPeaks=2
+FreqIndex=2, ABStime=675.907979872, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60809,46.75725</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10867622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=676.563340179, NbPeaks=3
+FreqIndex=1, ABStime=676.956556118, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60816,46.75707</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10868620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=677.349772065, NbPeaks=2
+FreqIndex=0, ABStime=677.74298813, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.6082,46.75688</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10870617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=679.18478031, NbPeaks=2
+FreqIndex=1, ABStime=679.577996237, NbPeaks=2
+FreqIndex=2, ABStime=679.97121215, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60825,46.7565</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10871647</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=680.298892318, NbPeaks=2
+FreqIndex=1, ABStime=680.757644251, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60824,46.75631</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10872645</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=681.413004404, NbPeaks=2
+FreqIndex=0, ABStime=681.806220497, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60823,46.75612</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10873628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=682.133900417, NbPeaks=3
+FreqIndex=2, ABStime=682.527116324, NbPeaks=2
+FreqIndex=0, ABStime=682.920332351, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60819,46.75593</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10875625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=684.099980387, NbPeaks=3
+FreqIndex=1, ABStime=684.755340476, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60807,46.75555</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10876608</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=685.148556406, NbPeaks=2
+FreqIndex=0, ABStime=685.541772492, NbPeaks=1
+FreqIndex=1, ABStime=686.13159668, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60799,46.75537</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10877622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=686.328204402, NbPeaks=3
+FreqIndex=0, ABStime=686.983564617, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60788,46.75519</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10879618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=688.097676428, NbPeaks=2
+FreqIndex=1, ABStime=688.753036765, NbPeaks=8
+FreqIndex=2, ABStime=688.884108203, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60763,46.75484</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10880648</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=689.539468742, NbPeaks=1
+FreqIndex=1, ABStime=689.932684653, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60749,46.75468</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10881615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=690.325900617, NbPeaks=2
+FreqIndex=0, ABStime=690.719116641, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60732,46.75453</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10882614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=691.046796599, NbPeaks=2
+FreqIndex=2, ABStime=691.76769281, NbPeaks=2
+FreqIndex=0, ABStime=692.160908806, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60714,46.7544</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10884626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=693.275020582, NbPeaks=3
+FreqIndex=1, ABStime=693.6682367, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60671,46.75417</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10885624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=694.061452588, NbPeaks=3
+FreqIndex=0, ABStime=694.454668604, NbPeaks=8
+FreqIndex=1, ABStime=695.110028775, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60648,46.75408</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10886654</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=695.503244677, NbPeaks=2
+FreqIndex=0, ABStime=695.896460615, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60624,46.75399</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10888620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=697.338252709, NbPeaks=3
+FreqIndex=1, ABStime=697.731468864, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60573,46.75384</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10889618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=698.124684734, NbPeaks=4
+FreqIndex=0, ABStime=698.452364623, NbPeaks=4
+FreqIndex=1, ABStime=698.911116714, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60547,46.75377</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10890616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=699.50094082, NbPeaks=2
+FreqIndex=0, ABStime=699.894156774, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60522,46.7537</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10892613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=701.073804621, NbPeaks=2
+FreqIndex=1, ABStime=701.467020669, NbPeaks=3
+FreqIndex=2, ABStime=702.122380855, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60471,46.75354</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10893627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=702.515596767, NbPeaks=1
+FreqIndex=1, ABStime=702.908812893, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60447,46.75345</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10894626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=703.302028739, NbPeaks=3
+FreqIndex=0, ABStime=703.629708737, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60423,46.75334</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10895640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=704.088460703, NbPeaks=4
+FreqIndex=2, ABStime=704.743820865, NbPeaks=4
+FreqIndex=0, ABStime=705.071500842, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.604,46.75323</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10897621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=706.251148799, NbPeaks=2
+FreqIndex=1, ABStime=706.644364855, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60355,46.75298</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10898619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=707.299724995, NbPeaks=5
+FreqIndex=0, ABStime=707.692940935, NbPeaks=3
+FreqIndex=1, ABStime=708.086156945, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60334,46.75285</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10899618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=708.479372888, NbPeaks=3
+FreqIndex=0, ABStime=708.872588895, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60312,46.75272</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10901646</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=710.248844995, NbPeaks=4
+FreqIndex=1, ABStime=710.707597038, NbPeaks=3
+FreqIndex=2, ABStime=711.100812962, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60269,46.75248</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10902644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=711.428492999, NbPeaks=1
+FreqIndex=1, ABStime=711.821708987, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60247,46.75236</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10903627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=712.214924901, NbPeaks=5
+FreqIndex=0, ABStime=712.87028505, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60225,46.75226</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10905624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=714.049933023, NbPeaks=4
+FreqIndex=1, ABStime=714.443149057, NbPeaks=3
+FreqIndex=2, ABStime=714.770828965, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60179,46.75208</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10906622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=715.491725134, NbPeaks=5
+FreqIndex=1, ABStime=715.884941192, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60158,46.75202</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10907621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=716.278157143, NbPeaks=4
+FreqIndex=0, ABStime=716.605837033, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.6014,46.75196</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10908635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=716.999053143, NbPeaks=2
+FreqIndex=2, ABStime=717.719949268, NbPeaks=3
+FreqIndex=0, ABStime=718.113165152, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60126,46.75192</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10910647</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=719.227277108, NbPeaks=5
+FreqIndex=1, ABStime=719.882637404, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60105,46.75186</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10911614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=720.013709001, NbPeaks=5
+FreqIndex=0, ABStime=720.669069158, NbPeaks=6
+FreqIndex=1, ABStime=721.062285198, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60096,46.75184</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10912628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=721.455501177, NbPeaks=3
+FreqIndex=0, ABStime=721.848717082, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60089,46.75183</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10914625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=723.224973141, NbPeaks=4
+FreqIndex=1, ABStime=723.618189194, NbPeaks=4
+FreqIndex=2, ABStime=724.01140505, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60076,46.75188</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10915623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=724.40462103, NbPeaks=3
+FreqIndex=1, ABStime=724.797837083, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60072,46.75193</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10916622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=725.191052954, NbPeaks=4
+FreqIndex=0, ABStime=725.846413089, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60069,46.752</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10918619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=727.026060987, NbPeaks=4
+FreqIndex=1, ABStime=727.681421135, NbPeaks=4
+FreqIndex=2, ABStime=727.746956859, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60065,46.75219</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10919617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=728.402316977, NbPeaks=3
+FreqIndex=1, ABStime=728.861068992, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60062,46.75232</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10920647</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=729.188748896, NbPeaks=4
+FreqIndex=0, ABStime=729.58196481, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60057,46.75245</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10921614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=729.975180831, NbPeaks=2
+FreqIndex=2, ABStime=730.630540967, NbPeaks=3
+FreqIndex=0, ABStime=731.023756831, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60052,46.75259</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10923642</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=732.137868681, NbPeaks=3
+FreqIndex=1, ABStime=732.531084683, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.6004,46.7529</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10924640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=733.251980748, NbPeaks=4
+FreqIndex=0, ABStime=733.579660644, NbPeaks=3
+FreqIndex=1, ABStime=733.972876749, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60033,46.75306</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10925639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=734.431628632, NbPeaks=4
+FreqIndex=0, ABStime=734.759308459, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60025,46.75324</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10927636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=736.201100519, NbPeaks=4
+FreqIndex=1, ABStime=736.594316538, NbPeaks=3
+FreqIndex=2, ABStime=736.987532427, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60009,46.7536</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10928618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=737.380748291, NbPeaks=3
+FreqIndex=1, ABStime=737.708428355, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60001,46.75379</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10929648</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=738.167180275, NbPeaks=3
+FreqIndex=0, ABStime=738.822540288, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59992,46.75398</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10930646</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=739.215756386, NbPeaks=1
+FreqIndex=2, ABStime=739.608972216, NbPeaks=3
+FreqIndex=0, ABStime=739.936652155, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59982,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10932643</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=741.378444149, NbPeaks=3
+FreqIndex=1, ABStime=741.771660192, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59961,46.75457</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10933626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=742.164876063, NbPeaks=2
+FreqIndex=0, ABStime=742.558091891, NbPeaks=3
+FreqIndex=1, ABStime=742.951308039, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.5995,46.75476</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10934640</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=743.606668089, NbPeaks=2
+FreqIndex=0, ABStime=743.999883929, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59939,46.75496</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10936621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=745.113995762, NbPeaks=4
+FreqIndex=1, ABStime=745.507211811, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59917,46.75534</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10937635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=746.162571911, NbPeaks=4
+FreqIndex=0, ABStime=746.555787776, NbPeaks=4
+FreqIndex=1, ABStime=746.949003857, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59905,46.75553</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10938634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=747.342219678, NbPeaks=5
+FreqIndex=0, ABStime=747.735435586, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59892,46.75572</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10940630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=749.177227673, NbPeaks=5
+FreqIndex=1, ABStime=749.570443697, NbPeaks=2
+FreqIndex=2, ABStime=749.963659537, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59864,46.7561</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10941644</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=750.356875483, NbPeaks=2
+FreqIndex=1, ABStime=750.684555462, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59849,46.75629</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10942627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=751.405451588, NbPeaks=1
+FreqIndex=0, ABStime=751.733131542, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59833,46.75648</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10943641</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=752.191883576, NbPeaks=2
+FreqIndex=2, ABStime=752.519563426, NbPeaks=4
+FreqIndex=0, ABStime=752.912779367, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59817,46.75666</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10945622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=754.354571472, NbPeaks=3
+FreqIndex=1, ABStime=754.747787364, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59785,46.75702</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10946636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=755.141003248, NbPeaks=4
+FreqIndex=0, ABStime=755.534219279, NbPeaks=3
+FreqIndex=1, ABStime=756.189579458, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59769,46.75718</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10947635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=756.582795343, NbPeaks=2
+FreqIndex=0, ABStime=756.976011422, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59753,46.75735</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10949632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=758.090123214, NbPeaks=3
+FreqIndex=1, ABStime=758.745483388, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59723,46.75765</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10950614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=759.138699256, NbPeaks=3
+FreqIndex=0, ABStime=759.531915311, NbPeaks=2
+FreqIndex=1, ABStime=759.925131226, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59709,46.7578</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10951613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=760.318347085, NbPeaks=4
+FreqIndex=0, ABStime=760.711563119, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59695,46.75793</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10953625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=762.153355179, NbPeaks=4
+FreqIndex=1, ABStime=762.48103517, NbPeaks=1
+FreqIndex=2, ABStime=762.874251101, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59665,46.75819</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10954624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=763.333003034, NbPeaks=2
+FreqIndex=1, ABStime=763.922827268, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.5965,46.75829</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10955700</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=764.316043152, NbPeaks=2
+FreqIndex=0, ABStime=764.709259091, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59636,46.75839</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10956636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=765.102475147, NbPeaks=2
+FreqIndex=2, ABStime=765.49569107, NbPeaks=2
+FreqIndex=0, ABStime=765.888907025, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59623,46.75846</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10958617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=767.330699141, NbPeaks=3
+FreqIndex=1, ABStime=767.723915128, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59602,46.75857</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10959616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=768.05159501, NbPeaks=4
+FreqIndex=0, ABStime=768.444811049, NbPeaks=2
+FreqIndex=1, ABStime=769.165707258, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59595,46.75861</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10960630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=769.558923133, NbPeaks=4
+FreqIndex=0, ABStime=769.886603186, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.5959,46.75864</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10962627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=771.066251076, NbPeaks=2
+FreqIndex=1, ABStime=771.721611276, NbPeaks=1
+FreqIndex=2, ABStime=772.114827147, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59584,46.75867</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10963625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=772.50804316, NbPeaks=2
+FreqIndex=1, ABStime=772.901259141, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59583,46.75868</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10964623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=773.228939057, NbPeaks=3
+FreqIndex=0, ABStime=773.622155063, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59582,46.75868</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10965622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=774.015370994, NbPeaks=1
+FreqIndex=2, ABStime=774.670731154, NbPeaks=2
+FreqIndex=0, ABStime=775.129483189, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59581,46.75868</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10967619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=776.243595065, NbPeaks=2
+FreqIndex=1, ABStime=776.636811085, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59573,46.75868</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10968633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=777.29217116, NbPeaks=3
+FreqIndex=0, ABStime=777.685387219, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59567,46.75866</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10969631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=778.078603173, NbPeaks=3
+FreqIndex=2, ABStime=778.471819076, NbPeaks=2
+FreqIndex=0, ABStime=778.799499128, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59561,46.75863</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10971628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=780.306827261, NbPeaks=2
+FreqIndex=1, ABStime=780.634507252, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59546,46.75852</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10972626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=781.027723168, NbPeaks=2
+FreqIndex=0, ABStime=781.420939176, NbPeaks=2
+FreqIndex=1, ABStime=782.141835484, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59537,46.75844</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10973625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=782.469515123, NbPeaks=4
+FreqIndex=0, ABStime=782.862731429, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59526,46.75836</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10975637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=784.042379325, NbPeaks=1
+FreqIndex=1, ABStime=784.370059295, NbPeaks=2
+FreqIndex=2, ABStime=785.090955469, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59502,46.75817</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10976635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=785.484171546, NbPeaks=2
+FreqIndex=1, ABStime=785.811851501, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59489,46.75807</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10977634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=786.270603416, NbPeaks=4
+FreqIndex=0, ABStime=786.598283489, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59474,46.75796</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10978617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=786.991499482, NbPeaks=2
+FreqIndex=2, ABStime=787.712395643, NbPeaks=2
+FreqIndex=0, ABStime=788.040075715, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59459,46.75784</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10980613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=789.219723651, NbPeaks=3
+FreqIndex=1, ABStime=789.875083886, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59427,46.75758</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10981627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=790.268299781, NbPeaks=6
+FreqIndex=0, ABStime=790.661515815, NbPeaks=2
+FreqIndex=1, ABStime=791.054731842, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.5941,46.75745</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10982626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=791.38241184, NbPeaks=5
+FreqIndex=0, ABStime=791.841163801, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59394,46.75732</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10984623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=793.217420034, NbPeaks=2
+FreqIndex=1, ABStime=793.610635972, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59368,46.75704</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10985621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=794.003851973, NbPeaks=3
+FreqIndex=0, ABStime=794.397067938, NbPeaks=3
+FreqIndex=1, ABStime=795.052428307, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59357,46.75689</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10986620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=795.445644046, NbPeaks=2
+FreqIndex=0, ABStime=795.838860178, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59347,46.75674</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10988616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=797.018508071, NbPeaks=5
+FreqIndex=1, ABStime=797.346188129, NbPeaks=3
+FreqIndex=2, ABStime=797.804940022, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59329,46.75641</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10989615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=798.460300306, NbPeaks=1
+FreqIndex=1, ABStime=798.853516362, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.59321,46.75624</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10990629</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=799.181196238, NbPeaks=8
+FreqIndex=0, ABStime=799.574412204, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59314,46.75606</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10992626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=801.278348426, NbPeaks=2
+FreqIndex=1, ABStime=801.671564484, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59301,46.75569</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10993624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=802.064780396, NbPeaks=8
+FreqIndex=0, ABStime=802.785676655, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59294,46.75551</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10994607</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=803.113356604, NbPeaks=3
+FreqIndex=2, ABStime=803.506572479, NbPeaks=8
+FreqIndex=0, ABStime=803.899788605, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59287,46.75531</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10996604</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=805.341580754, NbPeaks=7
+FreqIndex=1, ABStime=805.734796843, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59274,46.75492</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10997633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=806.128012831, NbPeaks=5
+FreqIndex=0, ABStime=806.455692634, NbPeaks=8
+FreqIndex=1, ABStime=806.914444853, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59267,46.75473</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 10998616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=807.504268967, NbPeaks=8
+FreqIndex=0, ABStime=807.897484916, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.5926,46.75455</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11000628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=809.339276884, NbPeaks=6
+FreqIndex=1, ABStime=809.732492962, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59248,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11001627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=810.387853103, NbPeaks=5
+FreqIndex=0, ABStime=810.781069082, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59242,46.75399</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11003624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=811.960717045, NbPeaks=8
+FreqIndex=1, ABStime=812.353933139, NbPeaks=4
+FreqIndex=2, ABStime=812.747149051, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59235,46.75361</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11004622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=813.402509307, NbPeaks=8
+FreqIndex=1, ABStime=813.795725233, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59235,46.75342</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11005636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=814.188941279, NbPeaks=4
+FreqIndex=0, ABStime=814.516621266, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59235,46.75323</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11006634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=814.975373341, NbPeaks=5
+FreqIndex=2, ABStime=815.630733365, NbPeaks=6
+FreqIndex=0, ABStime=816.023949464, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59238,46.75304</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11008631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=817.138061258, NbPeaks=8
+FreqIndex=1, ABStime=817.858957602, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.5925,46.75266</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11009630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=818.186637522, NbPeaks=6
+FreqIndex=0, ABStime=818.57985355, NbPeaks=8
+FreqIndex=1, ABStime=818.97306949, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59259,46.75248</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11010628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=819.366285407, NbPeaks=7
+FreqIndex=0, ABStime=819.693965522, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.5927,46.7523</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11012625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=821.135757634, NbPeaks=8
+FreqIndex=1, ABStime=821.594509618, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59298,46.75196</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11013623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=821.922189581, NbPeaks=7
+FreqIndex=0, ABStime=822.315405593, NbPeaks=8
+FreqIndex=1, ABStime=823.036301784, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59315,46.75179</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11014637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=823.429517765, NbPeaks=5
+FreqIndex=0, ABStime=823.757197751, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59333,46.75164</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11016619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=824.936845621, NbPeaks=8
+FreqIndex=1, ABStime=825.592205847, NbPeaks=4
+FreqIndex=2, ABStime=825.985421749, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59373,46.75138</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11017617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=826.378637784, NbPeaks=8
+FreqIndex=1, ABStime=826.771853694, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59394,46.75126</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11018615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=827.099533659, NbPeaks=8
+FreqIndex=0, ABStime=827.55828573, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59416,46.75116</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11019614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=827.885965651, NbPeaks=6
+FreqIndex=2, ABStime=828.541325793, NbPeaks=7
+FreqIndex=0, ABStime=828.934541783, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59439,46.75106</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11021626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=830.114189712, NbPeaks=8
+FreqIndex=1, ABStime=830.769549933, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59486,46.75091</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11022625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=831.1627655, NbPeaks=8
+FreqIndex=0, ABStime=831.555981832, NbPeaks=8
+FreqIndex=1, ABStime=831.949197733, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.5951,46.75086</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11023639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=832.27687791, NbPeaks=7
+FreqIndex=0, ABStime=832.997773921, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59533,46.75081</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11025620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=834.177421827, NbPeaks=7
+FreqIndex=1, ABStime=834.570637839, NbPeaks=6
+FreqIndex=2, ABStime=834.898317716, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.5958,46.75075</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11026634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=835.553677894, NbPeaks=8
+FreqIndex=1, ABStime=835.94689395, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59603,46.75073</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11027632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=836.340109703, NbPeaks=8
+FreqIndex=0, ABStime=836.733325762, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59625,46.75073</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11029629</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=837.847437549, NbPeaks=7
+FreqIndex=1, ABStime=838.306189752, NbPeaks=3
+FreqIndex=2, ABStime=838.961549721, NbPeaks=7
+</description>
+            <Point>
+                <coordinates>7.59667,46.75074</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11030627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=839.354765687, NbPeaks=7
+FreqIndex=1, ABStime=839.747981797, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59686,46.75076</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11031626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=840.075661649, NbPeaks=6
+FreqIndex=0, ABStime=840.468877534, NbPeaks=7
+FreqIndex=1, ABStime=841.18977394, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59704,46.75079</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11032624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=841.517453591, NbPeaks=8
+FreqIndex=0, ABStime=841.910669541, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59722,46.75081</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11034621</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=843.352461622, NbPeaks=8
+FreqIndex=1, ABStime=843.745677758, NbPeaks=5
+FreqIndex=2, ABStime=844.13889365, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59759,46.75089</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11035635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=844.532109538, NbPeaks=6
+FreqIndex=1, ABStime=844.859789576, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59779,46.75093</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11036633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=845.318541428, NbPeaks=8
+FreqIndex=0, ABStime=845.973901611, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59799,46.75097</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11038615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=847.088013441, NbPeaks=8
+FreqIndex=1, ABStime=847.481229512, NbPeaks=5
+FreqIndex=2, ABStime=847.874445471, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59842,46.75108</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11039629</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=848.267661288, NbPeaks=8
+FreqIndex=1, ABStime=848.660877477, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59865,46.75114</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11040627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=849.316237427, NbPeaks=8
+FreqIndex=0, ABStime=849.709453339, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59888,46.7512</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11041625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=850.03713338, NbPeaks=8
+FreqIndex=2, ABStime=850.495885334, NbPeaks=6
+FreqIndex=0, ABStime=851.151245408, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59911,46.75127</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11043638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=852.330893295, NbPeaks=7
+FreqIndex=1, ABStime=852.658573305, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59955,46.75139</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11044636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=853.051789214, NbPeaks=5
+FreqIndex=0, ABStime=853.445005169, NbPeaks=5
+FreqIndex=1, ABStime=853.838221288, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.59975,46.75145</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11045619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=854.493581108, NbPeaks=7
+FreqIndex=0, ABStime=854.88679723, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59995,46.75151</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11047616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=856.066445189, NbPeaks=3
+FreqIndex=1, ABStime=856.721805498, NbPeaks=4
+FreqIndex=2, ABStime=857.049485235, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60035,46.75163</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11048630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=857.442701198, NbPeaks=5
+FreqIndex=1, ABStime=857.835917106, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.60055,46.75169</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11049628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=858.49127746, NbPeaks=8
+FreqIndex=0, ABStime=858.88449328, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60074,46.75174</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11050627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=859.015565135, NbPeaks=3
+FreqIndex=2, ABStime=859.670925291, NbPeaks=4
+FreqIndex=0, ABStime=860.064141116, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60093,46.75179</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11052624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=861.505933319, NbPeaks=4
+FreqIndex=1, ABStime=861.899149227, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60125,46.75189</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11053622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=862.226829193, NbPeaks=2
+FreqIndex=0, ABStime=862.685581196, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60141,46.75193</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11054620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=863.013261067, NbPeaks=4
+FreqIndex=2, ABStime=863.406477071, NbPeaks=3
+FreqIndex=0, ABStime=863.799692926, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60158,46.75198</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11056633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=865.241485055, NbPeaks=5
+FreqIndex=1, ABStime=865.634701092, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60195,46.7521</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11057631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=866.02791698, NbPeaks=4
+FreqIndex=0, ABStime=866.355596965, NbPeaks=3
+FreqIndex=1, ABStime=867.076493166, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60215,46.75217</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11058614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=867.469709132, NbPeaks=2
+FreqIndex=0, ABStime=867.797389033, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60234,46.75225</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11060626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=869.304717124, NbPeaks=2
+FreqIndex=1, ABStime=869.697933085, NbPeaks=5
+FreqIndex=2, ABStime=870.091149044, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60272,46.75242</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11061609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=870.41882897, NbPeaks=2
+FreqIndex=1, ABStime=870.812044981, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.6029,46.75252</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11062623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=871.205260887, NbPeaks=3
+FreqIndex=0, ABStime=871.598476838, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60307,46.75262</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11063622</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=872.253837046, NbPeaks=5
+FreqIndex=2, ABStime=872.647052955, NbPeaks=4
+FreqIndex=0, ABStime=873.04026892, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60323,46.75271</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11065634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=874.48206104, NbPeaks=3
+FreqIndex=1, ABStime=874.875277044, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60359,46.75288</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11066617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=875.26849289, NbPeaks=6
+FreqIndex=0, ABStime=875.661708932, NbPeaks=3
+FreqIndex=1, ABStime=875.989388877, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60379,46.75294</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11067615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=876.382604778, NbPeaks=4
+FreqIndex=0, ABStime=877.03796496, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.604,46.75299</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11069628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=878.21761284, NbPeaks=3
+FreqIndex=1, ABStime=878.610828769, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60444,46.75311</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11070610</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=879.00404479, NbPeaks=2
+FreqIndex=0, ABStime=879.659404938, NbPeaks=3
+FreqIndex=1, ABStime=880.052620998, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60465,46.75317</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11071624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=880.380300866, NbPeaks=3
+FreqIndex=0, ABStime=880.839053103, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60486,46.75323</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11073606</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=881.953164763, NbPeaks=3
+FreqIndex=1, ABStime=882.608524961, NbPeaks=3
+FreqIndex=2, ABStime=883.001740869, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60524,46.75333</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11074620</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=883.394956752, NbPeaks=5
+FreqIndex=1, ABStime=883.788172897, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6054,46.75338</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11075634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=884.181388796, NbPeaks=2
+FreqIndex=0, ABStime=884.836748916, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60554,46.75341</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11076616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=885.229964976, NbPeaks=4
+FreqIndex=2, ABStime=885.623180925, NbPeaks=5
+FreqIndex=0, ABStime=886.016396849, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60568,46.75345</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11078613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=887.458188965, NbPeaks=1
+FreqIndex=1, ABStime=887.851404841, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60594,46.75354</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11079612</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=888.506764784, NbPeaks=4
+FreqIndex=0, ABStime=888.83444475, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60606,46.75358</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11081609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=890.341772823, NbPeaks=3
+FreqIndex=1, ABStime=890.669452992, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.6063,46.75366</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11082607</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=891.062668832, NbPeaks=2
+FreqIndex=0, ABStime=891.455884849, NbPeaks=3
+FreqIndex=1, ABStime=891.849100845, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60642,46.7537</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11083605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=892.504460955, NbPeaks=2
+FreqIndex=0, ABStime=892.635532738, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60654,46.75375</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11085618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=894.077324929, NbPeaks=2
+FreqIndex=1, ABStime=894.667149074, NbPeaks=3
+FreqIndex=2, ABStime=894.798220793, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60677,46.75383</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11086616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=895.256972761, NbPeaks=6
+FreqIndex=1, ABStime=895.846796705, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.60688,46.75387</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11087630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=896.240012879, NbPeaks=1
+FreqIndex=0, ABStime=896.633228878, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60699,46.75391</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11088613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=897.026444774, NbPeaks=8
+FreqIndex=2, ABStime=897.419660731, NbPeaks=2
+FreqIndex=0, ABStime=898.075020892, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60708,46.75396</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11090610</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=899.25466856, NbPeaks=3
+FreqIndex=1, ABStime=899.647884805, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60724,46.75409</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11091608</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=900.303244907, NbPeaks=3
+FreqIndex=0, ABStime=900.696460781, NbPeaks=2
+FreqIndex=1, ABStime=901.024140829, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6073,46.75417</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11092607</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=901.482892802, NbPeaks=3
+FreqIndex=0, ABStime=901.810573034, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60736,46.75425</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11094603</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=903.252364851, NbPeaks=3
+FreqIndex=1, ABStime=903.645580919, NbPeaks=4
+FreqIndex=2, ABStime=904.038796612, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60747,46.7544</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11095649</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=904.432012605, NbPeaks=3
+FreqIndex=1, ABStime=904.825228655, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60752,46.75446</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11096616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=905.480588791, NbPeaks=4
+FreqIndex=0, ABStime=905.873804845, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60756,46.75452</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11098597</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=907.053452657, NbPeaks=2
+FreqIndex=1, ABStime=907.381132629, NbPeaks=1
+FreqIndex=2, ABStime=908.03649278, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.6076,46.7546</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11099611</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=908.42970872, NbPeaks=2
+FreqIndex=1, ABStime=908.82292475, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60758,46.75463</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11100609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=909.216140583, NbPeaks=3
+FreqIndex=0, ABStime=909.609356663, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60754,46.75465</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11101623</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=910.264716792, NbPeaks=1
+FreqIndex=2, ABStime=910.395788514, NbPeaks=3
+FreqIndex=0, ABStime=911.051148574, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60748,46.75466</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11103605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=912.165260541, NbPeaks=1
+FreqIndex=1, ABStime=912.558476511, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60735,46.75462</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11104619</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=912.95169256, NbPeaks=5
+FreqIndex=0, ABStime=913.607052724, NbPeaks=2
+FreqIndex=1, ABStime=914.000268668, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60729,46.75458</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11105617</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=914.393484613, NbPeaks=3
+FreqIndex=0, ABStime=914.786700586, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60721,46.75452</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11107614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=916.228492667, NbPeaks=1
+FreqIndex=1, ABStime=916.621708672, NbPeaks=3
+FreqIndex=2, ABStime=916.949388459, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.607,46.75439</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11108628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=917.408140572, NbPeaks=4
+FreqIndex=1, ABStime=918.063500835, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60687,46.75431</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11109611</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=918.39118085, NbPeaks=3
+FreqIndex=0, ABStime=918.784396753, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60672,46.75424</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11110625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=919.177612756, NbPeaks=3
+FreqIndex=2, ABStime=919.570828707, NbPeaks=3
+FreqIndex=0, ABStime=919.964044597, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60655,46.75417</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11112606</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=921.405836699, NbPeaks=3
+FreqIndex=1, ABStime=921.799052753, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60618,46.75404</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11113604</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=922.192268657, NbPeaks=2
+FreqIndex=0, ABStime=922.585484595, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60598,46.75397</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11114618</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=922.978700604, NbPeaks=4
+FreqIndex=2, ABStime=923.371916562, NbPeaks=4
+FreqIndex=0, ABStime=923.961740751, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60576,46.75391</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11116631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=925.141388607, NbPeaks=2
+FreqIndex=1, ABStime=925.796748817, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6053,46.75377</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11117614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=926.18996481, NbPeaks=3
+FreqIndex=0, ABStime=926.583180733, NbPeaks=2
+FreqIndex=1, ABStime=926.976396737, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60507,46.7537</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11118612</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=927.369612655, NbPeaks=3
+FreqIndex=0, ABStime=927.76282868, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60483,46.75362</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11120609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=929.204620812, NbPeaks=3
+FreqIndex=1, ABStime=929.53230082, NbPeaks=4
+FreqIndex=2, ABStime=929.92551676, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60436,46.75344</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11121607</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=930.318732731, NbPeaks=3
+FreqIndex=1, ABStime=930.711948792, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60413,46.75333</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11122606</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=931.10516468, NbPeaks=4
+FreqIndex=0, ABStime=931.760524879, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.6039,46.75321</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11123635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=932.153740882, NbPeaks=2
+FreqIndex=2, ABStime=932.546956804, NbPeaks=5
+FreqIndex=0, ABStime=932.940172838, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60367,46.75308</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11125632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=934.381964981, NbPeaks=3
+FreqIndex=1, ABStime=934.775180994, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60322,46.7528</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11126615</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=935.168396922, NbPeaks=1
+FreqIndex=0, ABStime=935.496076924, NbPeaks=4
+FreqIndex=1, ABStime=935.889292853, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.603,46.75267</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11127613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=936.544653049, NbPeaks=4
+FreqIndex=0, ABStime=936.937868986, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60278,46.75254</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11129657</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=938.11751697, NbPeaks=3
+FreqIndex=1, ABStime=938.77287721, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60234,46.75231</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11130624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=939.166093146, NbPeaks=4
+FreqIndex=0, ABStime=939.559309035, NbPeaks=3
+FreqIndex=1, ABStime=939.952525174, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60213,46.75222</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11131654</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=940.345740987, NbPeaks=3
+FreqIndex=0, ABStime=940.738957053, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60192,46.75214</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11133635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=942.180749128, NbPeaks=3
+FreqIndex=1, ABStime=942.573965199, NbPeaks=3
+FreqIndex=2, ABStime=942.901645158, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60155,46.75202</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11134633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=943.294861026, NbPeaks=4
+FreqIndex=1, ABStime=943.950221365, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60139,46.75197</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11135632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=944.343437216, NbPeaks=5
+FreqIndex=0, ABStime=944.736653196, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60125,46.75193</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11136614</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=945.129869182, NbPeaks=4
+FreqIndex=2, ABStime=945.523085209, NbPeaks=4
+FreqIndex=0, ABStime=945.916301, NbPeaks=6
+</description>
+            <Point>
+                <coordinates>7.60114,46.75189</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11138627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=947.292557196, NbPeaks=3
+FreqIndex=1, ABStime=947.685773202, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60095,46.75185</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11139625</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=948.144525199, NbPeaks=4
+FreqIndex=0, ABStime=948.472205005, NbPeaks=6
+FreqIndex=1, ABStime=948.865421138, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60088,46.75184</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11140624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=949.258637068, NbPeaks=5
+FreqIndex=0, ABStime=949.913997168, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60081,46.75185</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11142605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=951.093644982, NbPeaks=2
+FreqIndex=1, ABStime=951.749005326, NbPeaks=2
+FreqIndex=2, ABStime=952.142221192, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.6007,46.75194</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11143635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=952.535437055, NbPeaks=4
+FreqIndex=1, ABStime=952.928653102, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60068,46.75201</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11144633</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=953.321869018, NbPeaks=5
+FreqIndex=0, ABStime=953.649548977, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60067,46.7521</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11145631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=954.042765034, NbPeaks=3
+FreqIndex=2, ABStime=954.698125086, NbPeaks=4
+FreqIndex=0, ABStime=955.091341001, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60065,46.7522</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11147628</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=956.27098882, NbPeaks=2
+FreqIndex=1, ABStime=956.664204862, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60058,46.75244</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11148627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=957.319564968, NbPeaks=3
+FreqIndex=0, ABStime=957.712780841, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.60053,46.75257</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11149609</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=958.105996902, NbPeaks=3
+FreqIndex=2, ABStime=958.43367708, NbPeaks=4
+FreqIndex=0, ABStime=958.892428722, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60048,46.7527</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11151606</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=960.268684771, NbPeaks=4
+FreqIndex=1, ABStime=960.661900796, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60037,46.75294</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11152636</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=961.055116665, NbPeaks=3
+FreqIndex=0, ABStime=961.448332553, NbPeaks=4
+FreqIndex=1, ABStime=962.103692864, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60032,46.75307</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11153634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=962.496908505, NbPeaks=5
+FreqIndex=0, ABStime=962.890124651, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.60027,46.75319</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11155631</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=964.004236483, NbPeaks=4
+FreqIndex=1, ABStime=964.462988524, NbPeaks=3
+FreqIndex=2, ABStime=965.118348627, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60017,46.75344</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11156629</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=965.446028499, NbPeaks=4
+FreqIndex=1, ABStime=965.839244543, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.60012,46.75355</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11157612</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=966.23246042, NbPeaks=4
+FreqIndex=0, ABStime=966.625676336, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.60007,46.75367</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11158626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=967.01889241, NbPeaks=2
+FreqIndex=2, ABStime=967.674252536, NbPeaks=2
+FreqIndex=0, ABStime=968.067468439, NbPeaks=1
+</description>
+            <Point>
+                <coordinates>7.60003,46.75378</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11160639</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=969.247116269, NbPeaks=3
+FreqIndex=1, ABStime=969.90247657, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59995,46.75397</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11161637</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=970.295692474, NbPeaks=2
+FreqIndex=0, ABStime=970.623372318, NbPeaks=2
+FreqIndex=1, ABStime=971.016588393, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59992,46.75404</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11162635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=971.409804265, NbPeaks=4
+FreqIndex=0, ABStime=971.803020223, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59988,46.7541</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11164632</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=973.244812256, NbPeaks=4
+FreqIndex=1, ABStime=973.638028375, NbPeaks=3
+FreqIndex=2, ABStime=974.031244281, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59978,46.75416</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11165646</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=974.42446015, NbPeaks=8
+FreqIndex=1, ABStime=975.07982049, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59971,46.75416</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11166613</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=975.47303642, NbPeaks=5
+FreqIndex=0, ABStime=975.866252337, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.59965,46.75415</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11168626</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=976.980364183, NbPeaks=7
+FreqIndex=1, ABStime=977.701260495, NbPeaks=4
+FreqIndex=2, ABStime=978.094476431, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59954,46.75412</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11169624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=978.422156338, NbPeaks=6
+FreqIndex=1, ABStime=978.815372422, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59949,46.75413</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11170638</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=979.208588303, NbPeaks=4
+FreqIndex=0, ABStime=979.601804189, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59945,46.75415</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11171605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=980.257164492, NbPeaks=3
+FreqIndex=2, ABStime=980.65038041, NbPeaks=3
+FreqIndex=0, ABStime=981.043596297, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59943,46.75418</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11173634</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=982.223244161, NbPeaks=3
+FreqIndex=1, ABStime=982.550924221, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59942,46.75425</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11174616</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=983.206284312, NbPeaks=4
+FreqIndex=0, ABStime=983.599499985, NbPeaks=5
+</description>
+            <Point>
+                <coordinates>7.5994,46.75428</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11175630</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=1, ABStime=983.992716358, NbPeaks=8
+FreqIndex=2, ABStime=984.385932229, NbPeaks=7
+FreqIndex=0, ABStime=984.779148079, NbPeaks=8
+</description>
+            <Point>
+                <coordinates>7.59936,46.75429</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11177627</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=986.220940272, NbPeaks=6
+FreqIndex=1, ABStime=986.614156357, NbPeaks=2
+FreqIndex=2, ABStime=987.007372304, NbPeaks=3
+</description>
+            <Point>
+                <coordinates>7.59929,46.75427</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11178610</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=987.400588205, NbPeaks=3
+FreqIndex=1, ABStime=987.728268221, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59927,46.75424</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11179624</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=2, ABStime=988.383628377, NbPeaks=2
+FreqIndex=0, ABStime=988.776844274, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59928,46.75422</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11181605</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=989.956492222, NbPeaks=3
+FreqIndex=1, ABStime=990.677388495, NbPeaks=3
+FreqIndex=2, ABStime=991.005068368, NbPeaks=4
+</description>
+            <Point>
+                <coordinates>7.59931,46.75419</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <name>CIR measure at 11182635</name>
+            <visibility>1</visibility>
+            <description>FreqIndex=0, ABStime=991.398284301, NbPeaks=3
+FreqIndex=1, ABStime=991.791500335, NbPeaks=2
+</description>
+            <Point>
+                <coordinates>7.59932,46.75418</coordinates>
+            </Point>
+        </Placemark>
+    </Document>
+</kml>
