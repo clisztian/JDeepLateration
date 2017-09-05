@@ -172,7 +172,16 @@ public class NavigationList {
 	    }
 	
 	
-	
+	public void computeFDOAfromNavigationList(int freq) throws Exception {
+		
+	       if(filteredNavigationList == null) {    
+	           throw new Exception("Apply filtering to navigation list first");   
+	       }
+	       
+	       for (NavigationChannelList navList : filteredNavigationList) {
+	            navList.setFrequencyError(freq);
+	       }	
+	}
 	
 	
 	public void filter() {
@@ -183,17 +192,15 @@ public class NavigationList {
 	
 	public void computeVelocity() {
 		
-		for(int i = 1; i < navigationList.size(); i++) {
+		for(int i = 1; i < filteredNavigationList.size(); i++) {
 		
-			NavigationChannelList navList = navigationList.get(i-1);
-			long prevTime = navList.getTimeStamp();
-			double prevLongitude = navList.getLongitude();
-			double prevLatitude = navList.getLatitude();
+			NavigationChannelList navList = filteredNavigationList.get(i-1);
+			long prevTime = navList.getDaySeconds();
+			double[] prevlocalECEF = navList.getLocalECEF();
 			
-			navigationList.get(i).computeVelocity(prevTime, prevLongitude, prevLatitude);
-			navigationList.get(i).printVelocity();
+			filteredNavigationList.get(i).computeVelocityECEF(prevTime, prevlocalECEF);
+			filteredNavigationList.get(i).printVelocity();
 		}
-		
 	}
 	
 	public void filterOnRSSI(double threshhold, int freq) {
@@ -837,8 +844,9 @@ public class NavigationList {
 		
 		navigation.filterOnRSSI(-70.0, 0);
 		navigation.filterUnique();
+		navigation.computeFDOAfromNavigationList(0);
 		navigation.computeTDOAfromNavigationList00(0);
-		navigation.estimateAdaptiveSource();
+		//navigation.estimateAdaptiveSource();
 	
 	}
 	

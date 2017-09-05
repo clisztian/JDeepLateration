@@ -43,6 +43,12 @@ public class Channel {
 	   
    }
    
+   public double getFirstPeakFrequencyError() throws Exception {
+	   if(peaks.size() == 0) {
+		   throw new Exception("No peaks recorded");
+	   }
+	   return peaks.get(0).getFrequencyError();
+   }
    
    public int getFreqIndex() {
 	   return FreqIndex; 

@@ -15,6 +15,7 @@ public class NavigationChannelList {
 	long TimeStamp;
 	int DaySeconds; 
 	
+	double fdoa; 
 	double longitude;
 	double latitude;	
 	double altitude = 0;
@@ -31,6 +32,18 @@ public class NavigationChannelList {
 		this.longitude = longitude;		
 		
 		ChannelList = new ArrayList<Channel>();		
+	}
+	
+	public void setFrequencyError(int freq) throws Exception {
+
+		for(Channel ch : ChannelList) {
+		
+			if(ch.getFreqIndex() == freq) {
+				fdoa =  ch.getFirstPeakFrequencyError();
+				break;
+			}
+		}
+		System.out.println(fdoa);
 	}
 	
 	public NavigationChannelList(long time, int seconds, double longitude, double lat, double alt) {
@@ -89,8 +102,24 @@ public class NavigationChannelList {
 		velocity[1] = latDiffmeters/timeDiff;		
 	}
 	
+	public void computeVelocityECEF(long prevTime, double[] prevPos) {
+		
+		velocity = new double[3];
+
+		double timeDiff = (double)(DaySeconds - prevTime);
+		
+		for(int i = 0; i < 3; i++) {
+			velocity[i] = (localECEF[i] - prevPos[i])/timeDiff;			
+		}	
+	}
+	
+	
 	public long getTimeStamp() {
 		return TimeStamp;
+	}
+	
+	public long getDaySeconds() {
+		return DaySeconds;
 	}
 	
 	public double[] getCoordinates() {
@@ -284,5 +313,9 @@ public class NavigationChannelList {
 	    local[2] -= localOrig[2];
 	    
 	    return local; 
+	}
+
+	public double[] getLocalECEF() {
+		return localECEF;
 	}
 }

@@ -19,4 +19,9 @@ public class PeakList {
 		this.frequency_error = freq_error;
 		
 	}
+	
+	public double getFrequencyError() {
+		return frequency_error;
+	}
+	
 }

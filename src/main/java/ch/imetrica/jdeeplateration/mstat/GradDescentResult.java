@@ -164,31 +164,38 @@ public class GradDescentResult {
 		double angle_i = num0.dot(v_i);
 		double angle_i1 = num1.dot(v_i1);
 		
-		diff = (f_0 /C)*(angle_i1 - angle_i); 
+		diff = (angle_i1 - angle_i); 
 
 		return diff; 
 	}
 	
 	
-	public static Matrix fdoaGradient0(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, Matrix estimator) throws Exception {
+	public static Matrix fdoaGradient0(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, 
+			Matrix estimator, double fdoa_i) throws Exception {
+			
+		double D_i = fdoaEstimate(s_i, s_i1, v_i, v_i1, estimator);
+		double fdoaDiff = D_i - fdoa_i; 
 		
-	
 		double diffi = Mstat.distance(estimator, s_i);
 		double diffi1 = Mstat.distance(estimator, s_i1);
 		
 		Matrix numi = sub(estimator, s_i);
 		Matrix numi1 = sub(estimator, s_i1);
 			
+		double angle_i = numi.dot(v_i);
+		double angle_i1 = numi1.dot(v_i1);
+		
 		Matrix gradient = new Matrix(1,3);
 		
 		for(int i = 0; i < estimator.cols; i++) {
 					
-			gradient.w[i] = v_i1.w[i]/diffi1 - numi1.w[i]*numi1.w[i]/Math.pow(diffi1, 3);			
-			gradient.w[i] = gradient.w[i] - v_i.w[i]/diffi - numi1.w[i]*numi1.w[i]/Math.pow(diffi, 3);			
+			double grad1 = v_i1.w[i]/diffi1 - angle_i1*numi1.w[i]/Math.pow(diffi1, 3);			
+			double grad0 = v_i.w[i]/diffi - angle_i*numi.w[i]/Math.pow(diffi, 3);					
+			gradient.w[i] = grad1 - grad0;
 		}
 		
-		return gradient; 
-			
+		gradient.scale(fdoaDiff);
+		return gradient; 			
 	}	
 	
 	
@@ -375,6 +382,103 @@ public class GradDescentResult {
             return gdescent_result;
             
 	}	
+	
+	
+	public static GradDescentResult GradDescentFDOA(Anchors anchors, Matrix v, Matrix fdoas_in,
+            Matrix bounds_in, int n_trial, double alpha, double time_threshold, double[] source) throws Exception {
+		
+	
+            Random random = new Random();
+            Matrix anchors_in = anchors.getAnchors(); 
+            
+            int n = anchors_in.rows;
+            int dim = anchors_in.cols;
+            
+            
+            GradDescentResult gdescent_result = new GradDescentResult(n_trial, dim);
+            
+            if (bounds_in == null) {
+                bounds_in = new Matrix(1, dim);
+            }
+            
+            Matrix bounds = new Matrix(2, dim);
+            
+            for(int i = 0; i < dim; i++) {
+                bounds.set(0, i, bounds_in.ColumnMin(i));
+                bounds.set(1, i, bounds_in.ColumnMax(i));
+            }
+
+    
+            Matrix sol = new Matrix(source, 1);            
+            Matrix ranges = new Matrix(n,1);           
+            ranges.w[0] = 0;
+            for (int j = 0; j < n-1; j++) {                    	
+            	ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
+            			                     v.getRow(j), v.getRow(j+1), sol);
+            }
+            
+            
+            for (int i = 0; i < n_trial; i++)
+            {
+            	Matrix estimator0 = new Matrix(dim);
+            	
+                for (int j = 0; j < dim; j++) {
+                    estimator0.w[j] = random.nextDouble() * (bounds.getW(1, j) - bounds.getW(0, j)) + bounds.getW(0, j);
+                }
+                Matrix estimator = new Matrix(estimator0.w);
+
+            
+                long startTime = System.nanoTime();
+                while (true)
+                {
+                	
+                	ranges.w[0] = 0;
+                    for (int j = 0; j < n-1; j++) {                    	
+                    	ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
+			                                         v.getRow(j), v.getRow(j+1), estimator);
+                    }
+                    
+                    double error = Mstat.norm(fdoas_in, ranges);
+                    Matrix delta = new Matrix(dim);
+                    
+                    for (int j = 0; j < n-1; j++) {
+                   	
+                    	Matrix grad = 
+                    			fdoaGradient0(anchors_in.getRow(j), anchors_in.getRow(j+1), 
+       			                     v.getRow(j), v.getRow(j+1), estimator, fdoas_in.w[j+1]);
+                    	
+                    	delta.add(grad);	
+                    }
+                    
+                    delta.scale(2.0*alpha);
+                    Matrix estimator_next = sub(estimator,delta);
+                    
+                    for (int j = 0; j < n-1; j++) {
+                        ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
+			                                         v.getRow(j), v.getRow(j+1), estimator);
+                    }
+                    
+                    double error_next = Mstat.norm(fdoas_in, ranges);
+
+                    if (error_next < error) {
+                        estimator = estimator_next;
+                    }
+                    else {
+                        gdescent_result.estimator_candidate.setRow(i, estimator);
+                        gdescent_result.error.w[i] = error;
+                        break;
+                    }
+                   
+                    if (System.nanoTime() - startTime > time_threshold) {
+                        gdescent_result.error.w[i] = Double.MAX_VALUE;
+                        break;
+                    }
+                }
+            }
+            return gdescent_result;
+            
+	}
+	
 	
 	
 	
