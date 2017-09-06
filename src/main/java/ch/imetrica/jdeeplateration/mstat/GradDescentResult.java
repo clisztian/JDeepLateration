@@ -384,12 +384,11 @@ public class GradDescentResult {
 	}	
 	
 	
-	public static GradDescentResult GradDescentFDOA(Anchors anchors, Matrix v, Matrix fdoas_in,
+	public static GradDescentResult GradDescentFDOA(Matrix anchors_in, Matrix v, Matrix fdoas_in,
             Matrix bounds_in, int n_trial, double alpha, double time_threshold, double[] source) throws Exception {
 		
 	
             Random random = new Random();
-            Matrix anchors_in = anchors.getAnchors(); 
             
             int n = anchors_in.rows;
             int dim = anchors_in.cols;
@@ -416,6 +415,8 @@ public class GradDescentResult {
             	ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
             			                     v.getRow(j), v.getRow(j+1), sol);
             }
+            
+            System.out.println("Error at source: " + Mstat.norm(fdoas_in, ranges));
             
             
             for (int i = 0; i < n_trial; i++)
@@ -526,13 +527,36 @@ public class GradDescentResult {
     }	
 	
 	
+	public static GradDescentResult mlatFdoa(Matrix anchors_in, Matrix v, Matrix fdoas_in, Matrix bounds_in, 
+			int n_trial, double alpha, double time_threshold, double[] source) throws Exception {
+		
+        GradDescentResult gdescent_result = GradDescentFDOA(anchors_in, v, fdoas_in, bounds_in, 
+        		n_trial, alpha, time_threshold, source);
+
+        int idx = -1;
+        double error = Double.MAX_VALUE;
+        
+        for (int i = 0; i < gdescent_result.error.size; i++)
+        {
+            if (gdescent_result.error.w[i] < error)
+            {
+                idx = i;
+                error = gdescent_result.error.w[i];
+            }
+        }
+        gdescent_result.error.w[0] = error; 
+        gdescent_result.estimator = gdescent_result.estimator_candidate.getRow(idx);
+        return gdescent_result;
+    }
+	
+	
 	private static Matrix sub(Matrix estimator2, Matrix delta) throws Exception {
 		
 		if (estimator2.size != delta.size) {
 			throw new Exception("matrix dimension mismatch");
 		}
 		
-		Matrix diff = new Matrix(delta.size);
+		Matrix diff = new Matrix(delta.rows, delta.cols);
 		for(int i = 0; i < delta.size; i++) {
 			diff.w[i] = estimator2.w[i] - delta.w[i];
 		}

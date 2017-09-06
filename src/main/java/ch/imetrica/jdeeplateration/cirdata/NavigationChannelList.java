@@ -69,8 +69,6 @@ public class NavigationChannelList {
 			double loc_longitude = (Math.PI/180.0)*longitude;
 		    double loc_latitude =  (Math.PI/180.0)*latitude;
 		           
-		    //double N = semiMajorAxis/Math.sqrt(1.0 - firstEccentricitySquared*Math.pow(Math.sin(loc_latitude),2));
-		    
 		    double Cn = 1.0/Math.sqrt(Math.cos(loc_latitude)*Math.cos(loc_latitude) +
 		    		          f1*Math.sin(loc_latitude)*Math.sin(loc_latitude));      
 		    		
@@ -317,5 +315,21 @@ public class NavigationChannelList {
 
 	public double[] getLocalECEF() {
 		return localECEF;
+	}
+
+	public double[] getVelocity() throws Exception {
+		
+		if(velocity == null) {
+			throw new Exception("velocity not yet defined");
+		}
+		return velocity;
+	}
+	
+	public double getFDOA() {
+		return fdoa;
+	}
+	
+	public void setVelocityToZero() {
+		velocity = new double[3];
 	}
 }

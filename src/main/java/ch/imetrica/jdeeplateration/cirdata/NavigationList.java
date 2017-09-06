@@ -43,9 +43,9 @@ public class NavigationList {
 	
 	ArrayList<NavigationChannelList> navigationList = null;
 	ArrayList<NavigationChannelList> filteredNavigationList = null;
-	
 	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
 	
+	Matrix bounds_in;
 	
 	public NavigationList() {
 		navigationList = new ArrayList<NavigationChannelList>();
@@ -192,6 +192,7 @@ public class NavigationList {
 	
 	public void computeVelocity() {
 		
+		filteredNavigationList.get(0).setVelocityToZero();
 		for(int i = 1; i < filteredNavigationList.size(); i++) {
 		
 			NavigationChannelList navList = filteredNavigationList.get(i-1);
@@ -266,7 +267,127 @@ public class NavigationList {
 	}    
     
     
+    public void computeVelocityECEF() {
+    	
+    	localOrigin = NavigationChannelList.GeodeticToECEF(filteredNavigationList.get(0).getLatitude(),
+    			                               filteredNavigationList.get(0).getLongitude(), 0);  	
+    	for(NavigationChannelList nav : filteredNavigationList) {    		
+    		nav.GeodeticToLocal(localOrigin);
+    	}
+    	computeVelocity();   	
+    }
     
+    
+    public void createEstimationBounds() throws Exception {
+    	
+	   if(filteredNavigationList == null) {    
+	           throw new Exception("Apply filtering to navigation list first");   
+	   }
+	   
+	   double minLong = 400;
+	   double maxLong = -1.0;
+	   double minLat = 100.0;
+	   double maxLat = -100.0;
+	   
+	   
+	   localOrigin = NavigationChannelList.GeodeticToECEF(filteredNavigationList.get(0).getLatitude(), 
+			   filteredNavigationList.get(0).getLongitude(), 0);
+	   
+	   for(NavigationChannelList nav : filteredNavigationList) {  
+		   
+		   double lat = nav.getLatitude();
+		   double longitude = nav.getLongitude();
+		   
+		   if(lat > maxLat) {maxLat = lat;}
+		   else if(lat < minLat) {minLat = lat;}
+		
+		   if(longitude > maxLong) {maxLong = longitude;}
+		   else if(longitude < minLong) {minLong = longitude;}		   
+	   }
+	   
+	   double[] boundNW = new double[3];
+	   double[] boundNE = new double[3];
+	   double[] boundSW = new double[3];
+	   double[] boundSE = new double[3];
+	   
+	   boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
+	   boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
+	   boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
+	   boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
+	   
+       double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
+       double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
+       double[] v2 = NavigationChannelList.GeodeticToECEF(boundSW[0], boundSW[1], 0, localOrigin);
+       double[] v3 = NavigationChannelList.GeodeticToECEF(boundSE[0], boundSE[1], 0, localOrigin);
+
+       System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
+       System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
+       System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
+       System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
+       
+       bounds_in = new Matrix(4,3);
+       
+       bounds_in.setRow(0, v0);
+       bounds_in.setRow(1, v1);
+       bounds_in.setRow(2, v2);
+       bounds_in.setRow(3, v3); 	   
+    	
+    }
+    
+    
+    public void estimateSourceSolutionFDOA() throws Exception {
+    	
+    	
+    	Anchors myAnchors = new Anchors();
+	    ArrayList<Double> fdoas = new ArrayList<Double>();
+    	
+	    for(int i = 0; i < filteredNavigationList.size(); i++) {
+	    
+	      NavigationChannelList nav = filteredNavigationList.get(i);	
+	      
+	      double[] s = nav.getLocalECEF();
+	      double[] v = nav.getVelocity();
+	      
+	      myAnchors.setCoordinatesAndVelocity(s, v);
+	      fdoas.add(nav.getFDOA());
+	    
+	    }
+	    
+	    myAnchors.commitCoordinatesAndVelocity();
+	    int num_anchors = myAnchors.getNumberOfAnchors();
+	    
+        Matrix ranges = new Matrix(num_anchors);        
+        for (int i = 0; i < num_anchors; i++) {
+        	
+            ranges.w[i] = fdoas.get(i).doubleValue();
+        }
+
+        
+        int n_trial = 500; 
+        double alpha = 0.0001; 
+        double time_threshold = 50000;
+        
+        
+       
+        double[] source = NavigationChannelList.GeodeticToECEF(46.762606, 7.600533, 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+        
+        GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(myAnchors.getAnchors(), 
+        		myAnchors.getVelocities(), ranges, bounds_in, n_trial, alpha, time_threshold, source);
+	    
+        System.out.println("\nEstimator");
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+        gdescent_result.estimator.printMatrix();
+        
+        gdescent_result.error.printMatrix();
+        
+        for(int j = 0; j < gdescent_result.estimator_candidate.rows; j++) {
+        	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
+        }
+    	
+    }
     
     
 
@@ -286,8 +407,6 @@ public class NavigationList {
 	    		tdoaFrequency0.get(0).getLongitude(), 0);
 	    
 	    
-	    //46.762879860943464, 7.600527275945854
-	    //46.76260816815393, 7.600615584019703
 		double[] source = NavigationChannelList.GeodeticToECEF(46.762606, 7.600533, 0);
 		source[0] -= localOrigin[0];
 		source[1] -= localOrigin[1];
@@ -346,31 +465,10 @@ public class NavigationList {
         double alpha = 0.0001; 
         double time_threshold = 50000;
         
-        double[] v0 = NavigationChannelList.GeodeticToECEF(46.767589, 7.612986, 0, localOrigin);
-        double[] v1 = NavigationChannelList.GeodeticToECEF(46.766639, 7.584472, 0, localOrigin);
-        double[] v2 = NavigationChannelList.GeodeticToECEF(46.748508, 7.591075, 0, localOrigin);
-        double[] v3 = NavigationChannelList.GeodeticToECEF(46.749567, 7.613531, 0, localOrigin);
-
-        
-        System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
-        System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
-        System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
-        System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
-        
-        Matrix bounds_in = new Matrix(4,3);
-        
-        bounds_in.setRow(0, v0);
-        bounds_in.setRow(1, v1);
-        bounds_in.setRow(2, v2);
-        bounds_in.setRow(3, v3);        
-        
-
         
         GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(myAnchors, ranges_with_error, bounds_in, 
         		n_trial, alpha, time_threshold, source);
 
-//        System.out.println("Anchors");
-//        myAnchors.printMatrix();
         
         System.out.println("\nEstimator");
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
@@ -380,13 +478,19 @@ public class NavigationList {
         	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
         }
         
-//        final Kml kml = createSolutionDocument(gdescent_result.estimator_candidate, 
-//        		                               gdescent_result.error, 
-//        		                               gdescent_result.estimator);
-//        
-//		kml.marshal(new File("SolutionMarkers.kml"));
-
-   
+        
+        ArrayList<double[]> estimates = new ArrayList<double[]>();
+        ArrayList<Double> error_est = new ArrayList<Double>();
+        
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+        
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        
+        
+        final Kml kml = createSolutionDocument(estimates, error_est);
+        kml.marshal(new File("SolutionMarkers.kml"));
+        
 	}
 	
 	
@@ -452,24 +556,6 @@ public class NavigationList {
 			System.out.println(rtdoas.get(j) + " " + tdoas.get(j));
 			
 		}
-		
-        double[] v0 = NavigationChannelList.GeodeticToECEF(46.767589, 7.612986, 0, localOrigin);
-        double[] v1 = NavigationChannelList.GeodeticToECEF(46.766639, 7.584472, 0, localOrigin);
-        double[] v2 = NavigationChannelList.GeodeticToECEF(46.748508, 7.591075, 0, localOrigin);
-        double[] v3 = NavigationChannelList.GeodeticToECEF(46.749567, 7.613531, 0, localOrigin);
-
-        
-        System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
-        System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
-        System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
-        System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
-        
-        Matrix bounds_in = new Matrix(4,3);
-        
-        bounds_in.setRow(0, v0);
-        bounds_in.setRow(1, v1);
-        bounds_in.setRow(2, v2);
-        bounds_in.setRow(3, v3);   
 		
 		
         Matrix ranges = new Matrix(num_anchors);
@@ -803,7 +889,9 @@ public class NavigationList {
             	  }
             	  else {
             		  
-            		  navigationList.add(channelList);
+            		  if(channelList.ChannelList.size() > 0) {
+            		   navigationList.add(channelList);
+            		  }
             		  channelValue = false;
             	  }
         	  }    
@@ -837,7 +925,7 @@ public class NavigationList {
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		navigation.createNavigationLog(new File("data/ChannelLog.log"));
+		navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
 				
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
@@ -846,7 +934,11 @@ public class NavigationList {
 		navigation.filterUnique();
 		navigation.computeFDOAfromNavigationList(0);
 		navigation.computeTDOAfromNavigationList00(0);
-		//navigation.estimateAdaptiveSource();
+		navigation.createEstimationBounds();
+		navigation.computeVelocityECEF();
+		//navigation.estimateSourceSolutionFDOA();
+		navigation.estimateSourceSolution();
+
 	
 	}
 	
@@ -918,9 +1010,6 @@ public class NavigationList {
 			document.getFeature().get(i).getStyleSelector().add(style);
 			
 		}
-		
-		
-		
 		
         kml.setFeature(document);
 		
