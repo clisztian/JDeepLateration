@@ -381,12 +381,26 @@ public class NavigationList {
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
         gdescent_result.estimator.printMatrix();
         
-        gdescent_result.error.printMatrix();
+        //gdescent_result.error.printMatrix();
         
         for(int j = 0; j < gdescent_result.estimator_candidate.rows; j++) {
         	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
         }
     	
+        
+        ArrayList<double[]> estimates = new ArrayList<double[]>();
+        ArrayList<Double> error_est = new ArrayList<Double>();
+        
+        //gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+        
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        
+        
+        final Kml kml = createSolutionDocument(estimates, error_est);
+        kml.marshal(new File("SolutionMarkers.kml"));
+        
+        
     }
     
     
@@ -398,6 +412,9 @@ public class NavigationList {
 		
         Random random = new Random(); 
         int num_anchors;
+        
+        final Kml kml0 = createCIRDocument(filteredNavigationList);
+		kml0.marshal(new File("FilteredCIRMarkers.kml"));
         
 		Anchors myAnchors = new Anchors();
 	    ArrayList<Double> tdoas = new ArrayList<Double>();
@@ -926,6 +943,7 @@ public class NavigationList {
 		
 		NavigationList navigation = new NavigationList();
 		navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		//navigation.createNavigationLog(new File("data/ChannelLog.log"));
 				
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
@@ -936,8 +954,9 @@ public class NavigationList {
 		navigation.computeTDOAfromNavigationList00(0);
 		navigation.createEstimationBounds();
 		navigation.computeVelocityECEF();
-		//navigation.estimateSourceSolutionFDOA();
-		navigation.estimateSourceSolution();
+		navigation.estimateSourceSolutionFDOA();
+		//navigation.estimateSourceSolution();
+		//navigation.estimateAdaptiveSource();
 
 	
 	}

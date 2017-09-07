@@ -439,14 +439,15 @@ public class GradDescentResult {
 			                                         v.getRow(j), v.getRow(j+1), estimator);
                     }
                     
-                    double error = Mstat.norm(fdoas_in, ranges);
+                    double error = Mstat.fdoanorm(fdoas_in, ranges);
                     Matrix delta = new Matrix(dim);
                     
                     for (int j = 0; j < n-1; j++) {
                    	
                     	Matrix grad = 
                     			fdoaGradient0(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-       			                     v.getRow(j), v.getRow(j+1), estimator, fdoas_in.w[j+1]);
+       			                     v.getRow(j), v.getRow(j+1), estimator, 
+       			                     fdoas_in.w[j+1] - fdoas_in.w[j]);
                     	
                     	delta.add(grad);	
                     }
@@ -459,7 +460,7 @@ public class GradDescentResult {
 			                                         v.getRow(j), v.getRow(j+1), estimator);
                     }
                     
-                    double error_next = Mstat.norm(fdoas_in, ranges);
+                    double error_next = Mstat.fdoanorm(fdoas_in, ranges);
 
                     if (error_next < error) {
                         estimator = estimator_next;
