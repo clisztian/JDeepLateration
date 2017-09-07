@@ -185,7 +185,6 @@ public class NavigationList {
 	            
 	            if(navList.getFDOA() == 0 && !navList.isStationary(.5)) {
 	            	filteredNavigationList.remove(i);
-	            	System.out.println("Getting rid of " + i + " anchor");
 	            }
 	       }	
 	}
@@ -358,6 +357,7 @@ public class NavigationList {
 	      myAnchors.setCoordinatesAndVelocity(s, v);
 	      fdoas.add(nav.getFDOA());
 	    
+	      System.out.println(nav.getFDOA());
 	    }
 	    
 	    myAnchors.commitCoordinatesAndVelocity();

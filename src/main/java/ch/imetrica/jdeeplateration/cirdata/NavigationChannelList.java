@@ -43,7 +43,6 @@ public class NavigationChannelList {
 				break;
 			}
 		}
-		System.out.println(fdoa);
 	}
 	
 	public NavigationChannelList(long time, int seconds, double longitude, double lat, double alt) {
