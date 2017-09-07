@@ -178,8 +178,15 @@ public class NavigationList {
 	           throw new Exception("Apply filtering to navigation list first");   
 	       }
 	       
-	       for (NavigationChannelList navList : filteredNavigationList) {
-	            navList.setFrequencyError(freq);
+	       for (int i = 0; i < filteredNavigationList.size(); i++) {
+	            
+	    	    NavigationChannelList navList = filteredNavigationList.get(i);
+	    	    navList.setFrequencyError(freq);
+	            
+	            if(navList.getFDOA() == 0 && !navList.isStationary(.5)) {
+	            	filteredNavigationList.remove(i);
+	            	System.out.println("Getting rid of " + i + " anchor");
+	            }
 	       }	
 	}
 	
@@ -424,7 +431,7 @@ public class NavigationList {
 	    		tdoaFrequency0.get(0).getLongitude(), 0);
 	    
 	    
-		double[] source = NavigationChannelList.GeodeticToECEF(46.762606, 7.600533, 0);
+		double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
 		source[0] -= localOrigin[0];
 		source[1] -= localOrigin[1];
 		source[2] -= localOrigin[2];
@@ -490,6 +497,8 @@ public class NavigationList {
         System.out.println("\nEstimator");
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
         gdescent_result.estimator.printMatrix();
+        
+        gdescent_result.error.printMatrix();
         
         for(int j = 0; j < gdescent_result.estimator_candidate.rows; j++) {
         	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
@@ -950,10 +959,10 @@ public class NavigationList {
 		
 		navigation.filterOnRSSI(-70.0, 0);
 		navigation.filterUnique();
+		navigation.computeVelocityECEF();
 		navigation.computeFDOAfromNavigationList(0);
 		navigation.computeTDOAfromNavigationList00(0);
-		navigation.createEstimationBounds();
-		navigation.computeVelocityECEF();
+		navigation.createEstimationBounds();		
 		navigation.estimateSourceSolutionFDOA();
 		//navigation.estimateSourceSolution();
 		//navigation.estimateAdaptiveSource();

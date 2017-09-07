@@ -332,4 +332,20 @@ public class NavigationChannelList {
 	public void setVelocityToZero() {
 		velocity = new double[3];
 	}
+
+	public boolean isStationary(double thresh) {
+		
+		boolean it_is = true;		
+		it_is = (closeToZero(velocity[0], thresh) && closeToZero(velocity[1], thresh));		
+		return it_is;
+	}
+	
+	
+	public boolean closeToZero(double val, double thresh) {
+		
+		if(Math.abs(val) < thresh) {return true;}
+		else {return false;}
+	}
+	
+	
 }
