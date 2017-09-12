@@ -149,6 +149,7 @@ public class Anchors {
 		anchors.printMatrix();		
 	}
 	
+	
 	public double getColumnMin(int i) throws Exception {
 		return anchors.ColumnMin(i);
 	}

@@ -4,23 +4,23 @@
         <name>SolutionMarkers.kml</name>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No0: 0.08850075036207357</description>
+            <description>Estimate No0: 0.0378677675282604</description>
             <Style>
                 <IconStyle>
-                    <color>e5000000</color>
+                    <color>e50000ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5000000</color>
+                    <color>e50000ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.637727330929965,47.18907738013107</coordinates>
+                <coordinates>7.646004014686025,47.19186548586042</coordinates>
             </Point>
         </Placemark>
     </Document>
