@@ -4,3212 +4,1194 @@
         <name>CIRMarkers.kml</name>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4475.856268194, NbPeaks=1
+            <description>FreqIndex=0, ABStime=430.606732309, NbPeaks=3
+FreqIndex=1, ABStime=430.999948348, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65564,47.18515</coordinates>
+                <coordinates>7.59934,46.75418</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4508.362124253, NbPeaks=1
+            <description>FreqIndex=0, ABStime=478.448012212, NbPeaks=2
+FreqIndex=1, ABStime=478.841228201, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65565,47.18516</coordinates>
+                <coordinates>7.59935,46.75418</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4510.131596314, NbPeaks=2
+            <description>FreqIndex=1, ABStime=497.256844453, NbPeaks=4
+FreqIndex=2, ABStime=497.650060357, NbPeaks=5
+FreqIndex=0, ABStime=497.97774032, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.65566,47.18519</coordinates>
+                <coordinates>7.59938,46.75416</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4511.573388296, NbPeaks=2
+            <description>FreqIndex=0, ABStime=503.220620275, NbPeaks=6
+FreqIndex=1, ABStime=503.613836367, NbPeaks=3
+FreqIndex=2, ABStime=504.007052305, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.65566,47.18522</coordinates>
+                <coordinates>7.59967,46.75413</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4513.539468317, NbPeaks=1
+            <description>FreqIndex=0, ABStime=504.334732104, NbPeaks=8
+FreqIndex=1, ABStime=505.055628477, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65562,47.18529</coordinates>
+                <coordinates>7.59971,46.75414</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4514.981260175, NbPeaks=2
+            <description>FreqIndex=2, ABStime=510.62618848, NbPeaks=3
+FreqIndex=0, ABStime=510.953868327, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65551,47.18538</coordinates>
+                <coordinates>7.59991,46.75401</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4517.012876392, NbPeaks=2
+            <description>FreqIndex=0, ABStime=517.310860201, NbPeaks=3
+FreqIndex=1, ABStime=517.70407651, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.65537,47.1855</coordinates>
+                <coordinates>7.60014,46.75341</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4517.799308216, NbPeaks=2
-FreqIndex=0, ABStime=4518.454668392, NbPeaks=3
+            <description>FreqIndex=1, ABStime=519.145868684, NbPeaks=3
+FreqIndex=2, ABStime=519.539084654, NbPeaks=2
+FreqIndex=0, ABStime=519.932300545, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65529,47.18557</coordinates>
+                <coordinates>7.60024,46.75318</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4519.896460217, NbPeaks=3
-FreqIndex=1, ABStime=4520.551820119, NbPeaks=3
+            <description>FreqIndex=0, ABStime=526.551436979, NbPeaks=3
+FreqIndex=1, ABStime=526.879117018, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.65513,47.18571</coordinates>
+                <coordinates>7.60061,46.75235</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4521.600396458, NbPeaks=1
-FreqIndex=1, ABStime=4521.993612367, NbPeaks=3
+            <description>FreqIndex=0, ABStime=530.286988949, NbPeaks=4
+FreqIndex=1, ABStime=530.942349353, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65496,47.18586</coordinates>
+                <coordinates>7.60077,46.75199</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4522.71450853, NbPeaks=2
-FreqIndex=0, ABStime=4523.107724428, NbPeaks=1
+            <description>FreqIndex=2, ABStime=536.512909311, NbPeaks=5
+FreqIndex=0, ABStime=536.906125112, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.65488,47.18593</coordinates>
+                <coordinates>7.60069,46.75175</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4523.500940315, NbPeaks=2
-FreqIndex=2, ABStime=4523.89415635, NbPeaks=2
-FreqIndex=0, ABStime=4524.483980467, NbPeaks=1
+            <description>FreqIndex=2, ABStime=539.068813133, NbPeaks=7
+FreqIndex=0, ABStime=539.462029208, NbPeaks=6
+FreqIndex=1, ABStime=539.855245238, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65478,47.186</coordinates>
+                <coordinates>7.60044,46.75169</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4525.991308574, NbPeaks=2
-FreqIndex=1, ABStime=4526.318988397, NbPeaks=2
+            <description>FreqIndex=0, ABStime=543.263117017, NbPeaks=6
+FreqIndex=1, ABStime=543.918477491, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65459,47.18612</coordinates>
+                <coordinates>7.59983,46.75153</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4527.03988461, NbPeaks=3
-FreqIndex=0, ABStime=4527.433100599, NbPeaks=1
+            <description>FreqIndex=0, ABStime=547.260813266, NbPeaks=7
+FreqIndex=1, ABStime=547.65402931, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.65448,47.18618</coordinates>
+                <coordinates>7.59908,46.75132</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4528.874892596, NbPeaks=1
-FreqIndex=1, ABStime=4529.202572516, NbPeaks=3
+            <description>FreqIndex=0, ABStime=550.996365268, NbPeaks=7
+FreqIndex=1, ABStime=551.389581404, NbPeaks=4
+FreqIndex=2, ABStime=552.044941443, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.65425,47.18629</coordinates>
+                <coordinates>7.59832,46.7511</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4529.92346866, NbPeaks=2
-FreqIndex=0, ABStime=4530.251148372, NbPeaks=3
+            <description>FreqIndex=0, ABStime=552.438157438, NbPeaks=8
+FreqIndex=1, ABStime=552.8313736, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.65413,47.18633</coordinates>
+                <coordinates>7.59813,46.75104</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4531.430796514, NbPeaks=2
-FreqIndex=1, ABStime=4532.086156635, NbPeaks=2
+            <description>FreqIndex=2, ABStime=553.224589514, NbPeaks=8
+FreqIndex=0, ABStime=553.87994961, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.65389,47.18641</coordinates>
+                <coordinates>7.59795,46.75099</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4532.479372629, NbPeaks=3
-FreqIndex=0, ABStime=4533.134732754, NbPeaks=2
+            <description>FreqIndex=0, ABStime=560.236941705, NbPeaks=8
+FreqIndex=1, ABStime=560.630157755, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.65377,47.18644</coordinates>
+                <coordinates>7.59651,46.75077</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4534.838668714, NbPeaks=2
-FreqIndex=1, ABStime=4535.29742063, NbPeaks=2
+            <description>FreqIndex=2, ABStime=562.399629707, NbPeaks=8
+FreqIndex=0, ABStime=562.858381764, NbPeaks=7
 </description>
             <Point>
-                <coordinates>7.65353,47.1865</coordinates>
+                <coordinates>7.59606,46.75077</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4535.952780745, NbPeaks=2
-FreqIndex=0, ABStime=4536.345996712, NbPeaks=4
+            <description>FreqIndex=1, ABStime=567.249293896, NbPeaks=7
+FreqIndex=2, ABStime=567.642509797, NbPeaks=8
+FreqIndex=0, ABStime=568.035725779, NbPeaks=7
 </description>
             <Point>
-                <coordinates>7.65342,47.18653</coordinates>
+                <coordinates>7.59493,46.75094</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4537.722252793, NbPeaks=3
-FreqIndex=1, ABStime=4538.18100478, NbPeaks=3
+            <description>FreqIndex=2, ABStime=570.198413991, NbPeaks=8
+FreqIndex=0, ABStime=570.591629553, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.65321,47.18659</coordinates>
+                <coordinates>7.59429,46.75114</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4538.574220683, NbPeaks=2
-FreqIndex=0, ABStime=4539.229580822, NbPeaks=1
+            <description>FreqIndex=2, ABStime=575.441293708, NbPeaks=8
+FreqIndex=0, ABStime=575.768973687, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.6531,47.18661</coordinates>
+                <coordinates>7.59336,46.75167</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4539.622796779, NbPeaks=3
-FreqIndex=2, ABStime=4539.950476754, NbPeaks=2
-FreqIndex=0, ABStime=4540.343692726, NbPeaks=3
+            <description>FreqIndex=0, ABStime=578.390413632, NbPeaks=8
+FreqIndex=1, ABStime=578.783629512, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.65298,47.18663</coordinates>
+                <coordinates>7.59291,46.75209</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4541.7854846, NbPeaks=3
-FreqIndex=1, ABStime=4542.440844954, NbPeaks=1
+            <description>FreqIndex=2, ABStime=584.354189173, NbPeaks=4
+FreqIndex=0, ABStime=584.681869191, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.65273,47.18666</coordinates>
+                <coordinates>7.59241,46.7531</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4542.834060945, NbPeaks=2
-FreqIndex=0, ABStime=4543.227276874, NbPeaks=1
+            <description>FreqIndex=0, ABStime=590.186892946, NbPeaks=8
+FreqIndex=1, ABStime=590.580109064, NbPeaks=2
+FreqIndex=2, ABStime=590.97332491, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.65261,47.18668</coordinates>
+                <coordinates>7.59251,46.75418</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4544.669068884, NbPeaks=3
-FreqIndex=1, ABStime=4545.062284832, NbPeaks=1
+            <description>FreqIndex=2, ABStime=592.087436782, NbPeaks=5
+FreqIndex=0, ABStime=592.742796844, NbPeaks=8
+FreqIndex=1, ABStime=592.873868661, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65235,47.1867</coordinates>
+                <coordinates>7.59264,46.75453</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4545.455500799, NbPeaks=1
-FreqIndex=0, ABStime=4546.110860995, NbPeaks=3
-FreqIndex=1, ABStime=4546.504076905, NbPeaks=2
+            <description>FreqIndex=0, ABStime=598.247820366, NbPeaks=5
+FreqIndex=1, ABStime=598.64103633, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65222,47.1867</coordinates>
+                <coordinates>7.59303,46.75558</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4546.897292935, NbPeaks=2
-FreqIndex=0, ABStime=4547.224972925, NbPeaks=2
+            <description>FreqIndex=0, ABStime=602.245516229, NbPeaks=3
+FreqIndex=1, ABStime=602.704268295, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.65209,47.1867</coordinates>
+                <coordinates>7.59331,46.75627</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4548.732300958, NbPeaks=2
-FreqIndex=1, ABStime=4549.059980994, NbPeaks=2
+            <description>FreqIndex=0, ABStime=606.046603888, NbPeaks=4
+FreqIndex=1, ABStime=606.439819838, NbPeaks=2
+FreqIndex=2, ABStime=607.095179917, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.65184,47.18668</coordinates>
+                <coordinates>7.59367,46.75694</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4549.78087726, NbPeaks=2
-FreqIndex=0, ABStime=4550.1740932, NbPeaks=2
-FreqIndex=1, ABStime=4550.501773065, NbPeaks=3
+            <description>FreqIndex=0, ABStime=607.488395953, NbPeaks=2
+FreqIndex=1, ABStime=607.881611859, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.65172,47.18665</coordinates>
+                <coordinates>7.5938,46.7571</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4550.960525189, NbPeaks=3
-FreqIndex=0, ABStime=4551.288204993, NbPeaks=2
+            <description>FreqIndex=0, ABStime=611.223947536, NbPeaks=3
+FreqIndex=1, ABStime=611.617163524, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.6516,47.18662</coordinates>
+                <coordinates>7.59444,46.75767</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4552.729996992, NbPeaks=3
-FreqIndex=1, ABStime=4553.123213007, NbPeaks=2
+            <description>FreqIndex=2, ABStime=616.008075238, NbPeaks=5
+FreqIndex=0, ABStime=616.401291238, NbPeaks=3
+FreqIndex=1, ABStime=617.056651326, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65137,47.18654</coordinates>
+                <coordinates>7.59534,46.75835</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4553.516428991, NbPeaks=3
-FreqIndex=0, ABStime=4553.909644942, NbPeaks=2
-FreqIndex=1, ABStime=4554.565005135, NbPeaks=3
+            <description>FreqIndex=0, ABStime=620.398987025, NbPeaks=3
+FreqIndex=1, ABStime=621.119883059, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65126,47.1865</coordinates>
+                <coordinates>7.59606,46.75889</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4554.958220463, NbPeaks=3
-FreqIndex=0, ABStime=4555.351437137, NbPeaks=2
+            <description>FreqIndex=2, ABStime=625.248650509, NbPeaks=3
+FreqIndex=0, ABStime=625.904010728, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65115,47.18646</coordinates>
+                <coordinates>7.59701,46.75957</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4556.793229189, NbPeaks=1
-FreqIndex=1, ABStime=4557.120909034, NbPeaks=3
+            <description>FreqIndex=2, ABStime=628.394378492, NbPeaks=2
+FreqIndex=0, ABStime=628.787594403, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65092,47.18642</coordinates>
+                <coordinates>7.59763,46.75997</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4557.51412491, NbPeaks=3
-FreqIndex=0, ABStime=4557.907341055, NbPeaks=3
+            <description>FreqIndex=0, ABStime=630.229386322, NbPeaks=2
+FreqIndex=1, ABStime=630.884746409, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6508,47.18643</coordinates>
+                <coordinates>7.59809,46.76021</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4558.300557375, NbPeaks=8
-FreqIndex=2, ABStime=4558.9559173, NbPeaks=3
-FreqIndex=0, ABStime=4559.349133239, NbPeaks=2
+            <description>FreqIndex=2, ABStime=631.277962224, NbPeaks=2
+FreqIndex=0, ABStime=631.671178257, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6507,47.18645</coordinates>
+                <coordinates>7.59832,46.76032</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4560.790925338, NbPeaks=2
-FreqIndex=1, ABStime=4561.18414136, NbPeaks=2
+            <description>FreqIndex=2, ABStime=634.161546068, NbPeaks=3
+FreqIndex=0, ABStime=634.554762098, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65053,47.18652</coordinates>
+                <coordinates>7.59906,46.76058</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4561.57735717, NbPeaks=3
-FreqIndex=0, ABStime=4562.232717392, NbPeaks=3
-FreqIndex=1, ABStime=4562.363789435, NbPeaks=3
+            <description>FreqIndex=1, ABStime=634.947977956, NbPeaks=3
+FreqIndex=2, ABStime=635.603338026, NbPeaks=2
+FreqIndex=0, ABStime=635.996554069, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65048,47.18655</coordinates>
+                <coordinates>7.59932,46.76064</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4563.019149409, NbPeaks=3
-FreqIndex=0, ABStime=4563.412365259, NbPeaks=3
+            <description>FreqIndex=0, ABStime=640.321929936, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65044,47.18658</coordinates>
+                <coordinates>7.60069,46.76076</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4564.59201318, NbPeaks=2
-FreqIndex=1, ABStime=4565.181837519, NbPeaks=2
+            <description>FreqIndex=0, ABStime=642.288009991, NbPeaks=3
+FreqIndex=1, ABStime=642.681225832, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65041,47.1866</coordinates>
+                <coordinates>7.60124,46.76073</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4578.878861153, NbPeaks=3
-FreqIndex=0, ABStime=4579.534221374, NbPeaks=2
+            <description>FreqIndex=0, ABStime=645.17159404, NbPeaks=1
+FreqIndex=1, ABStime=645.564809946, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6504,47.1866</coordinates>
+                <coordinates>7.60209,46.76065</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4582.876557182, NbPeaks=2
-FreqIndex=0, ABStime=4583.53191737, NbPeaks=2
+            <description>FreqIndex=0, ABStime=652.380554498, NbPeaks=2
+FreqIndex=1, ABStime=652.773770346, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65039,47.1866</coordinates>
+                <coordinates>7.60401,46.7604</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4584.711565239, NbPeaks=3
-FreqIndex=1, ABStime=4585.10478138, NbPeaks=1
+            <description>FreqIndex=2, ABStime=659.523978965, NbPeaks=2
+FreqIndex=0, ABStime=659.851659049, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65039,47.18661</coordinates>
+                <coordinates>7.60578,46.7598</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4589.495693077, NbPeaks=2
-FreqIndex=0, ABStime=4589.888909072, NbPeaks=3
-FreqIndex=1, ABStime=4590.609805439, NbPeaks=2
+            <description>FreqIndex=2, ABStime=662.407563162, NbPeaks=3
+FreqIndex=0, ABStime=662.735243278, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65038,47.18661</coordinates>
+                <coordinates>7.6064,46.75943</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4590.937485068, NbPeaks=3
-FreqIndex=0, ABStime=4591.33070113, NbPeaks=1
+            <description>FreqIndex=2, ABStime=668.174731525, NbPeaks=3
+FreqIndex=0, ABStime=668.502411598, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65038,47.18662</coordinates>
+                <coordinates>7.60726,46.75847</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4595.000717284, NbPeaks=3
-FreqIndex=0, ABStime=4595.393933466, NbPeaks=4
+            <description>FreqIndex=2, ABStime=672.172427717, NbPeaks=3
+FreqIndex=0, ABStime=672.565643851, NbPeaks=2
+FreqIndex=1, ABStime=672.958859755, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.65037,47.18662</coordinates>
+                <coordinates>7.60782,46.7578</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4596.835725316, NbPeaks=3
-FreqIndex=1, ABStime=4597.163405332, NbPeaks=1
+            <description>FreqIndex=2, ABStime=677.349772065, NbPeaks=2
+FreqIndex=0, ABStime=677.74298813, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65031,47.18665</coordinates>
+                <coordinates>7.6082,46.75688</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4597.556621244, NbPeaks=2
-FreqIndex=0, ABStime=4598.21198124, NbPeaks=8
+            <description>FreqIndex=0, ABStime=680.298892318, NbPeaks=2
+FreqIndex=1, ABStime=680.757644251, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65026,47.18667</coordinates>
+                <coordinates>7.60824,46.75631</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4600.243597367, NbPeaks=3
+            <description>FreqIndex=2, ABStime=686.328204402, NbPeaks=3
+FreqIndex=0, ABStime=686.983564617, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65013,47.18673</coordinates>
+                <coordinates>7.60788,46.75519</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4600.636813316, NbPeaks=3
-FreqIndex=2, ABStime=4601.030029283, NbPeaks=2
-FreqIndex=0, ABStime=4601.423245289, NbPeaks=1
+            <description>FreqIndex=0, ABStime=693.275020582, NbPeaks=3
+FreqIndex=1, ABStime=693.6682367, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.65006,47.18676</coordinates>
+                <coordinates>7.60671,46.75417</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4602.86503732, NbPeaks=3
-FreqIndex=1, ABStime=4603.25825334, NbPeaks=2
+            <description>FreqIndex=2, ABStime=695.503244677, NbPeaks=2
+FreqIndex=0, ABStime=695.896460615, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.6499,47.18685</coordinates>
+                <coordinates>7.60624,46.75399</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4603.651469258, NbPeaks=3
-FreqIndex=0, ABStime=4603.979149245, NbPeaks=3
+            <description>FreqIndex=0, ABStime=697.338252709, NbPeaks=3
+FreqIndex=1, ABStime=697.731468864, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64981,47.1869</coordinates>
+                <coordinates>7.60573,46.75384</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4604.700045461, NbPeaks=1
-FreqIndex=2, ABStime=4605.027725344, NbPeaks=2
-FreqIndex=0, ABStime=4605.486477435, NbPeaks=1
+            <description>FreqIndex=2, ABStime=703.302028739, NbPeaks=3
+FreqIndex=0, ABStime=703.629708737, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.64973,47.18695</coordinates>
+                <coordinates>7.60423,46.75334</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4606.862733477, NbPeaks=3
-FreqIndex=1, ABStime=4607.255949762, NbPeaks=3
+            <description>FreqIndex=0, ABStime=710.248844995, NbPeaks=4
+FreqIndex=1, ABStime=710.707597038, NbPeaks=3
+FreqIndex=2, ABStime=711.100812962, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.64955,47.18705</coordinates>
+                <coordinates>7.60269,46.75248</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4607.649165414, NbPeaks=2
-FreqIndex=0, ABStime=4608.042381286, NbPeaks=3
+            <description>FreqIndex=0, ABStime=715.491725134, NbPeaks=5
+FreqIndex=1, ABStime=715.884941192, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64946,47.1871</coordinates>
+                <coordinates>7.60158,46.75202</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4608.697741547, NbPeaks=3
-FreqIndex=2, ABStime=4609.090957523, NbPeaks=4
-FreqIndex=0, ABStime=4609.484173412, NbPeaks=3
+            <description>FreqIndex=0, ABStime=719.227277108, NbPeaks=5
+FreqIndex=1, ABStime=719.882637404, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64937,47.18715</coordinates>
+                <coordinates>7.60105,46.75186</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4610.663821353, NbPeaks=2
-FreqIndex=1, ABStime=4611.319181492, NbPeaks=4
+            <description>FreqIndex=0, ABStime=724.40462103, NbPeaks=3
+FreqIndex=1, ABStime=724.797837083, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64918,47.18725</coordinates>
+                <coordinates>7.60072,46.75193</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4611.712397423, NbPeaks=2
-FreqIndex=0, ABStime=4612.105613443, NbPeaks=3
+            <description>FreqIndex=0, ABStime=727.026060987, NbPeaks=4
+FreqIndex=1, ABStime=727.681421135, NbPeaks=4
+FreqIndex=2, ABStime=727.746956859, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64908,47.18731</coordinates>
+                <coordinates>7.60065,46.75219</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4612.760973612, NbPeaks=3
-FreqIndex=2, ABStime=4613.154189598, NbPeaks=2
-FreqIndex=0, ABStime=4613.481869581, NbPeaks=1
+            <description>FreqIndex=2, ABStime=729.188748896, NbPeaks=4
+FreqIndex=0, ABStime=729.58196481, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64899,47.18736</coordinates>
+                <coordinates>7.60057,46.75245</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4615.251341666, NbPeaks=2
+            <description>FreqIndex=0, ABStime=732.137868681, NbPeaks=3
+FreqIndex=1, ABStime=732.531084683, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64879,47.18746</coordinates>
+                <coordinates>7.6004,46.7529</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4615.644557618, NbPeaks=3
-FreqIndex=2, ABStime=4615.972237532, NbPeaks=3
-FreqIndex=0, ABStime=4616.4309896, NbPeaks=2
+            <description>FreqIndex=2, ABStime=734.431628632, NbPeaks=4
+FreqIndex=0, ABStime=734.759308459, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64869,47.18751</coordinates>
+                <coordinates>7.60025,46.75324</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4618.134925786, NbPeaks=3
-FreqIndex=1, ABStime=4618.46260554, NbPeaks=5
+            <description>FreqIndex=0, ABStime=736.201100519, NbPeaks=4
+FreqIndex=1, ABStime=736.594316538, NbPeaks=3
+FreqIndex=2, ABStime=736.987532427, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.6485,47.18761</coordinates>
+                <coordinates>7.60009,46.7536</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4618.921357727, NbPeaks=3
-FreqIndex=0, ABStime=4619.249037703, NbPeaks=2
+            <description>FreqIndex=0, ABStime=741.378444149, NbPeaks=3
+FreqIndex=1, ABStime=741.771660192, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64841,47.18765</coordinates>
+                <coordinates>7.59961,46.75457</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4620.690829764, NbPeaks=2
-FreqIndex=1, ABStime=4621.08404572, NbPeaks=4
+            <description>FreqIndex=2, ABStime=747.342219678, NbPeaks=5
+FreqIndex=0, ABStime=747.735435586, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64819,47.18769</coordinates>
+                <coordinates>7.59892,46.75572</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4621.477261698, NbPeaks=2
-FreqIndex=0, ABStime=4621.870477637, NbPeaks=3
-FreqIndex=1, ABStime=4622.525837871, NbPeaks=3
+            <description>FreqIndex=1, ABStime=752.191883576, NbPeaks=2
+FreqIndex=2, ABStime=752.519563426, NbPeaks=4
+FreqIndex=0, ABStime=752.912779367, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64807,47.18769</coordinates>
+                <coordinates>7.59817,46.75666</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4622.919053656, NbPeaks=6
-FreqIndex=0, ABStime=4623.312269754, NbPeaks=3
+            <description>FreqIndex=2, ABStime=759.138699256, NbPeaks=3
+FreqIndex=0, ABStime=759.531915311, NbPeaks=2
+FreqIndex=1, ABStime=759.925131226, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64795,47.18768</coordinates>
+                <coordinates>7.59709,46.7578</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4624.754061892, NbPeaks=2
-FreqIndex=1, ABStime=4625.409422016, NbPeaks=2
+            <description>FreqIndex=1, ABStime=765.102475147, NbPeaks=2
+FreqIndex=2, ABStime=765.49569107, NbPeaks=2
+FreqIndex=0, ABStime=765.888907025, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.6477,47.18764</coordinates>
+                <coordinates>7.59623,46.75846</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4625.802637861, NbPeaks=3
-FreqIndex=0, ABStime=4626.195853966, NbPeaks=3
+            <description>FreqIndex=0, ABStime=772.50804316, NbPeaks=2
+FreqIndex=1, ABStime=772.901259141, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.64758,47.18762</coordinates>
+                <coordinates>7.59583,46.75868</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4626.58906991, NbPeaks=3
-FreqIndex=2, ABStime=4626.916749829, NbPeaks=3
-FreqIndex=0, ABStime=4627.637646054, NbPeaks=3
+            <description>FreqIndex=0, ABStime=776.243595065, NbPeaks=2
+FreqIndex=1, ABStime=776.636811085, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.64747,47.18759</coordinates>
+                <coordinates>7.59573,46.75868</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4629.800334098, NbPeaks=6
-FreqIndex=0, ABStime=4630.259086155, NbPeaks=3
+            <description>FreqIndex=2, ABStime=781.027723168, NbPeaks=2
+FreqIndex=0, ABStime=781.420939176, NbPeaks=2
+FreqIndex=1, ABStime=782.141835484, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6471,47.18749</coordinates>
+                <coordinates>7.59537,46.75844</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4632.814990079, NbPeaks=4
-FreqIndex=1, ABStime=4633.208206163, NbPeaks=6
+            <description>FreqIndex=1, ABStime=786.991499482, NbPeaks=2
+FreqIndex=2, ABStime=787.712395643, NbPeaks=2
+FreqIndex=0, ABStime=788.040075715, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.64668,47.18742</coordinates>
+                <coordinates>7.59459,46.75784</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4633.601422138, NbPeaks=4
-FreqIndex=0, ABStime=4634.256782272, NbPeaks=3
+            <description>FreqIndex=0, ABStime=793.217420034, NbPeaks=2
+FreqIndex=1, ABStime=793.610635972, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.64653,47.1874</coordinates>
+                <coordinates>7.59368,46.75704</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4634.649998126, NbPeaks=3
-FreqIndex=2, ABStime=4635.043213834, NbPeaks=8
-FreqIndex=0, ABStime=4635.370894147, NbPeaks=3
+            <description>FreqIndex=2, ABStime=795.445644046, NbPeaks=2
+FreqIndex=0, ABStime=795.838860178, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64637,47.18739</coordinates>
+                <coordinates>7.59347,46.75674</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4636.878222234, NbPeaks=2
-FreqIndex=1, ABStime=4637.205902363, NbPeaks=2
+            <description>FreqIndex=2, ABStime=802.064780396, NbPeaks=8
+FreqIndex=0, ABStime=802.785676655, NbPeaks=7
 </description>
             <Point>
-                <coordinates>7.64605,47.18738</coordinates>
+                <coordinates>7.59294,46.75551</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4637.599118374, NbPeaks=4
-FreqIndex=0, ABStime=4638.320014384, NbPeaks=2
+            <description>FreqIndex=0, ABStime=809.339276884, NbPeaks=6
+FreqIndex=1, ABStime=809.732492962, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.64588,47.18739</coordinates>
+                <coordinates>7.59248,46.75418</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4638.647694205, NbPeaks=6
-FreqIndex=2, ABStime=4639.04091013, NbPeaks=5
-FreqIndex=0, ABStime=4639.434126257, NbPeaks=2
+            <description>FreqIndex=1, ABStime=814.975373341, NbPeaks=5
+FreqIndex=2, ABStime=815.630733365, NbPeaks=6
+FreqIndex=0, ABStime=816.023949464, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.64572,47.18739</coordinates>
+                <coordinates>7.59238,46.75304</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4640.875918342, NbPeaks=2
-FreqIndex=1, ABStime=4641.269134452, NbPeaks=3
+            <description>FreqIndex=0, ABStime=817.138061258, NbPeaks=8
+FreqIndex=1, ABStime=817.858957602, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64539,47.18741</coordinates>
+                <coordinates>7.5925,46.75266</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4641.662350384, NbPeaks=3
-FreqIndex=0, ABStime=4642.317710528, NbPeaks=3
+            <description>FreqIndex=2, ABStime=818.186637522, NbPeaks=6
+FreqIndex=0, ABStime=818.57985355, NbPeaks=8
+FreqIndex=1, ABStime=818.97306949, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64523,47.18741</coordinates>
+                <coordinates>7.59259,46.75248</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4642.71092649, NbPeaks=3
-FreqIndex=2, ABStime=4643.104142175, NbPeaks=8
-FreqIndex=0, ABStime=4643.497358407, NbPeaks=3
+            <description>FreqIndex=2, ABStime=821.922189581, NbPeaks=7
+FreqIndex=0, ABStime=822.315405593, NbPeaks=8
+FreqIndex=1, ABStime=823.036301784, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.64506,47.18741</coordinates>
+                <coordinates>7.59315,46.75179</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4644.873614601, NbPeaks=2
-FreqIndex=1, ABStime=4645.266830678, NbPeaks=2
+            <description>FreqIndex=1, ABStime=827.885965651, NbPeaks=6
+FreqIndex=2, ABStime=828.541325793, NbPeaks=7
+FreqIndex=0, ABStime=828.934541783, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.64474,47.18742</coordinates>
+                <coordinates>7.59439,46.75106</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4645.660046415, NbPeaks=5
-FreqIndex=0, ABStime=4646.053262443, NbPeaks=3
+            <description>FreqIndex=0, ABStime=830.114189712, NbPeaks=8
+FreqIndex=1, ABStime=830.769549933, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.64459,47.18742</coordinates>
+                <coordinates>7.59486,46.75091</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4646.446478624, NbPeaks=3
-FreqIndex=2, ABStime=4647.101839475, NbPeaks=8
-FreqIndex=0, ABStime=4647.49505453, NbPeaks=2
+            <description>FreqIndex=2, ABStime=832.27687791, NbPeaks=7
+FreqIndex=0, ABStime=832.997773921, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.64444,47.18742</coordinates>
+                <coordinates>7.59533,46.75081</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4649.72327866, NbPeaks=2
-FreqIndex=0, ABStime=4650.116494557, NbPeaks=2
+            <description>FreqIndex=0, ABStime=837.847437549, NbPeaks=7
+FreqIndex=1, ABStime=838.306189752, NbPeaks=3
+FreqIndex=2, ABStime=838.961549721, NbPeaks=7
 </description>
             <Point>
-                <coordinates>7.64403,47.18743</coordinates>
+                <coordinates>7.59667,46.75074</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4650.509710551, NbPeaks=5
-FreqIndex=2, ABStime=4651.16507107, NbPeaks=5
-FreqIndex=0, ABStime=4651.558286687, NbPeaks=2
+            <description>FreqIndex=2, ABStime=841.517453591, NbPeaks=8
+FreqIndex=0, ABStime=841.910669541, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.64391,47.18744</coordinates>
+                <coordinates>7.59722,46.75081</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4652.672398572, NbPeaks=3
-FreqIndex=1, ABStime=4653.327758799, NbPeaks=4
+            <description>FreqIndex=2, ABStime=845.318541428, NbPeaks=8
+FreqIndex=0, ABStime=845.973901611, NbPeaks=8
 </description>
             <Point>
-                <coordinates>7.64369,47.18742</coordinates>
+                <coordinates>7.59799,46.75097</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4653.720974657, NbPeaks=6
-FreqIndex=0, ABStime=4654.114190668, NbPeaks=3
+            <description>FreqIndex=0, ABStime=848.267661288, NbPeaks=8
+FreqIndex=1, ABStime=848.660877477, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.64357,47.18739</coordinates>
+                <coordinates>7.59865,46.75114</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=4654.507406886, NbPeaks=4
-FreqIndex=2, ABStime=4654.900622672, NbPeaks=2
-FreqIndex=0, ABStime=4655.55598289, NbPeaks=3
+            <description>FreqIndex=0, ABStime=852.330893295, NbPeaks=7
+FreqIndex=1, ABStime=852.658573305, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.64346,47.18736</coordinates>
+                <coordinates>7.59955,46.75139</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4656.99777501, NbPeaks=2
-FreqIndex=1, ABStime=4657.390990869, NbPeaks=3
+            <description>FreqIndex=2, ABStime=858.49127746, NbPeaks=8
+FreqIndex=0, ABStime=858.88449328, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64322,47.1873</coordinates>
+                <coordinates>7.60074,46.75174</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=4657.784206786, NbPeaks=5
-FreqIndex=0, ABStime=4658.177422911, NbPeaks=3
+            <description>FreqIndex=1, ABStime=859.015565135, NbPeaks=3
+FreqIndex=2, ABStime=859.670925291, NbPeaks=4
+FreqIndex=0, ABStime=860.064141116, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.64308,47.18727</coordinates>
+                <coordinates>7.60093,46.75179</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=4723.844496878, NbPeaks=4
-FreqIndex=1, ABStime=4724.172177718, NbPeaks=8
+            <description>FreqIndex=2, ABStime=862.226829193, NbPeaks=2
+FreqIndex=0, ABStime=862.685581196, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.634,47.1843</coordinates>
+                <coordinates>7.60141,46.75193</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6931.752337263, NbPeaks=3
-FreqIndex=1, ABStime=6932.211089345, NbPeaks=3
+            <description>FreqIndex=1, ABStime=863.013261067, NbPeaks=4
+FreqIndex=2, ABStime=863.406477071, NbPeaks=3
+FreqIndex=0, ABStime=863.799692926, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6435,47.18747</coordinates>
+                <coordinates>7.60158,46.75198</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6932.800913604, NbPeaks=8
-FreqIndex=0, ABStime=6932.931985179, NbPeaks=2
-FreqIndex=1, ABStime=6933.652881504, NbPeaks=4
+            <description>FreqIndex=0, ABStime=869.304717124, NbPeaks=2
+FreqIndex=1, ABStime=869.697933085, NbPeaks=5
+FreqIndex=2, ABStime=870.091149044, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.64343,47.1875</coordinates>
+                <coordinates>7.60272,46.75242</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6933.980561373, NbPeaks=3
-FreqIndex=0, ABStime=6934.373777302, NbPeaks=2
+            <description>FreqIndex=2, ABStime=875.26849289, NbPeaks=6
+FreqIndex=0, ABStime=875.661708932, NbPeaks=3
+FreqIndex=1, ABStime=875.989388877, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64334,47.18753</coordinates>
+                <coordinates>7.60379,46.75294</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6935.815569453, NbPeaks=3
-FreqIndex=1, ABStime=6936.208785542, NbPeaks=5
+            <description>FreqIndex=0, ABStime=878.21761284, NbPeaks=3
+FreqIndex=1, ABStime=878.610828769, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.64313,47.1876</coordinates>
+                <coordinates>7.60444,46.75311</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6936.602001658, NbPeaks=2
-FreqIndex=0, ABStime=6936.929681358, NbPeaks=3
+            <description>FreqIndex=0, ABStime=883.394956752, NbPeaks=5
+FreqIndex=1, ABStime=883.788172897, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.643,47.18765</coordinates>
+                <coordinates>7.6054,46.75338</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=6937.650577577, NbPeaks=6
-FreqIndex=2, ABStime=6938.043794025, NbPeaks=8
-FreqIndex=0, ABStime=6938.43700945, NbPeaks=4
+            <description>FreqIndex=2, ABStime=888.506764784, NbPeaks=4
+FreqIndex=0, ABStime=888.83444475, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64287,47.18771</coordinates>
+                <coordinates>7.60606,46.75358</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6939.878801609, NbPeaks=4
-FreqIndex=1, ABStime=6940.272017696, NbPeaks=4
+            <description>FreqIndex=0, ABStime=890.341772823, NbPeaks=3
+FreqIndex=1, ABStime=890.669452992, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.6426,47.18783</coordinates>
+                <coordinates>7.6063,46.75366</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6940.599697762, NbPeaks=4
-FreqIndex=0, ABStime=6940.992913539, NbPeaks=3
+            <description>FreqIndex=0, ABStime=895.256972761, NbPeaks=6
+FreqIndex=1, ABStime=895.846796705, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.64246,47.18788</coordinates>
+                <coordinates>7.60688,46.75387</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=6941.713809853, NbPeaks=6
-FreqIndex=2, ABStime=6942.041489918, NbPeaks=5
-FreqIndex=0, ABStime=6942.434705672, NbPeaks=3
+            <description>FreqIndex=1, ABStime=897.026444774, NbPeaks=8
+FreqIndex=2, ABStime=897.419660731, NbPeaks=2
+FreqIndex=0, ABStime=898.075020892, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.6423,47.18792</coordinates>
+                <coordinates>7.60708,46.75396</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6943.614353596, NbPeaks=4
-FreqIndex=1, ABStime=6944.2697139, NbPeaks=4
+            <description>FreqIndex=2, ABStime=900.303244907, NbPeaks=3
+FreqIndex=0, ABStime=900.696460781, NbPeaks=2
+FreqIndex=1, ABStime=901.024140829, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64197,47.18799</coordinates>
+                <coordinates>7.6073,46.75417</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=6953.444754188, NbPeaks=6
-FreqIndex=2, ABStime=6954.165651085, NbPeaks=8
-FreqIndex=0, ABStime=6954.558866322, NbPeaks=2
+            <description>FreqIndex=0, ABStime=903.252364851, NbPeaks=3
+FreqIndex=1, ABStime=903.645580919, NbPeaks=4
+FreqIndex=2, ABStime=904.038796612, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.64034,47.18856</coordinates>
+                <coordinates>7.60747,46.7544</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6955.73851432, NbPeaks=2
-FreqIndex=1, ABStime=6956.328338474, NbPeaks=6
+            <description>FreqIndex=2, ABStime=909.216140583, NbPeaks=3
+FreqIndex=0, ABStime=909.609356663, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.64002,47.18871</coordinates>
+                <coordinates>7.60754,46.75465</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6956.787090483, NbPeaks=5
-FreqIndex=0, ABStime=6957.114770423, NbPeaks=2
+            <description>FreqIndex=1, ABStime=910.264716792, NbPeaks=1
+FreqIndex=2, ABStime=910.395788514, NbPeaks=3
+FreqIndex=0, ABStime=911.051148574, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.63986,47.18878</coordinates>
+                <coordinates>7.60748,46.75466</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=6957.507986272, NbPeaks=6
-FreqIndex=2, ABStime=6958.163346764, NbPeaks=5
-FreqIndex=0, ABStime=6958.556562512, NbPeaks=4
+            <description>FreqIndex=2, ABStime=912.95169256, NbPeaks=5
+FreqIndex=0, ABStime=913.607052724, NbPeaks=2
+FreqIndex=1, ABStime=914.000268668, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63971,47.18885</coordinates>
+                <coordinates>7.60729,46.75458</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6959.736210495, NbPeaks=2
-FreqIndex=1, ABStime=6960.391570651, NbPeaks=4
+            <description>FreqIndex=2, ABStime=918.39118085, NbPeaks=3
+FreqIndex=0, ABStime=918.784396753, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63941,47.18899</coordinates>
+                <coordinates>7.60672,46.75424</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6964.848019002, NbPeaks=8
-FreqIndex=0, ABStime=6965.241234923, NbPeaks=2
+            <description>FreqIndex=0, ABStime=925.141388607, NbPeaks=2
+FreqIndex=1, ABStime=925.796748817, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63865,47.18933</coordinates>
+                <coordinates>7.6053,46.75377</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6966.683027044, NbPeaks=3
-FreqIndex=1, ABStime=6967.010707272, NbPeaks=4
-FreqIndex=2, ABStime=6967.403923242, NbPeaks=7
+            <description>FreqIndex=2, ABStime=931.10516468, NbPeaks=4
+FreqIndex=0, ABStime=931.760524879, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.63836,47.18946</coordinates>
+                <coordinates>7.6039,46.75321</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6972.908947973, NbPeaks=8
-FreqIndex=0, ABStime=6973.236627235, NbPeaks=2
+            <description>FreqIndex=1, ABStime=932.153740882, NbPeaks=2
+FreqIndex=2, ABStime=932.546956804, NbPeaks=5
+FreqIndex=0, ABStime=932.940172838, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63752,47.18984</coordinates>
+                <coordinates>7.60367,46.75308</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6988.703124099, NbPeaks=5
-FreqIndex=0, ABStime=6989.358483992, NbPeaks=3
+            <description>FreqIndex=2, ABStime=936.544653049, NbPeaks=4
+FreqIndex=0, ABStime=936.937868986, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.63503,47.1903</coordinates>
+                <coordinates>7.60278,46.75254</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=6990.538131653, NbPeaks=3
-FreqIndex=1, ABStime=6991.25902813, NbPeaks=5
+            <description>FreqIndex=0, ABStime=938.11751697, NbPeaks=3
+FreqIndex=1, ABStime=938.77287721, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63471,47.1902</coordinates>
+                <coordinates>7.60234,46.75231</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6991.586708943, NbPeaks=8
-FreqIndex=0, ABStime=6991.979924043, NbPeaks=3
-FreqIndex=1, ABStime=6992.373139785, NbPeaks=5
+            <description>FreqIndex=2, ABStime=944.343437216, NbPeaks=5
+FreqIndex=0, ABStime=944.736653196, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.63456,47.19015</coordinates>
+                <coordinates>7.60125,46.75193</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6993.028501817, NbPeaks=8
-FreqIndex=0, ABStime=6993.159571939, NbPeaks=2
+            <description>FreqIndex=1, ABStime=945.129869182, NbPeaks=4
+FreqIndex=2, ABStime=945.523085209, NbPeaks=4
+FreqIndex=0, ABStime=945.916301, NbPeaks=6
 </description>
             <Point>
-                <coordinates>7.63439,47.19009</coordinates>
+                <coordinates>7.60114,46.75189</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=6995.649940342, NbPeaks=6
-FreqIndex=0, ABStime=6996.043156214, NbPeaks=2
-FreqIndex=1, ABStime=6996.370836211, NbPeaks=4
+            <description>FreqIndex=0, ABStime=951.093644982, NbPeaks=2
+FreqIndex=1, ABStime=951.749005326, NbPeaks=2
+FreqIndex=2, ABStime=952.142221192, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63387,47.18995</coordinates>
+                <coordinates>7.6007,46.75194</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7000.040852359, NbPeaks=3
-FreqIndex=1, ABStime=7000.434068429, NbPeaks=3
+            <description>FreqIndex=1, ABStime=954.042765034, NbPeaks=3
+FreqIndex=2, ABStime=954.698125086, NbPeaks=4
+FreqIndex=0, ABStime=955.091341001, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63311,47.18995</coordinates>
+                <coordinates>7.60065,46.7522</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7000.827284453, NbPeaks=6
-FreqIndex=0, ABStime=7001.220500306, NbPeaks=1
+            <description>FreqIndex=2, ABStime=957.319564968, NbPeaks=3
+FreqIndex=0, ABStime=957.712780841, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63293,47.18999</coordinates>
+                <coordinates>7.60053,46.75257</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7002.662292514, NbPeaks=1
-FreqIndex=1, ABStime=7002.989972606, NbPeaks=6
-FreqIndex=2, ABStime=7003.383188459, NbPeaks=4
+            <description>FreqIndex=0, ABStime=960.268684771, NbPeaks=4
+FreqIndex=1, ABStime=960.661900796, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.63259,47.19012</coordinates>
+                <coordinates>7.60037,46.75294</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7003.776404402, NbPeaks=3
-FreqIndex=1, ABStime=7004.497300731, NbPeaks=5
+            <description>FreqIndex=2, ABStime=961.055116665, NbPeaks=3
+FreqIndex=0, ABStime=961.448332553, NbPeaks=4
+FreqIndex=1, ABStime=962.103692864, NbPeaks=1
 </description>
             <Point>
-                <coordinates>7.63244,47.1902</coordinates>
+                <coordinates>7.60032,46.75307</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7004.890516617, NbPeaks=6
-FreqIndex=0, ABStime=7005.480340574, NbPeaks=2
+            <description>FreqIndex=0, ABStime=965.446028499, NbPeaks=4
+FreqIndex=1, ABStime=965.839244543, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.6323,47.19029</coordinates>
+                <coordinates>7.60012,46.75355</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7006.922132705, NbPeaks=2
-FreqIndex=1, ABStime=7007.315348677, NbPeaks=4
+            <description>FreqIndex=2, ABStime=971.409804265, NbPeaks=4
+FreqIndex=0, ABStime=971.803020223, NbPeaks=2
 </description>
             <Point>
-                <coordinates>7.63204,47.19049</coordinates>
+                <coordinates>7.59988,46.7541</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7007.970709161, NbPeaks=8
-FreqIndex=0, ABStime=7008.429460825, NbPeaks=3
+            <description>FreqIndex=0, ABStime=974.42446015, NbPeaks=8
+FreqIndex=1, ABStime=975.07982049, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63191,47.19059</coordinates>
+                <coordinates>7.59971,46.75416</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7009.543572721, NbPeaks=2
-FreqIndex=1, ABStime=7009.93678877, NbPeaks=6
+            <description>FreqIndex=2, ABStime=975.47303642, NbPeaks=5
+FreqIndex=0, ABStime=975.866252337, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.63164,47.19079</coordinates>
+                <coordinates>7.59965,46.75415</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7010.592149784, NbPeaks=8
-FreqIndex=0, ABStime=7010.985364884, NbPeaks=5
-FreqIndex=1, ABStime=7011.378581032, NbPeaks=4
+            <description>FreqIndex=0, ABStime=976.980364183, NbPeaks=7
+FreqIndex=1, ABStime=977.701260495, NbPeaks=4
+FreqIndex=2, ABStime=978.094476431, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.6315,47.1909</coordinates>
+                <coordinates>7.59954,46.75412</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7011.771797256, NbPeaks=8
-FreqIndex=0, ABStime=7012.42715704, NbPeaks=3
+            <description>FreqIndex=0, ABStime=978.422156338, NbPeaks=6
+FreqIndex=1, ABStime=978.815372422, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.63136,47.19101</coordinates>
+                <coordinates>7.59949,46.75413</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7013.606804965, NbPeaks=5
-FreqIndex=1, ABStime=7014.000021101, NbPeaks=4
+            <description>FreqIndex=2, ABStime=983.206284312, NbPeaks=4
+FreqIndex=0, ABStime=983.599499985, NbPeaks=5
 </description>
             <Point>
-                <coordinates>7.63103,47.19119</coordinates>
+                <coordinates>7.5994,46.75428</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7014.393237032, NbPeaks=8
-FreqIndex=0, ABStime=7014.983061121, NbPeaks=4
-FreqIndex=1, ABStime=7015.376277058, NbPeaks=7
+            <description>FreqIndex=0, ABStime=986.220940272, NbPeaks=6
+FreqIndex=1, ABStime=986.614156357, NbPeaks=2
+FreqIndex=2, ABStime=987.007372304, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.63085,47.19127</coordinates>
+                <coordinates>7.59929,46.75427</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7022.716309877, NbPeaks=8
-FreqIndex=0, ABStime=7023.37166971, NbPeaks=4
+            <description>FreqIndex=0, ABStime=987.400588205, NbPeaks=3
+FreqIndex=1, ABStime=987.728268221, NbPeaks=4
 </description>
             <Point>
-                <coordinates>7.62901,47.19164</coordinates>
+                <coordinates>7.59927,46.75424</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7643.669916409, NbPeaks=8
-FreqIndex=0, ABStime=7644.063132012, NbPeaks=4
+            <description>FreqIndex=2, ABStime=992.184716282, NbPeaks=4
+FreqIndex=0, ABStime=992.512396229, NbPeaks=3
 </description>
             <Point>
-                <coordinates>7.67466,47.21162</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7650.682267979, NbPeaks=2
-FreqIndex=1, ABStime=7651.337628275, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67627,47.21097</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7651.730844153, NbPeaks=3
-FreqIndex=0, ABStime=7652.124060142, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.67651,47.21089</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7655.794076309, NbPeaks=3
-FreqIndex=0, ABStime=7656.187292125, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67746,47.21059</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7656.580508298, NbPeaks=3
-FreqIndex=2, ABStime=7656.973724076, NbPeaks=3
-FreqIndex=0, ABStime=7657.563548281, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.67768,47.21051</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7658.808732071, NbPeaks=8
-FreqIndex=1, ABStime=7659.464092551, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67811,47.21032</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7667.590556566, NbPeaks=4
-FreqIndex=0, ABStime=7668.245916056, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.6792,47.20933</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7669.687708201, NbPeaks=8
-FreqIndex=1, ABStime=7669.818780663, NbPeaks=2
-FreqIndex=2, ABStime=7670.47414094, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67934,47.20908</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7798.662553268, NbPeaks=8
-FreqIndex=0, ABStime=7798.990232989, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.67455,47.19985</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7799.448985028, NbPeaks=5
-FreqIndex=2, ABStime=7800.038809012, NbPeaks=8
-FreqIndex=0, ABStime=7800.497561028, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67438,47.19985</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7801.87381712, NbPeaks=3
-FreqIndex=1, ABStime=7802.267033005, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.67404,47.19989</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7803.446680783, NbPeaks=6
-FreqIndex=2, ABStime=7804.102041167, NbPeaks=7
-FreqIndex=0, ABStime=7804.495257118, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.67371,47.19997</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7812.818328844, NbPeaks=3
-FreqIndex=1, ABStime=7813.539225124, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67238,47.20033</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7816.553880797, NbPeaks=3
-FreqIndex=1, ABStime=7816.947096908, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67209,47.20031</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7817.930137591, NbPeaks=6
-FreqIndex=0, ABStime=7818.32335294, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67207,47.2003</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7819.699609572, NbPeaks=6
-FreqIndex=0, ABStime=7820.289432904, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.67203,47.20027</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7824.090520907, NbPeaks=3
-FreqIndex=1, ABStime=7824.48373701, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.6721,47.2001</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7825.794456853, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67218,47.19997</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7844.799896384, NbPeaks=2
-FreqIndex=1, ABStime=7845.455256536, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67249,47.19781</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7845.58632856, NbPeaks=8
-FreqIndex=0, ABStime=7846.241688407, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6725,47.19769</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7847.683480495, NbPeaks=2
-FreqIndex=1, ABStime=7848.076696431, NbPeaks=6
-FreqIndex=2, ABStime=7848.469912529, NbPeaks=7
-</description>
-            <Point>
-                <coordinates>7.67254,47.19746</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7855.678872274, NbPeaks=4
-FreqIndex=0, ABStime=7856.072088051, NbPeaks=4
-FreqIndex=1, ABStime=7856.399768292, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.67264,47.19657</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7856.858520159, NbPeaks=4
-FreqIndex=0, ABStime=7857.186200035, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67265,47.19647</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7859.676568255, NbPeaks=4
-FreqIndex=0, ABStime=7860.069784176, NbPeaks=2
-FreqIndex=1, ABStime=7860.463000111, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.67264,47.1962</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7860.856216104, NbPeaks=3
-FreqIndex=0, ABStime=7861.249431979, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6726,47.19612</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7862.691224185, NbPeaks=3
-FreqIndex=1, ABStime=7863.084440018, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.67244,47.19598</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7867.475351733, NbPeaks=5
-FreqIndex=0, ABStime=7867.868567716, NbPeaks=2
-FreqIndex=1, ABStime=7868.261783719, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67174,47.19574</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7868.917143675, NbPeaks=8
-FreqIndex=0, ABStime=7869.310359695, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67158,47.19569</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7871.473047715, NbPeaks=5
-FreqIndex=0, ABStime=7871.866263512, NbPeaks=3
-FreqIndex=1, ABStime=7872.259479632, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.67109,47.19557</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7872.980375535, NbPeaks=6
-FreqIndex=0, ABStime=7873.308055579, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.67093,47.19552</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7874.749847592, NbPeaks=3
-FreqIndex=1, ABStime=7875.143063637, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.67063,47.19538</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7875.536279481, NbPeaks=7
-FreqIndex=0, ABStime=7875.929495421, NbPeaks=4
-FreqIndex=1, ABStime=7876.32271151, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.67049,47.1953</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7879.533975321, NbPeaks=8
-FreqIndex=0, ABStime=7879.992727333, NbPeaks=2
-FreqIndex=1, ABStime=7880.320407247, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.6699,47.19498</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7881.041303638, NbPeaks=6
-FreqIndex=0, ABStime=7881.434519182, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66974,47.19491</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7882.810775197, NbPeaks=3
-FreqIndex=1, ABStime=7883.203991225, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66942,47.19478</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7886.874007098, NbPeaks=4
-FreqIndex=1, ABStime=7887.267223015, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66871,47.19455</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7887.594903138, NbPeaks=8
-FreqIndex=0, ABStime=7888.315799053, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.66852,47.19451</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7888.709015112, NbPeaks=4
-FreqIndex=2, ABStime=7889.1022313, NbPeaks=8
-FreqIndex=0, ABStime=7889.429910832, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.66834,47.19447</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7890.87170288, NbPeaks=4
-FreqIndex=1, ABStime=7891.264919004, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66797,47.1944</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7891.658135135, NbPeaks=7
-FreqIndex=0, ABStime=7892.051350824, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66779,47.19437</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7893.493142794, NbPeaks=5
-FreqIndex=1, ABStime=7893.88635886, NbPeaks=6
-FreqIndex=2, ABStime=7894.27957644, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.66742,47.19432</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7894.934934949, NbPeaks=4
-FreqIndex=1, ABStime=7895.328150749, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66724,47.1943</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7895.721366448, NbPeaks=8
-FreqIndex=0, ABStime=7896.376726841, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.66706,47.19428</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7897.556374715, NbPeaks=3
-FreqIndex=1, ABStime=7897.949590567, NbPeaks=4
-FreqIndex=2, ABStime=7898.277270646, NbPeaks=6
-</description>
-            <Point>
-                <coordinates>7.6667,47.19423</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7899.719062651, NbPeaks=6
-FreqIndex=0, ABStime=7900.112278536, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66633,47.19418</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7901.554070644, NbPeaks=4
-FreqIndex=1, ABStime=7901.947286425, NbPeaks=4
-FreqIndex=2, ABStime=7902.340502768, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.66595,47.19413</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7902.995862514, NbPeaks=5
-FreqIndex=1, ABStime=7903.389078466, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.66577,47.1941</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7903.782294645, NbPeaks=8
-FreqIndex=0, ABStime=7904.109974456, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66559,47.19407</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7905.551766378, NbPeaks=2
-FreqIndex=1, ABStime=7906.010518382, NbPeaks=3
-FreqIndex=2, ABStime=7906.600342578, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.66523,47.19399</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7906.993558349, NbPeaks=2
-FreqIndex=1, ABStime=7907.452310534, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66506,47.19396</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7907.779990385, NbPeaks=8
-FreqIndex=0, ABStime=7908.173206319, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.66489,47.19392</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7909.614998266, NbPeaks=3
-FreqIndex=1, ABStime=7910.00821433, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66455,47.19386</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7910.663574343, NbPeaks=6
-FreqIndex=0, ABStime=7911.056790371, NbPeaks=3
-FreqIndex=1, ABStime=7911.450006366, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66438,47.19384</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7911.843222137, NbPeaks=8
-FreqIndex=0, ABStime=7912.236438285, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66423,47.19383</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7914.399126429, NbPeaks=8
-FreqIndex=0, ABStime=7914.792342195, NbPeaks=4
-FreqIndex=1, ABStime=7915.447702368, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66387,47.19389</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7915.840918274, NbPeaks=5
-FreqIndex=0, ABStime=7916.234134243, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66377,47.19392</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7917.675926313, NbPeaks=2
-FreqIndex=1, ABStime=7918.069142249, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66357,47.19397</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7918.462358243, NbPeaks=6
-FreqIndex=0, ABStime=7918.855574077, NbPeaks=2
-FreqIndex=1, ABStime=7919.510934356, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66349,47.19399</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7922.853270104, NbPeaks=3
-FreqIndex=1, ABStime=7923.508630273, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.6632,47.19405</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7923.901846329, NbPeaks=4
-FreqIndex=0, ABStime=7924.295062227, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66311,47.19409</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7925.736854277, NbPeaks=3
-FreqIndex=1, ABStime=7926.130070207, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.66289,47.19418</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7926.52328659, NbPeaks=8
-FreqIndex=0, ABStime=7926.916502166, NbPeaks=1
-FreqIndex=1, ABStime=7927.571862313, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66276,47.19421</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7929.800086284, NbPeaks=3
-FreqIndex=1, ABStime=7930.127766281, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66231,47.19432</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7930.520982293, NbPeaks=7
-FreqIndex=0, ABStime=7930.914198169, NbPeaks=3
-FreqIndex=1, ABStime=7931.307414187, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.66215,47.19436</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7931.70063024, NbPeaks=8
-FreqIndex=0, ABStime=7932.355990331, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.66198,47.1944</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7933.535638114, NbPeaks=4
-FreqIndex=1, ABStime=7934.190998305, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66164,47.19447</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7934.584214183, NbPeaks=5
-FreqIndex=0, ABStime=7934.977430067, NbPeaks=3
-FreqIndex=1, ABStime=7935.370646188, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.66146,47.1945</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7936.026006323, NbPeaks=7
-FreqIndex=0, ABStime=7936.419222297, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66128,47.19451</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7937.598870044, NbPeaks=5
-FreqIndex=1, ABStime=7937.92655009, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.66093,47.19447</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7938.385302253, NbPeaks=8
-FreqIndex=0, ABStime=7938.975126211, NbPeaks=2
-FreqIndex=1, ABStime=7939.368342135, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.66076,47.19443</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7939.761558411, NbPeaks=8
-FreqIndex=0, ABStime=7940.416918147, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.66059,47.19437</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7941.596565961, NbPeaks=3
-FreqIndex=1, ABStime=7941.989782224, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6603,47.19422</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7944.480149885, NbPeaks=6
-</description>
-            <Point>
-                <coordinates>7.66001,47.19407</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7945.659797872, NbPeaks=3
-FreqIndex=1, ABStime=7946.249622179, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.65972,47.19392</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7946.380693757, NbPeaks=6
-FreqIndex=0, ABStime=7947.101589966, NbPeaks=4
-FreqIndex=1, ABStime=7947.429270054, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.65958,47.19384</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7947.822485882, NbPeaks=6
-FreqIndex=0, ABStime=7948.477845997, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65943,47.19377</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7950.443925777, NbPeaks=3
-FreqIndex=0, ABStime=7951.099286, NbPeaks=4
-FreqIndex=1, ABStime=7951.492501936, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65897,47.19355</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7951.885717707, NbPeaks=4
-FreqIndex=0, ABStime=7952.213397907, NbPeaks=6
-</description>
-            <Point>
-                <coordinates>7.65881,47.19347</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7953.720725785, NbPeaks=4
-FreqIndex=1, ABStime=7954.113941684, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65849,47.19332</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7954.769301696, NbPeaks=8
-FreqIndex=0, ABStime=7955.162517588, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65833,47.19324</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7956.866453488, NbPeaks=4
-FreqIndex=1, ABStime=7957.521813693, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65799,47.19309</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7958.570389473, NbPeaks=3
-FreqIndex=1, ABStime=7959.553429247, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65765,47.19294</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7959.946645366, NbPeaks=3
-FreqIndex=0, ABStime=7960.339861471, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65748,47.19286</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7961.716117432, NbPeaks=2
-FreqIndex=1, ABStime=7962.109333309, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65713,47.19269</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7962.764693468, NbPeaks=8
-FreqIndex=0, ABStime=7962.895765216, NbPeaks=2
-FreqIndex=1, ABStime=7963.616661407, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.65695,47.19261</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7963.944341337, NbPeaks=3
-FreqIndex=0, ABStime=7964.337557214, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65677,47.19253</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7965.779349348, NbPeaks=2
-FreqIndex=1, ABStime=7966.172565023, NbPeaks=6
-</description>
-            <Point>
-                <coordinates>7.6564,47.19236</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7966.565781241, NbPeaks=6
-FreqIndex=0, ABStime=7967.221141349, NbPeaks=3
-FreqIndex=1, ABStime=7967.614357271, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65622,47.19227</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7967.94203713, NbPeaks=6
-FreqIndex=0, ABStime=7968.335253168, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65603,47.19219</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7969.842581166, NbPeaks=4
-FreqIndex=1, ABStime=7970.235797167, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65567,47.192</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7970.563477077, NbPeaks=6
-FreqIndex=0, ABStime=7971.284373167, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65548,47.19191</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7971.677589196, NbPeaks=2
-FreqIndex=2, ABStime=7972.005269011, NbPeaks=5
-FreqIndex=0, ABStime=7972.398484904, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6553,47.19182</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7973.840277084, NbPeaks=4
-FreqIndex=1, ABStime=7974.233493079, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65495,47.19163</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7974.62670904, NbPeaks=3
-FreqIndex=0, ABStime=7975.282069067, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65477,47.19154</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=7975.675285024, NbPeaks=4
-FreqIndex=2, ABStime=7976.068501083, NbPeaks=3
-FreqIndex=0, ABStime=7976.461716986, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6546,47.19145</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7977.837972989, NbPeaks=3
-FreqIndex=1, ABStime=7978.23118889, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65426,47.19127</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7978.624404918, NbPeaks=6
-FreqIndex=0, ABStime=7979.017620802, NbPeaks=1
-FreqIndex=1, ABStime=7979.410836773, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6541,47.19118</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7979.80405282, NbPeaks=6
-FreqIndex=0, ABStime=7980.459412861, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65394,47.19109</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7981.639060707, NbPeaks=3
-FreqIndex=1, ABStime=7982.032276645, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65364,47.19093</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7982.687636955, NbPeaks=5
-FreqIndex=0, ABStime=7983.080852725, NbPeaks=2
-FreqIndex=1, ABStime=7983.474068681, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6535,47.19085</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7983.867284729, NbPeaks=5
-FreqIndex=0, ABStime=7984.522644814, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65335,47.19077</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7985.636756728, NbPeaks=2
-FreqIndex=1, ABStime=7986.357652763, NbPeaks=7
-</description>
-            <Point>
-                <coordinates>7.65306,47.19063</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7986.685332793, NbPeaks=3
-FreqIndex=0, ABStime=7987.078548813, NbPeaks=3
-FreqIndex=1, ABStime=7987.471764756, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6529,47.19056</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7987.864980665, NbPeaks=3
-FreqIndex=0, ABStime=7988.520340794, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65275,47.1905</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7989.699988671, NbPeaks=3
-FreqIndex=1, ABStime=7990.355349026, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65242,47.1904</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7990.48642057, NbPeaks=3
-FreqIndex=0, ABStime=7991.141780757, NbPeaks=3
-FreqIndex=1, ABStime=7991.469461152, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65225,47.19037</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7991.928212693, NbPeaks=5
-FreqIndex=0, ABStime=7992.255892645, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65208,47.19033</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7993.697684735, NbPeaks=1
-FreqIndex=1, ABStime=7994.090900729, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65174,47.19025</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7994.746260867, NbPeaks=4
-FreqIndex=0, ABStime=7995.139476817, NbPeaks=3
-FreqIndex=1, ABStime=7995.532692876, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65158,47.19019</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7995.925908749, NbPeaks=2
-FreqIndex=0, ABStime=7996.31912475, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65141,47.19013</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=7997.760916795, NbPeaks=2
-FreqIndex=1, ABStime=7998.15413268, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65111,47.18997</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7998.547348933, NbPeaks=3
-FreqIndex=0, ABStime=7999.202708805, NbPeaks=2
-FreqIndex=1, ABStime=7999.5959248, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65097,47.18988</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=7999.989140775, NbPeaks=2
-FreqIndex=0, ABStime=8000.382356688, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65084,47.18979</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8001.824148677, NbPeaks=2
-FreqIndex=1, ABStime=8002.151828486, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.65059,47.18958</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8002.545044646, NbPeaks=2
-FreqIndex=0, ABStime=8003.200404735, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65047,47.18947</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8003.331476477, NbPeaks=8
-FreqIndex=2, ABStime=8003.986836754, NbPeaks=3
-FreqIndex=0, ABStime=8004.380052569, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65036,47.18937</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8005.82184474, NbPeaks=2
-FreqIndex=1, ABStime=8006.215060774, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65014,47.18916</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8006.542740455, NbPeaks=4
-FreqIndex=0, ABStime=8007.263636844, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65003,47.18906</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8007.39470859, NbPeaks=4
-FreqIndex=2, ABStime=8008.050068684, NbPeaks=3
-FreqIndex=0, ABStime=8008.377748626, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64992,47.18896</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8011.392404442, NbPeaks=2
-FreqIndex=2, ABStime=8012.047764704, NbPeaks=3
-FreqIndex=0, ABStime=8012.440980375, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6495,47.18856</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8013.882772736, NbPeaks=3
-FreqIndex=1, ABStime=8014.275988613, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64931,47.18838</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8014.66920458, NbPeaks=3
-FreqIndex=0, ABStime=8014.996884727, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6492,47.1883</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8018.666900695, NbPeaks=1
-FreqIndex=0, ABStime=8019.060116704, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.64878,47.18798</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8019.71547676, NbPeaks=2
-FreqIndex=2, ABStime=8019.846548622, NbPeaks=3
-FreqIndex=0, ABStime=8020.501908801, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64869,47.18791</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8021.616020632, NbPeaks=3
-FreqIndex=1, ABStime=8022.336916877, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64854,47.18779</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8022.730132719, NbPeaks=4
-FreqIndex=0, ABStime=8023.123348819, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64849,47.18775</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8023.516564813, NbPeaks=4
-FreqIndex=2, ABStime=8024.171924836, NbPeaks=3
-FreqIndex=0, ABStime=8024.565140823, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.64846,47.18772</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8026.006932878, NbPeaks=2
-FreqIndex=1, ABStime=8026.334612855, NbPeaks=7
-</description>
-            <Point>
-                <coordinates>7.64844,47.1877</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8026.727828585, NbPeaks=5
-FreqIndex=0, ABStime=8027.121172672, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64844,47.18769</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8036.033940837, NbPeaks=3
-FreqIndex=1, ABStime=8036.427156867, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64843,47.18768</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8037.082516934, NbPeaks=1
-FreqIndex=0, ABStime=8037.541268893, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64841,47.18768</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8038.917524926, NbPeaks=3
-FreqIndex=1, ABStime=8039.048596545, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.64831,47.18767</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8039.703956849, NbPeaks=3
-FreqIndex=0, ABStime=8040.097172836, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64824,47.18768</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8040.752533081, NbPeaks=3
-FreqIndex=2, ABStime=8041.145749005, NbPeaks=3
-FreqIndex=0, ABStime=8041.538964917, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64815,47.18768</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8042.980757002, NbPeaks=1
-FreqIndex=1, ABStime=8043.37397284, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64793,47.18767</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8043.767189016, NbPeaks=4
-FreqIndex=0, ABStime=8044.160404876, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64781,47.18766</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8045.536660911, NbPeaks=3
-FreqIndex=1, ABStime=8045.929876971, NbPeaks=2
-FreqIndex=2, ABStime=8046.585237184, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.64758,47.18762</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8047.043989198, NbPeaks=1
-FreqIndex=1, ABStime=8047.371669331, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.64747,47.18759</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8047.764885065, NbPeaks=3
-FreqIndex=0, ABStime=8048.158101077, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64735,47.18756</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8048.551317072, NbPeaks=3
-FreqIndex=2, ABStime=8048.944532915, NbPeaks=3
-FreqIndex=0, ABStime=8049.599893314, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64723,47.18753</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8050.714005206, NbPeaks=4
-FreqIndex=1, ABStime=8051.434902024, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64697,47.18746</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8053.663125487, NbPeaks=3
-FreqIndex=1, ABStime=8054.056341319, NbPeaks=4
-FreqIndex=2, ABStime=8054.384021159, NbPeaks=7
-</description>
-            <Point>
-                <coordinates>7.64653,47.18739</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8055.825813723, NbPeaks=4
-FreqIndex=0, ABStime=8056.219029455, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64622,47.18737</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8056.612245667, NbPeaks=3
-FreqIndex=2, ABStime=8057.005461676, NbPeaks=3
-FreqIndex=0, ABStime=8057.39867738, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64607,47.18737</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8058.774933501, NbPeaks=3
-FreqIndex=1, ABStime=8059.168149319, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64575,47.18738</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8059.561365576, NbPeaks=5
-FreqIndex=0, ABStime=8060.282261637, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.6456,47.18739</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8061.396373503, NbPeaks=2
-FreqIndex=1, ABStime=8062.051733809, NbPeaks=3
-FreqIndex=2, ABStime=8062.444949676, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6453,47.1874</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8062.838165707, NbPeaks=3
-FreqIndex=1, ABStime=8063.231381723, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64515,47.18741</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8063.624597407, NbPeaks=6
-FreqIndex=0, ABStime=8064.279957833, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64502,47.18741</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8066.835861815, NbPeaks=2
-FreqIndex=1, ABStime=8067.22907787, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64472,47.1874</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8069.457301667, NbPeaks=3
-FreqIndex=1, ABStime=8070.112662019, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64469,47.18734</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8070.505879153, NbPeaks=8
-FreqIndex=0, ABStime=8070.89909373, NbPeaks=2
-FreqIndex=1, ABStime=8071.292309882, NbPeaks=5
-</description>
-            <Point>
-                <coordinates>7.64471,47.18733</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8071.685526123, NbPeaks=8
-FreqIndex=0, ABStime=8072.340885848, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64474,47.18732</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8073.782677895, NbPeaks=3
-FreqIndex=1, ABStime=8074.17589405, NbPeaks=4
-FreqIndex=2, ABStime=8074.569109748, NbPeaks=7
-</description>
-            <Point>
-                <coordinates>7.64479,47.18734</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8075.683221529, NbPeaks=8
-FreqIndex=0, ABStime=8076.338581896, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64483,47.18735</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8077.518229766, NbPeaks=3
-FreqIndex=1, ABStime=8077.911445874, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6449,47.18737</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8078.566805669, NbPeaks=8
-FreqIndex=0, ABStime=8078.960021879, NbPeaks=2
-FreqIndex=1, ABStime=8079.353237852, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64497,47.18738</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8079.746453623, NbPeaks=7
-FreqIndex=0, ABStime=8080.139669706, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64504,47.18739</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8081.581461771, NbPeaks=3
-FreqIndex=1, ABStime=8081.974677791, NbPeaks=2
-FreqIndex=2, ABStime=8082.302357656, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64523,47.18739</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8083.023253731, NbPeaks=2
-FreqIndex=1, ABStime=8083.416469651, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64535,47.18738</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8083.744149728, NbPeaks=4
-FreqIndex=0, ABStime=8084.137365566, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64547,47.18738</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8085.579157665, NbPeaks=3
-FreqIndex=1, ABStime=8085.972373465, NbPeaks=2
-FreqIndex=2, ABStime=8086.365589688, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64573,47.18736</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8087.020949727, NbPeaks=2
-FreqIndex=1, ABStime=8087.414165629, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64587,47.18736</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8089.64238938, NbPeaks=3
-FreqIndex=1, ABStime=8090.035605627, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.6463,47.18735</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8090.363285932, NbPeaks=8
-FreqIndex=0, ABStime=8091.084181699, NbPeaks=3
-FreqIndex=1, ABStime=8091.477397691, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64645,47.18736</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8091.870613708, NbPeaks=6
-FreqIndex=0, ABStime=8092.263829558, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.6466,47.18738</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8095.081877608, NbPeaks=3
-FreqIndex=1, ABStime=8095.475093631, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64704,47.18746</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8095.868309894, NbPeaks=3
-FreqIndex=0, ABStime=8096.26152545, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64717,47.18749</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8098.817429232, NbPeaks=3
-FreqIndex=1, ABStime=8099.210645319, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64753,47.18758</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8101.438869187, NbPeaks=3
-FreqIndex=1, ABStime=8102.094229352, NbPeaks=3
-FreqIndex=2, ABStime=8102.48744532, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64781,47.18764</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8102.880661123, NbPeaks=3
-FreqIndex=1, ABStime=8103.273877051, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64788,47.18765</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8103.667093123, NbPeaks=3
-FreqIndex=0, ABStime=8104.322453311, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64794,47.18765</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8105.502101062, NbPeaks=3
-FreqIndex=1, ABStime=8105.895317067, NbPeaks=3
-FreqIndex=2, ABStime=8106.288533028, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64804,47.18766</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8106.943893234, NbPeaks=1
-FreqIndex=1, ABStime=8107.33710896, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6481,47.18766</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8107.664789228, NbPeaks=3
-FreqIndex=0, ABStime=8108.058005105, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64816,47.18766</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8109.499797128, NbPeaks=3
-FreqIndex=1, ABStime=8110.155157056, NbPeaks=5
-FreqIndex=2, ABStime=8110.54837331, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64831,47.18765</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8110.941589233, NbPeaks=2
-FreqIndex=1, ABStime=8111.334805001, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.6484,47.18764</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8113.825173166, NbPeaks=3
-FreqIndex=1, ABStime=8114.218389108, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64868,47.18752</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8114.611604907, NbPeaks=4
-FreqIndex=0, ABStime=8115.004820968, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64878,47.18747</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8115.660181126, NbPeaks=3
-FreqIndex=2, ABStime=8116.053397013, NbPeaks=3
-FreqIndex=0, ABStime=8116.44661299, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.64888,47.18742</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8117.888405033, NbPeaks=2
-FreqIndex=1, ABStime=8118.281621053, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64908,47.18731</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8118.609300822, NbPeaks=2
-FreqIndex=0, ABStime=8119.264661036, NbPeaks=4
-</description>
-            <Point>
-                <coordinates>7.64918,47.18725</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8119.657877022, NbPeaks=2
-FreqIndex=2, ABStime=8120.05109302, NbPeaks=2
-FreqIndex=0, ABStime=8120.444308799, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64929,47.18719</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8121.886100834, NbPeaks=3
-FreqIndex=1, ABStime=8122.279316896, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.6495,47.18707</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8122.672532804, NbPeaks=3
-FreqIndex=0, ABStime=8123.327892757, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.64961,47.18701</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=1, ABStime=8123.72110886, NbPeaks=2
-FreqIndex=2, ABStime=8124.114324733, NbPeaks=2
-FreqIndex=0, ABStime=8124.507540797, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.64971,47.18696</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8125.949332884, NbPeaks=2
-FreqIndex=1, ABStime=8126.277012756, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.64992,47.18685</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8126.67022859, NbPeaks=3
-FreqIndex=0, ABStime=8127.391124699, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65003,47.18679</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8129.095060872, NbPeaks=2
-FreqIndex=1, ABStime=8129.488276747, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65023,47.18667</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8129.88149271, NbPeaks=4
-FreqIndex=0, ABStime=8130.274708666, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65034,47.1866</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8131.716500676, NbPeaks=2
-FreqIndex=1, ABStime=8132.109716585, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65056,47.18648</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8132.437396377, NbPeaks=2
-FreqIndex=0, ABStime=8133.158292617, NbPeaks=2
-FreqIndex=1, ABStime=8133.48597263, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65068,47.18643</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8133.879188579, NbPeaks=3
-FreqIndex=0, ABStime=8134.272404225, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.6508,47.18641</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8135.714196515, NbPeaks=2
-FreqIndex=1, ABStime=8136.107412555, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65106,47.18642</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8136.500628336, NbPeaks=2
-FreqIndex=0, ABStime=8136.828308354, NbPeaks=2
-FreqIndex=1, ABStime=8137.549204522, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65118,47.18645</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8137.94242049, NbPeaks=1
-FreqIndex=0, ABStime=8138.335636409, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65131,47.1865</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8139.711892085, NbPeaks=3
-FreqIndex=1, ABStime=8140.170644443, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65157,47.18659</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8140.49832428, NbPeaks=3
-FreqIndex=0, ABStime=8141.15368457, NbPeaks=3
-FreqIndex=1, ABStime=8141.284756321, NbPeaks=8
-</description>
-            <Point>
-                <coordinates>7.65171,47.18663</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8141.940116367, NbPeaks=2
-FreqIndex=0, ABStime=8142.333332281, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65185,47.18665</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8143.775124417, NbPeaks=3
-FreqIndex=1, ABStime=8144.168340309, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65214,47.18668</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8144.561556187, NbPeaks=3
-FreqIndex=0, ABStime=8145.216916405, NbPeaks=1
-FreqIndex=1, ABStime=8145.610132382, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65229,47.18667</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8146.003348376, NbPeaks=1
-FreqIndex=0, ABStime=8146.396564234, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65245,47.18667</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8147.838356347, NbPeaks=3
-FreqIndex=1, ABStime=8148.16603623, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65275,47.18663</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8148.55925218, NbPeaks=2
-FreqIndex=0, ABStime=8148.952468169, NbPeaks=1
-FreqIndex=1, ABStime=8149.345684142, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65289,47.1866</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8150.656403896, NbPeaks=3
-FreqIndex=1, ABStime=8151.115156021, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65317,47.18655</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8152.032660239, NbPeaks=2
-FreqIndex=0, ABStime=8152.425876202, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.6533,47.18652</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8154.654100167, NbPeaks=2
-FreqIndex=0, ABStime=8154.981779964, NbPeaks=3
-FreqIndex=1, ABStime=8155.440532003, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65373,47.18643</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8156.030356202, NbPeaks=1
-FreqIndex=0, ABStime=8156.423572122, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65387,47.18639</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8157.603219931, NbPeaks=2
-FreqIndex=1, ABStime=8157.996435903, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65415,47.1863</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8158.651796005, NbPeaks=2
-FreqIndex=0, ABStime=8159.045011939, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65429,47.18624</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8160.093587944, NbPeaks=3
-FreqIndex=0, ABStime=8160.486803781, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65442,47.18618</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8162.518419713, NbPeaks=3
-FreqIndex=1, ABStime=8163.173779928, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65479,47.18596</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8163.894675959, NbPeaks=3
-FreqIndex=0, ABStime=8164.484499815, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65489,47.18588</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8166.516115623, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65517,47.18563</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=2, ABStime=8167.892371776, NbPeaks=3
-FreqIndex=0, ABStime=8168.547731793, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65526,47.18556</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8169.989523765, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65543,47.18542</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8171.758995732, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65557,47.1853</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8173.135251688, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65562,47.18526</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8174.904723727, NbPeaks=2
-</description>
-            <Point>
-                <coordinates>7.65566,47.18519</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8176.346515673, NbPeaks=1
-</description>
-            <Point>
-                <coordinates>7.65564,47.18516</coordinates>
-            </Point>
-        </Placemark>
-        <Placemark>
-            <visibility>1</visibility>
-            <description>FreqIndex=0, ABStime=8179.492243698, NbPeaks=3
-</description>
-            <Point>
-                <coordinates>7.65557,47.18512</coordinates>
+                <coordinates>7.59932,46.75418</coordinates>
             </Point>
         </Placemark>
     </Document>

@@ -36,7 +36,7 @@ public class GradDescentResult {
 	
 	
 	public static GradDescentResult GradDescent(Anchors anchors, Matrix ranges_in,
-            Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
+            Matrix bounds_in, int n_trial, double alpha, double time_threshold, double[] source) throws Exception {
 		
 	
             Random random = new Random();
@@ -51,16 +51,27 @@ public class GradDescentResult {
                 bounds_in = new Matrix(1, dim);
             }
             
-            Matrix bounds_temp = anchors_in.stack(bounds_in);
-            Matrix bounds = new Matrix(2, dim);
-            
+            Matrix bounds = new Matrix(2, dim); 
             for(int i = 0; i < dim; i++) {
-                bounds.set(0, i, bounds_temp.ColumnMin(i));
-                bounds.set(1, i, bounds_temp.ColumnMax(i));
+                bounds.set(0, i, bounds_in.ColumnMin(i));
+                bounds.set(1, i, bounds_in.ColumnMax(i));
+            }
+
+            Matrix ranges = new Matrix(n,1); 
+            
+            if(source != null) {
+            	
+            	Matrix sol = new Matrix(source, 1);            
+                
+                ranges.w[0] = 0;
+                for (int j = 0; j < n; j++) {
+                    ranges.w[j] = Mstat.distance(anchors_in.getRow(j), sol);
+                }
+                
+                System.out.println("Error at source " + Mstat.norm(ranges_in, ranges));
             }
             
             
-            Matrix ranges = new Matrix(n,1);
             for (int i = 0; i < n_trial; i++)
             {
             	Matrix estimator0 = new Matrix(dim);
@@ -493,9 +504,9 @@ public class GradDescentResult {
 	
 	
 	
-	public static GradDescentResult mlat(Anchors anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold) throws Exception {
+	public static GradDescentResult mlat(Anchors anchors_in, Matrix ranges_in, Matrix bounds_in, int n_trial, double alpha, double time_threshold, double[] source) throws Exception {
 		
-            GradDescentResult gdescent_result = GradDescent(anchors_in, ranges_in, bounds_in, n_trial, alpha, time_threshold);
+            GradDescentResult gdescent_result = GradDescent(anchors_in, ranges_in, bounds_in, n_trial, alpha, time_threshold, source);
 
             int idx = -1;
             double error = Double.MAX_VALUE;
@@ -609,12 +620,13 @@ public class GradDescentResult {
             ranges_with_error.w[i] = ranges.w[i];// + 2 * error * (random.nextDouble() - 0.5);
         }
         
+        double[] source = null;
         int n_trial = 10000; 
         double alpha = 0.0001; 
         double time_threshold = 10000;
         Matrix bounds_in = null;
         
-        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold);
+        GradDescentResult gdescent_result = GradDescentResult.mlat(myAnchors, ranges_with_error, bounds_in, n_trial, alpha, time_threshold, source);
 
         System.out.println("Anchors");
         myAnchors.printMatrix();

@@ -261,8 +261,6 @@ public class NavigationList {
 	        }
 	        
 	        Plot2DPanel plot = new Plot2DPanel();
-	        		 
-	         // add a line plot to the PlotPanel
 	        plot.addLinePlot("TDOA plot", x, y);
 	        JFrame frame = new JFrame("Plot of TDOAs");
 	        frame.setSize(900, 700);
@@ -389,7 +387,7 @@ public class NavigationList {
     	
 		filteredNavigationList.add(navigationList.get(0));
 		
-		int i = random.nextInt(10);
+		int i = random.nextInt(4);
 		while(i < navigationList.size()) {
 			
 			if(prevLat != navigationList.get(i).getLatitude() || 
@@ -399,7 +397,7 @@ public class NavigationList {
 				prevLat = navigationList.get(i).getLatitude(); 
 				prevLong = navigationList.get(i).getLongitude();
 			}
-			i = i + random.nextInt(15);
+			i = i + random.nextInt(6);
 		}				
 	}    
     
@@ -778,6 +776,196 @@ public class NavigationList {
 		
 	
 	
+    public void estimateAdaptiveSourceFDOA() throws Exception {
+		
+    	Anchors myAnchors = new Anchors();
+	    ArrayList<Double> fdoas = new ArrayList<Double>();
+    	
+	    for(int i = 0; i < filteredNavigationList.size(); i++) {
+	    
+	      NavigationChannelList nav = filteredNavigationList.get(i);	
+	      
+	      double[] s = nav.getLocalECEF();
+	      double[] v = nav.getVelocity();
+	      
+	      myAnchors.setCoordinatesAndVelocity(s, v);
+	      fdoas.add(nav.getFDOA());
+	    
+	      System.out.println(nav.getFDOA());
+	    }
+	    
+	    myAnchors.commitCoordinatesAndVelocity();
+	    int num_anchors = myAnchors.getNumberOfAnchors();
+	    
+        Matrix ranges = new Matrix(num_anchors);        
+        for (int i = 0; i < num_anchors; i++) {
+        	
+            ranges.w[i] = fdoas.get(i).doubleValue();
+        }
+        
+       
+        double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+
+        
+        int n_trial = 3000; 
+        double alpha = 0.001; 
+        double time_threshold = 50000;
+        
+     
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i++) {
+
+    	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
+    	Matrix updateVelocities = myAnchors.subsetVelocity(i);
+    	Matrix updateRanges = ranges.subset(i);
+        
+    	
+    	GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(updateAnchors, 
+    			updateVelocities, updateRanges, bounds_in, n_trial, alpha, time_threshold, source);
+    	
+    
+
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
+        updateAnchors.getRow(updateAnchors.rows - 1).printMatrix(); 
+         
+       } 
+       
+       double[] stockArr = new double[error_est.size()];
+       double[] x = new double[error_est.size()];
+       for(int i = 0; i < error_est.size(); i++) {
+    	   stockArr[i] = error_est.get(i).doubleValue();
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();       
+       JFrame frame = new JFrame("FDOA Cost function value");
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+        
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
+       
+	}
+	
+	
+    public void estimateAdaptiveSourceRSSI(double txPower) throws Exception {
+		
+    	
+    	final Kml kml0 = createCIRDocument(filteredNavigationList);
+		kml0.marshal(new File("FilteredCIRMarkers.kml"));
+    	
+    	Anchors myAnchors = new Anchors();
+	    ArrayList<Double> distance = new ArrayList<Double>();
+    	
+	    for(int i = 0; i < filteredNavigationList.size(); i++) {
+	    
+	      NavigationChannelList nav = filteredNavigationList.get(i);		      
+	      double[] s = nav.getLocalECEF();	      
+	      myAnchors.setCoordinates(s);
+
+	      distance.add(getDistance(nav.getRSSI(0), txPower));
+	    
+	      System.out.println(distance.get(distance.size() - 1));
+	    }
+	    
+	    myAnchors.commitCoordinates();
+	    int num_anchors = myAnchors.getNumberOfAnchors();
+	    
+	    double[] xv = new double[num_anchors];
+        Matrix ranges = new Matrix(num_anchors);        
+        for (int i = 0; i < num_anchors; i++) {        	
+            ranges.w[i] = distance.get(i).doubleValue();
+            xv[i] = i;
+        }
+        
+        Plot2DPanel plotRssi = new Plot2DPanel();       
+        JFrame frameRssi = new JFrame("Distance values");
+        plotRssi.addLinePlot(" ", xv, ranges.w);
+        frameRssi.setSize(900, 700);
+        frameRssi.setContentPane(plotRssi);
+        frameRssi.setVisible(true);
+        
+        
+       
+        double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+
+        
+        int n_trial = 3000; 
+        double alpha = 0.001; 
+        double time_threshold = 50000;
+        
+     
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i++) {
+
+    	Anchors updateAnchors = myAnchors.subset(i);
+    	Matrix updateRanges = ranges.subset(i);
+        
+    	GradDescentResult gdescent_result = GradDescentResult.mlat(updateAnchors, updateRanges, bounds_in, n_trial, alpha, time_threshold, source);
+    	
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
+        updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
+         
+       } 
+       
+       double[] stockArr = new double[error_est.size()];
+       double[] x = new double[error_est.size()];
+       for(int i = 0; i < error_est.size(); i++) {
+    	   stockArr[i] = error_est.get(i).doubleValue();
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();       
+       JFrame frame = new JFrame("Rssi Cost function value");
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+       
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
+       
+	}
+    
+    double getDistance(double rssi, double txPower) {
+        /*
+         * RSSI = TxPower - 10 * n * lg(d)
+         * n = 2 (in free space)
+         * 
+         * d = 10 ^ ((TxPower - RSSI) / (10 * n))
+         */
+     
+        return Math.pow(10.0, (txPower - rssi) / (20.0));
+    }
+
+    
+	
 	
 	public void testSGDtdoa(File file) throws Exception {
 		
@@ -1095,24 +1283,30 @@ public class NavigationList {
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		navigation.createNavigationLog(new File("data/ChannelLog.log"));
 		//navigation.createNavigationLog(new File("data/ChannelLog.log"));
 				
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
 		
+		double txPower = -20.0;
 		
 		navigation.computeVelocityECEF();
-		navigation.filterOnRSSI(-73.0, 0);
-		navigation.filterUnique();
-		//navigation.filterRandomlyUnique(5);
+		navigation.filterOnRSSI(-100.0, 0);
+		//navigation.filterUnique();
+		navigation.filterRandomlyUnique(3);
 		
-		navigation.computeFDOAfromNavigationList(0, 3.0);
+		//navigation.computeFDOAfromNavigationList(0, 3.0);
 		navigation.computeDynamicTDOAfromNavigationList(0,.000001);
 		navigation.createEstimationBounds();		
-		navigation.estimateSourceSolutionFDOA();
+		
+		//navigation.estimateAdaptiveSourceRSSI(txPower);
+		//navigation.estimateSourceSolutionFDOA();
+		//navigation.estimateAdaptiveSourceFDOA();
 		//navigation.estimateSourceSolution();
-		//navigation.estimateAdaptiveSource();
+		navigation.estimateAdaptiveSource();
+		
+		
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {

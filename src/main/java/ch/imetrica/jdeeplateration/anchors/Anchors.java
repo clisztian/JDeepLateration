@@ -55,6 +55,10 @@ public class Anchors {
     	return anchors.getRow(i);
     }
     
+    public Matrix getVelocityRow(int i) throws Exception {
+    	return anchor_velocity.getRow(i);
+    }
+    
 	public void setCoordinates(double[] a) throws Exception {
 		if(a.length != 3 ) {
 			throw new Exception("Must have 3 coordinates");
@@ -170,6 +174,26 @@ public class Anchors {
         }
         subset.commitCoordinates();        
 		return subset; 
+	}
+
+	public Matrix subsetVelocity(int nrows) throws Exception {
+		
+		Matrix subset = new Matrix(nrows,3);		
+        for(int j = 0; j < nrows; j++) {
+        	
+        	subset.setRow(j, this.getVelocityRow(j).w);
+        }
+        return subset;
+	}
+
+	public Matrix subsetCoordinates(int nrows) throws Exception {
+				
+		Matrix subset = new Matrix(nrows,3);		
+        for(int j = 0; j < nrows; j++) {
+        	
+        	subset.setRow(j, this.getRow(j).w);
+        }
+        return subset;
 	}
 	
 	
