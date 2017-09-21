@@ -188,6 +188,35 @@ public class NavigationChannelList {
 		
 		ChannelList.add(myChannel);
 	}
+	
+	
+	public void addChannel_interpolation(String channel, int f) {
+		
+		String[] tokens = channel.split("\\s+");
+		
+		long time = (new Long(tokens[0])).longValue();
+		int freq = f;
+		
+		String[] paramtoks = tokens[4].split("[=]+");
+		double Abs = (new Double(paramtoks[1])).doubleValue();
+		
+		paramtoks = tokens[5].split("[=]+");
+		double Rssi = (new Double(paramtoks[1])).doubleValue();
+		
+		paramtoks = tokens[6].split("[=]+");
+		double snr = (new Double(paramtoks[1])).doubleValue();
+		
+		paramtoks = tokens[7].split("[=]+");
+		int nbpeaks = (new Integer(paramtoks[1])).intValue();
+		
+		paramtoks = tokens[8].split("[=]+");
+		String peaklist = paramtoks[1];
+
+		Channel myChannel = new Channel(time, freq, Abs, Rssi, snr, nbpeaks, peaklist);
+		
+		ChannelList.add(myChannel);
+	}
+	
 
 	public String getDescription() {
 		

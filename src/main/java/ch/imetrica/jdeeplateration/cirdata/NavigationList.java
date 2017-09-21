@@ -45,11 +45,22 @@ public class NavigationList {
 	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
 	
 	Matrix bounds_in;
+	private double sourceLatitude = 0;
+	private double sourceLongitude = 0;
+	private boolean plotTDOAs = false;
 	
 	public NavigationList() {
 		navigationList = new ArrayList<NavigationChannelList>();
 	}
 	
+	public void setPlotTDOAs(boolean f) {
+		this.plotTDOAs = f; 
+	}
+	
+	public void setKnownSource(double lat, double longi) {
+		this.sourceLatitude = lat; 
+		this.sourceLongitude = longi; 
+	}
 	
 	public void computeTDOAfromNavigationList(int freq) throws Exception {
 		
@@ -125,6 +136,12 @@ public class NavigationList {
 	}
 	
 	
+	public void filterPeakList() {
+		
+		
+		
+	}
+	
 	public void computeTDOAfromNavigationList00(int freq) throws Exception {
         
 	       if(filteredNavigationList == null) {    
@@ -194,7 +211,7 @@ public class NavigationList {
 	}
 	
 	
-	public void computeDynamicTDOAfromNavigationList(int freq, double thresh) throws Exception {
+	public void filterTDOAfromNavigationList(int freq, double thresh) throws Exception {
         
 	       if(filteredNavigationList == null) {    
 	           throw new Exception("Apply filtering to navigation list first");   
@@ -241,11 +258,8 @@ public class NavigationList {
 	                	System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
 		                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
 		                times.add(time);
-		                tdoaFrequency0.add(td);
-	                    
-		                 
-	                }
-	                
+		                tdoaFrequency0.add(td);   
+	                }	                
 	            }            
 	        }
 	        System.out.println("----------------------------------------");
@@ -270,7 +284,7 @@ public class NavigationList {
 	}
 	
 	
-	public void computeFDOAfromNavigationList(int freq, double threshold) throws Exception {
+	public void filterFDOAfromNavigationList(int freq, double threshold) throws Exception {
 		
 	       if(filteredNavigationList == null) {    
 	           throw new Exception("Apply filtering to navigation list first");   
@@ -313,7 +327,6 @@ public class NavigationList {
 	        frame.setSize(900, 700);
 	        frame.setContentPane(plot);
 	        frame.setVisible(true);
-  
 	}
 	
 	
@@ -333,7 +346,7 @@ public class NavigationList {
 			double[] prevlocalECEF = navList.getLocalECEF();
 			
 			navigationList.get(i).computeVelocityECEF(prevTime, prevlocalECEF);
-			navigationList.get(i).printVelocity();
+			//navigationList.get(i).printVelocity();
 		}
 	}
 	
@@ -350,6 +363,8 @@ public class NavigationList {
 		}
 		System.out.println("Navigation readings after RSSI filtering: " + navigationList.size());
 	}
+	
+	
 	
     public void filterUnique() {
 		
@@ -375,7 +390,7 @@ public class NavigationList {
 	}
 	
 
-    public void filterRandomlyUnique(int seed) {
+    public void filterRandomlyUnique(int seed, int skip) {
 		
     	Random random = new Random(seed);
     	filteredNavigationList = new ArrayList<NavigationChannelList>();
@@ -387,7 +402,7 @@ public class NavigationList {
     	
 		filteredNavigationList.add(navigationList.get(0));
 		
-		int i = random.nextInt(4);
+		int i = random.nextInt(skip);
 		while(i < navigationList.size()) {
 			
 			if(prevLat != navigationList.get(i).getLatitude() || 
@@ -397,7 +412,7 @@ public class NavigationList {
 				prevLat = navigationList.get(i).getLatitude(); 
 				prevLong = navigationList.get(i).getLongitude();
 			}
-			i = i + random.nextInt(6);
+			i = i + random.nextInt(skip);
 		}				
 	}    
     
@@ -704,15 +719,6 @@ public class NavigationList {
 			tdoas.add(tdoa_est); 
 		}
 			
-//		System.out.println("Tdoas: ");
-//		for(int j = 0; j < num_anchors; j++) {
-//			
-//			System.out.println(rtdoas.get(j) + " " + tdoas.get(j));
-//			
-//		}
-		
-		
-		
 		
         Matrix ranges = new Matrix(num_anchors);
         Matrix ranges_with_error = new Matrix(num_anchors);
@@ -774,6 +780,144 @@ public class NavigationList {
        
 	}
 		
+	
+	
+	
+	
+	
+	
+	public void estimateDynamicSourceTDOA(int freq, int n_estimates, double thresh) throws Exception {
+		
+	    //Define default SGD parameters//
+		int n_trial = 1000; 
+        double alpha = 0.0001; 
+        double time_threshold = 50000;
+		
+        double time = 0; 
+        double refTime = -1.0;
+        double tdoa = 0.0;
+        double frameLength = .065536;
+        double[] x;
+        
+        //Compute original source location//
+        localOrigin = NavigationChannelList.GeodeticToECEF(filteredNavigationList.get(0).getLatitude(), 
+        		filteredNavigationList.get(0).getLongitude(), 0);
+	    
+        double[] source = null;
+        if(sourceLatitude != 0.0) {
+        	
+        	source = NavigationChannelList.GeodeticToECEF(sourceLatitude, sourceLongitude, 0);
+    		source[0] -= localOrigin[0];
+    		source[1] -= localOrigin[1];
+    		source[2] -= localOrigin[2];	
+        }
+        
+        int count = 0; 
+		int n_samples = (int)Math.floor(filteredNavigationList.size()/n_estimates); 
+		tdoaFrequency0 = new ArrayList<TimeDiffOnArrival>();
+		x = new double[n_samples];
+		
+        for (NavigationChannelList navList : filteredNavigationList) {
+        	
+            time = navList.getTimeStampAtFreq(freq);
+            if(refTime < 0 && time > 0) { 
+            	
+                refTime = time;  //set reference time for first measurement            
+                tdoa = 0.0;
+                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+                tdoaFrequency0.add(td);                
+            }
+            else if(time > 0) {
+                
+            	
+            	
+                double timeStamp = (time - refTime) % frameLength;
+                if (timeStamp < frameLength / 2) {
+                    tdoa = timeStamp;
+                }
+                else {
+                    tdoa = - (frameLength - timeStamp);
+                }
+                
+                System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);
+                
+                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+                tdoaFrequency0.add(td);
+                
+//                System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
+//                
+//                if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
+//                	
+//	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+//	                tdoaFrequency0.add(td);   
+//                }	                
+            }
+            
+            
+            //If enough samples collected, estimate new source//
+            if(tdoaFrequency0.size() == n_samples) {
+            	
+            	ArrayList<double[]> estimates = new ArrayList<double[]>();
+                ArrayList<Double> error_est = new ArrayList<Double>();
+
+                ArrayList<double[]> coordinates = new ArrayList<double[]>();
+            	Anchors updateAnchors = new Anchors();
+            	Matrix updateRanges = new Matrix(n_samples);
+
+            	for(int i = 0; i < tdoaFrequency0.size(); i++) {
+					        					
+        			double[] locs = NavigationChannelList.GeodeticToECEF(tdoaFrequency0.get(i).getLatitude(), 
+        					tdoaFrequency0.get(i).getLongitude(), 0);
+        			
+        			updateAnchors.setCoordinates(locs[0] - localOrigin[0], 
+        					                 locs[1] - localOrigin[1], 
+        					                 locs[2] - localOrigin[2]);
+        			
+        			double[] coord = {tdoaFrequency0.get(i).getLongitude(), tdoaFrequency0.get(i).getLatitude(), 0}; 
+        			coordinates.add(coord);
+        			
+        			updateRanges.w[i] = tdoaFrequency0.get(i).getTDOA()*C; 
+        			x[i] = i;
+        		}
+
+        		updateAnchors.commitCoordinates();
+        		GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(updateAnchors, updateRanges, bounds_in, 
+                		n_trial, alpha, time_threshold, source);
+
+                gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+    	        estimates.add(gdescent_result.estimator.w);
+    	        error_est.add(gdescent_result.error.w[0]);
+    	        System.out.print("Error with " + n_samples + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+    	        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
+    	        updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
+            	
+            	//Output to GoogleEarth the estimate and the navigation// 
+    	        final Kml kml = createNavigationAndSolutionDocument(coordinates, gdescent_result.estimator.w, count);
+    	        kml.marshal(new File("SolutionMarkers_" + count +".kml"));
+            	
+    	        
+    	        if(plotTDOAs) {
+    	        	
+    		        Plot2DPanel plot = new Plot2DPanel();
+    		        JFrame frame = new JFrame("Plot of TDOAs " + count);
+    		        plot.addLinePlot("TDOA plot", x, updateRanges.w);	        
+    		        frame.setSize(900, 700);
+    		        frame.setContentPane(plot);
+    		        frame.setVisible(true);	
+    	        }
+    	        
+    	        //Now clear the list
+    	        tdoaFrequency0.clear();
+    	        count++;
+    	        refTime = -1.0;
+    	        tdoa = 0.0;
+            }   
+        }
+        	
+	}
+	
+	
 	
 	
     public void estimateAdaptiveSourceFDOA() throws Exception {
@@ -861,6 +1005,10 @@ public class NavigationList {
        
 	}
 	
+    
+    
+    
+    
 	
     public void estimateAdaptiveSourceRSSI(double txPower) throws Exception {
 		
@@ -965,7 +1113,106 @@ public class NavigationList {
     }
 
     
-	
+	public void testSGDfdoa() throws Exception {
+		
+		Anchors myAnchors = new Anchors();
+    	
+	    for(int i = 0; i < filteredNavigationList.size(); i++) {
+	    
+	      NavigationChannelList nav = filteredNavigationList.get(i);	
+	      
+	      double[] s = nav.getLocalECEF();
+	      double[] v = nav.getVelocity();
+	      
+	      myAnchors.setCoordinatesAndVelocity(s, v);	    
+	      System.out.println(nav.getFDOA());
+	    }
+	    
+	    myAnchors.commitCoordinatesAndVelocity();
+	    int num_anchors = myAnchors.getNumberOfAnchors();
+	    
+	    Matrix anchors_in = myAnchors.getAnchors();
+	    Matrix velocities = myAnchors.getVelocities();
+	    double[] source = NavigationChannelList.GeodeticToECEF(46.762878, 7.600469, 0);
+        
+	    //double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+		
+		double[] xv = new double[num_anchors];
+	    Matrix sol = new Matrix(source, 1);
+	    Matrix ranges = new Matrix(num_anchors,1);           
+        ranges.w[0] = 0;
+        for (int j = 0; j < num_anchors-1; j++) {                    	
+        	ranges.w[j+1] = GradDescentResult.fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
+        			velocities.getRow(j), velocities.getRow(j+1), sol);
+            
+        	xv[j+1] = j+1;
+        }
+	    
+        
+        Plot2DPanel plotfdoa = new Plot2DPanel();
+        JFrame framefdoa = new JFrame("Plot of FDOAs");
+        plotfdoa.addLinePlot("TDOA plot", xv, ranges.w);	        
+        framefdoa.setSize(900, 700);
+        framefdoa.setContentPane(plotfdoa);
+        framefdoa.setVisible(true);
+        
+
+        
+        int n_trial = 500; 
+        double alpha = 0.0001; 
+        double time_threshold = 50000;
+        
+     
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i++) {
+
+    	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
+    	Matrix updateVelocities = myAnchors.subsetVelocity(i);
+    	Matrix updateRanges = ranges.subset(i);
+        
+    	
+    	GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(updateAnchors, 
+    			updateVelocities, updateRanges, bounds_in, n_trial, alpha, time_threshold, source);
+    	
+    
+
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
+        updateAnchors.getRow(updateAnchors.rows - 1).printMatrix(); 
+         
+       } 
+       
+       double[] stockArr = new double[error_est.size()];
+       double[] x = new double[error_est.size()];
+       for(int i = 0; i < error_est.size(); i++) {
+    	   stockArr[i] = error_est.get(i).doubleValue();
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();       
+       JFrame frame = new JFrame("FDOA Cost function value");
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+        
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));        		
+		
+	}
+    
+    
 	
 	public void testSGDtdoa(File file) throws Exception {
 		
@@ -1261,6 +1508,121 @@ public class NavigationList {
 	 }
 
 	
+     public void createNavigationLog_Interpolation(File file) throws Exception {
+		
+		String strline; 
+		String[] tokens; 		
+		String delims = "\\s+";
+		int channel_count = 0;
+		
+		boolean channelValue = false;
+        ArrayList<String> navList = new ArrayList<String>();
+		
+		FileInputStream fin; DataInputStream din; BufferedReader br;
+		fin = new FileInputStream(file);
+        din = new DataInputStream(fin);
+        br = new BufferedReader(new InputStreamReader(din));
+		
+        //----------------- get header ---
+        strline = br.readLine(); 
+        System.out.println(strline);
+        
+        //----------------- get creation time stamp
+        strline = br.readLine(); 
+        
+        tokens = strline.split("\\s+");
+        System.out.println(strline + " " + tokens.length);
+        
+        if(!tokens[3].equals("CREATION")) {
+        	br.close();
+        	throw new Exception("File not in correct format " + tokens[3]);
+        }
+        this.creationTimestamp = (new Long(tokens[0])).longValue();
+        		
+        //----------------- get start measurement
+        strline = br.readLine(); 
+        System.out.println(strline);
+
+      
+        
+        strline = br.readLine(); 
+        tokens = strline.split("\\s+");
+        System.out.println(strline + " " + tokens.length);
+        
+        if(!tokens[3].equals("SETUP")) {
+        	br.close();
+        	throw new Exception("File not in correct format " + tokens[3]);
+        }
+        String[] centerToks = tokens[4].split("[=]+");
+        CenterFreq = (new Double(centerToks[1])).doubleValue();
+        
+        centerToks = tokens[5].split("[=]+");
+        Bandwidth = (new Double(centerToks[1])).doubleValue();
+        
+        //--- now read rest of file to extract navigation and channel logs 
+        while((strline = br.readLine()) != null) {        	
+        	
+        	tokens = strline.split("\\s+");
+        	if(!tokens[3].equals("STOP")) {
+        		navList.add(strline);        	
+        	}
+        }
+        br.close();         
+        
+        //--- now read rest of file to extract navigation and channel logs 
+        int count = 0;
+        while(count < navList.size()) {
+        	
+          tokens = navList.get(count).split(delims);
+          
+          if(tokens[3].equals("NAVIGATION")) {
+          
+        	  long time = (new Long(tokens[0])).longValue();
+        	  
+        	  String[] toks = tokens[4].split("[=]+");
+        	  int seconds = (new Integer(toks[1])).intValue();
+             
+        	  
+              toks = tokens[5].split("[=]+");
+              double longitude = (new Double(toks[1])).doubleValue();
+ 
+              toks = tokens[6].split("[=]+");
+              double lat = (new Double(toks[1])).doubleValue();              
+
+        	  NavigationChannelList channelList = 
+        			  new NavigationChannelList(time, seconds, longitude, lat);
+        	  
+        	  count++;
+        	  channelValue = true;
+        	  channel_count = 0;
+        	  while(channelValue && count < navList.size()) {
+        		  
+            	  tokens = navList.get(count).split(delims);
+            	  if(tokens[3].equals("CHANNEL")) {            		  
+            		  
+            		  channelList.addChannel_interpolation(navList.get(count), channel_count);  
+            		  count++;
+            		  channel_count++;
+            	  }
+            	  else {
+            		  
+            		  if(channelList.ChannelList.size() > 0) {
+            		   navigationList.add(channelList);
+            		  }
+            		  channelValue = false;
+            	  }
+        	  }    
+           }
+           else {
+        	  count++;
+           }
+        }
+	 }
+	
+	
+	
+	
+	
 	public void createLocalCoordinateSystem() {
 		
 		double longitude = navigationList.get(0).getLongitude();
@@ -1283,29 +1645,27 @@ public class NavigationList {
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		navigation.createNavigationLog(new File("data/ChannelLog.log"));
+		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
 		//navigation.createNavigationLog(new File("data/ChannelLog.log"));
-				
+		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
+		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		
+		navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
+		
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
 		
-		double txPower = -20.0;
+		
+		int n_estimates = 5;
+		int freqIndex = 0; 
+		double threshold = .000001;
 		
 		navigation.computeVelocityECEF();
-		navigation.filterOnRSSI(-100.0, 0);
-		//navigation.filterUnique();
-		navigation.filterRandomlyUnique(3);
-		
-		//navigation.computeFDOAfromNavigationList(0, 3.0);
-		navigation.computeDynamicTDOAfromNavigationList(0,.000001);
+		navigation.filterOnRSSI(-150.0, freqIndex);
+		navigation.filterUnique();
 		navigation.createEstimationBounds();		
-		
-		//navigation.estimateAdaptiveSourceRSSI(txPower);
-		//navigation.estimateSourceSolutionFDOA();
-		//navigation.estimateAdaptiveSourceFDOA();
-		//navigation.estimateSourceSolution();
-		navigation.estimateAdaptiveSource();
-		
+		navigation.setPlotTDOAs(true);
+		navigation.estimateDynamicSourceTDOA(freqIndex, n_estimates, threshold);
 		
 	}
 	
@@ -1387,6 +1747,51 @@ public class NavigationList {
 	}
 	
     
+    public static Kml createNavigationAndSolutionDocument(ArrayList<double[]> coordinates, double[] estimate, int n) {
+		
+		Kml kml = KmlFactory.createKml();
+		Document document = kml.createAndSetDocument().withName("SolutionMarkers_" + n + ".kml");
+		
+		for(int j = 0; j < coordinates.size(); j++) {
+		  
+		  double[] myEst = coordinates.get(j);	
+			
+		  document.createAndAddPlacemark()
+          //.withName("Error " + errors.get(j))
+          .withDescription("Navigation Loc" + j)
+          .withVisibility(true)
+          .createAndSetPoint().addToCoordinates(myEst[0], myEst[1]);		  		  
+		}
+		document.createAndAddPlacemark()
+        .withName("Estimate " + n)
+        .withDescription("Estimate Loc" + n)
+        .withVisibility(true)
+        .createAndSetPoint().addToCoordinates(estimate[1], estimate[0]);	
+				
+		System.out.println("Number of features: " + document.getFeature().size());
+		
+		List<Color> colors = pick(document.getFeature().size()+2);
+		Color color = colors.get((int)(colors.size()/(n+1)) - 1);
+		
+		for (int i = 0; i < document.getFeature().size(); i++) {
+						
+			Style style = document.getFeature().get(i).createAndAddStyle();			
+			String hex = String.format("%02x%02x%02x", color.getRed(), color.getGreen(), color.getBlue());
+
+			style.createAndSetIconStyle().withColor("e5"+hex).withScale(1.0);
+			document.getFeature().get(i).getStyleSelector().add(style);			
+		}
+		
+        kml.setFeature(document);
+		
+		return kml; 		
+	}
+    
+    
+    
+    
+    
+    
     public static List<Color> pick(int num) {
         List<Color> colors = new ArrayList<Color>();
         if (num < 2)
@@ -1432,4 +1837,14 @@ public class NavigationList {
     }
     
     
+	//navigation.estimateAdaptiveSourceRSSI(txPower);
+	//navigation.estimateSourceSolutionFDOA();
+	//navigation.estimateAdaptiveSourceFDOA();
+	//navigation.estimateSourceSolution();
+	//navigation.estimateAdaptiveSource();
+	//navigation.testSGDfdoa();
+	//navigation.filterRandomlyUnique(3, 4);
+	
+	//navigation.filterFDOAfromNavigationList(0, 3.0);
+	//navigation.filterTDOAfromNavigationList(0,.00001);
 }
