@@ -786,7 +786,7 @@ public class NavigationList {
 	
 	
 	
-	public void estimateDynamicSourceTDOA(int freq, int n_estimates, double thresh) throws Exception {
+	public void estimateDynamicReferenceTDOA(int freq, int n_estimates, double thresh) throws Exception {
 		
 	    //Define default SGD parameters//
 		int n_trial = 1000; 
@@ -839,18 +839,12 @@ public class NavigationList {
                     tdoa = - (frameLength - timeStamp);
                 }
                 
-                System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);
-                
-                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
-                tdoaFrequency0.add(td);
-                
-//                System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
-//                
-//                if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
-//                	
-//	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
-//	                tdoaFrequency0.add(td);   
-//                }	                
+                System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);                
+                if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
+                	
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                tdoaFrequency0.add(td);   
+                }	                
             }
             
             
@@ -1648,16 +1642,16 @@ public class NavigationList {
 		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
 		//navigation.createNavigationLog(new File("data/ChannelLog.log"));
 		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
 		
-		navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
+		//navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
 		
 		final Kml kml = createCIRDocument(navigation.navigationList);
 		kml.marshal(new File("CIRMarkers.kml"));
 		
 		
 		int n_estimates = 5;
-		int freqIndex = 0; 
+		int freqIndex = 2; 
 		double threshold = .000001;
 		
 		navigation.computeVelocityECEF();
@@ -1665,7 +1659,7 @@ public class NavigationList {
 		navigation.filterUnique();
 		navigation.createEstimationBounds();		
 		navigation.setPlotTDOAs(true);
-		navigation.estimateDynamicSourceTDOA(freqIndex, n_estimates, threshold);
+		navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, threshold);
 		
 	}
 	
