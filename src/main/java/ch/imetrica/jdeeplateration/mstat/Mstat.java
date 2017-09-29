@@ -20,7 +20,7 @@ public class Mstat implements Serializable {
 		}		
 		double distance = 0;
 	
-		for(int i = 0; i < m1.size; i++) {
+		for(int i = 0; i < 3; i++) {
 			distance += Math.abs(m1.w[i] - m2.w[i])*Math.abs(m1.w[i] - m2.w[i]); 
 		}
 		distance = Math.sqrt(distance);		

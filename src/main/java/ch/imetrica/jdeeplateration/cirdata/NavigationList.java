@@ -31,7 +31,8 @@ import de.micromata.opengis.kml.v_2_2_0.Style;
 public class NavigationList {
 
 	
-	public final static double C = 299792458;
+	public final static double C = 299792458; 
+	public final static double drift_bound = 3e-8; 
 	double[] Frequencies; 
 	double[] localOrigin = null;
 
@@ -88,7 +89,7 @@ public class NavigationList {
 				double currentRefTime = Math.floor(time*100.0)/100.0 + residual;				
 				double tdoa = time - currentRefTime;
 				
-				TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);
+				TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, 0);
 				td.printTDOA();
 				
 				tdoaFrequency0.add(td);
@@ -127,7 +128,7 @@ public class NavigationList {
 				}
 				
 				TimeDiffOnArrival td = new TimeDiffOnArrival(filteredNavigationList.get(i).getLongitude(),
-						filteredNavigationList.get(i).getLatitude(), tdoa);
+						filteredNavigationList.get(i).getLatitude(), tdoa, 0);
 				td.printTDOA();
 				
 				tdoaFrequency0.add(td);
@@ -165,7 +166,7 @@ public class NavigationList {
 	                refTime = time;  //set reference time for first measurement
 	            
 	                tdoa = 0.0;
-	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, 0);                
 	                
 	                times.add(time);
 	                tdoaFrequency0.add(td);
@@ -181,7 +182,7 @@ public class NavigationList {
 	                }
 	                
 	                System.out.println(tdoa);
-	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
 	                
 	                times.add(time);
 	                tdoaFrequency0.add(td);
@@ -235,7 +236,7 @@ public class NavigationList {
 	                refTime = time;  //set reference time for first measurement
 	            
 	                tdoa = 0.0;
-	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, 0);                
 	                
 	                times.add(time);
 	                tdoaFrequency0.add(td);
@@ -256,7 +257,7 @@ public class NavigationList {
 	                if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
 	                	
 	                	System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
-		                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+		                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
 		                times.add(time);
 		                tdoaFrequency0.add(td);   
 	                }	                
@@ -782,11 +783,126 @@ public class NavigationList {
 		
 	
 	
+    public void estimateAdaptiveSourceWithDrift() throws Exception {
+		
+        int num_anchors;
+        
+        
+        final Kml kml0 = createCIRDocument(filteredNavigationList);
+		kml0.marshal(new File("FilteredCIRMarkers.kml"));
+        
+        
+		Anchors myAnchors = new Anchors();
+	    ArrayList<Double> tdoas = new ArrayList<Double>();
+	    ArrayList<Double> rtdoas = new ArrayList<Double>();
+	    
+	    localOrigin = NavigationChannelList.GeodeticToECEF(tdoaFrequency0.get(0).getLatitude(), 
+	    		tdoaFrequency0.get(0).getLongitude(), 0);
+	    
+		double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+	    
+
+		Matrix sourceMat = new Matrix(source,1);
+		
+		for(int i = 0; i < tdoaFrequency0.size(); i++) {
+						
+			TimeDiffOnArrival tdoa = tdoaFrequency0.get(i);
+					
+			double[] locs = NavigationChannelList.GeodeticToECEF(tdoa.getLatitude(), tdoa.getLongitude(), 0);
+			
+			myAnchors.setCoordinates(locs[0] - localOrigin[0], 
+					                 locs[1] - localOrigin[1], 
+					                 locs[2] - localOrigin[2], 
+					                 0.0);
+						
+			rtdoas.add(tdoa.getTDOA()*C);
+			tdoas.add(tdoa.timeDiff*C);
+			
+		}
+		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
+		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
+		
+		myAnchors.commitCoordinates();
+		num_anchors = myAnchors.getNumberOfAnchors();
+
+			
+		
+        Matrix ranges_with_error = new Matrix(num_anchors);
+        Matrix timeDiffs = new Matrix(num_anchors);
+        
+        for (int i = 0; i < num_anchors; i++) {
+        	
+            ranges_with_error.w[i] = rtdoas.get(i).doubleValue();
+            timeDiffs.w[i] = tdoas.get(i).doubleValue();
+            
+        }
+
+        
+        int n_trial = 3000; 
+        double alpha = 0.001; 
+        double time_threshold = 50000;
+        
+     
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i++) {
+
+    	Anchors updateAnchors = myAnchors.subset(i);
+    	Matrix updateRanges = ranges_with_error.subset(i);
+    	Matrix updateTimeDiff = timeDiffs.subset(i);
+        
+        GradDescentResult gdescent_result = GradDescentResult.mlatTdoaDrift(updateAnchors, updateRanges, updateTimeDiff.w, 
+        		bounds_in, n_trial, alpha, time_threshold, source);
+
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+        		+ " "); // + updateRanges.w[updateRanges.w.length-1] + " ");
+        //updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
+        gdescent_result.estimator.printMatrix(); 
+       } 
+       
+       double[] stockArr = new double[error_est.size()];
+       double[] x = new double[error_est.size()];
+       for(int i = 0; i < error_est.size(); i++) {
+    	   stockArr[i] = error_est.get(i).doubleValue();
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();
+		 
+       // add a line plot to the PlotPanel
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       JFrame frame = new JFrame("Cost function value");
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+        
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
+       
+	}
+	
+	
+	
+	
+	
 	
 	
 	
 	
 	public void estimateDynamicReferenceTDOA(int freq, int n_estimates, double thresh) throws Exception {
+		
+		
+		
 		
 	    //Define default SGD parameters//
 		int n_trial = 1000; 
@@ -817,6 +933,8 @@ public class NavigationList {
 		tdoaFrequency0 = new ArrayList<TimeDiffOnArrival>();
 		x = new double[n_samples];
 		
+		System.out.println("Number of samples: " + n_samples);
+		
         for (NavigationChannelList navList : filteredNavigationList) {
         	
             time = navList.getTimeStampAtFreq(freq);
@@ -824,7 +942,7 @@ public class NavigationList {
             	
                 refTime = time;  //set reference time for first measurement            
                 tdoa = 0.0;
-                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, 0);                
                 tdoaFrequency0.add(td);                
             }
             else if(time > 0) {
@@ -839,10 +957,10 @@ public class NavigationList {
                     tdoa = - (frameLength - timeStamp);
                 }
                 
-                System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);                
+                //System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);                
                 if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
                 	
-	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa);                
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
 	                tdoaFrequency0.add(td);   
                 }	                
             }
@@ -900,6 +1018,8 @@ public class NavigationList {
     		        frame.setContentPane(plot);
     		        frame.setVisible(true);	
     	        }
+    	        
+    	        
     	        
     	        //Now clear the list
     	        tdoaFrequency0.clear();
@@ -1650,8 +1770,8 @@ public class NavigationList {
 		kml.marshal(new File("CIRMarkers.kml"));
 		
 		
-		int n_estimates = 5;
-		int freqIndex = 2; 
+		int n_estimates = 1;
+		int freqIndex = 0; 
 		double threshold = .000001;
 		
 		navigation.computeVelocityECEF();
@@ -1659,8 +1779,10 @@ public class NavigationList {
 		navigation.filterUnique();
 		navigation.createEstimationBounds();		
 		navigation.setPlotTDOAs(true);
-		navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, threshold);
-		
+		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, threshold);
+		navigation.filterTDOAfromNavigationList(freqIndex, threshold);
+		//navigation.estimateAdaptiveSource();
+		navigation.estimateAdaptiveSourceWithDrift();
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {

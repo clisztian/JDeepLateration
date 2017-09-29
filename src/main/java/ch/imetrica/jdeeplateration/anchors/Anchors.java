@@ -60,9 +60,7 @@ public class Anchors {
     }
     
 	public void setCoordinates(double[] a) throws Exception {
-		if(a.length != 3 ) {
-			throw new Exception("Must have 3 coordinates");
-		}
+
 		if(coordinates == null) {
 			coordinates = new ArrayList<double[]>();
 		}
@@ -100,20 +98,35 @@ public class Anchors {
 		number_anchors++;
 	}
 	
+	public void setCoordinates(double a, double b, double c, double drift) {
+
+		if(coordinates == null) {
+			coordinates = new ArrayList<double[]>();
+			number_anchors = 0;
+		}
+		
+		double[] loc = {a, b, c, drift};
+		coordinates.add(loc);
+		number_anchors++;
+	}
+	
 	public void commitCoordinates() throws Exception {
+		
 		if(coordinates.size() < 4) {
 			throw new Exception("Must have at least 4 locations");
 		}
 		
-		double[] vec_coordinates = new double[coordinates.size()*3];
+		int ncols = coordinates.get(0).length;
+		
+		double[] vec_coordinates = new double[coordinates.size()*ncols];
 		for(int i = 0; i < coordinates.size(); i++) {
 			double[] temp = coordinates.get(i);
-			for(int j = 0; j < 3; j++) {
-				vec_coordinates[i*3 + j] = temp[j];
+			for(int j = 0; j < ncols; j++) {
+				vec_coordinates[i*ncols + j] = temp[j];
 			}	
 		}
 		this.number_anchors = coordinates.size();
-		anchors = new Matrix(this.number_anchors, 3);
+		anchors = new Matrix(this.number_anchors, ncols);
 		anchors.setPointer(vec_coordinates);
 	}
 

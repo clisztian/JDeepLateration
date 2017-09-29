@@ -452,12 +452,12 @@ public class Matrix implements Serializable {
 	
 	public void transformRowCoord(int i, double[] origin) throws Exception {
 		
-		for(int j = 0; j < this.cols; j++) {
+		for(int j = 0; j < 3; j++) {
 			setW(i, j, w[j] + origin[j]);
 		}
 		       
         double[] solution = Coord.ecef_to_geo(this.getRowVector(i));		
-        for(int j = 0; j < this.cols; j++) {
+        for(int j = 0; j < 3; j++) {
 			setW(i, j, solution[j]);
 		}
 		
