@@ -24,4 +24,12 @@ public class PeakList {
 		return frequency_error;
 	}
 	
+	public double getTimeDelay() {
+		return timeDelay;
+	}
+
+	public double getPower() {
+		return power;		
+	}
+	
 }

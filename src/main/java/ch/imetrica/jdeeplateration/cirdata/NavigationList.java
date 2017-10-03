@@ -285,18 +285,42 @@ public class NavigationList {
 	}
 	
 	
-	public void filterFDOAfromNavigationList(int freq, double threshold) throws Exception {
+	public void validateDopplerMeasurement(int freq, double threshold) throws Exception {
+		
+		if(filteredNavigationList == null) {    
+	           throw new Exception("Apply filtering to navigation list first");   
+	    }
+	       
+	    int i = 0;
+	    System.out.println("Navigation readings before fdoa filtering: " + filteredNavigationList.size());	
+		
+	    while(i < filteredNavigationList.size()) {
+	    	
+	    	if(!filteredNavigationList.get(i).validateDopplerMeasurementOnChannel(freq, threshold)) {
+	    		filteredNavigationList.remove(i);
+	    	}
+	    	else {
+	    		i++;
+	    	}	
+	    }
+	    System.out.println("Navigation readings after fdoa filtering: " + filteredNavigationList.size());
+	}
+	
+	public void filterFDOAfromNavigationList(int freq, double threshold, double powerThreshold) throws Exception {
 		
 	       if(filteredNavigationList == null) {    
 	           throw new Exception("Apply filtering to navigation list first");   
 	       }
 	       
+	       this.validateDopplerMeasurement(freq, powerThreshold);
+	       
+	              
 	       int i = 0;
 	       System.out.println("Navigation readings before fdoa filtering: " + filteredNavigationList.size());	       
 	       while(i < filteredNavigationList.size()) {
 	            
 	    	    filteredNavigationList.get(i).setFrequencyError(freq);
-	            
+	    	    	    	    
 	    	    //System.out.println(navList.getFDOA() + " " + navList.isStationary(.5));
 	            if(filteredNavigationList.get(i).getFDOA() == 0 && !filteredNavigationList.get(i).isStationary(.5)) {
 	            	filteredNavigationList.remove(i);
@@ -305,7 +329,6 @@ public class NavigationList {
 	            	filteredNavigationList.remove(i);
 	            }
 	            else if(i > 2 && Math.abs(filteredNavigationList.get(i).getFDOA() - filteredNavigationList.get(i-1).getFDOA()) > 1.0) {
-	            	System.out.println("Eliminating " + i);
 	            	filteredNavigationList.remove(i);
 	            }
 	            else {i++;}
@@ -316,8 +339,8 @@ public class NavigationList {
 	       double[] x = new double[filteredNavigationList.size()];
 	       
 	       for (i = 0; i < filteredNavigationList.size(); i++) {
-	    	   System.out.print(filteredNavigationList.get(i).getFDOA()); 
-	    	   filteredNavigationList.get(i).printVelocity();
+	    	   //System.out.print(filteredNavigationList.get(i).getFDOA()); 
+	    	   //filteredNavigationList.get(i).printVelocity();
 	    	   y[i] = filteredNavigationList.get(i).getFDOA();
 	    	   x[i] = i;
 	       }
@@ -501,8 +524,6 @@ public class NavigationList {
 	      
 	      myAnchors.setCoordinatesAndVelocity(s, v);
 	      fdoas.add(nav.getFDOA());
-	    
-	      System.out.println(nav.getFDOA());
 	    }
 	    
 	    myAnchors.commitCoordinatesAndVelocity();
@@ -1760,9 +1781,9 @@ public class NavigationList {
 		
 		NavigationList navigation = new NavigationList();
 		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog.log"));
+		navigation.createNavigationLog(new File("data/ChannelLog.log"));
 		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
-		navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
 		
 		//navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
 		
@@ -1771,18 +1792,24 @@ public class NavigationList {
 		
 		
 		int n_estimates = 1;
-		int freqIndex = 0; 
-		double threshold = .000001;
+		int freqIndex = 2; 
+		double threshold_tdoaDiff = .000001;
+		double threshold_dynamicRange = 20.0;
+		double threshold_FDOAerror = 3.0;
 		
 		navigation.computeVelocityECEF();
 		navigation.filterOnRSSI(-150.0, freqIndex);
 		navigation.filterUnique();
 		navigation.createEstimationBounds();		
 		navigation.setPlotTDOAs(true);
-		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, threshold);
-		navigation.filterTDOAfromNavigationList(freqIndex, threshold);
-		//navigation.estimateAdaptiveSource();
-		navigation.estimateAdaptiveSourceWithDrift();
+		navigation.filterFDOAfromNavigationList(freqIndex, threshold_FDOAerror, threshold_dynamicRange);
+		navigation.estimateAdaptiveSourceFDOA();
+		
+		
+		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, tdoa_DiffThreshold);
+//		navigation.filterTDOAfromNavigationList(freqIndex, tdoa_DiffThreshold);
+//		navigation.estimateAdaptiveSource();
+		//navigation.estimateAdaptiveSourceWithDrift();
 	}
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {

@@ -375,5 +375,18 @@ public class NavigationChannelList {
 		else {return false;}
 	}
 	
+	public boolean validateDopplerMeasurementOnChannel(int freq, double threshold) {
+		 
+	   boolean valid = false;	
+       for(Channel chan : ChannelList) {
+		  if(chan.getFreqIndex() == freq) {
+			   
+			  chan.dropFalseCorrelationPeaks(threshold);
+			  valid = chan.isValidforFDOA();
+		  }
+       }
+       return valid;	
+	}
+	
 	
 }
