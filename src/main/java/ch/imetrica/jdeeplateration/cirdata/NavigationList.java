@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+import org.junit.Assert;
 import org.math.plot.Plot2DPanel;
 
 import ch.imetrica.jdeeplateration.anchors.Anchors;
@@ -19,12 +21,17 @@ import ch.imetrica.jdeeplateration.matrix.Matrix;
 import ch.imetrica.jdeeplateration.mstat.GradDescentResult;
 import ch.imetrica.jdeeplateration.mstat.Mstat;
 import de.micromata.opengis.kml.v_2_2_0.AltitudeMode;
+import de.micromata.opengis.kml.v_2_2_0.Boundary;
 import de.micromata.opengis.kml.v_2_2_0.Coordinate;
 import de.micromata.opengis.kml.v_2_2_0.Document;
+import de.micromata.opengis.kml.v_2_2_0.Feature;
+import de.micromata.opengis.kml.v_2_2_0.Geometry;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
+import de.micromata.opengis.kml.v_2_2_0.LinearRing;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Point;
+import de.micromata.opengis.kml.v_2_2_0.Polygon;
 import de.micromata.opengis.kml.v_2_2_0.Style;
 
 
@@ -1777,40 +1784,49 @@ public class NavigationList {
 	
 	
 	
+//	public static void main(String[] args) throws Exception {
+//		
+//		NavigationList navigation = new NavigationList();
+//		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
+//		navigation.createNavigationLog(new File("data/ChannelLog.log"));
+//		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
+//		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+//		
+//		//navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
+//		
+//		final Kml kml = createCIRDocument(navigation.navigationList);
+//		kml.marshal(new File("CIRMarkers.kml"));
+//		
+//		
+//		int n_estimates = 1;
+//		int freqIndex = 2; 
+//		double threshold_tdoaDiff = .000001;
+//		double threshold_dynamicRange = 20.0;
+//		double threshold_FDOAerror = 3.0;
+//		
+//		navigation.computeVelocityECEF();
+//		navigation.filterOnRSSI(-150.0, freqIndex);
+//		navigation.filterUnique();
+//		navigation.createEstimationBounds();		
+//		navigation.setPlotTDOAs(true);
+//		navigation.filterFDOAfromNavigationList(freqIndex, threshold_FDOAerror, threshold_dynamicRange);
+//		navigation.estimateAdaptiveSourceFDOA();
+//		
+//		
+//		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, tdoa_DiffThreshold);
+////		navigation.filterTDOAfromNavigationList(freqIndex, tdoa_DiffThreshold);
+////		navigation.estimateAdaptiveSource();
+//		//navigation.estimateAdaptiveSourceWithDrift();
+//	}
+	
+	
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
-		navigation.createNavigationLog(new File("data/ChannelLog.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		navigation.parseKmlShort("/home/lisztian/firstPath.kml");
 		
-		//navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
-		
-		final Kml kml = createCIRDocument(navigation.navigationList);
-		kml.marshal(new File("CIRMarkers.kml"));
-		
-		
-		int n_estimates = 1;
-		int freqIndex = 2; 
-		double threshold_tdoaDiff = .000001;
-		double threshold_dynamicRange = 20.0;
-		double threshold_FDOAerror = 3.0;
-		
-		navigation.computeVelocityECEF();
-		navigation.filterOnRSSI(-150.0, freqIndex);
-		navigation.filterUnique();
-		navigation.createEstimationBounds();		
-		navigation.setPlotTDOAs(true);
-		navigation.filterFDOAfromNavigationList(freqIndex, threshold_FDOAerror, threshold_dynamicRange);
-		navigation.estimateAdaptiveSourceFDOA();
-		
-		
-		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, tdoa_DiffThreshold);
-//		navigation.filterTDOAfromNavigationList(freqIndex, tdoa_DiffThreshold);
-//		navigation.estimateAdaptiveSource();
-		//navigation.estimateAdaptiveSourceWithDrift();
 	}
+	
 	
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
 		
@@ -1860,7 +1876,6 @@ public class NavigationList {
 		  double[] myEst = estimates.get(j);	
 			
 		  document.createAndAddPlacemark()
-          //.withName("Error " + errors.get(j))
           .withDescription("Estimate No" + j + ": " + errors.get(j))
           .withVisibility(true)
           .createAndSetPoint().addToCoordinates(myEst[1], myEst[0]);
@@ -1929,6 +1944,83 @@ public class NavigationList {
 		
 		return kml; 		
 	}
+    
+    
+    public void parseKml(String src) {
+
+        Kml kml = Kml.unmarshal(new File(src));
+        Feature feature = kml.getFeature();
+        parseFeature(feature);
+    }
+
+    public void parseKmlShort(String src) {
+    	
+    	final Kml kml = Kml.unmarshal(new File(src));
+    	final Document document = (Document) kml.getFeature();
+    	List<Feature> featureList = document.getFeature();
+    	System.out.println(featureList.size());
+    	System.out.println(featureList.get(0).getName());
+    	final Placemark placemark = (Placemark) featureList.get(0);
+    	(LineString) placemark.getGeometry();
+//    	final Placemark placemark = (Placemark) kml.getFeature();
+//    	Point point = (Point) placemark.getGeometry();
+//    	List<Coordinate> coordinates = point.getCoordinates();
+//    	for (Coordinate coordinate : coordinates) {
+//    	    System.out.println(coordinate.getLatitude());
+//    	    System.out.println(coordinate.getLongitude());
+//    	    System.out.println(coordinate.getAltitude());
+//    	}
+    	
+    	
+    }
+    
+    private void parseFeature(Feature feature) {
+        
+    	
+    	if(feature != null) {
+            if(feature instanceof Document) {
+                Document document = (Document) feature;
+                List<Feature> featureList = document.getFeature();
+                for(Feature documentFeature : featureList) {
+                    if(documentFeature instanceof Placemark) {
+                        Placemark placemark = (Placemark) documentFeature;
+                        System.out.println(placemark.getDescription());
+                        Geometry geometry = placemark.getGeometry();
+                        parseGeometry(geometry);
+                    }
+                }
+            }
+        }
+    }
+
+    private void parseGeometry(Geometry geometry) {
+        if(geometry != null) {
+            if(geometry instanceof Polygon) {
+                Polygon polygon = (Polygon) geometry;
+                Boundary outerBoundaryIs = polygon.getOuterBoundaryIs();
+                if(outerBoundaryIs != null) {
+                    LinearRing linearRing = outerBoundaryIs.getLinearRing();
+                    if(linearRing != null) {
+                        List<Coordinate> coordinates = linearRing.getCoordinates();
+                        if(coordinates != null) {
+                            for(Coordinate coordinate : coordinates) {
+                                parseCoordinate(coordinate);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void parseCoordinate(Coordinate coordinate) {
+        if(coordinate != null) {
+            System.out.println("Longitude: " +  coordinate.getLongitude());
+            System.out.println("Latitude : " +  coordinate.getLatitude());
+            System.out.println("Altitude : " +  coordinate.getAltitude());
+            System.out.println("");
+        }
+    }
     
     
     
