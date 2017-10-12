@@ -28,6 +28,7 @@ import de.micromata.opengis.kml.v_2_2_0.Feature;
 import de.micromata.opengis.kml.v_2_2_0.Geometry;
 import de.micromata.opengis.kml.v_2_2_0.Kml;
 import de.micromata.opengis.kml.v_2_2_0.KmlFactory;
+import de.micromata.opengis.kml.v_2_2_0.LineString;
 import de.micromata.opengis.kml.v_2_2_0.LinearRing;
 import de.micromata.opengis.kml.v_2_2_0.Placemark;
 import de.micromata.opengis.kml.v_2_2_0.Point;
@@ -51,6 +52,8 @@ public class NavigationList {
 	ArrayList<NavigationChannelList> navigationList = null;
 	ArrayList<NavigationChannelList> filteredNavigationList = null;
 	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
+	
+	ArrayList<double[]> simulationCoordinates;
 	
 	Matrix bounds_in;
 	private double sourceLatitude = 0;
@@ -1959,19 +1962,21 @@ public class NavigationList {
     	final Document document = (Document) kml.getFeature();
     	List<Feature> featureList = document.getFeature();
     	System.out.println(featureList.size());
-    	System.out.println(featureList.get(0).getName());
-    	final Placemark placemark = (Placemark) featureList.get(0);
-    	(LineString) placemark.getGeometry();
-//    	final Placemark placemark = (Placemark) kml.getFeature();
-//    	Point point = (Point) placemark.getGeometry();
-//    	List<Coordinate> coordinates = point.getCoordinates();
-//    	for (Coordinate coordinate : coordinates) {
-//    	    System.out.println(coordinate.getLatitude());
-//    	    System.out.println(coordinate.getLongitude());
-//    	    System.out.println(coordinate.getAltitude());
-//    	}
+    	System.out.println(featureList.get(0).getDescription());    	
     	
-    	
+    
+    	if(featureList.get(0) instanceof Placemark) {
+    		System.out.println(featureList.get(0).getName());
+    		System.out.println("It's a placemark");
+    		final Placemark placemark = (Placemark) featureList.get(0);
+    		System.out.println(placemark.getName());
+    		LineString linestring = (LineString) placemark.getGeometry();
+    		List<Coordinate> coordinates = linestring.getCoordinates();
+    		
+    		for (Coordinate coordinate : coordinates) {
+        	    System.out.println(coordinate.getLatitude() + " " + coordinate.getLongitude() + " " + coordinate.getAltitude());
+        	}	
+    	}   	    	
     }
     
     private void parseFeature(Feature feature) {
