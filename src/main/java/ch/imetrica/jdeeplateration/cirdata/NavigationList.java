@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -59,6 +60,13 @@ public class NavigationList {
 	private double sourceLatitude = 0;
 	private double sourceLongitude = 0;
 	private boolean plotTDOAs = false;
+	
+	
+    private int n_trial = 1000; 
+    private double alpha = 0.0001; 
+    private double time_threshold = 50000;
+	
+	
 	
 	public NavigationList() {
 		navigationList = new ArrayList<NavigationChannelList>();
@@ -1867,6 +1875,20 @@ public class NavigationList {
 		return kml; 
 	}
 	
+	public static Kml createCIRDocumentArrayList(ArrayList<double[]> navigationList) {
+		
+		Kml kml = KmlFactory.createKml();
+		Document document = kml.createAndSetDocument().withName("CIRMarkers.kml");
+		
+		for (double[] navList : navigationList){
+            document.createAndAddPlacemark()
+            .withVisibility(true)
+            .createAndSetPoint().addToCoordinates(navList[1], navList[0]);
+        }
+        kml.setFeature(document);		
+		return kml; 
+	}
+	
     public static Kml createSolutionDocument(ArrayList<double[]> estimates, ArrayList<Double> errors) {
 		
 		Kml kml = KmlFactory.createKml();
@@ -1956,7 +1978,7 @@ public class NavigationList {
         parseFeature(feature);
     }
 
-    public void parseKmlShort(String src) {
+    public ArrayList<double[]> parseKmlAnchors(String src) {
     	
     	final Kml kml = Kml.unmarshal(new File(src));
     	final Document document = (Document) kml.getFeature();
@@ -1964,6 +1986,7 @@ public class NavigationList {
     	System.out.println(featureList.size());
     	System.out.println(featureList.get(0).getDescription());    	
     	
+    	ArrayList<double[]> myListAnchors = new ArrayList<double[]>();
     
     	if(featureList.get(0) instanceof Placemark) {
     		System.out.println(featureList.get(0).getName());
@@ -1974,10 +1997,126 @@ public class NavigationList {
     		List<Coordinate> coordinates = linestring.getCoordinates();
     		
     		for (Coordinate coordinate : coordinates) {
-        	    System.out.println(coordinate.getLatitude() + " " + coordinate.getLongitude() + " " + coordinate.getAltitude());
-        	}	
-    	}   	    	
+        	    
+    			System.out.println(coordinate.getLatitude() + " " + coordinate.getLongitude() + " " + coordinate.getAltitude());
+                double[] locs = {coordinate.getLatitude(), coordinate.getLongitude()};
+                myListAnchors.add(locs);
+    		}	
+    	}   
+    	
+    	return myListAnchors; 
     }
+    
+    public double[] parseKmlSource(String src) {
+    	
+    	double[] mySource = new double[2];
+    	
+    	
+    	return mySource;
+    }
+    
+    public void testTDOAPath(String anchors, String sourceFile) throws Exception {
+    	
+    	Random random = new Random(); 
+        int num_anchors;
+    	
+    	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
+    	double[] mySource = parseKmlSource(sourceFile);
+    	
+        final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
+		kml0.marshal(new File("FilteredCIRMarkersSimulation.kml"));
+        
+		Anchors myAnchors = new Anchors();	    
+	    double[] origin = myListAnchors.get(0);	    
+	    localOrigin = NavigationChannelList.GeodeticToECEF(origin[0], origin[1], 0);
+
+		double[] source = NavigationChannelList.GeodeticToECEF(mySource[0], mySource[1], 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+	    
+
+		Matrix sourceMat = new Matrix(source,1);
+		
+		for(int i = 0; i < myListAnchors.size(); i++) {
+											
+			double[] locs = NavigationChannelList.GeodeticToECEF(myListAnchors.get(i)[0], myListAnchors.get(i)[1], 0);
+			
+			myAnchors.setCoordinates(locs[0] - localOrigin[0], 
+					                 locs[1] - localOrigin[1], 
+					                 locs[2] - localOrigin[2]);
+		}
+		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
+		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
+		
+		myAnchors.commitCoordinates();
+		num_anchors = myAnchors.getNumberOfAnchors();
+		Matrix anchors_in = myAnchors.getAnchors(); 
+		Matrix ranges_with_error = new Matrix(num_anchors);
+	    
+		ranges_with_error.w[0] = 0;
+		for(int j = 0; j < num_anchors-1; j++) {
+		
+			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(j), 
+					anchors_in.getRow(j+1), sourceMat);
+			
+			ranges_with_error.w[j+1] = tdoa_est + random.nextGaussian(); 
+		}
+		
+		
+		
+        
+     
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i++) {
+
+    	Anchors updateAnchors = myAnchors.subset(i);
+    	Matrix updateRanges = ranges_with_error.subset(i);
+        
+        GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(updateAnchors, updateRanges, bounds_in, 
+        		n_trial, alpha, time_threshold, source);
+
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
+        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
+        updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
+         
+       } 
+       
+       double[] stockArr = new double[error_est.size()];
+       double[] x = new double[error_est.size()];
+       for(int i = 0; i < error_est.size(); i++) {
+    	   stockArr[i] = error_est.get(i).doubleValue();
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();
+		 
+       // add a line plot to the PlotPanel
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       JFrame frame = new JFrame("Cost function value");
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+        
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
+		
+		
+		
+		
+    	
+    	
+    	
+    }
+    
     
     private void parseFeature(Feature feature) {
         
