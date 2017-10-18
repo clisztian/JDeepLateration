@@ -1834,8 +1834,12 @@ public class NavigationList {
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		navigation.parseKmlShort("/home/lisztian/firstPath.kml");
+
+		String anchorFile = "/home/lisztian/firstPath.kml";
+		String sourceFile = "/home/lisztian/firstSource.kml";
 		
+		navigation.testTDOAPath(anchorFile, sourceFile);
+
 	}
 	
 	
@@ -2010,10 +2014,26 @@ public class NavigationList {
     public double[] parseKmlSource(String src) {
     	
     	double[] mySource = new double[2];
+    	final Kml kml = Kml.unmarshal(new File(src));
+    	final Document document = (Document) kml.getFeature();
+    	List<Feature> featureList = document.getFeature();
     	
+    	if(featureList.get(0) instanceof Placemark) {
+    		
+    		final Placemark placemark = (Placemark) featureList.get(0);
+    		System.out.println(placemark.getName());
+    		Point point = (Point) placemark.getGeometry();
+    		List<Coordinate> coordinates = point.getCoordinates();
+    		mySource[0] = coordinates.get(0).getLatitude();
+    		mySource[1] = coordinates.get(0).getLongitude();
+    	}
     	
     	return mySource;
     }
+    
+    
+    
+    
     
     public void testTDOAPath(String anchors, String sourceFile) throws Exception {
     	
@@ -2022,6 +2042,7 @@ public class NavigationList {
     	
     	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
     	double[] mySource = parseKmlSource(sourceFile);
+    	
     	
         final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
 		kml0.marshal(new File("FilteredCIRMarkersSimulation.kml"));
@@ -2060,18 +2081,16 @@ public class NavigationList {
 			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(j), 
 					anchors_in.getRow(j+1), sourceMat);
 			
-			ranges_with_error.w[j+1] = tdoa_est + random.nextGaussian(); 
+			System.out.println(tdoa_est);
+			ranges_with_error.w[j+1] = tdoa_est + 3.0*random.nextGaussian(); 
 		}
 		
-		
-		
-        
-     
+	
        ArrayList<double[]> estimates = new ArrayList<double[]>();
        ArrayList<Double> error_est = new ArrayList<Double>();
        
        
-       for(int i = 10; i < num_anchors; i++) {
+       for(int i = 10; i < num_anchors; i=i+20) {
 
     	Anchors updateAnchors = myAnchors.subset(i);
     	Matrix updateRanges = ranges_with_error.subset(i);
@@ -2109,11 +2128,6 @@ public class NavigationList {
        final Kml kml = createSolutionDocument(estimates, error_est);
        kml.marshal(new File("SolutionMarkers.kml"));
 		
-		
-		
-		
-    	
-    	
     	
     }
     
