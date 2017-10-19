@@ -2039,7 +2039,13 @@ public class NavigationList {
     	
     	Random random = new Random(); 
         int num_anchors;
-    	
+ 	    
+        double minLong = 400;
+ 	    double maxLong = -1.0;
+ 	    double minLat = 100.0;
+ 	    double maxLat = -100.0;
+        
+        
     	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
     	double[] mySource = parseKmlSource(sourceFile);
     	
@@ -2055,20 +2061,65 @@ public class NavigationList {
 		source[0] -= localOrigin[0];
 		source[1] -= localOrigin[1];
 		source[2] -= localOrigin[2];
-	    
-
+	   		
+		
 		Matrix sourceMat = new Matrix(source,1);
 		
 		for(int i = 0; i < myListAnchors.size(); i++) {
 											
-			double[] locs = NavigationChannelList.GeodeticToECEF(myListAnchors.get(i)[0], myListAnchors.get(i)[1], 0);
+			double latitude = myListAnchors.get(i)[0];
+			double longitude = myListAnchors.get(i)[1];
+			
+			double[] locs = NavigationChannelList.GeodeticToECEF(latitude, longitude, 0);
 			
 			myAnchors.setCoordinates(locs[0] - localOrigin[0], 
 					                 locs[1] - localOrigin[1], 
 					                 locs[2] - localOrigin[2]);
+			
+			
+			   
+			if(latitude > maxLat) {maxLat = latitude;}
+			else if(latitude < minLat) {minLat = latitude;}
+			
+			if(longitude > maxLong) {maxLong = longitude;}
+			else if(longitude < minLong) {minLong = longitude;}	
+			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
 		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
+		
+		double[] boundNW = new double[3];
+		double[] boundNE = new double[3];
+		double[] boundSW = new double[3];
+		double[] boundSE = new double[3];
+		   
+		boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
+		boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
+		boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
+		boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
+		   
+	    double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
+	    double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
+	    double[] v2 = NavigationChannelList.GeodeticToECEF(boundSW[0], boundSW[1], 0, localOrigin);
+	    double[] v3 = NavigationChannelList.GeodeticToECEF(boundSE[0], boundSE[1], 0, localOrigin);
+
+	    System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
+	    System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
+	    System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
+	    System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
+	       
+	    bounds_in = new Matrix(4,3);
+	       
+	    bounds_in.setRow(0, v0);
+	    bounds_in.setRow(1, v1);
+	    bounds_in.setRow(2, v2);
+	    bounds_in.setRow(3, v3); 		
+		
+		
+		
+		
+		
+		
 		
 		myAnchors.commitCoordinates();
 		num_anchors = myAnchors.getNumberOfAnchors();

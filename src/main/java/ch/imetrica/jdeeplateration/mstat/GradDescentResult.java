@@ -392,8 +392,11 @@ public class GradDescentResult {
                     
                     double error_next = Mstat.norm(tdoas_in, ranges);
 
+                    
+                    
                     if (error_next < error) {
                         estimator = estimator_next;
+                        estimator.printMatrix();
                     }
                     else {
                         gdescent_result.estimator_candidate.setRow(i, estimator);
