@@ -62,9 +62,10 @@ public class NavigationList {
 	private boolean plotTDOAs = false;
 	
 	
-    private int n_trial = 1000; 
+    private int n_trial = 5000; 
     private double alpha = 0.0001; 
     private double time_threshold = 50000;
+	private double noisePercent = .0;
 	
 	
 	
@@ -1835,8 +1836,8 @@ public class NavigationList {
 		
 		NavigationList navigation = new NavigationList();
 
-		String anchorFile = "/home/lisztian/firstPath.kml";
-		String sourceFile = "/home/lisztian/firstSource.kml";
+		String anchorFile = "data/seventhPath.kml";
+		String sourceFile = "data/firstSource.kml";
 		
 		navigation.testTDOAPath(anchorFile, sourceFile);
 
@@ -2093,10 +2094,10 @@ public class NavigationList {
 		double[] boundSW = new double[3];
 		double[] boundSE = new double[3];
 		   
-		boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
-		boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
-		boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
-		boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
+		boundNW[0] = maxLat + .01; boundNW[1] = minLong - .01;
+		boundNE[0] = maxLat + .01; boundNE[1] = maxLong + .01;
+		boundSW[0] = minLat - .01; boundSW[1] = minLong - .01;
+		boundSE[0] = minLat - .01; boundSE[1] = maxLong + .01;
 		   
 	    double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
 	    double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
@@ -2116,11 +2117,6 @@ public class NavigationList {
 	    bounds_in.setRow(3, v3); 		
 		
 		
-		
-		
-		
-		
-		
 		myAnchors.commitCoordinates();
 		num_anchors = myAnchors.getNumberOfAnchors();
 		Matrix anchors_in = myAnchors.getAnchors(); 
@@ -2129,11 +2125,11 @@ public class NavigationList {
 		ranges_with_error.w[0] = 0;
 		for(int j = 0; j < num_anchors-1; j++) {
 		
-			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(j), 
+			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(0), 
 					anchors_in.getRow(j+1), sourceMat);
 			
 			System.out.println(tdoa_est);
-			ranges_with_error.w[j+1] = tdoa_est + 3.0*random.nextGaussian(); 
+			ranges_with_error.w[j+1] = tdoa_est + noisePercent*tdoa_est*random.nextGaussian(); 
 		}
 		
 	
@@ -2141,7 +2137,7 @@ public class NavigationList {
        ArrayList<Double> error_est = new ArrayList<Double>();
        
        
-       for(int i = 10; i < num_anchors; i=i+20) {
+       for(int i = 10; i < num_anchors; i=i+5) {
 
     	Anchors updateAnchors = myAnchors.subset(i);
     	Matrix updateRanges = ranges_with_error.subset(i);
