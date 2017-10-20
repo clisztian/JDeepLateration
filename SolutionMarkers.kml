@@ -4,7 +4,7 @@
         <name>SolutionMarkers.kml</name>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No0: 0.013172482763336005</description>
+            <description>Estimate No0: 0.4724411159433334</description>
             <Style>
                 <IconStyle>
                     <color>e50000ff</color>
@@ -20,12 +20,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.5901280183155855,46.76499044479653</coordinates>
+                <coordinates>7.591464137566237,46.75922753599928</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No1: 0.08368382608328719</description>
+            <description>Estimate No1: 0.8097076724678787</description>
             <Style>
                 <IconStyle>
                     <color>e50047ff</color>
@@ -41,12 +41,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.590252367077137,46.765685971825356</coordinates>
+                <coordinates>7.582508972271212,46.77371306276921</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No2: 0.12962309886913842</description>
+            <description>Estimate No2: 0.9517512940598813</description>
             <Style>
                 <IconStyle>
                     <color>e5008eff</color>
@@ -62,12 +62,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584406680190572,46.77069916957896</coordinates>
+                <coordinates>7.586575742990798,46.769669361758766</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No3: 0.20071426548280058</description>
+            <description>Estimate No3: 1.5050572729697993</description>
             <Style>
                 <IconStyle>
                     <color>e500d5ff</color>
@@ -83,12 +83,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.585177041386706,46.77035228832614</coordinates>
+                <coordinates>7.584978064587262,46.77056137673531</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No4: 0.1608587644022975</description>
+            <description>Estimate No4: 1.366255321875967</description>
             <Style>
                 <IconStyle>
                     <color>e500ffe3</color>
@@ -104,12 +104,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.5862502779087775,46.76916769401847</coordinates>
+                <coordinates>7.587397032035547,46.769223588303824</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No5: 0.3466890850428324</description>
+            <description>Estimate No5: 1.4436575447368012</description>
             <Style>
                 <IconStyle>
                     <color>e500ff9c</color>
@@ -125,12 +125,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.587644886740727,46.76907323160673</coordinates>
+                <coordinates>7.582825414399906,46.769213629540076</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No6: 0.5707866339905022</description>
+            <description>Estimate No6: 1.4786434825929728</description>
             <Style>
                 <IconStyle>
                     <color>e500ff55</color>
@@ -146,12 +146,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.578676753754114,46.76900334699431</coordinates>
+                <coordinates>7.586062715781943,46.76998372235515</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No7: 0.2772365520042658</description>
+            <description>Estimate No7: 1.4930224026045247</description>
             <Style>
                 <IconStyle>
                     <color>e500ff0e</color>
@@ -167,12 +167,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.585225490289404,46.76950073810698</coordinates>
+                <coordinates>7.5860207692805535,46.76990463112438</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No8: 0.5439939192239566</description>
+            <description>Estimate No8: 1.5038875119207773</description>
             <Style>
                 <IconStyle>
                     <color>e539ff00</color>
@@ -188,12 +188,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.582443246151531,46.769013136485206</coordinates>
+                <coordinates>7.584806133435689,46.76977181082319</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No9: 0.8525946183292089</description>
+            <description>Estimate No9: 1.6665826326711384</description>
             <Style>
                 <IconStyle>
                     <color>e57fff00</color>
@@ -209,12 +209,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.575715693332888,46.768164162407274</coordinates>
+                <coordinates>7.584197587750346,46.76961318140962</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No10: 0.47547841564169985</description>
+            <description>Estimate No10: 1.9100483793435292</description>
             <Style>
                 <IconStyle>
                     <color>e5c6ff00</color>
@@ -230,12 +230,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.587096405734815,46.769675483106326</coordinates>
+                <coordinates>7.583604771584257,46.76949979291807</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No11: 0.5692404257371873</description>
+            <description>Estimate No11: 1.7198836527048331</description>
             <Style>
                 <IconStyle>
                     <color>e5fff100</color>
@@ -251,12 +251,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584093108533128,46.76931291601008</coordinates>
+                <coordinates>7.585032868572605,46.76927110138666</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No12: 0.4279066130553341</description>
+            <description>Estimate No12: 1.483028709884467</description>
             <Style>
                 <IconStyle>
                     <color>e5ffaa00</color>
@@ -272,12 +272,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.5863394268509525,46.76973427775727</coordinates>
+                <coordinates>7.582622450734887,46.76917799441661</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No13: 1.6900605429945024</description>
+            <description>Estimate No13: 1.489951761417839</description>
             <Style>
                 <IconStyle>
                     <color>e5ff6300</color>
@@ -293,12 +293,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.581965030038529,46.76889429130774</coordinates>
+                <coordinates>7.579947425614974,46.768684402222455</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No14: 1.2790730736167881</description>
+            <description>Estimate No14: 1.4637890757713985</description>
             <Style>
                 <IconStyle>
                     <color>e5ff1c00</color>
@@ -314,12 +314,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.583299043398389,46.7691357014464</coordinates>
+                <coordinates>7.586952837902451,46.769676879946054</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No15: 1.4303388531237125</description>
+            <description>Estimate No15: 1.5107021863544425</description>
             <Style>
                 <IconStyle>
                     <color>e5ff002a</color>
@@ -335,12 +335,12 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.586790053575771,46.76956089095756</coordinates>
+                <coordinates>7.584782638320619,46.76935837306237</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No16: 1.8907321668450205</description>
+            <description>Estimate No16: 1.8094427362372294</description>
             <Style>
                 <IconStyle>
                     <color>e5ff0071</color>
@@ -356,7 +356,7 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584303562905352,46.76947924430299</coordinates>
+                <coordinates>7.5837463890585886,46.769237945578595</coordinates>
             </Point>
         </Placemark>
     </Document>

@@ -338,17 +338,17 @@ public class GradDescentResult {
 
             Matrix ranges = new Matrix(n,1); 
             
-//            if(source != null) {
-//            	
-//            	Matrix sol = new Matrix(source, 1);            
-//                
-//                ranges.w[0] = 0;
-//                for (int j = 0; j < n-1; j++) {                    	
-//                	ranges.w[j+1] = tdoaEstimate(anchors_in.getRow(0), anchors_in.getRow(j+1), sol);
-//                }
-//                
-//               // System.out.println("Error at source " + Mstat.norm(tdoas_in, ranges));
-//            }
+            if(source != null) {
+            	
+            	Matrix sol = new Matrix(source, 1);            
+                
+                ranges.w[0] = 0;
+                for (int j = 0; j < n-1; j++) {                    	
+                	ranges.w[j+1] = tdoaEstimate(anchors_in.getRow(0), anchors_in.getRow(j+1), sol);
+                }
+                
+               System.out.println("Error at source " + Mstat.norm(tdoas_in, ranges));
+            }
             
             
             

@@ -65,7 +65,7 @@ public class NavigationList {
     private int n_trial = 5000; 
     private double alpha = 0.0001; 
     private double time_threshold = 50000;
-	private double noisePercent = .0;
+	private double noisePercent = .01;
 	
 	
 	
@@ -2157,8 +2157,8 @@ public class NavigationList {
        
        double[] stockArr = new double[error_est.size()];
        double[] x = new double[error_est.size()];
-       for(int i = 0; i < error_est.size(); i++) {
-    	   stockArr[i] = error_est.get(i).doubleValue();
+       for(int i = 0; i < ranges_with_error.w.length; i++) {
+    	   stockArr[i] = ranges_with_error.w[i];
     	   x[i] = i;
        }
        
@@ -2166,7 +2166,7 @@ public class NavigationList {
 		 
        // add a line plot to the PlotPanel
        plot.addLinePlot("TDOA plot", x, stockArr);
-       JFrame frame = new JFrame("Cost function value");
+       JFrame frame = new JFrame("TDOA simulation");
        frame.setSize(900, 700);
        frame.setContentPane(plot);
        frame.setVisible(true);
