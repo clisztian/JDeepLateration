@@ -189,6 +189,27 @@ public class GradDescentResult {
 		return diff; 
 	}
 	
+	public static double dopplerShift(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, Matrix estimator) throws Exception {
+		
+		double diff = 0;
+		
+		Matrix num0 = sub(estimator, s_i);
+		Matrix num1 = sub(estimator, s_i1);
+		
+		double diffi = Mstat.distance(estimator, s_i);
+		double diffi1 = Mstat.distance(estimator, s_i1);
+		
+		num0.scale(1.0/diffi);
+		num1.scale(1.0/diffi1);
+		
+		double angle_i = num0.dot(v_i);
+		double angle_i1 = num1.dot(v_i1);
+		
+		//diff = (angle_i1 - angle_i); 
+
+		return angle_i1; 
+	}
+	
 	
 	public static Matrix fdoaGradient0(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, 
 			Matrix estimator, double fdoa_i) throws Exception {

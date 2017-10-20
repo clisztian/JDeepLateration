@@ -4,7 +4,7 @@
         <name>SolutionMarkers.kml</name>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No0: 0.4724411159433334</description>
+            <description>Estimate No0: 116.4525289189897</description>
             <Style>
                 <IconStyle>
                     <color>e50000ff</color>
@@ -20,117 +20,474 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.591464137566237,46.75922753599928</coordinates>
+                <coordinates>7.547737270331994,46.738831684405405</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No1: 0.8097076724678787</description>
+            <description>Estimate No1: 233.27644006700845</description>
             <Style>
                 <IconStyle>
-                    <color>e50047ff</color>
+                    <color>e50012ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e50047ff</color>
+                    <color>e50012ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.582508972271212,46.77371306276921</coordinates>
+                <coordinates>7.599800325020206,46.80455115199303</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No2: 0.9517512940598813</description>
+            <description>Estimate No2: 111.5387645143851</description>
             <Style>
                 <IconStyle>
-                    <color>e5008eff</color>
+                    <color>e50025ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5008eff</color>
+                    <color>e50025ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.586575742990798,46.769669361758766</coordinates>
+                <coordinates>7.5527971663185145,46.75598097931241</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No3: 1.5050572729697993</description>
+            <description>Estimate No3: 162.9153946002244</description>
             <Style>
                 <IconStyle>
-                    <color>e500d5ff</color>
+                    <color>e50037ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e500d5ff</color>
+                    <color>e50037ff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584978064587262,46.77056137673531</coordinates>
+                <coordinates>7.603912179470373,46.76040241694488</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No4: 1.366255321875967</description>
+            <description>Estimate No4: 1.765172451621389</description>
             <Style>
                 <IconStyle>
-                    <color>e500ffe3</color>
+                    <color>e5004aff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e500ffe3</color>
+                    <color>e5004aff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.587397032035547,46.769223588303824</coordinates>
+                <coordinates>7.604005330656303,46.76457353705745</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No5: 1.4436575447368012</description>
+            <description>Estimate No5: 8.761906661208034</description>
             <Style>
                 <IconStyle>
-                    <color>e500ff9c</color>
+                    <color>e5005cff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e500ff9c</color>
+                    <color>e5005cff</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.582825414399906,46.769213629540076</coordinates>
+                <coordinates>7.590029112036863,46.74394143011426</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No6: 1.4786434825929728</description>
+            <description>Estimate No6: 4.046939571922818</description>
+            <Style>
+                <IconStyle>
+                    <color>e5006fff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5006fff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.54995299531444,46.8071653668884</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No7: 6.837329296217236</description>
+            <Style>
+                <IconStyle>
+                    <color>e50081ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e50081ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.615741812392663,46.77996234374527</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No8: 4.511608734141373</description>
+            <Style>
+                <IconStyle>
+                    <color>e50094ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e50094ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.589325687487477,46.74409821863545</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No9: 36.6123061788707</description>
+            <Style>
+                <IconStyle>
+                    <color>e500a6ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500a6ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.6149372903727865,46.80572540860434</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No10: 22.472509820963023</description>
+            <Style>
+                <IconStyle>
+                    <color>e500b9ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500b9ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.60758618132036,46.784747942272965</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No11: 33.71856062659671</description>
+            <Style>
+                <IconStyle>
+                    <color>e500cbff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500cbff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.565381215104345,46.7421051724685</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No12: 65.36167736883723</description>
+            <Style>
+                <IconStyle>
+                    <color>e500deff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500deff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.613289987227575,46.7653426071737</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No13: 7.095922545102875</description>
+            <Style>
+                <IconStyle>
+                    <color>e500f0ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500f0ff</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.61092563962486,46.798445043322566</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No14: 17.45111433191759</description>
+            <Style>
+                <IconStyle>
+                    <color>e500fffb</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500fffb</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.56715405331354,46.78142904070249</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No15: 5.616340502635952</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ffe9</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ffe9</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.584801300106293,46.75273091422867</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No16: 13.425230891072065</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ffd6</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ffd6</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.558726535614942,46.7483767439542</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No17: 7.685974728473102</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ffc4</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ffc4</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.556365641516651,46.790357457669224</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No18: 3.0553572850404724</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ffb1</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ffb1</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.549047898639146,46.79572816294834</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No19: 30.167502662197894</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ff9f</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ff9f</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.600322508480109,46.758088507157254</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No20: 19.35890624699373</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ff8c</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ff8c</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.607651135549958,46.748842933525346</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No21: 5.629014595760546</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ff7a</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ff7a</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.599927687669425,46.775613724275544</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No22: 11.787403408754617</description>
+            <Style>
+                <IconStyle>
+                    <color>e500ff67</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e500ff67</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.60525754170616,46.75464281383503</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No23: 3.717382157305767</description>
             <Style>
                 <IconStyle>
                     <color>e500ff55</color>
@@ -146,117 +503,474 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.586062715781943,46.76998372235515</coordinates>
+                <coordinates>7.582815220001463,46.7752345183281</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No7: 1.4930224026045247</description>
+            <description>Estimate No24: 12.224711779448231</description>
             <Style>
                 <IconStyle>
-                    <color>e500ff0e</color>
+                    <color>e500ff43</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e500ff0e</color>
+                    <color>e500ff43</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.5860207692805535,46.76990463112438</coordinates>
+                <coordinates>7.616593816775491,46.74427270843958</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No8: 1.5038875119207773</description>
+            <description>Estimate No25: 6.435619924729589</description>
             <Style>
                 <IconStyle>
-                    <color>e539ff00</color>
+                    <color>e500ff30</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e539ff00</color>
+                    <color>e500ff30</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584806133435689,46.76977181082319</coordinates>
+                <coordinates>7.617839065388607,46.73918341123515</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No9: 1.6665826326711384</description>
+            <description>Estimate No26: 0.3496842110311057</description>
             <Style>
                 <IconStyle>
-                    <color>e57fff00</color>
+                    <color>e500ff1e</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e57fff00</color>
+                    <color>e500ff1e</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584197587750346,46.76961318140962</coordinates>
+                <coordinates>7.614889012830183,46.76317275560918</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No10: 1.9100483793435292</description>
+            <description>Estimate No27: 8.377607940142953</description>
             <Style>
                 <IconStyle>
-                    <color>e5c6ff00</color>
+                    <color>e500ff0b</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5c6ff00</color>
+                    <color>e500ff0b</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.583604771584257,46.76949979291807</coordinates>
+                <coordinates>7.605831427281642,46.739172214028</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No11: 1.7198836527048331</description>
+            <description>Estimate No28: 2.920945328760092</description>
             <Style>
                 <IconStyle>
-                    <color>e5fff100</color>
+                    <color>e507ff00</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5fff100</color>
+                    <color>e507ff00</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.585032868572605,46.76927110138666</coordinates>
+                <coordinates>7.550226210439226,46.77960691082182</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No12: 1.483028709884467</description>
+            <description>Estimate No29: 1.1452157291883622</description>
+            <Style>
+                <IconStyle>
+                    <color>e51aff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e51aff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.562586158103894,46.77148176135176</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No30: 11.682338817177284</description>
+            <Style>
+                <IconStyle>
+                    <color>e52cff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e52cff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.563380425073259,46.77750241390146</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No31: 0.8610086023518243</description>
+            <Style>
+                <IconStyle>
+                    <color>e53fff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e53fff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.563933602580497,46.74374773804609</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No32: 6.536989795902699</description>
+            <Style>
+                <IconStyle>
+                    <color>e551ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e551ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.561297433354626,46.78121439581916</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No33: 1.9106574693355343</description>
+            <Style>
+                <IconStyle>
+                    <color>e564ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e564ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.61090484292056,46.791875116309086</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No34: 1.4902009415754511</description>
+            <Style>
+                <IconStyle>
+                    <color>e576ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e576ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.611509088060174,46.76725685878047</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No35: 14.772251508039153</description>
+            <Style>
+                <IconStyle>
+                    <color>e589ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e589ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.60453503449474,46.80109981410957</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No36: 0.8040929479455403</description>
+            <Style>
+                <IconStyle>
+                    <color>e59bff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e59bff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.626996752914898,46.80050547711616</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No37: 14.31255263095027</description>
+            <Style>
+                <IconStyle>
+                    <color>e5aeff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5aeff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.5578958676170975,46.74803117275062</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No38: 1.1688383989225004</description>
+            <Style>
+                <IconStyle>
+                    <color>e5c0ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5c0ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.628090954640999,46.79390764510272</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No39: 17.919400714335133</description>
+            <Style>
+                <IconStyle>
+                    <color>e5d3ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5d3ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.6247999378086195,46.76796778154078</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No40: 6.767229057886874</description>
+            <Style>
+                <IconStyle>
+                    <color>e5e5ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5e5ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.585599971665218,46.780842405607565</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No41: 4.566546200924541</description>
+            <Style>
+                <IconStyle>
+                    <color>e5f8ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5f8ff00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.567185259356886,46.754220221358565</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No42: 3.70434706931221</description>
+            <Style>
+                <IconStyle>
+                    <color>e5fff400</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5fff400</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.580740297493814,46.747281573850614</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No43: 6.479182110990241</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ffe100</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ffe100</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.5478193018948785,46.770267355693115</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No44: 12.518563116641095</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ffcf00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ffcf00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.56982362860824,46.76750482447959</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No45: 4.174559547311488</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ffbc00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ffbc00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.587740031362452,46.786228656310314</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No46: 1.8023387242681927</description>
             <Style>
                 <IconStyle>
                     <color>e5ffaa00</color>
@@ -272,91 +986,448 @@
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.582622450734887,46.76917799441661</coordinates>
+                <coordinates>7.561470094317115,46.744794746576076</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No13: 1.489951761417839</description>
+            <description>Estimate No47: 1.481901304006029</description>
             <Style>
                 <IconStyle>
-                    <color>e5ff6300</color>
+                    <color>e5ff9800</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5ff6300</color>
+                    <color>e5ff9800</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.579947425614974,46.768684402222455</coordinates>
+                <coordinates>7.58583932325641,46.739680048706276</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No14: 1.4637890757713985</description>
+            <description>Estimate No48: 1.7076052361048506</description>
             <Style>
                 <IconStyle>
-                    <color>e5ff1c00</color>
+                    <color>e5ff8500</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5ff1c00</color>
+                    <color>e5ff8500</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.586952837902451,46.769676879946054</coordinates>
+                <coordinates>7.547353732907105,46.74872972311934</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No15: 1.5107021863544425</description>
+            <description>Estimate No49: 7.0497818194304775</description>
             <Style>
                 <IconStyle>
-                    <color>e5ff002a</color>
+                    <color>e5ff7300</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5ff002a</color>
+                    <color>e5ff7300</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.584782638320619,46.76935837306237</coordinates>
+                <coordinates>7.572002267692106,46.76657352250635</coordinates>
             </Point>
         </Placemark>
         <Placemark>
             <visibility>1</visibility>
-            <description>Estimate No16: 1.8094427362372294</description>
+            <description>Estimate No50: 1.2685985185211306</description>
             <Style>
                 <IconStyle>
-                    <color>e5ff0071</color>
+                    <color>e5ff6000</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Style>
                 <IconStyle>
-                    <color>e5ff0071</color>
+                    <color>e5ff6000</color>
                     <scale>1.0</scale>
                     <heading>0.0</heading>
                 </IconStyle>
             </Style>
             <Point>
-                <coordinates>7.5837463890585886,46.769237945578595</coordinates>
+                <coordinates>7.603936800620395,46.76030572806089</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No51: 1.532569135849828</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff4e00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff4e00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.55126234552779,46.7720927425088</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No52: 0.6554985745628576</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff3b00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff3b00</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.5867728786771815,46.74179989499708</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No53: 9.499232759181856</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff2900</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff2900</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.557630584350993,46.79186432688672</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No54: 13.102532332738328</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff1600</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff1600</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.563430255287041,46.73935949927547</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No55: 9.31722226809845</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0400</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0400</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.620384014585533,46.767154884088875</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No56: 3.861084840424319</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff000f</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff000f</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.5555171501792815,46.78124893272554</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No57: 16.269321990953618</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0021</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0021</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.57866165591549,46.80756976358083</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No58: 6.557330210066821</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0034</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0034</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.562974852090611,46.77430453280847</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No59: 4.466768858023757</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0046</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0046</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.622049089492838,46.75876999239741</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No60: 1.5906588632227432</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0059</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0059</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.5631577217959345,46.767503416521734</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No61: 4.612453958511981</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff006b</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff006b</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.552748011932271,46.74022001416924</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No62: 3.0054960124955263</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff007e</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff007e</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.589932511495096,46.74272896259165</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No63: 2.3064533953663244</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0090</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff0090</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.545383101246502,46.76446236338651</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No64: 2.1885823057775173</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00a3</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00a3</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.561422648396204,46.778081445487004</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No65: 2.294020582762586</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00b5</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00b5</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.590513990810178,46.743835817093185</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Estimate No66: 4.090300472379616</description>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00c8</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5ff00c8</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.55706692491013,46.75469221352749</coordinates>
+            </Point>
+        </Placemark>
+        <Placemark>
+            <visibility>1</visibility>
+            <description>Final averaged estimate: 0.022292109242625195</description>
+            <Style>
+                <IconStyle>
+                    <color>e5000000</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Style>
+                <IconStyle>
+                    <color>e5000000</color>
+                    <scale>1.0</scale>
+                    <heading>0.0</heading>
+                </IconStyle>
+            </Style>
+            <Point>
+                <coordinates>7.568863835371621,46.75676016041717</coordinates>
             </Point>
         </Placemark>
     </Document>

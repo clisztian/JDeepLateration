@@ -65,7 +65,7 @@ public class NavigationList {
     private int n_trial = 5000; 
     private double alpha = 0.0001; 
     private double time_threshold = 50000;
-	private double noisePercent = .01;
+	private double noisePercent = .05;
 	
 	
 	
@@ -1836,7 +1836,7 @@ public class NavigationList {
 		
 		NavigationList navigation = new NavigationList();
 
-		String anchorFile = "data/seventhPath.kml";
+		String anchorFile = "data/thirdPath.kml";
 		String sourceFile = "data/firstSource.kml";
 		
 		navigation.testTDOAPath(anchorFile, sourceFile);
@@ -1898,10 +1898,8 @@ public class NavigationList {
 		
 		Kml kml = KmlFactory.createKml();
 		Document document = kml.createAndSetDocument().withName("SolutionMarkers.kml");
-		
-		
-		
-		for(int j = 0; j < estimates.size(); j++) {
+
+		for(int j = 0; j < estimates.size() - 1; j++) {
 		  
 		  double[] myEst = estimates.get(j);	
 			
@@ -1912,11 +1910,18 @@ public class NavigationList {
 		  		  
 		}
 		
+		double[] myEst = estimates.get(estimates.size() - 1);	
+		document.createAndAddPlacemark()
+        .withDescription("Final averaged estimate: " + errors.get(estimates.size() - 1))
+        .withVisibility(true)
+        .createAndSetPoint().addToCoordinates(myEst[1], myEst[0]);
+		
+		
 		System.out.println("Number of features: " + document.getFeature().size());
 		
 		List<Color> colors = pick(document.getFeature().size()+2);
 		
-		for (int i = 0; i < document.getFeature().size(); i++) {
+		for (int i = 0; i < document.getFeature().size()-1; i++) {
 			
 			Color color = colors.get(i);
 			Style style = document.getFeature().get(i).createAndAddStyle();			
@@ -1926,8 +1931,13 @@ public class NavigationList {
 			
 			//style.setIconStyle((new IconStyle()).withColor(hex).withHeading(1.0).withScale(1.0));
 			document.getFeature().get(i).getStyleSelector().add(style);
-			
 		}
+		
+		Style style = document.getFeature().get(document.getFeature().size() - 1).createAndAddStyle();			
+		String hex = String.format("%02x%02x%02x", 0, 0, 0);
+		style.createAndSetIconStyle().withColor("e5"+hex).withScale(1.0);
+		document.getFeature().get(document.getFeature().size() - 1).getStyleSelector().add(style);
+		
 		
         kml.setFeature(document);
 		
@@ -2032,10 +2042,7 @@ public class NavigationList {
     	return mySource;
     }
     
-    
-    
-    
-    
+
     public void testTDOAPath(String anchors, String sourceFile) throws Exception {
     	
     	Random random = new Random(); 
@@ -2077,8 +2084,6 @@ public class NavigationList {
 					                 locs[1] - localOrigin[1], 
 					                 locs[2] - localOrigin[2]);
 			
-			
-			   
 			if(latitude > maxLat) {maxLat = latitude;}
 			else if(latitude < minLat) {minLat = latitude;}
 			
@@ -2094,10 +2099,10 @@ public class NavigationList {
 		double[] boundSW = new double[3];
 		double[] boundSE = new double[3];
 		   
-		boundNW[0] = maxLat + .01; boundNW[1] = minLong - .01;
-		boundNE[0] = maxLat + .01; boundNE[1] = maxLong + .01;
-		boundSW[0] = minLat - .01; boundSW[1] = minLong - .01;
-		boundSE[0] = minLat - .01; boundSE[1] = maxLong + .01;
+		boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
+		boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
+		boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
+		boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
 		   
 	    double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
 	    double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
@@ -2145,18 +2150,227 @@ public class NavigationList {
         GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(updateAnchors, updateRanges, bounds_in, 
         		n_trial, alpha, time_threshold, source);
 
+        double distance = Mstat.distance(gdescent_result.estimator, sourceMat);
+        
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
                 
         estimates.add(gdescent_result.estimator.w);
         error_est.add(gdescent_result.error.w[0]);
-        System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
-        		+ " " + updateRanges.w[updateRanges.w.length-1] + " ");
-        updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
-         
+        
+        System.out.print("Error with " + i + " anchor navigation nodes: " + distance + ", estimate: ");
+        gdescent_result.estimator.printMatrix();
+        
        } 
        
-       double[] stockArr = new double[error_est.size()];
-       double[] x = new double[error_est.size()];
+       int numberEstimatesAvg = 5;
+       double avgLat = 0; 
+       double avgLong = 0; 
+       for(int i = 0; i < numberEstimatesAvg; i++) {
+    	   avgLat  += estimates.get(estimates.size() - 1 - i)[0];
+    	   avgLong += estimates.get(estimates.size() - 1 - i)[1];
+       }
+       avgLat = avgLat/numberEstimatesAvg; 
+       avgLong = avgLong/numberEstimatesAvg; 
+       
+       System.out.println(avgLat + ", " + avgLong + ", source = " + mySource[0] + ", " + mySource[1]);
+       double finalError = Math.abs(avgLat - mySource[0])*Math.abs(avgLat - mySource[0]) 
+    		   + Math.abs(avgLong - mySource[1])*Math.abs(avgLong - mySource[1]);
+       
+       double[] finalEstimate = new double[3];
+       finalEstimate[0] = avgLat; 
+       finalEstimate[1] = avgLong; 
+       
+       finalError = Math.sqrt(finalError); 
+       
+       System.out.println("Final average error: " + finalError); 
+       estimates.add(finalEstimate);
+       error_est.add(finalError);
+       
+       double[] stockArr = new double[ranges_with_error.w.length];
+       double[] x = new double[ranges_with_error.w.length];
+       for(int i = 0; i < ranges_with_error.w.length; i++) {
+    	   stockArr[i] = ranges_with_error.w[i];
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();
+		 
+       // add a line plot to the PlotPanel
+       plot.addLinePlot("TDOA plot", x, stockArr);
+       JFrame frame = new JFrame("TDOA simulation");
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkers.kml"));
+    }
+    
+    
+    
+    
+    
+    
+    public void testFDOAPath(String anchors, String sourceFile) throws Exception {
+    	
+    	Random random = new Random(); 
+        int num_anchors;
+ 	    
+        double minLong = 400;
+ 	    double maxLong = -1.0;
+ 	    double minLat = 100.0;
+ 	    double maxLat = -100.0;
+        double timeDiff = 1.0; 
+        
+    	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
+    	double[] mySource = parseKmlSource(sourceFile);
+    	
+    	
+        final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
+		kml0.marshal(new File("FilteredCIRMarkersSimulation.kml"));
+        
+		Anchors myAnchors = new Anchors();	    
+	    double[] origin = myListAnchors.get(0);	    
+	    localOrigin = NavigationChannelList.GeodeticToECEF(origin[0], origin[1], 0);
+
+		double[] source = NavigationChannelList.GeodeticToECEF(mySource[0], mySource[1], 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+	   				
+		Matrix sourceMat = new Matrix(source,1);
+		double[] prevLocation = localOrigin; 
+		double[] velocity = new double[3];
+		
+		myAnchors.setCoordinatesAndVelocity(localOrigin, velocity); 
+		
+		for(int i = 1; i < myListAnchors.size(); i++) {
+											
+			double latitude = myListAnchors.get(i)[0];
+			double longitude = myListAnchors.get(i)[1];
+			
+			double[] locs = NavigationChannelList.GeodeticToECEF(latitude, longitude, 0);
+			double[] anchor = {locs[0] - localOrigin[0], 
+	                           locs[1] - localOrigin[1], 
+	                           locs[2] - localOrigin[2]};
+			
+			velocity = new double[3];
+			for(int k = 0; k < 3; k++) {
+				velocity[k] = (anchor[k] - prevLocation[k])/timeDiff;			
+			}
+			
+			myAnchors.setCoordinatesAndVelocity(anchor, velocity); 
+			   
+			if(latitude > maxLat) {maxLat = latitude;}
+			else if(latitude < minLat) {minLat = latitude;}
+			
+			if(longitude > maxLong) {maxLong = longitude;}
+			else if(longitude < minLong) {minLong = longitude;}	
+			
+			prevLocation = anchor; 
+		}
+		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
+		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
+		
+		double[] boundNW = new double[3];
+		double[] boundNE = new double[3];
+		double[] boundSW = new double[3];
+		double[] boundSE = new double[3];
+		   
+		boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
+		boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
+		boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
+		boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
+		   
+	    double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
+	    double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
+	    double[] v2 = NavigationChannelList.GeodeticToECEF(boundSW[0], boundSW[1], 0, localOrigin);
+	    double[] v3 = NavigationChannelList.GeodeticToECEF(boundSE[0], boundSE[1], 0, localOrigin);
+
+	    System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
+	    System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
+	    System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
+	    System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
+	       
+	    bounds_in = new Matrix(4,3);
+	       
+	    bounds_in.setRow(0, v0);
+	    bounds_in.setRow(1, v1);
+	    bounds_in.setRow(2, v2);
+	    bounds_in.setRow(3, v3); 		
+		
+		
+		myAnchors.commitCoordinatesAndVelocity();
+		num_anchors = myAnchors.getNumberOfAnchors();
+		Matrix anchors_in = myAnchors.getAnchors(); 
+		Matrix velocities = myAnchors.getVelocities(); 
+		Matrix ranges_with_error = new Matrix(num_anchors);
+	    
+		ranges_with_error.w[0] = 0;
+		ranges_with_error.w[1] = 0;
+		for(int j = 1; j < num_anchors-1; j++) {
+		
+			double fdoa_est = GradDescentResult.dopplerShift(anchors_in.getRow(0), anchors_in.getRow(j+1), 
+        			velocities.getRow(0), velocities.getRow(j+1), sourceMat);
+			
+			System.out.println(fdoa_est);
+			ranges_with_error.w[j+1] = fdoa_est; // + noisePercent*fdoa_est*random.nextGaussian(); 
+		}
+		
+	
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i=i+5) {
+
+    	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
+       	Matrix updateVelocities = myAnchors.subsetVelocity(i);
+       	Matrix updateRanges = ranges_with_error.subset(i);
+           
+       	
+       	GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(updateAnchors, 
+       			updateVelocities, updateRanges, bounds_in, n_trial, alpha, time_threshold, source);
+       	
+
+        double distance = Mstat.distance(gdescent_result.estimator, sourceMat);
+        
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        
+        System.out.print("Error with " + i + " anchor navigation nodes: " + distance + ", estimate: ");
+        gdescent_result.estimator.printMatrix();
+        
+       } 
+       
+       int numberEstimatesAvg = 5;
+       double avgLat = 0; 
+       double avgLong = 0; 
+       for(int i = 0; i < numberEstimatesAvg; i++) {
+    	   avgLat  += estimates.get(estimates.size() - 1 - i)[0];
+    	   avgLong += estimates.get(estimates.size() - 1 - i)[1];
+       }
+       avgLat = avgLat/numberEstimatesAvg; 
+       avgLong = avgLong/numberEstimatesAvg; 
+       
+       System.out.println(avgLat + ", " + avgLong + ", source = " + mySource[0] + ", " + mySource[1]);
+       double finalError = Math.abs(avgLat - mySource[0])*Math.abs(avgLat - mySource[0]) 
+    		   + Math.abs(avgLong - mySource[1])*Math.abs(avgLong - mySource[1]);
+       
+       double[] finalEstimate = new double[3];
+       finalEstimate[0] = avgLat; 
+       finalEstimate[1] = avgLong; 
+       
+       finalError = Math.sqrt(finalError); 
+       
+       System.out.println("Final average error: " + finalError); 
+       estimates.add(finalEstimate);
+       error_est.add(finalError);
+       
+       double[] stockArr = new double[ranges_with_error.w.length];
+       double[] x = new double[ranges_with_error.w.length];
        for(int i = 0; i < ranges_with_error.w.length; i++) {
     	   stockArr[i] = ranges_with_error.w[i];
     	   x[i] = i;
@@ -2177,6 +2391,15 @@ public class NavigationList {
 		
     	
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     private void parseFeature(Feature feature) {
