@@ -19,7 +19,6 @@ public class Matrix implements Serializable {
 	public int cols;
 	
 	public double[] w;
-	public double[] dw;
 
 	@Override
 	public String toString() {
@@ -37,7 +36,6 @@ public class Matrix implements Serializable {
 		Matrix result = new Matrix(rows, cols);
 		for (int i = 0; i < w.length; i++) {
 			result.w[i] = w[i];
-			result.dw[i] = dw[i];
 		}
 		return result;
 	}
@@ -139,11 +137,6 @@ public class Matrix implements Serializable {
 		}		
 	}
 	
-	public void resetDw() {
-		for (int i = 0; i < dw.length; i++) {
-			dw[i] = 0;
-		}
-	}
 
 	
 	public static Matrix transpose(Matrix m) {
@@ -191,12 +184,7 @@ public class Matrix implements Serializable {
 		}		
 	}
 	
-	public void printMatrixDW()
-	{
-		for(int i = 0; i < this.w.length; i++)
-		{System.out.print(dw[i] + ", ");}
-		System.out.println("");
-	}
+
 	
 	
 	public static Matrix ones(int rows, int cols) {
@@ -212,7 +200,6 @@ public class Matrix implements Serializable {
 		this.cols = 1;
 		this.size = rows*cols;
 		this.w = new double[rows * cols];
-		this.dw = new double[rows * cols];
 	}
 	
 	public Matrix(int rows, int cols) {
@@ -220,7 +207,6 @@ public class Matrix implements Serializable {
 		this.cols = cols;
 		this.size = rows*cols;
 		this.w = new double[rows * cols];
-		this.dw = new double[rows * cols];
 	}
 	
 	public Matrix(double[] vector) {
@@ -228,7 +214,6 @@ public class Matrix implements Serializable {
 		this.cols = 1;
 		this.size = rows*cols;
 		this.w = vector;
-		this.dw = new double[vector.length];
 	}
 	
 	public Matrix(double[] vector, int i) {
@@ -236,7 +221,6 @@ public class Matrix implements Serializable {
 		this.cols = vector.length;
 		this.size = rows*cols;
 		this.w = vector;
-		this.dw = new double[vector.length];
 	}	
 	
 	public Matrix(double[] vector, int n, int batchsize) throws Exception 
@@ -249,7 +233,6 @@ public class Matrix implements Serializable {
 		this.cols = batchsize;
 		this.size = rows*cols;
 		this.w = vector;
-		this.dw = new double[vector.length];
 	}
 	
 	private int index(int row, int col) {

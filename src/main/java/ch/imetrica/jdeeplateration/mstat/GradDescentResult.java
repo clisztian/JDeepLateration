@@ -189,26 +189,17 @@ public class GradDescentResult {
 		return diff; 
 	}
 	
-	public static double dopplerShift(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, Matrix estimator) throws Exception {
+	
+	public static double fdoaEstimate0(Matrix s_i, Matrix v_i, Matrix estimator) throws Exception {
 		
-		double diff = 0;
-		
-		Matrix num0 = sub(estimator, s_i);
-		Matrix num1 = sub(estimator, s_i1);
-		
-		double diffi = Mstat.distance(estimator, s_i);
-		double diffi1 = Mstat.distance(estimator, s_i1);
-		
+		Matrix num0 = sub(estimator, s_i);		
+		double diffi = Mstat.distance(estimator, s_i);	
 		num0.scale(1.0/diffi);
-		num1.scale(1.0/diffi1);
 		
-		double angle_i = num0.dot(v_i);
-		double angle_i1 = num1.dot(v_i1);
-		
-		//diff = (angle_i1 - angle_i); 
-
-		return angle_i1; 
+		return num0.dot(v_i); 
 	}
+	
+	
 	
 	
 	public static Matrix fdoaGradient0(Matrix s_i, Matrix s_i1, Matrix v_i, Matrix v_i1, 
@@ -238,6 +229,29 @@ public class GradDescentResult {
 		gradient.scale(fdoaDiff);
 		return gradient; 			
 	}	
+	
+	
+	public static Matrix fdoaGradient(Matrix s_i, Matrix v_i, 
+			Matrix estimator, double fdoa_i) throws Exception {
+			
+		double D_i = fdoaEstimate0(s_i, v_i, estimator);
+		double fdoaDiff = D_i - fdoa_i; 
+		
+		double diffi = Mstat.distance(estimator, s_i);	
+		Matrix numi = sub(estimator, s_i);
+		double angle_i = numi.dot(v_i);
+
+		Matrix gradient = new Matrix(1,3);
+		
+		for(int i = 0; i < estimator.cols; i++) {
+							
+			double grad0 = v_i.w[i]/diffi - angle_i*numi.w[i]/Math.pow(diffi, 3);					
+			gradient.w[i] = grad0;
+		}
+		
+		gradient.scale(fdoaDiff);
+		return gradient; 			
+	}
 	
 	
 	
@@ -464,8 +478,7 @@ public class GradDescentResult {
             Matrix ranges = new Matrix(n,1);           
             ranges.w[0] = 0;
             for (int j = 0; j < n-1; j++) {                    	
-            	ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-            			                     v.getRow(j), v.getRow(j+1), sol);
+            	ranges.w[j+1] = fdoaEstimate0(anchors_in.getRow(j+1), v.getRow(j+1), sol);
             }
             
             System.out.println("Error at source: " + Mstat.norm(fdoas_in, ranges));
@@ -487,19 +500,17 @@ public class GradDescentResult {
                 	
                 	ranges.w[0] = 0;
                     for (int j = 0; j < n-1; j++) {                    	
-                    	ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-			                                         v.getRow(j), v.getRow(j+1), estimator);
+                    	ranges.w[j+1] = fdoaEstimate0(anchors_in.getRow(j+1), v.getRow(j+1), estimator);
                     }
                     
-                    double error = Mstat.fdoanorm(fdoas_in, ranges);
+                    double error = Mstat.norm(fdoas_in, ranges);
                     Matrix delta = new Matrix(dim);
                     
                     for (int j = 0; j < n-1; j++) {
                    	
                     	Matrix grad = 
-                    			fdoaGradient0(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-       			                     v.getRow(j), v.getRow(j+1), estimator, 
-       			                     fdoas_in.w[j+1] - fdoas_in.w[j]);
+                    			fdoaGradient(anchors_in.getRow(j+1), v.getRow(j+1), estimator, 
+       			                     fdoas_in.w[j+1]);
                     	
                     	delta.add(grad);	
                     }
@@ -508,11 +519,10 @@ public class GradDescentResult {
                     Matrix estimator_next = sub(estimator,delta);
                     
                     for (int j = 0; j < n-1; j++) {
-                        ranges.w[j+1] = fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-			                                         v.getRow(j), v.getRow(j+1), estimator);
+                        ranges.w[j+1] = fdoaEstimate0(anchors_in.getRow(j+1), v.getRow(j+1), estimator);
                     }
                     
-                    double error_next = Mstat.fdoanorm(fdoas_in, ranges);
+                    double error_next = Mstat.norm(fdoas_in, ranges);
 
                     if (error_next < error) {
                         estimator = estimator_next;

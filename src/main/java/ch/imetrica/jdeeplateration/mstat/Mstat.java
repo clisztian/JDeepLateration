@@ -27,6 +27,20 @@ public class Mstat implements Serializable {
         return distance;
     }
 	
+	public static double distance(double[] m1, double[] m2) throws Exception
+    {
+		if (m1.length != m2.length) {
+			throw new Exception("Expected same size matrices");
+		}		
+		double distance = 0;
+	
+		for(int i = 0; i < 3; i++) {
+			distance += Math.abs(m1[i] - m2[i])*Math.abs(m1[i] - m2[i]); 
+		}
+		distance = Math.sqrt(distance);		
+        return distance;
+    }
+	
 	public static double norm(Matrix m1, Matrix m2) throws Exception
     {
 		if (m1.size != m2.size) {
