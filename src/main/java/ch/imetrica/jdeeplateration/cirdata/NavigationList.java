@@ -14,6 +14,7 @@ import java.util.Random;
 
 import javax.swing.JFrame;
 
+import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 import org.junit.Assert;
 import org.math.plot.Plot2DPanel;
 
@@ -53,8 +54,10 @@ public class NavigationList {
 	ArrayList<NavigationChannelList> navigationList = null;
 	ArrayList<NavigationChannelList> filteredNavigationList = null;
 	ArrayList<TimeDiffOnArrival> tdoaFrequency0;
-	
 	ArrayList<double[]> simulationCoordinates;
+	
+	private double[] noiseModel;
+	private int maxOutlierThreshold = 55; 
 	
 	Matrix bounds_in;
 	private double sourceLatitude = 0;
@@ -63,11 +66,12 @@ public class NavigationList {
 	
 	/* Parameters for Stochastic Gradient Solution and Simulations */
 	
-    private int n_trial = 5000; 
+    private int n_trial = 10000; 
     private double alpha = 0.0001; 
-    private double time_threshold = 50000;
-	private double noisePercent = .05;
+    private double time_threshold = 50000000;
+	private double noisePercent = 0.00;
 	private double navigationSpeedMetersPerSec = 50.0;
+	private int numberEstimatesAvg = 6;
 	
 
 	/**
@@ -95,9 +99,80 @@ public class NavigationList {
 	}
 	
 	/**
-	* Toggles plotting the filtered TDOA computation results
+	* Sets the number of Trials used in the stochastic gradient solution. This number should 
+	* usually be at least 1000 to get reasonable estimates of the source location. 
+	* Each trial generates a solution be starting a random
+	* coordinate inside the bounds of a region where the source is thought to be located. This 
+	* region is a square box about 200 km outside each coordinate in the navigation list. 
+	* The default value is 5000.
+	* 
+	* @param  n_trials Number of trials used in the stochastic gradient solution
+	* @throws Exception must be greater than 100
+	*/
+	
+	public void setNumberTrials(int n_trials) throws Exception {
+		if(n_trials < 100) { 
+			throw new Exception("Number of Trials must be greater than 100");
+		}
+		this.n_trial = n_trials;
+	}
+	
+	/**
+	* Sets the learning rate of the stochastic gradient descent method. This number should 
+	* usually be between .001 and .0001, and determines the step size in the gradients. 
+	* For very large geographic areas, a larger step size of .001 should most likely be used.
+	* Default value is set at .0001
+	* 
+	* @param  alpha The step-size in the stochastic gradient descent 
+	* @throws Exception must be a positive number.
+	*/
+	public void setAlpha(double alpha) throws Exception {
+		if(alpha < 0) { 
+			throw new Exception("Alpha must be a positive number");
+		}
+		this.alpha = alpha;
+	}
+	
+	/**
+	* Sets the noise percentage used in computing the noisy TDOAs or FDOAs in the 
+	* simulated multilateration environment. The noise is a number between 0 and 1 (inclusive)
+	* that adds a random Gaussian number with standard deviation a percentage of
+	* the distance to the given source. Thus the further away from the source, the more 
+	* noisy the simulated TDOA/FDOA measurement. 
+	* 
+	* @param  noise Percentage of Gaussian noise relative to the distance to source
+	* added to the simulated TDOA/FDOA computation
+	* @throws Exception must be between 0 and 1 (inclusive)
+	*/
+	public void setNoisePercentage(double noise) throws Exception {
+		if(noise < 0 || noise > 1) { 
+			throw new Exception("Noise percentage must be between 0 and 1");
+		}
+		this.noisePercent = noise;
+	}
+	
+	/**
+	* Sets the constant speed of the simulated navigation for computing the FDOAs in the 
+	* simulated multilateration environment. This number should be greater than 0. 
+	* 
+	* @param  navigationSpeedMetersPerSec Speed in meters per second
+	* added to the simulated TDOA/FDOA computation
+	* @throws Exception must be greater than 0
+	*/
+	public void setSimulatedNavigationSpeed(double navigationSpeedMetersPerSec) throws Exception {
+		if(navigationSpeedMetersPerSec <= 0) { 
+			throw new Exception("Speed must be greater than 0");
+		}
+		this.navigationSpeedMetersPerSec = navigationSpeedMetersPerSec;
+	}
+	
+	/**
+	* Extracts from the filtered navigation list the time-difference on arrival
+	* information at each navigation point. Assumes a frameLength of 65536 milliseconds.
+	* 
 	* @param  freq Filters on this desired frequency channel
-	* @see         NavigationChannelList
+	* @throws Exception on filteredNavigationList must not be empty
+	* @see    NavigationChannelList
 	*/
 	public void computeTDOAfromNavigationList00(int freq) throws Exception {
         
@@ -167,6 +242,19 @@ public class NavigationList {
 	          
 	}
 	
+	/**
+	* Extracts from the filtered navigation list the time-difference on arrival
+	* information at each navigation point at the given the frequency channel index. 
+	* Assumes a frameLength of 65536 milliseconds. It also applies difference 
+	* filtering where outliers are discarded by taking a difference
+	* in time. If the absolute difference is greater than the parameter thresh than the 
+	* observation is thrown out.  
+	* 
+	* @param  freq Filters on this desired frequency channel
+	* @param  thresh Given threshhold on which to throw out outliers
+	* @throws Exception on filteredNavigationList must not be empty
+	* @see    NavigationChannelList
+	*/
 	
 	public void filterTDOAfromNavigationList(int freq, double thresh) throws Exception {
         
@@ -177,6 +265,8 @@ public class NavigationList {
 	        double refTime = -1.0;
 	        double tdoa = 0.0;
 	        double frameLength = .065536;
+	        
+	        int outlierCount = 0;
 	        
 	        ArrayList<Double> times = new ArrayList<Double>();
 	        
@@ -215,8 +305,20 @@ public class NavigationList {
 	                	System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
 		                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
 		                times.add(time);
-		                tdoaFrequency0.add(td);   
-	                }	                
+		                tdoaFrequency0.add(td);
+		                outlierCount = 0;
+	                }
+	                else if(outlierCount > maxOutlierThreshold) {
+	                	
+	                	System.out.println(tdoaFrequency0.size() + " " + tdoa + " and diff " + (tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()));
+		                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
+		                times.add(time);
+		                tdoaFrequency0.add(td);
+		                outlierCount = 0;
+	                }
+	                else {
+	                	outlierCount++;
+	                }
 	            }            
 	        }
 	        System.out.println("----------------------------------------");
@@ -240,6 +342,22 @@ public class NavigationList {
 	          
 	}
 	
+	/**
+	* Extracts from the filtered navigation list the valid doppler measurements that 
+	* satisfy the peak list conditions. It modifies the original peak list by dropping 
+	* all peaks that have a power that is a threshhold smaller than the strongest peak. 
+	* This rejects correlation peaks artifacts in the time domain that were created
+	* by a hard filtering of the transmission channel in the frequency domain. It also only 
+	* keeps the channels such that the strongest remaining peak is also the first one arriving.
+	* This function is used in filterFDOAfromNavigationList
+	* 
+	* @param  freq Filters on this desired frequency channel index
+	* @param  threshold Given threshhold on which to throw out the peaks 
+	*         this much smaller than the strongest
+	* @throws Exception on filteredNavigationList must not be empty
+	* @see    NavigationChannelList
+	* @see    filterFDOAfromNavigationList
+	*/
 	
 	public void validateDopplerMeasurement(int freq, double threshold) throws Exception {
 		
@@ -261,6 +379,21 @@ public class NavigationList {
 	    }
 	    System.out.println("Navigation readings after fdoa filtering: " + filteredNavigationList.size());
 	}
+	
+	/**
+	* Extracts from the filtered navigation list the valid doppler measurements that 
+	* satisfy the peak list conditions from validateDopplerMeasurement. It also filters
+	* on differences and on observations where the navigation is stationary and yet the fdoa
+	* measurment is nonzero. Lastly, all absolute values of fdoa greater that the threshhold parameter
+	* are discarded as well.   
+	* 
+	* @param  freq Filters on this desired frequency channel index
+	* @param  threshold Given threshhold used to throw out first-order difference outliers
+	* @param  powerThreshold threshhold used in the validateDopplerMeasurement   
+	* @throws Exception on filteredNavigationList must not be empty
+	* @see    NavigationChannelList
+	* @see    validateDopplerMeasurement
+	*/
 	
 	public void filterFDOAfromNavigationList(int freq, double threshold, double powerThreshold) throws Exception {
 		
@@ -309,7 +442,6 @@ public class NavigationList {
 	        frame.setVisible(true);
 	}
 	
-	
 
 	
 	/**
@@ -343,9 +475,10 @@ public class NavigationList {
 	 * if either the frequency index does not exist or if the RSSI measurement
 	 * is less than the given threshhold. 
 	 *
+	 * 
 	 * @param  threshhold  the RSSI threshhold. Values less than this will be
 	 * thrown out of the navigation list
-	 * @param  desired frequency index
+	 * @param  freq desired frequency index
 	 */
 	
 	public void filterOnRSSI(double threshhold, int freq) {
@@ -363,7 +496,12 @@ public class NavigationList {
 	}
 	
 	
-	
+	/**
+	 * Filters the out all navigation readings that have duplicate location readings. 
+	 * Creates the filteredNavigationList which is used for the rest of the filtering 
+	 * procedures.
+	 *
+	 */
     public void filterUnique() {
 		
     	filteredNavigationList = new ArrayList<NavigationChannelList>();
@@ -387,6 +525,15 @@ public class NavigationList {
 		}		
 	}
 	
+    /**
+	 * Filters the out all navigation readings that have duplicate location readings
+	 * and on a randomized basis. A filtering procedure used for experiementing with 
+	 * navigation location importance. Creates the filteredNavigationList which is used 
+	 * for the rest of the filtering procedures.
+	 *
+	 * @param seed Random number generator seed
+	 * @param skip Number of navigation entries to skip
+	 */
 
     public void filterRandomlyUnique(int seed, int skip) {
 		
@@ -414,6 +561,16 @@ public class NavigationList {
 		}				
 	}    
     
+	/**
+	 * Once the navigation log file has been read, this function will 
+	 * compute the velocity given the recorded latitude and longitudes 
+	 * coordinates along the their local timestamp measurements in the 
+	 * ECEF coordinate system in meters.
+	 * <p>
+	 * The resulting velocities are stored in the navigation list 
+	 * @see         computeVelocity
+	 */
+	
     
     public void computeVelocityECEF() {
     	
@@ -425,7 +582,16 @@ public class NavigationList {
     	computeVelocity();   	
     }
     
-    
+	/**
+	 * Once the filtered navigation list has been computed, this function will compute 
+	 * the bounds in which the estimated source might be located. The bounds are found by 
+	 * taking the most extreme north/south/east/west coordinates and adding an additional 
+	 * 200 kilometers in each direction. These bounds are then used in the stochastic gradient
+	 * method to estimate the source for either the TDOA or FDOA multilateration.  
+	 * @see estimateSourceSolutionFDOA
+	 * @see estimateSourceSolutionTDOA
+	 * @throws Exception if matrix dimensions are wrong
+	 */
     public void createEstimationBounds() throws Exception {
     	
 	   if(filteredNavigationList == null) {    
@@ -483,8 +649,23 @@ public class NavigationList {
     }
     
     
+	/**
+	 * Once the navigation log file has been read, and FDOA filtering has been 
+	 * applied using filterFDOAfromNavigationList, this function will estimate the solution using the given FDOAs 
+	 * at the given anchors and computed velocities. The source solution is estimated
+	 * via means of a stochastic gradient descent approach. All of the given anchors will be
+	 * used for finding the gradient descent solution 
+	 * The resulting velocities are stored in the navigation list 
+	 * @see  filterFDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */
+      
     public void estimateSourceSolutionFDOA() throws Exception {
     	
+    	if(filteredNavigationList.size() == 0) {
+    		throw new Exception("Must first apply FDOA filtering to get "
+    				+ "filtered Navigation list");
+    	}
     	
     	Anchors myAnchors = new Anchors();
 	    ArrayList<Double> fdoas = new ArrayList<Double>();
@@ -509,17 +690,15 @@ public class NavigationList {
             ranges.w[i] = fdoas.get(i).doubleValue();
         }
 
-        
-        int n_trial = 500; 
-        double alpha = 0.0001; 
-        double time_threshold = 50000;
-        
-        
-       
-        double[] source = NavigationChannelList.GeodeticToECEF(46.762606, 7.600533, 0);
-		source[0] -= localOrigin[0];
-		source[1] -= localOrigin[1];
-		source[2] -= localOrigin[2];
+                    
+        double[] source = null;
+        if(sourceLatitude != 0.0) {
+        	
+        	source = NavigationChannelList.GeodeticToECEF(sourceLatitude, sourceLongitude, 0);
+    		source[0] -= localOrigin[0];
+    		source[1] -= localOrigin[1];
+    		source[2] -= localOrigin[2];	
+        }
         
         GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(myAnchors.getAnchors(), 
         		myAnchors.getVelocities(), ranges, bounds_in, n_trial, alpha, time_threshold, source);
@@ -528,7 +707,6 @@ public class NavigationList {
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
         gdescent_result.estimator.printMatrix();
         
-        //gdescent_result.error.printMatrix();
         
         for(int j = 0; j < gdescent_result.estimator_candidate.rows; j++) {
         	gdescent_result.estimator_candidate.transformRowCoord(j,localOrigin); 
@@ -537,48 +715,49 @@ public class NavigationList {
         
         ArrayList<double[]> estimates = new ArrayList<double[]>();
         ArrayList<Double> error_est = new ArrayList<Double>();
-        
-        //gdescent_result.estimator.transformRowCoord(0,localOrigin);         
-        
+                     
         estimates.add(gdescent_result.estimator.w);
         error_est.add(gdescent_result.error.w[0]);
-        
-        
+                
         final Kml kml = createSolutionDocument(estimates, error_est);
-        kml.marshal(new File("SolutionMarkers.kml"));
-        
-        
+        kml.marshal(new File("SolutionMarkers.kml"));        
     }
     
     
-
-
+	/**
+	 * Once the navigation log file has been read, and TDOA filtering has been 
+	 * applied using filterTDOAfromNavigationList, this function will estimate the 
+	 * solution using the given anchors and their TDOA estimates. The source solution is estimated
+	 * via means of a stochastic gradient descent approach. All of the given anchors will be
+	 * used for finding the gradient descent solution.
+	 * @see  filterTDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */
+      
 	
-	public void estimateSourceSolution() throws Exception {
-		
-		
-        Random random = new Random(); 
+	public void estimateSourceSolutionTDOA() throws Exception {
+	
         int num_anchors;
         
         final Kml kml0 = createCIRDocument(filteredNavigationList);
 		kml0.marshal(new File("FilteredCIRMarkers.kml"));
         
 		Anchors myAnchors = new Anchors();
-	    ArrayList<Double> tdoas = new ArrayList<Double>();
 	    ArrayList<Double> rtdoas = new ArrayList<Double>();
 	    
 	    localOrigin = NavigationChannelList.GeodeticToECEF(tdoaFrequency0.get(0).getLatitude(), 
 	    		tdoaFrequency0.get(0).getLongitude(), 0);
 	    
 	    
-		double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
-		source[0] -= localOrigin[0];
-		source[1] -= localOrigin[1];
-		source[2] -= localOrigin[2];
-	    
+        double[] source = null;
+        if(sourceLatitude != 0.0) {
+        	
+        	source = NavigationChannelList.GeodeticToECEF(sourceLatitude, sourceLongitude, 0);
+    		source[0] -= localOrigin[0];
+    		source[1] -= localOrigin[1];
+    		source[2] -= localOrigin[2];
+        }
 
-		Matrix sourceMat = new Matrix(source,1);
-		
 		for(int i = 0; i < tdoaFrequency0.size(); i++) {
 						
 			TimeDiffOnArrival tdoa = tdoaFrequency0.get(i);
@@ -593,42 +772,16 @@ public class NavigationList {
 			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
-		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
-		
+
 		myAnchors.commitCoordinates();
-		num_anchors = myAnchors.getNumberOfAnchors();
-		Matrix anchors_in = myAnchors.getAnchors(); 
-		
-		
-		tdoas.add(0.0);
-		for(int j = 0; j < num_anchors-1; j++) {
-		
-			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(j), 
-					anchors_in.getRow(j+1), sourceMat);
-			
-			tdoas.add(tdoa_est); 
-		}
-				 
-		for(int j = 0; j < num_anchors; j++) {
-			
-			System.out.println(rtdoas.get(j) + " " + tdoas.get(j));
-			
-		}
-		
-        Matrix ranges = new Matrix(num_anchors);
+		num_anchors = myAnchors.getNumberOfAnchors();	
         Matrix ranges_with_error = new Matrix(num_anchors);
         
         for (int i = 0; i < num_anchors; i++) {
-        	
-            ranges.w[i] = tdoas.get(i).doubleValue();
-            ranges_with_error.w[i] = ranges.w[i] + 4.0*random.nextGaussian();
+         
+            ranges_with_error.w[i] = rtdoas.get(i);
         }
 
-        
-        int n_trial = 500; 
-        double alpha = 0.0001; 
-        double time_threshold = 50000;
-        
         
         GradDescentResult gdescent_result = GradDescentResult.mlatTdoa(myAnchors, ranges_with_error, bounds_in, 
         		n_trial, alpha, time_threshold, source);
@@ -659,9 +812,17 @@ public class NavigationList {
         
 	}
 	
-	
-	
-	public void estimateAdaptiveSource() throws Exception {
+	/**
+	 * Once the navigation log file has been read, and TDOA filtering has been 
+	 * applied using filterTDOAfromNavigationList, this function will estimate the solution 
+	 * using the given anchors and their TDOA estimates in a successive manner. Namely, 
+	 * an estimate of the source will be produced for every successive anchor/tdoa added from 
+	 * the filtered navigation queue. This an estimate will be produced for each additional 
+	 * anchor/tdoa. The solution estimates will be found in a .kml file. 
+	 * @see  filterTDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */	
+	public void estimateAdaptiveSourceTDOA() throws Exception {
 		
         int num_anchors;
         
@@ -671,19 +832,20 @@ public class NavigationList {
         
         
 		Anchors myAnchors = new Anchors();
-	    ArrayList<Double> tdoas = new ArrayList<Double>();
 	    ArrayList<Double> rtdoas = new ArrayList<Double>();
 	    
 	    localOrigin = NavigationChannelList.GeodeticToECEF(tdoaFrequency0.get(0).getLatitude(), 
 	    		tdoaFrequency0.get(0).getLongitude(), 0);
 	    
-		double[] source = NavigationChannelList.GeodeticToECEF(47.184733, 7.707917, 0);
-		source[0] -= localOrigin[0];
-		source[1] -= localOrigin[1];
-		source[2] -= localOrigin[2];
-	    
-
-		Matrix sourceMat = new Matrix(source,1);
+        double[] source = null;
+        if(sourceLatitude != 0.0) {
+        	
+        	source = NavigationChannelList.GeodeticToECEF(sourceLatitude, sourceLongitude, 0);
+    		source[0] -= localOrigin[0];
+    		source[1] -= localOrigin[1];
+    		source[2] -= localOrigin[2];
+        }
+	
 		
 		for(int i = 0; i < tdoaFrequency0.size(); i++) {
 						
@@ -699,39 +861,16 @@ public class NavigationList {
 			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
-		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
 		
 		myAnchors.commitCoordinates();
 		num_anchors = myAnchors.getNumberOfAnchors();
-		Matrix anchors_in = myAnchors.getAnchors(); 
-		
-		
-		tdoas.add(0.0);
-		for(int j = 0; j < num_anchors-1; j++) {
-		
-			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(0), 
-					anchors_in.getRow(j+1), sourceMat);
-			
-			tdoas.add(tdoa_est); 
-		}
-			
-		
-        Matrix ranges = new Matrix(num_anchors);
+					
         Matrix ranges_with_error = new Matrix(num_anchors);
         
         for (int i = 0; i < num_anchors; i++) {
-        	
-            ranges.w[i] = rtdoas.get(i).doubleValue();
-            ranges_with_error.w[i] = ranges.w[i];
-            
+            ranges_with_error.w[i] = rtdoas.get(i);            
         }
 
-        
-        int n_trial = 3000; 
-        double alpha = 0.001; 
-        double time_threshold = 50000;
-        
-     
        ArrayList<double[]> estimates = new ArrayList<double[]>();
        ArrayList<Double> error_est = new ArrayList<Double>();
        
@@ -800,8 +939,6 @@ public class NavigationList {
 		source[2] -= localOrigin[2];
 	    
 
-		Matrix sourceMat = new Matrix(source,1);
-		
 		for(int i = 0; i < tdoaFrequency0.size(); i++) {
 						
 			TimeDiffOnArrival tdoa = tdoaFrequency0.get(i);
@@ -835,11 +972,6 @@ public class NavigationList {
             
         }
 
-        
-        int n_trial = 3000; 
-        double alpha = 0.001; 
-        double time_threshold = 50000;
-        
      
        ArrayList<double[]> estimates = new ArrayList<double[]>();
        ArrayList<Double> error_est = new ArrayList<Double>();
@@ -859,8 +991,7 @@ public class NavigationList {
         estimates.add(gdescent_result.estimator.w);
         error_est.add(gdescent_result.error.w[0]);
         System.out.print("Error with " + i + " anchor navigation nodes: " + gdescent_result.error.w[0] 
-        		+ " "); // + updateRanges.w[updateRanges.w.length-1] + " ");
-        //updateAnchors.getRow(updateAnchors.getAnchors().rows - 1).printMatrix(); 
+        		+ " "); 
         gdescent_result.estimator.printMatrix(); 
        } 
        
@@ -890,27 +1021,33 @@ public class NavigationList {
 	
 	
 	
-	
-	
-	
-	
+	/**
+	 * Once the navigation log file has been read, this function will estimate the solution 
+	 * using the given anchors and their TDOA estimates in a successive manner where the first
+	 * reference anchor changes. Namely, an estimate of the source will be produced for every successive anchor/tdoa added from 
+	 * the filtered navigation queue. The navigation queue will be split up in at most n_estimates
+	 * separate navigation queues, where the first anchor will be the reference anchor for the TDOA
+	 * computation. Thus an estimate will be produced for each n_estimate navigation queue. 
+	 * This is to study the effects of the reference location with respect to the source and tdoa
+	 * computation. The solution estimates will be found in a .kml file called SolutionMarkers_i where
+	 * i is the i-th segment of the navigation list.  
+	 * @param freq The frequency index to use (0,1,2)  
+	 * @param n_estimates The number of sections the navigation path will be split up into. 
+	 * The reference point for tdoa computation will be the first in the segmented navigation queue. 
+	 * @param thresh The threshhold used for eliminating outliers in first-order differencing 
+	 * @see  filterTDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */		
 	public void estimateDynamicReferenceTDOA(int freq, int n_estimates, double thresh) throws Exception {
 		
-		
-		
-		
-	    //Define default SGD parameters//
-		int n_trial = 1000; 
-        double alpha = 0.0001; 
-        double time_threshold = 50000;
-		
+				
         double time = 0; 
         double refTime = -1.0;
         double tdoa = 0.0;
         double frameLength = .065536;
         double[] x;
         
-        //Compute original source location//
+        int outlierCount = 0;
         localOrigin = NavigationChannelList.GeodeticToECEF(filteredNavigationList.get(0).getLatitude(), 
         		filteredNavigationList.get(0).getLongitude(), 0);
 	    
@@ -941,9 +1078,7 @@ public class NavigationList {
                 tdoaFrequency0.add(td);                
             }
             else if(time > 0) {
-                
-            	
-            	
+                            	
                 double timeStamp = (time - refTime) % frameLength;
                 if (timeStamp < frameLength / 2) {
                     tdoa = timeStamp;
@@ -952,12 +1087,24 @@ public class NavigationList {
                     tdoa = - (frameLength - timeStamp);
                 }
                 
-                //System.out.println(time + " " + refTime + " " + frameLength + " " + tdoa);                
                 if(Math.abs(tdoa - tdoaFrequency0.get(tdoaFrequency0.size()-1).getTDOA()) < thresh) {
                 	
+       
 	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
-	                tdoaFrequency0.add(td);   
-                }	                
+	                tdoaFrequency0.add(td);
+	                outlierCount = 0;
+                }
+                else if(outlierCount > maxOutlierThreshold) {
+                	
+                	
+	                TimeDiffOnArrival td = new TimeDiffOnArrival(navList.getLongitude(),navList.getLatitude(), tdoa, time - refTime);                
+	                tdoaFrequency0.add(td);
+	                outlierCount = 0;
+                }
+                else {
+                	outlierCount++;
+                }
+                               
             }
             
             
@@ -1014,9 +1161,6 @@ public class NavigationList {
     		        frame.setVisible(true);	
     	        }
     	        
-    	        
-    	        
-    	        //Now clear the list
     	        tdoaFrequency0.clear();
     	        count++;
     	        refTime = -1.0;
@@ -1027,7 +1171,16 @@ public class NavigationList {
 	}
 	
 	
-	
+	/**
+	 * Once the navigation log file has been read, and FDOA filtering has been 
+	 * applied using filterFDOAfromNavigationList, this function will estimate the 
+	 * solution using the given FDOAs at the given anchors and computed velocities. The source solution is estimated
+	 * via means of a stochastic gradient descent approach. All of the given anchors will be
+	 * used for finding the gradient descent solution 
+	 * The resulting velocities are stored in the navigation list 
+	 * @see  filterFDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */
 	
     public void estimateAdaptiveSourceFDOA() throws Exception {
 		
@@ -1072,7 +1225,7 @@ public class NavigationList {
        ArrayList<Double> error_est = new ArrayList<Double>();
        
        
-       for(int i = 10; i < num_anchors; i++) {
+       for(int i = 10; i < num_anchors; i=i+20) {
 
     	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
     	Matrix updateVelocities = myAnchors.subsetVelocity(i);
@@ -1220,9 +1373,26 @@ public class NavigationList {
     }
 
     
+	/**
+	 * Once the navigation log file has been read, and FDOA filtering has been 
+	 * applied using filterTDOAfromNavigationList, this function will estimate the solution 
+	 * using the given anchors and also compute the exact Doppler shift values to compare with
+	 * the ones extracted from the .log file. The source must be known in this case is set using
+	 * setKnownSource. The function will plot the difference of exact FDOA and  
+	 *  
+	 * @see setKnownSource  
+	 * @see  filterFDOAfromNavigationList
+	 * @throws Exception flteredNavigationList must be nonempty
+	 */	
+    
 	public void testSGDfdoa() throws Exception {
 		
+		DescriptiveStatistics stats = new DescriptiveStatistics();
+		
 		Anchors myAnchors = new Anchors();
+    	double[] fds = new double[filteredNavigationList.size()];
+    	double[] xvs = new double[filteredNavigationList.size()];
+    	
     	
 	    for(int i = 0; i < filteredNavigationList.size(); i++) {
 	    
@@ -1231,8 +1401,12 @@ public class NavigationList {
 	      double[] s = nav.getLocalECEF();
 	      double[] v = nav.getVelocity();
 	      
+	      filteredNavigationList.get(i).setFrequencyError(2);
 	      myAnchors.setCoordinatesAndVelocity(s, v);	    
 	      System.out.println(nav.getFDOA());
+	      fds[i] = nav.getFDOA();
+	      xvs[i] = (double)i;
+	      stats.addValue(fds[i]);
 	    }
 	    
 	    myAnchors.commitCoordinatesAndVelocity();
@@ -1251,26 +1425,43 @@ public class NavigationList {
 	    Matrix sol = new Matrix(source, 1);
 	    Matrix ranges = new Matrix(num_anchors,1);           
         ranges.w[0] = 0;
-        for (int j = 0; j < num_anchors-1; j++) {                    	
-        	ranges.w[j+1] = GradDescentResult.fdoaEstimate(anchors_in.getRow(j), anchors_in.getRow(j+1), 
-        			velocities.getRow(j), velocities.getRow(j+1), sol);
-            
+        
+        // Compute some statistics
+        double mean = stats.getMean();
+        
+        noiseModel = new double[num_anchors];
+        for (int j = 0; j < num_anchors-1; j++) {  
+        	
+        	double fdoa_est = GradDescentResult.fdoaEstimate0(anchors_in.getRow(j+1), 
+        			velocities.getRow(j+1), sol);
+        	
+        	ranges.w[j+1] = fdoa_est/10 + mean;
+        	noiseModel[j+1] = Math.abs(ranges.w[j+1] - fds[j+1]);
         	xv[j+1] = j+1;
         }
-	    
+	    System.out.println(num_anchors + " " + filteredNavigationList.size());
+        
         
         Plot2DPanel plotfdoa = new Plot2DPanel();
-        JFrame framefdoa = new JFrame("Plot of FDOAs");
-        plotfdoa.addLinePlot("TDOA plot", xv, ranges.w);	        
+        JFrame framefdoa = new JFrame("Plot of Simulated FDOAs");
+        plotfdoa.addLinePlot("Plot of Simulation FDOAs", xv, ranges.w);	        
         framefdoa.setSize(900, 700);
         framefdoa.setContentPane(plotfdoa);
         framefdoa.setVisible(true);
         
-
+        Plot2DPanel plotfdoa2 = new Plot2DPanel();
+        JFrame framefdoa2 = new JFrame("Plot of FDOAs");
+        plotfdoa2.addLinePlot("Plot of FDOAs", xvs, fds);	        
+        framefdoa2.setSize(900, 700);
+        framefdoa2.setContentPane(plotfdoa2);
+        framefdoa2.setVisible(true);
         
-        int n_trial = 500; 
-        double alpha = 0.0001; 
-        double time_threshold = 50000;
+        Plot2DPanel plotfdoa3 = new Plot2DPanel();
+        JFrame framefdoa3 = new JFrame("Plot of FDOAs");
+        plotfdoa3.addLinePlot("Plot of Residual error", xvs, noiseModel);	        
+        framefdoa3.setSize(900, 700);
+        framefdoa3.setContentPane(plotfdoa3);
+        framefdoa3.setVisible(true);
         
      
        ArrayList<double[]> estimates = new ArrayList<double[]>();
@@ -1287,8 +1478,6 @@ public class NavigationList {
     	GradDescentResult gdescent_result = GradDescentResult.mlatFdoa(updateAnchors, 
     			updateVelocities, updateRanges, bounds_in, n_trial, alpha, time_threshold, source);
     	
-    
-
         gdescent_result.estimator.transformRowCoord(0,localOrigin);         
                 
         estimates.add(gdescent_result.estimator.w);
@@ -1306,13 +1495,6 @@ public class NavigationList {
     	   x[i] = i;
        }
        
-       Plot2DPanel plot = new Plot2DPanel();       
-       JFrame frame = new JFrame("FDOA Cost function value");
-       plot.addLinePlot("TDOA plot", x, stockArr);
-       frame.setSize(900, 700);
-       frame.setContentPane(plot);
-       frame.setVisible(true);
-
         
        final Kml kml = createSolutionDocument(estimates, error_est);
        kml.marshal(new File("SolutionMarkers.kml"));        		
@@ -1339,11 +1521,7 @@ public class NavigationList {
 		        (new Double(tokens[1])).doubleValue(),
 		        (new Double(tokens[2])).doubleValue()};
         
-        //System.out.println(loc0[0] + " " + loc0[1] + " " + loc0[2]);
-        
         double[] origin = NavigationChannelList.GeodeticToECEF(loc0[0], loc0[1], loc0[2]);        
-        //System.out.println(origin[0] + " " + origin[1] + " " + origin[2] + "\n");
-        
         double[] orig = {0.0, 0.0, 0.0}; 
         locs.add(orig);
         
@@ -1391,8 +1569,7 @@ public class NavigationList {
 	
 	public void testCaseData(File file) throws Exception {
 		
-		//x y z vx vyvz toa(time of arrival) foa(frequency of arrival) absolute time(not really used)
-		
+
 		String strline; 
 		String[] tokens; 
 		String delims = "\\s+";
@@ -1481,9 +1658,17 @@ public class NavigationList {
 	}
 	
 	
+	/**
+	 * Function to print out the coordinates of the navigation file, if non empty
+	 *
+	 * @throws Exception navigation list must be non-empty
+	 */
 	
-	
-	public void printNavigationHistory() {
+	public void printNavigationHistory() throws Exception {
+		
+		if(navigationList == null) {
+			throw new Exception("NavigationList must be nonempty");
+		}
 		
 		System.out.println("My size: " + navigationList.size());
 		
@@ -1491,6 +1676,22 @@ public class NavigationList {
 			nav.printCoordinates();
 		}
 	}
+	
+	
+	/**
+	 * Main function that will parse a navigation log file (*.cir or *.log)
+	 * into a navigation list that holds all recordings of longitude and latitude
+	 * in the form of a NavigationChannelList. This Channel list for each coordinate
+	 * will then give all the frequency index information and store the peak lists for each 
+	 * frequency.   
+	 * <p>
+	 * The output of the function will be a list of NavigationChannelList which can then be
+	 * filtered on using the different filtering functions
+	 *
+	 * @param file  A navigation file 
+	 * @throws Exception if the file is not in the correct format
+	 * @see filterUnique NavigationChannelList
+	 */
 	
 	
 	public void createNavigationLog(File file) throws Exception {
@@ -1728,75 +1929,56 @@ public class NavigationList {
 	
 	
 	
-	
-	
-	public void createLocalCoordinateSystem() {
-		
-		double longitude = navigationList.get(0).getLongitude();
-		double latitude = navigationList.get(0).getLatitude();
-		double altitude = 0;
-		
-		localOrigin = NavigationChannelList.GeodeticToECEF(latitude, longitude, altitude);
-		
-		for (NavigationChannelList navList : navigationList) {			
-			navList.GeodeticToLocal(localOrigin);			
-		}
-	}
+
 	
 	
 	
 	
 	
+	
+
 	
 	
 	public static void main(String[] args) throws Exception {
 		
 		NavigationList navigation = new NavigationList();
-		//navigation.createNavigationLog(new File("data/ChannelLog_ZWEI.log"));
-		navigation.createNavigationLog(new File("data/ChannelLog.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog_SIVIRIEZ.log"));
-		//navigation.createNavigationLog(new File("data/ChannelLog_ETZIKEN.log"));
+		String sourceFile = "data/mySource.kml";
 		
-		//navigation.createNavigationLog_Interpolation(new File("data/ChannelLog_Lausanne.log"));
+		String[] anchorFiles = new String[15];
+		anchorFiles[0] = "zigzagOne.kml";
+		navigation.testHybridPath(anchorFiles[0], sourceFile);
 		
-		final Kml kml = createCIRDocument(navigation.navigationList);
-		kml.marshal(new File("CIRMarkers.kml"));
-		
-		
-		int n_estimates = 1;
-		int freqIndex = 2; 
-		double threshold_tdoaDiff = .000001;
-		double threshold_dynamicRange = 20.0;
-		double threshold_FDOAerror = 3.0;
-		
-		navigation.computeVelocityECEF();
-		navigation.filterOnRSSI(-150.0, freqIndex);
-		navigation.filterUnique();
-		navigation.createEstimationBounds();		
-		navigation.setPlotTDOAs(true);
-		navigation.filterFDOAfromNavigationList(freqIndex, threshold_FDOAerror, threshold_dynamicRange);
-		navigation.estimateAdaptiveSourceFDOA();
-		
-		
-		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, tdoa_DiffThreshold);
-//		navigation.filterTDOAfromNavigationList(freqIndex, tdoa_DiffThreshold);
-//		navigation.estimateAdaptiveSource();
-		//navigation.estimateAdaptiveSourceWithDrift();
+//		anchorFiles[0] = "straightOne.kml";
+//		anchorFiles[1] = "straightTwo.kml";
+//		anchorFiles[2] = "straightThree.kml";
+//		anchorFiles[3] = "zigzagOne.kml";
+//		anchorFiles[4] = "zigzagTwo.kml";
+//		anchorFiles[5] = "zigzagThree.kml";		
+//		anchorFiles[6] = "incirOne.kml";
+//		anchorFiles[7] = "incirTwo.kml";
+//		anchorFiles[8] = "incirThree.kml";
+//		anchorFiles[9] = "outcirOne.kml";
+//		anchorFiles[10] = "outcirTwo.kml";
+//		anchorFiles[11] = "outcirThree.kml";
+//		anchorFiles[12] = "linesOne.kml";
+//		anchorFiles[13] = "linesTwo.kml";
+//		anchorFiles[14] = "linesThree.kml";		
+//		
+//		for(int i = 0; i < 15; i++) {
+//			navigation.testFDOAPath(anchorFiles[i], sourceFile);
+//		}
+
 	}
 	
 	
-//	public static void main(String[] args) throws Exception {
-//		
-//		NavigationList navigation = new NavigationList();
-//
-//		String anchorFile = "data/thirdPath.kml";
-//		String sourceFile = "data/firstSource.kml";
-//		
-//		navigation.testFDOAPath(anchorFile, sourceFile);
-//
-//	}
-	
-	
+ 	/**
+ 	 * Creates a .kml file to be used in Google Earth that will plot with placemarks all
+ 	 * the navigation points in the given NavigationChannelList.
+ 	 *  
+ 	 * @param navList  The NavigationChannelList to plot
+ 	 * @return Placemark handle on the placemark 
+ 	 */	 
+     
 	public static Placemark createCIRPlaceMark(NavigationChannelList navList) {
 		
 		Placemark placemark = KmlFactory.createPlacemark();
@@ -1815,6 +1997,14 @@ public class NavigationList {
 
 		return placemark; 
 	}
+
+ 	/**
+ 	 * Creates a .kml file to be used in Google Earth that will plot with placemarks all
+ 	 * the navigation points in the given ArrayList of NavigationChannelList.
+ 	 *  
+ 	 * @param navigationList The NavigationChannelList to plot
+ 	 * @return Kml the handle on the Kml file 
+ 	 */	
 	
 	public static Kml createCIRDocument(ArrayList<NavigationChannelList> navigationList) {
 		
@@ -1846,6 +2036,17 @@ public class NavigationList {
         kml.setFeature(document);		
 		return kml; 
 	}
+	
+ 	/**
+ 	 * Creates a .kml file to be used in Google Earth that will plot with placemarks all
+ 	 * the source estimates and label these source estimates with their respective errors 
+ 	 * in the given ArrayList. The placemarks will be colored according to their proximity 
+ 	 * to the source given by the error terms.
+ 	 *  
+ 	 * @param estimates A collection of source estimates
+ 	 * @param errors Their respective errors
+ 	 * @return Kml the handle on the Kml file 
+ 	 */	
 	
     public static Kml createSolutionDocument(ArrayList<double[]> estimates, ArrayList<Double> errors) {
 		
@@ -1897,7 +2098,18 @@ public class NavigationList {
 		return kml; 		
 	}
 	
-    
+ 	/**
+ 	 * Creates a .kml file to be used in Google Earth that will plot with placemarks all
+ 	 * the source estimates and label these source estimates with their respective errors 
+ 	 * in the given ArrayList. The placemarks will be colored according to their proximity 
+ 	 * to the source given by the error terms. These estimates are derived from a segmentation 
+ 	 * solution, so the segments will be colored as well.
+ 	 *  
+ 	 * @param coordinates A collection of anchors node coordinates
+ 	 * @param estimate Their respective estimates
+ 	 * @param n Number [0, number of total segments-1] of the segment being computed
+ 	 * @return Kml the handle on the Kml file 
+ 	 */	
     public static Kml createNavigationAndSolutionDocument(ArrayList<double[]> coordinates, double[] estimate, int n) {
 		
 		Kml kml = KmlFactory.createKml();
@@ -1950,23 +2162,19 @@ public class NavigationList {
     	
     	final Kml kml = Kml.unmarshal(new File(src));
     	final Document document = (Document) kml.getFeature();
-    	List<Feature> featureList = document.getFeature();
-    	System.out.println(featureList.size());
-    	System.out.println(featureList.get(0).getDescription());    	
+    	List<Feature> featureList = document.getFeature();   	
     	
     	ArrayList<double[]> myListAnchors = new ArrayList<double[]>();
     
     	if(featureList.get(0) instanceof Placemark) {
-    		System.out.println(featureList.get(0).getName());
-    		System.out.println("It's a placemark");
+
     		final Placemark placemark = (Placemark) featureList.get(0);
-    		System.out.println(placemark.getName());
+
     		LineString linestring = (LineString) placemark.getGeometry();
     		List<Coordinate> coordinates = linestring.getCoordinates();
     		
     		for (Coordinate coordinate : coordinates) {
         	    
-    			System.out.println(coordinate.getLatitude() + " " + coordinate.getLongitude() + " " + coordinate.getAltitude());
                 double[] locs = {coordinate.getLatitude(), coordinate.getLongitude()};
                 myListAnchors.add(locs);
     		}	
@@ -1985,7 +2193,6 @@ public class NavigationList {
     	if(featureList.get(0) instanceof Placemark) {
     		
     		final Placemark placemark = (Placemark) featureList.get(0);
-    		System.out.println(placemark.getName());
     		Point point = (Point) placemark.getGeometry();
     		List<Coordinate> coordinates = point.getCoordinates();
     		mySource[0] = coordinates.get(0).getLatitude();
@@ -2002,17 +2209,17 @@ public class NavigationList {
         int num_anchors;
  	    
         double minLong = 400;
- 	    double maxLong = -1.0;
- 	    double minLat = 100.0;
- 	    double maxLat = -100.0;
+ 	    double maxLong = -400.0;
+ 	    double minLat = 400.0;
+ 	    double maxLat = -400.0;
         
-        
-    	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
+        System.out.println("\nFile: " + anchors);
+    	ArrayList<double[]> myListAnchors = parseKmlAnchors("data/" + anchors); 
     	double[] mySource = parseKmlSource(sourceFile);
     	
     	
         final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
-		kml0.marshal(new File("FilteredCIRMarkersSimulation.kml"));
+		kml0.marshal(new File("FilteredCIRMarkers_" + anchors));
         
 		Anchors myAnchors = new Anchors();	    
 	    double[] origin = myListAnchors.get(0);	    
@@ -2044,9 +2251,7 @@ public class NavigationList {
 			else if(longitude < minLong) {minLong = longitude;}	
 			
 		}
-		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
-		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
-		
+	
 		double[] boundNW = new double[3];
 		double[] boundNE = new double[3];
 		double[] boundSW = new double[3];
@@ -2062,11 +2267,7 @@ public class NavigationList {
 	    double[] v2 = NavigationChannelList.GeodeticToECEF(boundSW[0], boundSW[1], 0, localOrigin);
 	    double[] v3 = NavigationChannelList.GeodeticToECEF(boundSE[0], boundSE[1], 0, localOrigin);
 
-	    System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
-	    System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
-	    System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
-	    System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
-	       
+
 	    bounds_in = new Matrix(4,3);
 	       
 	    bounds_in.setRow(0, v0);
@@ -2086,7 +2287,6 @@ public class NavigationList {
 			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(0), 
 					anchors_in.getRow(j+1), sourceMat);
 			
-			System.out.println(tdoa_est);
 			ranges_with_error.w[j+1] = tdoa_est + noisePercent*tdoa_est*random.nextGaussian(); 
 		}
 		
@@ -2095,7 +2295,7 @@ public class NavigationList {
        ArrayList<Double> error_est = new ArrayList<Double>();
        
        
-       for(int i = 10; i < num_anchors; i=i+5) {
+       for(int i = 10; i < num_anchors; i=i+20) {
 
     	Anchors updateAnchors = myAnchors.subset(i);
     	Matrix updateRanges = ranges_with_error.subset(i);
@@ -2115,10 +2315,10 @@ public class NavigationList {
         
        } 
        
-       int numberEstimatesAvg = 5;
+       
        double avgLat = 0; 
        double avgLong = 0; 
-       for(int i = 0; i < numberEstimatesAvg; i++) {
+       for(int i = 0; i < numberEstimatesAvg ; i++) {
     	   avgLat  += estimates.get(estimates.size() - 1 - i)[0];
     	   avgLong += estimates.get(estimates.size() - 1 - i)[1];
        }
@@ -2156,12 +2356,24 @@ public class NavigationList {
        frame.setVisible(true);
 
        final Kml kml = createSolutionDocument(estimates, error_est);
-       kml.marshal(new File("SolutionMarkers.kml"));
+       kml.marshal(new File("SolutionMarkersTDOA_" + anchors));
     }
     
     
     
-    
+	/**
+	 * Tests an FDOA path drawn in Google Earth.  
+	 * <p>
+	 * The measurement will be discarded of the final navigation list 
+	 * if either the frequency index does not exist or if the RSSI measurement
+	 * is less than the given threshhold. 
+	 *
+	 * @param  anchors  A string that gives the file name of the kml file drawn in 
+	 * google earth that points to the simulated navigation anchors
+	 * @param  sourceFile A string that gives the file name of the kml file pointing 
+	 * to the source
+	 * @throws Exception if dimensions to Matrix are wrong
+	 */
     
     
     public void testFDOAPath(String anchors, String sourceFile) throws Exception {
@@ -2170,17 +2382,19 @@ public class NavigationList {
         int num_anchors;
  	    
         double minLong = 400;
- 	    double maxLong = -1.0;
- 	    double minLat = 100.0;
- 	    double maxLat = -100.0;
-        double timeDiff = 1.0; 
+ 	    double maxLong = -400.0;
+ 	    double minLat = 400.0;
+ 	    double maxLat = -400.0;
+        double timeDiff = 1.0;
+        double dThreshold = 3.0;
         
-    	ArrayList<double[]> myListAnchors = parseKmlAnchors(anchors); 
+        System.out.println("\nFile: " + anchors);
+    	ArrayList<double[]> myListAnchors = parseKmlAnchors("data/" + anchors);
     	double[] mySource = parseKmlSource(sourceFile);
     	
     	
         final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
-		kml0.marshal(new File("FilteredCIRMarkersSimulation.kml"));
+        kml0.marshal(new File("FilteredCIRMarkers_" + anchors));
         
 		Anchors myAnchors = new Anchors();	    
 	    double[] origin = myListAnchors.get(0);	    
@@ -2195,8 +2409,6 @@ public class NavigationList {
 		double[] prevLocation = new double[3]; 
 		double[] velocity = new double[3];
 		
-		System.out.println(prevLocation[0] + ", " + prevLocation[1] + ", " + prevLocation[2] + ", " + 0);
-
 		
 		myAnchors.setCoordinatesAndVelocity(prevLocation, velocity); 
 		
@@ -2228,7 +2440,6 @@ public class NavigationList {
 			else if(longitude < minLong) {minLong = longitude;}	
 			
 			prevLocation = anchor; 
-			System.out.println(prevLocation[0] + ", " + prevLocation[1] + ", " + prevLocation[2] + ", " + timeDiff);
 			
 		}
 		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
@@ -2274,8 +2485,12 @@ public class NavigationList {
 			double fdoa_est = GradDescentResult.fdoaEstimate0(anchors_in.getRow(j), 
         			velocities.getRow(j), sourceMat);
 			
-			System.out.println(fdoa_est);
-			ranges_with_error.w[j] = fdoa_est + noisePercent*fdoa_est*random.nextGaussian(); 
+			double d1 = fdoa_est - ranges_with_error.w[j-1];
+			ranges_with_error.w[j] = fdoa_est; 
+			
+			if(Math.abs(d1) < dThreshold) {
+				ranges_with_error.w[j] += fdoa_est*noisePercent*random.nextGaussian(); 
+			}
 		}
 		
 	
@@ -2283,7 +2498,7 @@ public class NavigationList {
        ArrayList<Double> error_est = new ArrayList<Double>();
        
        
-       for(int i = 10; i < num_anchors; i=i+5) {
+       for(int i = 10; i < num_anchors; i=i+20) {
 
     	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
        	Matrix updateVelocities = myAnchors.subsetVelocity(i);
@@ -2340,15 +2555,232 @@ public class NavigationList {
        Plot2DPanel plot = new Plot2DPanel();
 		 
        // add a line plot to the PlotPanel
-       plot.addLinePlot("TDOA plot", x, stockArr);
-       JFrame frame = new JFrame("TDOA simulation");
+       plot.addLinePlot("FDOA plot", x, stockArr);
+       JFrame frame = new JFrame("FDOA simulation");
        frame.setSize(900, 700);
        frame.setContentPane(plot);
        frame.setVisible(true);
 
         
        final Kml kml = createSolutionDocument(estimates, error_est);
-       kml.marshal(new File("SolutionMarkers.kml"));
+       kml.marshal(new File("SolutionMarkersFDOA_" + anchors));
+		
+    	
+    }
+    
+    
+    
+    /**
+	 * Tests an FDOA+TDOA path drawn in Google Earth.  
+	 * <p>
+	 *
+	 * @param  anchors  A string that gives the file name of the kml file drawn in 
+	 * google earth that points to the simulated navigation anchors
+	 * @param  sourceFile A string that gives the file name of the kml file pointing 
+	 * to the source
+	 * @throws Exception if dimensions to Matrix are wrong
+	 */
+    
+    
+    public void testHybridPath(String anchors, String sourceFile) throws Exception {
+    	
+    	Random random = new Random(); 
+        int num_anchors;
+ 	    
+        double minLong = 400;
+ 	    double maxLong = -400.0;
+ 	    double minLat = 400.0;
+ 	    double maxLat = -400.0;
+        double timeDiff = 1.0;
+        double dThreshold = 3.0;
+        
+        System.out.println("\nFile: " + anchors);
+    	ArrayList<double[]> myListAnchors = parseKmlAnchors("data/" + anchors);
+    	double[] mySource = parseKmlSource(sourceFile);
+    	
+    	
+        final Kml kml0 = createCIRDocumentArrayList(myListAnchors);
+        kml0.marshal(new File("FilteredCIRMarkers_" + anchors));
+        
+		Anchors myAnchors = new Anchors();	    
+	    double[] origin = myListAnchors.get(0);	    
+	    localOrigin = NavigationChannelList.GeodeticToECEF(origin[0], origin[1], 0);
+
+		double[] source = NavigationChannelList.GeodeticToECEF(mySource[0], mySource[1], 0);
+		source[0] -= localOrigin[0];
+		source[1] -= localOrigin[1];
+		source[2] -= localOrigin[2];
+	   				
+		Matrix sourceMat = new Matrix(source,1);
+		double[] prevLocation = new double[3]; 
+		double[] velocity = new double[3];
+		
+		
+		myAnchors.setCoordinatesAndVelocity(prevLocation, velocity); 
+		
+		for(int i = 1; i < myListAnchors.size(); i++) {
+											
+			double latitude = myListAnchors.get(i)[0];
+			double longitude = myListAnchors.get(i)[1];
+			
+			double[] locs = NavigationChannelList.GeodeticToECEF(latitude, longitude, 0);
+			double[] anchor = {locs[0] - localOrigin[0], 
+	                           locs[1] - localOrigin[1], 
+	                           locs[2] - localOrigin[2]};
+			
+			velocity = new double[3];
+			
+			timeDiff = Mstat.distance(anchor, prevLocation)/navigationSpeedMetersPerSec;
+		
+			
+			for(int k = 0; k < 3; k++) {
+				velocity[k] = (anchor[k] - prevLocation[k])/timeDiff;			
+			}
+			
+			myAnchors.setCoordinatesAndVelocity(anchor, velocity); 
+			   
+			if(latitude > maxLat) {maxLat = latitude;}
+			else if(latitude < minLat) {minLat = latitude;}
+			
+			if(longitude > maxLong) {maxLong = longitude;}
+			else if(longitude < minLong) {minLong = longitude;}	
+			
+			prevLocation = anchor; 
+			
+		}
+		System.out.println("Origin: " + localOrigin[0] + " " + localOrigin[1] + " " + localOrigin[2]);
+		System.out.println("Source: " + source[0] + " " + source[1] + " " + source[2]);
+		
+		double[] boundNW = new double[3];
+		double[] boundNE = new double[3];
+		double[] boundSW = new double[3];
+		double[] boundSE = new double[3];
+		   
+		boundNW[0] = maxLat + .02; boundNW[1] = minLong - .02;
+		boundNE[0] = maxLat + .02; boundNE[1] = maxLong + .02;
+		boundSW[0] = minLat - .02; boundSW[1] = minLong - .02;
+		boundSE[0] = minLat - .02; boundSE[1] = maxLong + .02;
+		   
+	    double[] v0 = NavigationChannelList.GeodeticToECEF(boundNW[0], boundNW[1], 0, localOrigin);
+	    double[] v1 = NavigationChannelList.GeodeticToECEF(boundNE[0], boundNE[1], 0, localOrigin);
+	    double[] v2 = NavigationChannelList.GeodeticToECEF(boundSW[0], boundSW[1], 0, localOrigin);
+	    double[] v3 = NavigationChannelList.GeodeticToECEF(boundSE[0], boundSE[1], 0, localOrigin);
+
+	    System.out.println(v0[0] + " " + v0[1] + " " + v0[2]);
+	    System.out.println(v1[0] + " " + v1[1] + " " + v1[2]);
+	    System.out.println(v2[0] + " " + v2[1] + " " + v2[2]);
+	    System.out.println(v3[0] + " " + v3[1] + " " + v3[2]);
+	       
+	    bounds_in = new Matrix(4,3);
+	       
+	    bounds_in.setRow(0, v0);
+	    bounds_in.setRow(1, v1);
+	    bounds_in.setRow(2, v2);
+	    bounds_in.setRow(3, v3); 		
+		
+		
+		myAnchors.commitCoordinatesAndVelocity();
+		num_anchors = myAnchors.getNumberOfAnchors();
+		Matrix anchors_in = myAnchors.getAnchors(); 
+		Matrix velocities = myAnchors.getVelocities(); 
+		Matrix ranges_with_error = new Matrix(num_anchors);
+	    
+		ranges_with_error.w[0] = 0;
+		for(int j = 1; j < num_anchors; j++) {
+		
+			double fdoa_est = GradDescentResult.fdoaEstimate0(anchors_in.getRow(j), 
+        			velocities.getRow(j), sourceMat);
+			
+			double d1 = fdoa_est - ranges_with_error.w[j-1];
+			ranges_with_error.w[j] = fdoa_est; 
+			
+			if(Math.abs(d1) < dThreshold) {
+				ranges_with_error.w[j] += fdoa_est*noisePercent*random.nextGaussian(); 
+			}
+		}
+		
+		Matrix tdoas_with_error = new Matrix(num_anchors);
+		ranges_with_error.w[0] = 0;
+		for(int j = 0; j < num_anchors-1; j++) {
+		
+			double tdoa_est = GradDescentResult.tdoaEstimate(anchors_in.getRow(0), 
+					anchors_in.getRow(j+1), sourceMat);
+			
+			tdoas_with_error.w[j+1] = tdoa_est + noisePercent*tdoa_est*random.nextGaussian(); 
+		}
+		
+	
+       ArrayList<double[]> estimates = new ArrayList<double[]>();
+       ArrayList<Double> error_est = new ArrayList<Double>();
+       
+       
+       for(int i = 10; i < num_anchors; i=i+20) {
+
+    	Matrix updateAnchors = myAnchors.subsetCoordinates(i);
+       	Matrix updateVelocities = myAnchors.subsetVelocity(i);
+       	Matrix updateRanges = ranges_with_error.subset(i);
+       	Matrix updateTdoa = tdoas_with_error.subset(i);
+           
+       	
+       	GradDescentResult gdescent_result = GradDescentResult.mlatHybrid(updateAnchors, 
+       			updateVelocities, updateRanges, updateTdoa, bounds_in, n_trial, alpha, time_threshold, source);
+       	
+
+        double distance = Mstat.distance(gdescent_result.estimator, sourceMat);
+        
+        gdescent_result.estimator.transformRowCoord(0,localOrigin);         
+                
+        estimates.add(gdescent_result.estimator.w);
+        error_est.add(gdescent_result.error.w[0]);
+        
+        System.out.print("Error with " + i + " anchor navigation nodes: " + distance + ", estimate: ");
+        gdescent_result.estimator.printMatrix();
+        
+       } 
+       
+       int numberEstimatesAvg = 5;
+       double avgLat = 0; 
+       double avgLong = 0; 
+       for(int i = 0; i < numberEstimatesAvg; i++) {
+    	   avgLat  += estimates.get(estimates.size() - 1 - i)[0];
+    	   avgLong += estimates.get(estimates.size() - 1 - i)[1];
+       }
+       avgLat = avgLat/numberEstimatesAvg; 
+       avgLong = avgLong/numberEstimatesAvg; 
+       
+       System.out.println(avgLat + ", " + avgLong + ", source = " + mySource[0] + ", " + mySource[1]);
+       double finalError = Math.abs(avgLat - mySource[0])*Math.abs(avgLat - mySource[0]) 
+    		   + Math.abs(avgLong - mySource[1])*Math.abs(avgLong - mySource[1]);
+       
+       double[] finalEstimate = new double[3];
+       finalEstimate[0] = avgLat; 
+       finalEstimate[1] = avgLong; 
+       
+       finalError = Math.sqrt(finalError); 
+       
+       System.out.println("Final average error: " + finalError); 
+       estimates.add(finalEstimate);
+       error_est.add(finalError);
+       
+       double[] stockArr = new double[ranges_with_error.w.length];
+       double[] x = new double[ranges_with_error.w.length];
+       for(int i = 0; i < ranges_with_error.w.length; i++) {
+    	   stockArr[i] = ranges_with_error.w[i];
+    	   x[i] = i;
+       }
+       
+       Plot2DPanel plot = new Plot2DPanel();
+		 
+       // add a line plot to the PlotPanel
+       plot.addLinePlot("FDOA plot", x, stockArr);
+       JFrame frame = new JFrame("FDOA simulation");
+       frame.setSize(900, 700);
+       frame.setContentPane(plot);
+       frame.setVisible(true);
+
+        
+       final Kml kml = createSolutionDocument(estimates, error_est);
+       kml.marshal(new File("SolutionMarkersFDOA_" + anchors));
 		
     	
     }
@@ -2356,11 +2788,7 @@ public class NavigationList {
     
     
     
-    
-    
-    
-    
-    
+   
     
     
     private void parseFeature(Feature feature) {
@@ -2461,14 +2889,40 @@ public class NavigationList {
     }
     
     
-	//navigation.estimateAdaptiveSourceRSSI(txPower);
-	//navigation.estimateSourceSolutionFDOA();
-	//navigation.estimateAdaptiveSourceFDOA();
-	//navigation.estimateSourceSolution();
-	//navigation.estimateAdaptiveSource();
-	//navigation.testSGDfdoa();
-	//navigation.filterRandomlyUnique(3, 4);
+    
 	
-	//navigation.filterFDOAfromNavigationList(0, 3.0);
-	//navigation.filterTDOAfromNavigationList(0,.00001);
+//	public static void main(String[] args) throws Exception {
+//		
+//		NavigationList navigation = new NavigationList();
+//		
+//		//------- Choose log file --------------------
+//		String file = "data/ChannelLog_ETZIKEN.log"; //"data/ChannelLog.log" "data/ChannelLog_ZWEI.log"
+//		navigation.createNavigationLog(new File(file));
+//
+//		final Kml kml = createCIRDocument(navigation.navigationList);
+//		kml.marshal(new File("CIRMarkers.kml"));
+//		
+//		
+//		int n_estimates = 8;
+//		int freqIndex = 2; 
+//		double threshold_tdoaDiff = .000001;
+//		double threshold_dynamicRange = 20.0;
+//		double threshold_FDOAerror = 3.0;
+//		
+//		navigation.computeVelocityECEF();
+//		navigation.filterOnRSSI(-90.0, freqIndex);
+//		navigation.filterUnique();
+//		navigation.createEstimationBounds();		
+//		navigation.setPlotTDOAs(true);
+//		navigation.filterFDOAfromNavigationList(freqIndex, threshold_FDOAerror, threshold_dynamicRange);
+//		navigation.estimateAdaptiveSourceFDOA();
+//
+//		//navigation.testSGDfdoa();
+//        //navigation.filterTDOAfromNavigationList(freqIndex, threshold_tdoaDiff);
+//		//navigation.estimateDynamicReferenceTDOA(freqIndex, n_estimates, threshold_tdoaDiff);
+//		//navigation.estimateAdaptiveSourceTDOA();
+//		//navigation.estimateAdaptiveSourceWithDrift();
+//	}
+    
+    
 }
